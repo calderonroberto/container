@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="span2">
+      <%= image_tag(@app.thumbnail_url, alt: @app.name) %>   
+  </div>
+
+  <div class="span3">
+    <h2>Modify App</h2>
+      <%= form_for(@app) do |f| %>     
+        <%= render 'apps/fields', f: f %>
+      <%= f.submit "Save", class: "btn btn-large btn-primary" %> 
+    <% end %>
+  </div>
+</div>

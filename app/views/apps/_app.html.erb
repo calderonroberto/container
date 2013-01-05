@@ -1,0 +1,15 @@
+<li>
+   <% @app = app %>
+   <%= render 'apps/subscribe_form' %>
+
+   <%= image_tag(app.thumbnail_url, alt: app.name, class: "appthumbnail") %>   
+
+   <div class="app-element">
+     <b><%= app.name %></b>
+     <span class="description"> <%= app.description %></span>
+     <span class="url"> <%= app.url %></span>
+     <%= link_to "Delete", app, method: :delete, data: {confirm: "Destroy App?" } %>
+     <%= link_to "Modify", edit_app_path(app)  %>
+   </div>
+
+</li>

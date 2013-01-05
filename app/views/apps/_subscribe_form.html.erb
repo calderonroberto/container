@@ -1,0 +1,9 @@
+<div class="subscribe_form" id="<%= @app.id %>">
+
+<% if @app.subscribed?(current_display) %>
+    <%= render 'apps/unsubscribe' %>
+<% else %>
+    <%= render 'apps/subscribe' %>
+<% end %>
+</div>
+

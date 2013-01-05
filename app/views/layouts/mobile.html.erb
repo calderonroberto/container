@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>MAGIC Container | Administration</title>
+
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <!-- responsive css for mobile-->
+  <%= stylesheet_link_tag "bootstrap-responsive.min", :media => "all" %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+
+<%= render 'layouts/mobile_header' %>
+
+<div class="container">
+<% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+<% end %> 
+<%= yield %>
+</div>
+
+<!-- Place js at end of file so that page loads faster --> 
+<%= javascript_include_tag "application" %>
+<%= javascript_include_tag "mobile" %>
+</body>
+</html>

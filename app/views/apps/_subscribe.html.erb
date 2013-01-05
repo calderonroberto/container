@@ -1,0 +1,5 @@
+<%= form_for(@app.subscriptions.build(app_id: @app.id),
+             remote: true) do |f| %>
+  <div><%= f.hidden_field :app_id %></div>
+  <%= f.submit "Subscribe", class: "btn btn-large btn-primary" %>
+<% end %>

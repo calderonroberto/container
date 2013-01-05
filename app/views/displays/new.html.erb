@@ -1,0 +1,16 @@
+<div class="row">
+
+  <div class="span3 offset2">
+    <h2>Create a Display</h2>
+    <%= form_for(@display) do |f| %>
+      <%= render 'fields', f: f %>
+      <%= f.submit "Create", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+
+  <div class="span4">
+      <%= image_tag("cherry.png", alt: "cherry", class: "signin-image") %>   
+  </div>
+
+</div>
+

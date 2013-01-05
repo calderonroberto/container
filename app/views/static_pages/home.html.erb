@@ -1,0 +1,24 @@
+
+<iframe class="appcontainer" src=<%= welcome_path %> scrolling="no" frameBorder="0"></iframe>
+
+<div class="appmenu">
+</div>
+
+<div class="messageboard">
+  <div class="message">
+    <b>Roberto</b>: Welcome to the MAGIC Web-App container.
+  </div>
+</div>
+
+<div class="qrcode">
+<%= image_tag "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=#{@qrcodeurl}&choe=UTF-8"%>
+</div>
+
+<div class="qrcodeurl">
+<p>Scan QR Code, or visit <%= @qrcodeurl %></p>
+</div>
+
+
+
+
+
