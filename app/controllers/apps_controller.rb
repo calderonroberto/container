@@ -39,4 +39,10 @@ class AppsController < ApplicationController
     redirect_to admin_path
   end
 
+  def apps
+    @apps = App.all
+    render json: @apps
+  end
+
+
 end

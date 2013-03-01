@@ -22,6 +22,7 @@ Container::Application.routes.draw do
 
   #api
   match '/api/state', to: 'states#state', :as => :api_state
+  match '/api/apps', to: 'apps#apps', :as => :api_apps
 
   #resque web server
   mount Resque::Server, :at => "/resque"
