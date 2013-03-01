@@ -1,6 +1,6 @@
 class AppsController < ApplicationController
 
-  before_filter  :signed_in_display
+  before_filter  :signed_in_display, :only => [:new, :create, :edit, :update, :destroy]
   
   def new
     @app = App.new
