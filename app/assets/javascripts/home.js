@@ -33,7 +33,8 @@ $(function() {
 function updateAppContainer (staged_app) {
   if ($('.appcontainer').attr('id') != staged_app.id) {
     $(".appcontainer").attr('id', staged_app.id);
-    $(".appcontainer").attr('src', staged_app.url);
+    var display=getCookie("display_id");
+    $(".appcontainer").attr('src', staged_app.url+"?display_id="+display);
   }
 }
 
