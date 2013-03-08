@@ -16,6 +16,7 @@ describe "Message pages" do
   describe "creating a message " do
     before { click_link('Message') }
     it { should have_selector('h2', text: "Send a message") }
+    it { should have_selector(:xpath, "//input[@type='hidden' and @value='#{display.id}']") }
     describe "with invalid information" do
       it "should not create an app" do
         expect { click_button "Send" }.should_not change(Message, :count)

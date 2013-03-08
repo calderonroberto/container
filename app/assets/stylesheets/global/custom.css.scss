@@ -138,11 +138,13 @@ textarea {
  }
 
 .mobileappcontainer {
-
   position:absolute;
   top: 60px;
   left: 0px;
-
 }
 
+.element.style {
+  width:0px;
+  heigth:0px;
+}
 

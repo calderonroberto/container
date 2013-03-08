@@ -2,8 +2,8 @@
 
 $(document).ready(function() {
   initState();
-  //if you prefer to not use faye long pulling you can do synchronous calls
-  //setInterval(initState,  2000); 
+  //if you prefer to not use faye long pulling you can do synchronous calls [setting this up for now]
+  setInterval(initState,  5000); 
 });
 
 function initState () {
@@ -20,6 +20,7 @@ function stateHandler (json) {
 
 //use long-polling with faye to update DOM as needed.
 $(function() {
+/* Disabling as kimberly has no access to such port
   var hostname = window.location.hostname;
   var faye = new Faye.Client("http://"+hostname+":9292/faye");
   var display=getCookie("display_id");
@@ -28,6 +29,7 @@ $(function() {
   faye.subscribe(url, function (data) {
     stateHandler(data)
   });
+*/
 });
 
 function updateAppContainer (staged_app) {
