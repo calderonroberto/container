@@ -6,10 +6,12 @@
 
    <div class="app-element">
      <b><%= app.name %></b>
-     <span class="description"> <%= app.description %></span>
-     <span class="url"> <%= app.url %></span>
      <%= link_to "Delete", app, method: :delete, data: {confirm: "Destroy App?" } %>
      <%= link_to "Modify", edit_app_path(app)  %>
+
+     <span class="description"> <%= app.description %></span>
+     <span class="url"> <%= app.url %></span> |
+     <span class="url"> <%= app.mobile_url %></span>
    </div>
 
 </li>

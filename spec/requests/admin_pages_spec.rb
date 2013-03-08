@@ -27,6 +27,7 @@ describe "Admin pages" do
           page.should have_selector('li', text: app.name)
           page.should have_selector('span.description')
           page.should have_selector('span.url')
+          page.should have_selector('span.mobile_url')
           page.should have_link('Modify')
           page.should have_link('Delete')
           page.should have_selector('div.subscribe_form')

@@ -45,6 +45,7 @@ describe "State pages" do
       body['apps'][0].should include('name')
       body['apps'][0].should include('description')
       body['apps'][0].should include('url')
+      body['apps'][0].should include('mobile_url')
       body['apps'][0].should include('thumbnail_url')
     end
       
@@ -63,6 +64,7 @@ describe "State pages" do
       body['staged_app'].should include('name')
       body['staged_app'].should include('description')
       body['staged_app'].should include('url')
+      body['staged_app'].should include('mobile_url')
       body['staged_app'].should include('thumbnail_url')
     end
        

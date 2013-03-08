@@ -6,13 +6,14 @@ describe App do
   before do
     @app = App.new(name: "Application", 
                        description: "Application description",
-                       url: "http://localhost/",
+                       url: "http://localhost/",                      
                        thumbnail_url: "http://localhost/")
   end
   subject { @app }
   it { should respond_to(:name) }
   it { should respond_to(:description) }
   it { should respond_to(:url) }
+  it { should respond_to(:mobile_url) }
   it { should respond_to(:thumbnail_url) }
   it { should respond_to(:subscriptions) }
   it { should respond_to(:subscribed?) }
@@ -42,7 +43,22 @@ describe App do
     before { @app.url = "" }
     it { should_not be_valid }
   end
- 
+  
+  describe "when mobile_url is not present" do
+    before {@app.mobile_url = "" }
+    it {should be_valid }
+  end
+  
+  describe "when moobile_url is present and invalid" do
+    it "should be invalid" do
+      addresses = %w[url url.com htp://url htp://url.com]
+      addresses.each do |invalid_address|
+        @app.url = invalid_address
+        @app.should_not be_valid
+      end
+    end
+  end
+
   describe "when url format is invalid" do
     it "should be invalid" do
       addresses = %w[url url.com htp://url htp://url.com]

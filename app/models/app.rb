@@ -1,5 +1,5 @@
 class App < ActiveRecord::Base
-  attr_accessible :description, :name, :thumbnail_url, :url
+  attr_accessible :description, :name, :thumbnail_url, :url, :mobile_url
   has_many :subscriptions
   has_many :displays, through: :subscriptions
   has_many :stagings
@@ -10,8 +10,10 @@ class App < ActiveRecord::Base
   validates :description, presence: true
 
   VALID_URL_REGEX = /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(:[0-9]{1,5})?(\/.*)?$/ix
-  validates :url, presence: true, format: { with: VALID_URL_REGEX }
+  VALID_MOBILE_URL_REGEX = /^$|^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(:[0-9]{1,5})?(\/.*)?$/ix
 
+  validates :url, presence: true, format: { with: VALID_URL_REGEX }
+  validates :mobile_url, format: { with: VALID_MOBILE_URL_REGEX }
 
   def subscribed?(display)
     subscriptions.find_by_display_id(display.id)

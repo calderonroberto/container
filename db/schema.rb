@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120824235840) do
+ActiveRecord::Schema.define(:version => 20130308061225) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20120824235840) do
     t.string   "thumbnail_url", :default => "app_thumbnail.png"
     t.datetime "created_at",                                     :null => false
     t.datetime "updated_at",                                     :null => false
+    t.string   "mobile_url"
   end
 
   add_index "apps", ["name"], :name => "index_apps_on_name", :unique => true

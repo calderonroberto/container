@@ -40,6 +40,7 @@ describe "App pages" do
         fill_in "Name", with: new_app.name + Time.now.to_s
         fill_in "Description", with: new_app.description
         fill_in "Url", with: new_app.url
+        fill_in "app_mobile_url", with: new_app.url
       end
       it "should be able to create an app" do
         expect { click_button "Create" }.should change(App, :count).by(1)
@@ -64,6 +65,7 @@ describe "App pages" do
       before do
         fill_in "Name", with: "a" * 51
         fill_in "Url", with: "wrong url"
+        fill_in "app_mobile_url", with: "wrong url"
       end
       before { click_button "Save" }
       it { should have_content('error') }
@@ -73,6 +75,7 @@ describe "App pages" do
         fill_in "Name", with: "New awesome name"
         fill_in "Description", with: "New awesome description"
         fill_in "Url", with: "http://google.com/awesome.html"
+        fill_in "app_mobile_url", with: "http://google.com/awesome.html"
         click_button "Save"
       end
       it { should have_selector('div.alert.alert-success') }
