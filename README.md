@@ -41,21 +41,14 @@ heroku addons:add redistogo:nano
 git push heroku master
 ```
 
+If anything goes wrong, you can debug your application with the command:
+
+
 ```
-heroku logs
+heroku logs --tail
 ```
-
-
-
 
 # Installing and running your own Cherry manager.
-
-### Initializers
-
-Comment the initializer file: config/initializers/redis.rb 
-
-
-
 
 ### Ports
 
