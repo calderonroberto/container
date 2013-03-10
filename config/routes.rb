@@ -6,6 +6,7 @@ Container::Application.routes.draw do
   resources :subscriptions, only: [:create, :destroy]
   resources :messages, only: [:create]
   resources :stagings, only: [:create]
+  resources :setups, only: [:update, :edit]
 
   root :to => 'static_pages#home'  
   match '/admin',   to: 'admin#home'

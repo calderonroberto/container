@@ -7,6 +7,8 @@ class Display < ActiveRecord::Base
   has_many :staged_apps, through: :stagings, source: "app"
   has_many :messages
 
+  has_one :setup
+
   has_secure_password
 
   validates :name, presence: true, length: { maximum: 50 }

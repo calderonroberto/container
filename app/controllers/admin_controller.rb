@@ -5,6 +5,7 @@ class AdminController < ApplicationController
     @app = App.new
     @display = current_display
     @apps = App.paginate(page: params[:page], per_page: 10)
+    @setup = @display.setup
     render :layout => 'admin'
   end
 

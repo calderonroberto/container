@@ -21,6 +21,7 @@ describe "Admin pages" do
       it { should have_link('Create App') }
       it { should have_link('Sign out') }
       it { should have_link('Manage Workers') }
+      it { should have_link('Container Setup') }
       it { should have_selector('div.pagination') }
       it "should list each app" do
         App.paginate(page: 1, per_page: 10).each do |app|

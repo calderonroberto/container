@@ -1,0 +1,8 @@
+<%= render 'shared/error_messages', object: f.object %>
+<%= f.label :thingbroker_url %>
+<%= f.text_field :thingbroker_url %>
+<hr>
+<%= check_box_tag(:is_global) %>
+<%= label_tag(:is_global, "All Displays (WARNING: Will Setup of ALL your displays)") %>
+<br>
+

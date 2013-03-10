@@ -12,9 +12,10 @@ function initState () {
 function stateHandler (json) {
   var apps = json.apps;
   var staged_app = json.staged_app;
+  var thingbroker_url = encodeURIComponent(json.setup.thingbroker_url)
   var messages = json.messages;
   if (typeof apps != 'undefined' ){ updateAppMenu(apps) };
-  if (typeof staged_app != 'undefined' && staged_app != null){ updateAppContainer(staged_app) };
+  if (typeof staged_app != 'undefined' && staged_app != null){ updateAppContainer(staged_app, thingbroker_url) };
   if (typeof messages != 'undefined' ){ updateMessages(messages) };
 };
 
@@ -32,11 +33,11 @@ $(function() {
 */
 });
 
-function updateAppContainer (staged_app) {
+function updateAppContainer (staged_app, thingbroker_url) {
   if ($('.appcontainer').attr('id') != staged_app.id) {
     $(".appcontainer").attr('id', staged_app.id);
     var display=getCookie("display_id");
-    $(".appcontainer").attr('src', staged_app.url+"?display_id="+display);
+    $(".appcontainer").attr('src', staged_app.url+"?display_id="+display+"&thingbroker_url="+thingbroker_url);
   }
 }
 

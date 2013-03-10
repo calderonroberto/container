@@ -3,7 +3,7 @@
       <%= image_tag(@app.thumbnail_url, alt: @app.name) %>   
   </div>
 
-  <div class="span3">
+  <div class="span6">
     <h2>Modify App</h2>
       <%= form_for(@app) do |f| %>     
         <%= render 'apps/fields', f: f %>

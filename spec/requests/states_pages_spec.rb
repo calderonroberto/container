@@ -28,8 +28,15 @@ describe "State pages" do
       body.should include('apps')
       body.should include('messages')
       body.should include('staged_app')
+      body.should include('setup')
     end
        
+    it "a setup object" do
+      get api_state_url
+      body = JSON.parse(response.body)
+      body['setup'].should include('thingbroker_url')
+    end
+ 
     it "a display object" do      
       get api_state_url
       body = JSON.parse(response.body)   

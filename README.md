@@ -1,4 +1,4 @@
-MAGIC Container "Cherry"
+MAGIC "Cherry" container
 
 # Introduction
 
@@ -14,8 +14,7 @@ The MAGIC Container, "Cherry", is a web-based framework for multi-display applic
 
 # Dependencies
 
-Cherry is written as a Rails 3.* application and depends on Resque and Faye. NOTE: Faye runs on port 9292 by default, and you need to make sure that such port is open to the outside world.
-
+Cherry is written as a Rails 3.* application and depends on Resque and Faye. NOTE: Faye runs on port 9292 by default, and you need to make sure that such port is open to the outside world. 
 
 # Deploying at heroku
 
@@ -27,13 +26,16 @@ The first step is to install the heroku toolbelt (https://toolbelt.heroku.com/) 
 wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 ```
 
-```
-heroku keys:add ~/.ssh/id_rsa.pub
-```
-
+Log in to Heroku. Depending on your setting, if you have already a ssh key in your system you might need to add the keys to heroku.
 
 ```
 heroku login
+heroku keys:add ~/.ssh/id_rsa.pub
+```
+
+Now you can deploy "Cherry" at heroku. From within the project folder create the heroku app, add registogo and deploy the rails app. Don't forget to migrate (this is important, even if you're updating from a previous version).
+
+```
 heroku create
 heroku addons:add redistogo:nano
 git push heroku master
@@ -42,12 +44,13 @@ heroku run rake --trace db:migrate
 
 If anything goes wrong, you can debug your application with the command:
 
-
 ```
 heroku logs --tail
 ```
 
-# Installing and running your own Cherry manager.
+# DEVELOPERS: Installing and running your own Cherry application.
+
+IMPORTANT: The following instructions are only pertinent if you are running your own server for development purposes. We STRONGLY recommend that you use Heroku if you're only planning on using the app. Future updates of Cherry will be easier.
 
 ### Ports
 
@@ -74,8 +77,8 @@ If you'll be using phusion passenger make sure to change the permission of the d
 Don't forget to sort out your dependencies:
 
 ```
-# sudo bundle install --path vendor/bundle RAILS_ENV=production
-sudo bundle install
+#bundle install --path vendor/bundle RAILS_ENV=production
+bundle install
 ```
 
 And precompile the project assets (if you need to debug the project delete everything in /public/assets)

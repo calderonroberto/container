@@ -11,8 +11,8 @@ class DisplayState
       apps = d.apps
       staged_app = d.staged_app
       messages = d.messages.last(4).reverse
-      @state = { display: display, apps: apps, staged_app: staged_app, messages: messages }
-      
+      setup = d.setup
+      @state = { display: display, apps: apps, staged_app: staged_app, messages: messages, setup: setup }      
       return @state
 
     end

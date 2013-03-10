@@ -28,8 +28,17 @@ describe Display do
   it { should respond_to(:staged_apps) }
   it { should respond_to(:staged_app) }
   it { should respond_to(:messages) }
+  it { should respond_to(:setup) }
 
   it { should be_valid }
+
+  describe "setup" do
+    before { @setup = @display.build_setup }
+    it "should have a thingbroker_url" do
+      @setup.should respond_to(:thingbroker_url)
+    end
+  end
+
 
   describe "when name is not present" do
     before { @display.name = "" }

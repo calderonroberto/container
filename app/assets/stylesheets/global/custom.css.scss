@@ -87,6 +87,9 @@ p {
   .url {
     color: gray;    
   } 
+  .mobile_url {
+    color: gray;    
+  } 
   .subscribe_form {
     float:right;
   }
@@ -112,8 +115,12 @@ p {
 /*Forms*/
 textarea {
   height:6em;
+  width: 100%;
 }
 
+input {
+  width: 100%;
+}
 /*Images */
 
 .signin-image {

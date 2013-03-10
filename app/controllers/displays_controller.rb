@@ -6,6 +6,7 @@ class DisplaysController < ApplicationController
 
   def create
     @display = Display.new(params[:display])
+    @display.build_setup
     if @display.save
       sign_in @display
       redirect_to root_url

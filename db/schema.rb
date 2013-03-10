@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130308061225) do
+ActiveRecord::Schema.define(:version => 20130310200806) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(:version => 20130308061225) do
 
   add_index "messages", ["display_id"], :name => "index_messages_on_display_id"
   add_index "messages", ["from"], :name => "index_messages_on_from"
+
+  create_table "setups", :force => true do |t|
+    t.string   "thingbroker_url", :default => "http://kimberly.magic.ubc.ca:8080/thingbroker"
+    t.integer  "display_id"
+    t.datetime "created_at",                                                                   :null => false
+    t.datetime "updated_at",                                                                   :null => false
+  end
+
+  add_index "setups", ["display_id"], :name => "index_setups_on_display_id"
 
   create_table "stagings", :force => true do |t|
     t.integer  "display_id"
