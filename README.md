@@ -50,6 +50,13 @@ heroku logs
 
 # Installing and running your own Cherry manager.
 
+### Initializers
+
+Comment the initializer file: config/initializers/redis.rb 
+
+
+
+
 ### Ports
 
 You need to open port 80 and 9292 in your server. If you already have an Apache/Nginx server on port 80 you can follow the instructions below to set up Phusion Passenger.
