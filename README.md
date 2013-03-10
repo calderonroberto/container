@@ -41,6 +41,9 @@ heroku addons:add redistogo:nano
 git push heroku master
 ```
 
+```
+heroku logs
+```
 
 
 
