@@ -35,6 +35,9 @@ heroku keys:add ~/.ssh/id_rsa.pub
 ```
 heroku login
 heroku create
+heroku addons:add redistogo:nano
+heroku run rake --trace db:migrate
+heroku addons:add redistogo:nano
 git push heroku master
 ```
 
