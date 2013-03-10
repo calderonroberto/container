@@ -28,7 +28,15 @@ wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 ```
 
 ```
+heroku keys:add ~/.ssh/id_rsa.pub
+```
+
+
+```
 heroku login
+heroku create
+git push heroku master
+```
 
 
 
