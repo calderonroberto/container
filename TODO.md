@@ -1,5 +1,5 @@
 ## High Priority
-
++ Base events on ThingBroker; but provide ability to run Faye if needed.
 
 ## Non-High Priority
 

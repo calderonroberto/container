@@ -5,7 +5,7 @@ bundle install --path vendor/bundle
 
 #migrate anything new
 rake db:migrate
-rake db:migrate RAILS_ENV="production" 
+#rake db:migrate RAILS_ENV="production" 
 
 #remove previous assets
 rm -R public/assets

@@ -20,7 +20,9 @@ gem 'thin', '1.4.1'
 gem 'resque','1.22.0', :require => 'resque/server'
 
 #foreman export, use with: "bundle exec foreman export initscript /etc/init.d"
-gem 'foreman-export-initscript', :git => 'git://github.com/lzgo/foreman-export-initscript.git'
+#gem 'foreman-export-initscript', :git => 'git://github.com/lzgo/foreman-export-initscript.git'
+gem 'foreman', '0.62.0'
+
 
 
 # Gems used only for assets and not required
