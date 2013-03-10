@@ -27,9 +27,8 @@ The first step is to install the heroku toolbelt (https://toolbelt.heroku.com/) 
 wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 ```
 
-Then it's time 
-
 ```
+heroku login
 
 
 

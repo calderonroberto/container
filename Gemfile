@@ -23,6 +23,8 @@ gem 'resque','1.22.0', :require => 'resque/server'
 #gem 'foreman-export-initscript', :git => 'git://github.com/lzgo/foreman-export-initscript.git'
 gem 'foreman', '0.62.0'
 
+#to deploy in heroku
+gem 'pg', '0.14.1'
 
 
 # Gems used only for assets and not required
