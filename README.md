@@ -36,7 +36,7 @@ heroku keys:add ~/.ssh/id_rsa.pub
 Now you can deploy "Cherry" at heroku. From within the project folder create the heroku app, add registogo and deploy the rails app. Don't forget to migrate (this is important, even if you're updating from a previous version).
 
 ```
-heroku create
+heroku create <pick_a_name>
 heroku addons:add redistogo:nano
 git push heroku master
 heroku run rake --trace db:migrate
