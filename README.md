@@ -48,9 +48,11 @@ If anything goes wrong, you can debug your application with the command:
 heroku logs --tail
 ```
 
+**IMPORTANT NOTICE: Deploying in Heroku with the current build WILL NOT make use of workers, because we want to keep everything FREE for you. The current build uses javascript and a RESTful api bundled within the container to keep displays updated. If you want a more responsive interface and scalability you should consider installing your own instance using your own server (Installing from the ground-up).**
+
 # DEVELOPERS: Installing from the ground-up.
 
-IMPORTANT: The following instructions are only pertinent if you are running your own server for development purposes. We STRONGLY recommend that you use Heroku if you're only planning on using the app. Future updates of Cherry will be easier.
+**IMPORTANT: The following instructions are only pertinent if you are running your own server for development purposes. We STRONGLY recommend that you use Heroku if you're only planning on using the app. Future updates of Cherry will be easier.**
 
 ### Open relevant ports
 
