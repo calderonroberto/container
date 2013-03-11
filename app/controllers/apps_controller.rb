@@ -3,11 +3,13 @@ class AppsController < ApplicationController
   before_filter  :signed_in_display, :only => [:new, :create, :edit, :update, :destroy]
   
   def new
+    @setup = current_display.setup
     @app = App.new
     render :layout => 'admin' 
   end
 
   def create
+     @setup = current_display.setup
      @app = App.new(params[:app])
      if @app.save
        @app.subscribe!(current_display)
@@ -19,6 +21,7 @@ class AppsController < ApplicationController
   end
 
   def edit
+    @setup = current_display.setup
     @app = App.find_by_id(params[:id])
     render :layout => 'admin'
   end

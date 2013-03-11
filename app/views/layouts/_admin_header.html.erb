@@ -12,7 +12,7 @@
 		<li><%= link_to "Apps", admin_path %></li>
 		<li><%= link_to "Create App", new_app_path %></li>
 		<li><%= link_to "Manage Workers", "/resque" %></li>
-  		<li><%= link_to "Container Setup", edit_setup_path(current_display.setup) %></li>
+  		<li><%= link_to "Container Setup", edit_setup_path(@setup) %></li>
 		<li class="divider"></li>
 		<li>
 		  <%= link_to "Sign out", signout_path, method: "delete" %>
