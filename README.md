@@ -16,7 +16,7 @@ The MAGIC Container, "Cherry", is a web-based framework for multi-display applic
 
 Cherry is written as a Rails 3.* application and depends on Resque and Faye. NOTE: Faye runs on port 9292 by default, and you need to make sure that such port is open to the outside world. 
 
-# Deploying at heroku
+# USERS: Deploying at heroku
 
 If you're not familiar with heroku you can find a quick guide here: https://devcenter.heroku.com/articles/quickstart.
 
@@ -48,15 +48,15 @@ If anything goes wrong, you can debug your application with the command:
 heroku logs --tail
 ```
 
-# DEVELOPERS: Installing and running your own Cherry application.
+# DEVELOPERS: Installing from the ground-up.
 
 IMPORTANT: The following instructions are only pertinent if you are running your own server for development purposes. We STRONGLY recommend that you use Heroku if you're only planning on using the app. Future updates of Cherry will be easier.
 
-### Ports
+### Open relevant ports
 
 You need to open port 80 and 9292 in your server. If you already have an Apache/Nginx server on port 80 you can follow the instructions below to set up Phusion Passenger.
 
-### Install Rails
+### Install Ruby, RubyGems and Rails
 
 We assume you'll be running a linux box (Debian/Ubuntu). And you'll first need to install Ruby, Rubygems and Rails. You can follow the instructions here: http://rubyonrails.org/download 
 
@@ -68,7 +68,7 @@ Cherry uses Resque workers to manage background processes. Resque uses Redis (ht
 sudo apt-get install redis-server
 ```
 
-### Get the latest Cherry
+### Get the latest version of the Cherry container.
 
 Visit http://github.com/cherrycontainer
 
@@ -77,8 +77,7 @@ If you'll be using phusion passenger make sure to change the permission of the d
 Don't forget to sort out your dependencies:
 
 ```
-#bundle install --path vendor/bundle RAILS_ENV=production
-bundle install
+bundle install --path vendor/bundle RAILS_ENV=production
 ```
 
 And precompile the project assets (if you need to debug the project delete everything in /public/assets)
