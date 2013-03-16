@@ -3,7 +3,7 @@ module SessionsHelper
   def sign_in(display)
     #hostname = ".#{request.host_with_port}"
     cookies[:display_id] = { :value => nil, :domain => :all }
-    cookies[:display_id] = { :value => display.id, :domain => :all }
+    cookies[:display_id] = { :value => display.unique_id, :domain => :all }
     cookies.permanent[:remember_token] = display.remember_token
     self.current_display = display
   end

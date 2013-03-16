@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
  
   def home
     #@qrcodeurl = "http://magic.ubc.ca"
-    @qrcodeurl = "http://#{request.env['SERVER_NAME']}:#{request.env['SERVER_PORT']}/mobile/#{current_display.id}"
+    @qrcodeurl = "http://#{request.env['SERVER_NAME']}:#{request.env['SERVER_PORT']}/mobile/#{current_display.unique_id}"
     render layout: 'home'
   end
 

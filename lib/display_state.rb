@@ -7,7 +7,7 @@ class DisplayState
     def self.get_state(display_id)
 
       d = Display.find_by_id(display_id)
-      display = { id: d.id, name: d.name }
+      display = { id: d.unique_id, name: d.name }
       apps = d.apps
       staged_app = d.staged_app
       messages = d.messages.last(4).reverse

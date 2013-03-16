@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130310200806) do
+ActiveRecord::Schema.define(:version => 20130316175718) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
@@ -29,11 +29,13 @@ ActiveRecord::Schema.define(:version => 20130310200806) do
     t.string   "name"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.integer  "unique_id",       :limit => 8
   end
 
   add_index "displays", ["remember_token", "name"], :name => "index_displays_on_remember_token_and_name"
+  add_index "displays", ["unique_id"], :name => "index_displays_on_unique_id"
 
   create_table "messages", :force => true do |t|
     t.string   "from"
