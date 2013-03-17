@@ -3,10 +3,12 @@
 <head>
   <title>MAGIC Container</title>
 
+  <%= javascript_include_tag  "application" %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+
   <!-- responsive css for mobile-->
   <%= stylesheet_link_tag "bootstrap-responsive.min", :media => "all" %>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> 
   <%= csrf_meta_tags %>
 
 </head>
