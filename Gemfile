@@ -26,6 +26,11 @@ gem 'foreman', '0.62.0'
 #to deploy in heroku
 gem 'pg', '0.14.1'
 
+#testing fileuploads with s3w
+gem 'paperclip', '3.4.1'
+gem 'aws-sdk', '1.8.5'
+
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -43,6 +48,7 @@ end
 
 group :production do
   gem 'mysql', '2.8.1'
+  #gem 'mysql2', '0.3.11'
 end
 
 group :development, :test do

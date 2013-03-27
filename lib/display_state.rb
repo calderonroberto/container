@@ -2,7 +2,6 @@
 
  end
 
-
 class DisplayState
     def self.get_state(display_id)
 

@@ -11,16 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130316175718) do
+ActiveRecord::Schema.define(:version => 20130327011055) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
     t.string   "description"
     t.string   "url"
-    t.string   "thumbnail_url", :default => "app_thumbnail.png"
-    t.datetime "created_at",                                     :null => false
-    t.datetime "updated_at",                                     :null => false
+    t.string   "thumbnail_url",                    :default => "app_thumbnail.png"
+    t.datetime "created_at",                                                        :null => false
+    t.datetime "updated_at",                                                        :null => false
     t.string   "mobile_url"
+    t.string   "url_uploaded_file_name"
+    t.string   "url_uploaded_content_type"
+    t.integer  "url_uploaded_file_size"
+    t.datetime "url_uploaded_updated_at"
+    t.string   "mobile_url_uploaded_file_name"
+    t.string   "mobile_url_uploaded_content_type"
+    t.integer  "mobile_url_uploaded_file_size"
+    t.datetime "mobile_url_uploaded_updated_at"
   end
 
   add_index "apps", ["name"], :name => "index_apps_on_name", :unique => true
