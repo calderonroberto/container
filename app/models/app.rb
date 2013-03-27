@@ -6,7 +6,7 @@ class App < ActiveRecord::Base
   has_many :staged_displays, through: :stagings, source: "display"
 
   has_attached_file :url_uploaded, :path => "/:app_name.:extension"
-  has_attached_file :mobile_url_uploaded
+  has_attached_file :mobile_url_uploaded, :path => "/:app_name-mobile.:extension"
 
   validates :name, uniqueness:true
   validates :description, presence: true
@@ -16,9 +16,10 @@ class App < ActiveRecord::Base
   VALID_NAME_REGEX = /^[a-zA-Z\d\s]*$/
 
   validates :url, presence: true, :unless => :url_uploaded?, format: { with: VALID_URL_REGEX }
-  validates_attachment :url_uploaded, presence: true, :unless => :url?, :size => { :in => 0..10.kilobytes }
 
-  validates :mobile_url, format: { with: VALID_MOBILE_URL_REGEX }
+  validates_attachment :url_uploaded, presence: true, :unless => :url?, :size => { :in => 0..50.kilobytes }
+  validates_attachment :mobile_url_uploaded, :size => { :in => 0..50.kilobytes }
+
 
   validates :name, presence: true, length: { maximum: 50 }, format: {with: VALID_NAME_REGEX}
 
@@ -40,13 +41,12 @@ class App < ActiveRecord::Base
   
   private  
     def check_uploaded
-
-puts ">>>>>>>>>>>>>>>>>>>>>>"
-puts url_uploaded
-puts url
-
         unless url?
    	   self.url = url_uploaded.url.split('?')[0]
+        end
+
+        unless mobile_url?
+           self.mobile_url = mobile_url_uploaded.url.split('?')[0]
         end
 
     end
