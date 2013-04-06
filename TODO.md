@@ -3,6 +3,8 @@
 + Tests for uploading files, modified apps models, modified create/modificate forms
 + Add picture upload
 + Document S3W setup (https://devcenter.heroku.com/articles/paperclip-s3)
++ Create an undeletable demo application already hosted by the container as a demo out of the box
++ AWS works, but it's too expensive. Look for an ftp server (kimberly?)
 
 ## Non-High Priority
 
