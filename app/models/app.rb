@@ -5,8 +5,8 @@ class App < ActiveRecord::Base
   has_many :stagings
   has_many :staged_displays, through: :stagings, source: "display"
 
-  has_attached_file :url_uploaded, :path => "/:app_name.:extension"
-  has_attached_file :mobile_url_uploaded, :path => "/:app_name-mobile.:extension"
+  has_attached_file :url_uploaded, :path => "apps/:app_name.:extension"
+  has_attached_file :mobile_url_uploaded, :path => "apps/:app_name-mobile.:extension"
 
   validates :name, uniqueness:true
   validates :description, presence: true
@@ -17,9 +17,8 @@ class App < ActiveRecord::Base
 
   validates :url, presence: true, :unless => :url_uploaded?, format: { with: VALID_URL_REGEX }
 
-  validates_attachment :url_uploaded, presence: true, :unless => :url?, :size => { :in => 0..50.kilobytes }
-  validates_attachment :mobile_url_uploaded, :size => { :in => 0..50.kilobytes }
-
+  validates_attachment :url_uploaded, :size => { :in => 0..150.kilobytes }, :content_type => { :content_type => "text/html" }
+  validates_attachment :mobile_url_uploaded, :size => { :in => 0..150.kilobytes }, :content_type => { :content_type => "text/html" }
 
   validates :name, presence: true, length: { maximum: 50 }, format: {with: VALID_NAME_REGEX}
 
@@ -36,8 +35,6 @@ class App < ActiveRecord::Base
   def unsubscribe!(display) 
     subscriptions.find_by_display_id(display.id).destroy
   end
-
-
   
   private  
     def check_uploaded

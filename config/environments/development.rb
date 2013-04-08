@@ -1,3 +1,5 @@
+require 'socket'
+
 Container::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -35,14 +37,26 @@ Container::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-# config/environments/production.rb
-config.paperclip_defaults = {
-  :storage => :s3,
-  :s3_credentials => {
-    :bucket => ENV['AWS_BUCKET'],
-    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+  # config/environments/production.rb
+  #config.paperclip_defaults = {
+  #  :storage => :s3,
+  #  :s3_credentials => {
+  #    :bucket => ENV['AWS_BUCKET'],
+  #    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+  #    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+  #  } 
+  #}
+
+  config.paperclip_defaults = {
+     :storage => :fog,
+     :fog_credentials => {
+         :provider => "Local",
+         :local_root => "#{Rails.root}/public"
+      },
+      :fog_directory => "",
+      :fog_host => ""
+
   }
-}
+
 
 end

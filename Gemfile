@@ -29,7 +29,7 @@ gem 'pg', '0.14.1'
 #testing fileuploads with s3w
 gem 'paperclip', '3.4.1'
 gem 'aws-sdk', '1.8.5'
-
+gem 'fog', '1.10.1'
 
 
 # Gems used only for assets and not required

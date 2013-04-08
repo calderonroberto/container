@@ -84,32 +84,46 @@ If you'll be using phusion passenger make sure to change the permission of the d
 Don't forget to sort out your dependencies:
 
 ```
+sudo apt-get install libpq-dev libmysqld-dev
+````
+
+
+```
 bundle install --path vendor/bundle RAILS_ENV=production
 ```
 
 And precompile the project assets (if you need to debug the project delete everything in /public/assets)
 
 ```
-sudo rake assets:precompile --trace RAILS_ENV=production
+bundle exec rake assets:precompile --trace RAILS_ENV=production
 ```
 
 Out of the box, Cherry is configured to run on top of Mysql, so you need to configure your username and password on config/database.yml. After doing so, initiate the database with:
 
 ```
-sudo rake db:migrate RAILS_ENV=production
+bundle exec rake db:migrate RAILS_ENV=production
 ```
 
 You could now run a standalone production container with:
 
 ```
-foreman start -f Procfile_production_standalone
+bundle exec foreman start -f Procfile_production_standalone
 ```
 
 However, chances are you are already running other services in port 80, or want a faster http server (apache, nginx). Below you will find instructions on how to marry apache/nginx and the Cherry container.
 
 ### Install Phusion Passenger
 
+```
+sudo apt-get install libcurl4-openssl-dev
+```
+
+
+
 We prefer running Cherry with Phusion Passenger. You will find instructions to setting up passenger with either Nginx or Apache here: https://www.phusionpassenger.com/download Follow the instructions to point to the "public" folder of Cherry.
+
+
+
 
 Make sure that the project folder "container" and all it's sub-folders are owned by "www-data":
 
@@ -128,6 +142,7 @@ foreman start -f Procfile_production_passenger
 Or export to /etc/init.d/ so that it's automatically run everytime your server boots up. To do this you first export your foreman script:
 
 ```
+sudo gem install foreman-export-initscript
 cp Procfile_production_passenger Procfile
 bundle exec foreman export initscript /etc/init.d
 rm Procfile
@@ -143,5 +158,25 @@ And tell your system about the changes
 
 ```
 update-rc.d app defaults
+```
+
+### Other Alternatives
+
+If you have a VDMDK file. Virtual Box file you can start up with virtual box like this:
+
+```
+VBoxHeadless --startvm RED --vrdp=off
+```
+
+If you have access to a GUI you can use virtualbox. In Ubuntu, Download virtualbox
+
+```
+sudo apt-get install virtualbox
+```
+
+And then run in a console: 
+
+```
+virtualbox --startvm RED
 ```
 
