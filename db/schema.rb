@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(:version => 20130327011055) do
     t.string   "name"
     t.string   "description"
     t.string   "url"
-    t.string   "thumbnail_url",                    :default => "app_thumbnail.png"
-    t.datetime "created_at",                                                        :null => false
-    t.datetime "updated_at",                                                        :null => false
+    t.string   "thumbnail_url",                       :default => "app_thumbnail.png"
+    t.datetime "created_at",                                                           :null => false
+    t.datetime "updated_at",                                                           :null => false
     t.string   "mobile_url"
     t.string   "url_uploaded_file_name"
     t.string   "url_uploaded_content_type"
@@ -29,6 +29,10 @@ ActiveRecord::Schema.define(:version => 20130327011055) do
     t.string   "mobile_url_uploaded_content_type"
     t.integer  "mobile_url_uploaded_file_size"
     t.datetime "mobile_url_uploaded_updated_at"
+    t.string   "thumbnail_url_uploaded_file_name"
+    t.string   "thumbnail_url_uploaded_content_type"
+    t.integer  "thumbnail_url_uploaded_file_size"
+    t.datetime "thumbnail_url_uploaded_updated_at"
   end
 
   add_index "apps", ["name"], :name => "index_apps_on_name", :unique => true

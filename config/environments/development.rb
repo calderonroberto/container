@@ -54,8 +54,8 @@ Container::Application.configure do
          :local_root => "#{Rails.root}/public"
       },
       :fog_directory => "",
-      :fog_host => ""
-
+      :fog_host => "",
+      :command_path => "/usr/bin/"
   }
 
 

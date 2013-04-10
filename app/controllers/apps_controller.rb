@@ -29,6 +29,7 @@ class AppsController < ApplicationController
   def update
     @app = App.find_by_id(params[:id])
     if @app.update_attributes(params[:app])
+      check_uploads(@app, params)
       flash[:success] = "App updated"
       redirect_to admin_path
     else
@@ -46,6 +47,20 @@ class AppsController < ApplicationController
     @apps = App.all
     render json: @apps
   end
+
+  private
+    def check_uploads (app, params)
+      if params[:app][:url_uploaded]
+        @app[:url] = @app.url_uploaded.url.split('?')[0]        
+      end
+      if params[:app][:mobile_url_uploaded]
+        @app[:mobile_url] = @app.mobile_url_uploaded.url.split('?')[0]
+      end
+      if params[:app][:thumbnail_url_uploaded].present?
+        @app[:thumbnail_url] = @app.thumbnail_url_uploaded.url.split('?')[0]
+      end 
+      @app.save
+    end
 
 
 end

@@ -1,23 +1,28 @@
 <%= render 'shared/error_messages', object: f.object %>
 <%= f.label :name %> (Characters only)
 <%= f.text_field :name %> 
-    
+
+<hr>
+
 <%= f.label :description %>
 <%= f.text_area :description %>
 
 <hr>
 
-<%= f.label :url %>
+<%= f.label :url %> (In the form: http://host/file.extension)
 <%= f.text_field :url %>
-<%= f.file_field :url_uploaded %>
+Or upload and html file: <%= f.file_field :url_uploaded %>
 
 <hr>
 
 <%= f.label :optional_mobile_url %>
 <%= f.text_field :mobile_url %>
-<%= f.file_field :mobile_url_uploaded %>
+Or upload and html file: <%= f.file_field :mobile_url_uploaded %>
 
 <hr>
 
 <%= f.label :optional_thumbnail_url %>
 <%= f.text_field :thumbnail_url %>
+Or upload a jpeg/png file: <%= f.file_field :thumbnail_url_uploaded %>
+
+<hr>

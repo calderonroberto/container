@@ -67,12 +67,19 @@ Make sure that you have the following dependencies so that your Ruby installatio
 sudo apt-get --no-install-recommends install build-essential openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev libgdbm-dev ncurses-dev automake libtool bison subversion pkg-config libffi-dev
 ```
 
-### Install Redis
+### Install Dependencies
+
 
 Cherry uses Resque workers to manage background processes. Resque uses Redis (http://redis.io/), so you need to install it with: 
 
 ```
 sudo apt-get install redis-server
+```
+
+We will also need imagemagik to upload images 
+
+```
+sudo apt-get install imagemagick
 ```
 
 ### Get the latest version of the Cherry container.
