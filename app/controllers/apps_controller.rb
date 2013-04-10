@@ -13,6 +13,7 @@ class AppsController < ApplicationController
      @app = App.new(params[:app])
      if @app.save
        @app.subscribe!(current_display)
+       check_uploads(@app, params)
        flash[:success] = "Yaaay! App Created and Subscribed to."       
        redirect_to admin_path
      else
@@ -58,7 +59,7 @@ class AppsController < ApplicationController
       end
       if params[:app][:thumbnail_url_uploaded].present?
         @app[:thumbnail_url] = @app.thumbnail_url_uploaded.url.split('?')[0]
-      end 
+      end
       @app.save
     end
 
