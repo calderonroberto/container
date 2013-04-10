@@ -28,7 +28,6 @@ class App < ActiveRecord::Base
 
   validates :name, presence: true, length: { maximum: 50 }, format: {with: VALID_NAME_REGEX}
 
-  #before_validation :check_uploaded
 
   def subscribed?(display)
     subscriptions.find_by_display_id(display.id)
@@ -43,22 +42,6 @@ class App < ActiveRecord::Base
   end
   
   private  
-  
-    def check_uploaded
-      puts "????????????????????????????????????????????????????????????????????????"
-      puts thumbnail_url_uploaded
-  #     unless url?
-  #	   self.url = url_uploaded.url.split('?')[0]
-  #      end
-  #
-  #      unless mobile_url?
-  #         self.mobile_url = mobile_url_uploaded.url.split('?')[0]
-  #      end
-      if thumbnail_url_uploaded.exists?
-        #= image_tag(user.photo.url)
-        puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>    exists"
-      end
-    end
 
   # interpolate in paperclip
     Paperclip.interpolates :app_name  do |attachment, style|

@@ -15,7 +15,7 @@ class Display < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
   
-  before_save :create_remember_token, :create_unique_id
+  before_save :create_remember_token, :create_unique_id, :set_broker_url
 
   def stage!(app)
     if stagings.last.nil?
@@ -40,6 +40,9 @@ class Display < ActiveRecord::Base
     end
     def create_unique_id
         self.unique_id = Time.now.to_i
+    end
+    def set_broker_url
+        self.setup.thingbroker_url = "http://#{SERVER_IP}:8080/thingbroker"
     end
 
 end
