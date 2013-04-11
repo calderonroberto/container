@@ -9,10 +9,6 @@ class App < ActiveRecord::Base
   has_attached_file :mobile_url_uploaded, :path => "apps/:app_name-mobile.:extension"
   has_attached_file :thumbnail_url_uploaded, :path => "apps/:app_name-thumbnail.:extension", :styles => { :thumb => "100x100#" }
 
-  #validates :app do |a|
-  #   a.errors.add "Must agree to the terms" unless self.thumbnail_url_uploaded
-  #end
-
   validates :name, uniqueness:true
   validates :description, presence: true
 
@@ -22,12 +18,11 @@ class App < ActiveRecord::Base
 
   validates :url, presence: true, :unless => :url_uploaded?, format: { with: VALID_URL_REGEX }
 
-  validates_attachment :url_uploaded, :size => { :in => 0..150.kilobytes }, :content_type => { :content_type => "text/html" }
-  validates_attachment :mobile_url_uploaded, :size => { :in => 0..150.kilobytes }, :content_type => { :content_type => "text/html" }
-  validates_attachment :thumbnail_url_uploaded, :size => { :in => 0..2000.kilobytes }, :content_type => { :content_type => [ "image/jpg", "image/png", "image/jpeg" ] }
+  validates_attachment :url_uploaded, :size => { :in => 0..550.kilobytes }, :content_type => { :content_type => "text/html" }
+  validates_attachment :mobile_url_uploaded, :size => { :in => 0..550.kilobytes }, :content_type => { :content_type => "text/html" }
+  validates_attachment :thumbnail_url_uploaded, :size => { :in => 0..2200.kilobytes }, :content_type => { :content_type => [ "image/jpg", "image/png", "image/jpeg" ] }
 
   validates :name, presence: true, length: { maximum: 50 }, format: {with: VALID_NAME_REGEX}
-
 
   def subscribed?(display)
     subscriptions.find_by_display_id(display.id)

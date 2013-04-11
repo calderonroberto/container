@@ -57,7 +57,7 @@ class AppsController < ApplicationController
       if params[:app][:mobile_url_uploaded]
         @app[:mobile_url] = @app.mobile_url_uploaded.url.split('?')[0]
       end
-      if params[:app][:thumbnail_url_uploaded].present?
+      if params[:app][:thumbnail_url_uploaded]
         @app[:thumbnail_url] = @app.thumbnail_url_uploaded.url.split('?')[0]
       end
       @app.save
