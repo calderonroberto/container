@@ -1,6 +1,7 @@
 ## Essential
 
-+ When uploading a file, if the url is not cleared the file will not be updated. Give priority to an upload in the form.
++ Deploying new version in heroku has issues; fix.
+
 
 ## High Priority
 + Base events on ThingBroker; but provide ability to run Faye if needed.
@@ -9,7 +10,6 @@
 + Document S3W setup (https://devcenter.heroku.com/articles/paperclip-s3)
 + Create an undeletable demo application already hosted by the container as a demo out of the box
 + AWS works, but it's too expensive. Look for an ftp server (kimberly?)
-
 
 
 
