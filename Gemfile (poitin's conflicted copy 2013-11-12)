@@ -1,11 +1,8 @@
-# You will need ruby 1.9.3p0 and rails 3.2.8
 source 'https://rubygems.org'
 
-ruby "1.9.3"
 gem 'rails', '3.2.6'
-
-#jquery
 gem 'jquery-rails', '2.1.1'
+
 
 # bootstrap gem lacks mobile support.
 # but complementing for will_paginate:

@@ -1,0 +1,91 @@
+<!--
+Documentation:
+jQuery: http://jquery.com/
+ProcessingJS: http://processingjs.org/
+ThingBroker Plugin: https://github.com/ubc-magic/thingbroker-jquery-plugin
+-->
+
+<!--
+How to build an application:
+Any RED application consists of four parts:
+1) Including the appropriate jquery library and thingbroker plugin,
+   and if needed a processing.js library
+2) Setting up your styles through CSS
+3) Declaring your <div> or <img> objects
+4) Using Javascript to connect document events to "thing" events.
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">  
+<html lang="en">  
+<head>  
+  <title>A RED Application</title>  
+
+<!-- 1) Include the libraries -->
+  <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="jquery.thingbroker-0.3.0.min.js"></script>
+
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+  <!-- Optional
+  <script type="text/javascript" src="jquery.thingbroker-0.3.0.min.js"></script>
+  -->
+
+<!-- 2) Use CSS to make things pretty -->
+  <style type="text/css">
+	#on {background-color:green; width:100px; height:100px}
+	#off {background-color:red; width:100px; height:100px}
+  </style>
+
+</head>  
+
+<body>
+
+<!-- 3) Declare your document structure -->
+<div id="on"></div>
+<div id="off"></div>
+<div id="read">READ</div>
+<div id="slider-vertical" style="height: 200px;"></div>
+<div id="ardthing2"></div>
+
+<!-- 4) Build your app with jQuery and the Thingbroker Plugin -->
+<!-- API: https://github.com/ubc-magic/thingbroker-jquery-plugin#jquery-manipulations-api -->
+  <script type="text/javascript">
+
+	 $("#on").click(function(){ $.ThingBroker().postEvent("ardthing2", {'type':'digital','13':'1', 'timeout':'0'}) });
+	$("#off").click(function(){ $.ThingBroker().postEvent("ardthing2", {'type':'digital','13':'0', 'timeout':'0'}) });
+
+	 $("#read").click(function(){ $.ThingBroker().postEvent("ardthing2", {'type':'read','pin':'0'}) });
+
+
+	$("#ardthing2").thing({listen:true,
+                   debug:true,
+                   eventCallback:function(json){
+                                                //$(this).animate(width:);
+						var v = json[0].info.value;
+						console.log(json[0].info);
+						$("#on").animate({width: v+"px"}, 500);
+
+						$("#read").text(v);
+                                               }
+                  });
+
+	$(function() {
+    $( "#slider-vertical" ).slider({
+      orientation: "vertical",
+      range: "min",
+      min: 0,
+      max: 250,
+      value: 60,
+      slide: function( event, ui ) {
+        $.ThingBroker().postEvent("ardthing2", {'type':'analog','9':ui.value}) 
+        //$( "#amount" ).val( ui.value );
+      }
+    });
+    $( "#amount" ).val( $( "#slider-vertical" ).slider( "value" ) );
+  });
+
+  </script>
+
+</body>
+</html>

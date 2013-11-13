@@ -16,8 +16,6 @@ The MAGIC Container, "Cherry", is a web-based framework for multi-display applic
 
 Cherry is written as a Rails 3.* application and depends on Resque and Faye. NOTE: Faye runs on port 9292 by default, and you need to make sure that such port is open to the outside world. 
 
-IMPORTANT: Make sure you have ruby V "1.9.3" and 'rails', '3.2.6'. Using Ruby 2.0.0 will result in a broken pipeline/assets-compilation installation: CSS and JS files will not compile. Until I port the app to Ruby 4, one day, maybe.
-
 # USERS: Deploying at heroku
 
 If you're not familiar with heroku you can find a quick guide here: https://devcenter.heroku.com/articles/quickstart.
