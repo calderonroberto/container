@@ -3,7 +3,7 @@
     <h2>Create an App</h2>
     <%= form_for(@app) do |f| %>     
     <%= render 'apps/fields', f: f %>
-      <%= f.submit "Create", class: "btn btn-large btn-primary" %> 
+      <%= f.submit "Create", class: "btn btn-large btn-primary", id: "create" %> 
     <% end %>
   </div>
 </div>

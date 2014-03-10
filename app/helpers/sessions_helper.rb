@@ -1,5 +1,18 @@
 module SessionsHelper
 
+  def redirect_back_or(default)
+    redirect_to(session[:return_to] || default)
+    session.delete(:return_to)
+  end
+  
+  def store_location
+    session[:return_to] = request.fullpath
+  end
+
+  
+  ##for users in public displays (managers)
+  ##
+
   def sign_in(display)
     #hostname = ".#{request.host_with_port}"
     cookies[:display_id] = { :value => nil, :domain => :all }
@@ -39,13 +52,41 @@ module SessionsHelper
     end
   end
   
-  def redirect_back_or(default)
-    redirect_to(session[:return_to] || default)
-    session.delete(:return_to)
+  ##for users in mobile devices using facebook-connect:
+  ##
+
+  def sign_in_user(user)
+    cookies.permanent[:user_id] = user.id
+    self.current_user = user
+    redirect_to '/mobile/'+cookies[:display_id]
   end
-  
-  def store_location
-    session[:return_to] = request.fullpath
+
+  def signed_in_user(display_id)
+    cookies[:display_id] = display_id
+    unless signed_in_user?
+      store_location
+      redirect_to signinuser_url, notice: "Please sign in."
+    end
   end
+
+  def signed_in_user?
+    !current_user.nil?
+  end
+
+  def sign_out_user
+    #hostname = ".#{request.host_with_port}"
+    cookies.delete :user_id, :domain => :all
+    self.current_user = nil
+    cookies.delete(:user_id)
+  end
+
+  def current_user
+    @current_user ||= User.find_by_id(cookies[:user_id])
+  end
+
+  def current_user=(user)
+    @current_user = user
+  end
+
 
 end

@@ -18,7 +18,16 @@ class SessionsController < ApplicationController
     redirect_to signin_path
   end
 
+  def createuser
+    #render 'newuser', :layout=> 'usersessions'
+    render 'newuser', :layout=> 'usersessions'
+  end
+
+  def destroyuser
+    sign_out_user
+    redirect_to signinuser_path
+  end
+
+
 end
-
-
 

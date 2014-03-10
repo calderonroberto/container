@@ -4,16 +4,18 @@ require 'capybara/rails'
 describe Display do
 
   before do
+    #TODO: This should be handled by FactoryGirl (See message_pages_spec.rb) for example.
+    # We are leaving it here as an example.
     @display = Display.new(name: "Display", 
                             password: "foobar", 
                             password_confirmation: "foobar")
     @second_display = Display.new(name: "Second Display", 
                             password: "foobar", 
                             password_confirmation: "foobar")
-    @app = App.new(name: Time.now.to_s,
+    @app = App.new(name: Time.now.getutc.to_i.to_s,
                     description: "Description",
                     url: "http://localhost/")
-    @second_app = App.new(name: Time.now.to_s+"two",
+    @second_app = App.new(name: Time.now.getutc.to_i.to_s+"two",
                     description: "Description",
                     url: "http://localhost/")
   end
@@ -27,7 +29,7 @@ describe Display do
   it { should respond_to(:stagings) }
   it { should respond_to(:staged_apps) }
   it { should respond_to(:staged_app) }
-  it { should respond_to(:messages) }
+  it { should respond_to(:notes) }
   it { should respond_to(:setup) }
 
   it { should be_valid }
@@ -90,8 +92,8 @@ describe Display do
 
   describe "subscriptions" do    
     before do
-      @display.save
-      @app.save
+      @display.save!
+      @app.save!
       @app.subscribe!(@display)
     end
     its(:apps) { should include(@app) }

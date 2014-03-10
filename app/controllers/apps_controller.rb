@@ -5,6 +5,10 @@ class AppsController < ApplicationController
   def new
     @setup = current_display.setup
     @app = App.new
+    #log_usage
+    if (Container::Application.config.log_usage)
+      Log.create(controller: 'apps', method: 'new', display_id: current_display.id, params: params, remote_ip: request.remote_ip )
+    end
     render :layout => 'admin' 
   end
 
@@ -15,6 +19,10 @@ class AppsController < ApplicationController
        @app.subscribe!(current_display)
        check_uploads(@app, params)
        flash[:success] = "Yaaay! App Created and Subscribed to."       
+       #log_usage
+       if (Container::Application.config.log_usage)
+         Log.create(controller: 'apps', method: 'create', display_id: current_display.id, app_id: @app.id, params: params, remote_ip: request.remote_ip )
+       end
        redirect_to admin_path
      else
        render 'new',  :layout => 'admin'
@@ -24,6 +32,10 @@ class AppsController < ApplicationController
   def edit
     @setup = current_display.setup
     @app = App.find_by_id(params[:id])
+    #log_usage
+    if (Container::Application.config.log_usage)
+      Log.create(controller: 'apps', method: 'edit', display_id: current_display.id, app_id: @app.id, params: params, remote_ip: request.remote_ip )
+    end
     render :layout => 'admin'
   end
 
@@ -32,6 +44,10 @@ class AppsController < ApplicationController
     if @app.update_attributes(params[:app])
       check_uploads(@app, params)
       flash[:success] = "App updated"
+      #log_usage
+      if (Container::Application.config.log_usage)
+        Log.create(controller: 'apps', method: 'update', display_id: current_display.id, app_id: @app.id, params: params, remote_ip: request.remote_ip)
+      end
       redirect_to admin_path
     else
       render 'edit'
@@ -41,11 +57,19 @@ class AppsController < ApplicationController
   def destroy
     App.find(params[:id]).destroy
     flash[:success] = "App destroyed"
+    #log_usage
+    if (Container::Application.config.log_usage)
+      Log.create(controller: 'apps', method: 'destroy', display_id: current_display.id, params: params, remote_ip: request.remote_ip)
+    end
     redirect_to admin_path
   end
 
   def apps
     @apps = App.all
+    #log_usage
+    if (Container::Application.config.log_usage)
+      Log.create(controller: 'apps', method: 'apps', params: params, remote_ip: request.remote_ip)
+    end
     render json: @apps
   end
 
@@ -62,6 +86,5 @@ class AppsController < ApplicationController
       end
       @app.save
     end
-
 
 end

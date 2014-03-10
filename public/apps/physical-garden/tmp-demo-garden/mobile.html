@@ -1,0 +1,87 @@
+<!--
+Documentation:
+jQuery: http://jquery.com/
+ProcessingJS: http://processingjs.org/
+ThingBroker Plugin: https://github.com/ubc-magic/thingbroker-jquery-plugin
+-->
+
+<!--
+How to build an application:
+Any RED application consists of four parts:
+1) Including the appropriate jquery library and thingbroker plugin,
+   and if needed a processing.js library
+2) Setting up your styles through CSS
+3) Declaring your <div> or <img> objects
+4) Using Javascript to connect document events to "thing" events.
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">  
+<html lang="en">  
+<head>  
+  <title>A RED Application</title>  
+
+<!-- 1) Include the libraries -->
+  <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="jquery.thingbroker-0.3.0.min.js"></script>
+  <!-- Optional
+  <script type="text/javascript" src="jquery.thingbroker-0.3.0.min.js"></script>
+  -->
+
+<!-- 2) Use CSS to make things pretty -->
+  <style type="text/css">
+        
+	#image{position:absolute; top:0; left:0;width:100%; height:100%;background-repeat:no-repeat;background-position:center;background-color: white;text-align:center; margin-left:auto; margin-right:auto;}
+	#text{color:#006600;font-size:30px; font-family:"Arial", sans-serif;vertical-align:text-top;margin-top:20px;font-weight:bold;margin-left:auto;margin-right:auto;text-align:center;}
+	#button {color:black;font-size:20px; top:0; left:0;}
+  </style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>  
+
+<body>
+
+<!-- 3) Declare your document structure -->
+
+<div id="image">
+	<div id="text">To add more water you can use get a friend, or stranger, to scan this QR code.</div>
+	<div id="qr"><img src="qrcode.png"></img></div>
+</div>
+
+<div id="physicalGardenScan">
+
+
+
+<!-- 4) Build your app with jQuery and the Thingbroker Plugin -->
+<!-- API: https://github.com/ubc-magic/thingbroker-jquery-plugin#jquery-manipulations-api -->
+  <script type="text/javascript">
+	
+	function sayThanks() {
+		$("#text").css('font-size','40px');
+		$("#text").text("Thanks for helping our community!");
+		$("#image").css('background-image', 'url(plant.gif)');	
+		$("#qr").hide();
+	}
+
+	$("#physicalGardenScan").thing({listen:true,
+                   debug:true,
+ 		   container:false,
+                   eventCallback:function(json){
+                                                sayThanks();
+                                               }
+        });	
+
+	var hash = window.location.hash;
+	console.log(hash);
+
+        // scan nevertheless.
+	//if (hash == '#scan') {
+		var t = $.ThingBroker({debug:true, container:false});
+		t.postThing({thingId: "physicalGardenScan"});
+		var e = t.postEvent("#physicalGardenScan", {});
+	//}
+
+
+  </script>
+
+</body>
+</html>

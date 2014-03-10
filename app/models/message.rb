@@ -1,8 +1,7 @@
 class Message < ActiveRecord::Base
-  attr_accessible :from, :message
-  belongs_to :display
+  attr_accessible :from, :message, :to
 
   validates :from, presence: true
   validates :message, presence: true
-  validates :display_id, presence: true
+  validates :to, presence: true
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130327011055) do
+ActiveRecord::Schema.define(:version => 20140307043208) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
@@ -37,6 +37,13 @@ ActiveRecord::Schema.define(:version => 20130327011055) do
 
   add_index "apps", ["name"], :name => "index_apps_on_name", :unique => true
 
+  create_table "checkins", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "display_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "displays", :force => true do |t|
     t.string   "name"
     t.string   "password_digest"
@@ -49,16 +56,39 @@ ActiveRecord::Schema.define(:version => 20130327011055) do
   add_index "displays", ["remember_token", "name"], :name => "index_displays_on_remember_token_and_name"
   add_index "displays", ["unique_id"], :name => "index_displays_on_unique_id"
 
+  create_table "logs", :force => true do |t|
+    t.string   "controller"
+    t.string   "method"
+    t.integer  "user_id"
+    t.integer  "display_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.text     "params"
+    t.integer  "app_id"
+    t.string   "remote_ip"
+  end
+
   create_table "messages", :force => true do |t|
     t.string   "from"
     t.string   "message"
+    t.string   "to"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "display_id"
   end
 
-  add_index "messages", ["display_id"], :name => "index_messages_on_display_id"
   add_index "messages", ["from"], :name => "index_messages_on_from"
+  add_index "messages", ["to"], :name => "index_messages_on_to"
+
+  create_table "notes", :force => true do |t|
+    t.string   "from"
+    t.string   "message"
+    t.integer  "display_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "notes", ["display_id"], :name => "index_notes_on_display_id"
+  add_index "notes", ["from"], :name => "index_notes_on_from"
 
   create_table "setups", :force => true do |t|
     t.string   "thingbroker_url", :default => "http://kimberly.magic.ubc.ca:8080/thingbroker"
@@ -88,5 +118,30 @@ ActiveRecord::Schema.define(:version => 20130327011055) do
 
   add_index "subscriptions", ["app_id"], :name => "index_subscriptions_on_app_id"
   add_index "subscriptions", ["display_id"], :name => "index_subscriptions_on_display_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0,  :null => false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.text     "token"
+    t.string   "thumbnail_url"
+    t.string   "picture_url"
+    t.text     "friends"
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

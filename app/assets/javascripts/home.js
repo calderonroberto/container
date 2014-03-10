@@ -14,10 +14,10 @@ function stateHandler (json) {
   var staged_app = json.staged_app;
   var display_id = json.display.id;
   var thingbroker_url = encodeURIComponent(json.setup.thingbroker_url)
-  var messages = json.messages;
+  var notes = json.notes;
   if (typeof apps != 'undefined' ){ updateAppMenu(apps) };
   if (typeof staged_app != 'undefined' && staged_app != null){ updateAppContainer(staged_app, display_id, thingbroker_url) };
-  if (typeof messages != 'undefined' ){ updateMessages(messages) };
+  if (typeof notes != 'undefined' ){ updateNotes(notes) };
 };
 
 //use long-polling with faye to update DOM as needed.
@@ -42,15 +42,15 @@ function updateAppContainer (staged_app, display_id, thingbroker_url) {
   }
 }
 
-function updateMessages (messages) {
-  var messagecount = messages.length;
+function updateNotes (notes) {
+  var notecount = notes.length;
  
   $(".messageboard").empty()
-  $.each(messages, function() {
+  $.each(notes, function() {
     var from = $(this)[0].from;
     var message = $(this)[0].message;
-    $(".messageboard").append("<div class='message'><b>"+from+": </b>"+message);
-    if (messagecount > 4) {
+    $(".messageboard").append("<div class='note'><b>"+from+": </b>"+message);
+    if (notecount > 4) {
       $(".messageboard :last-child").remove()
     }; 
   });

@@ -11,7 +11,7 @@ describe "State pages" do
     before do      
       new_app.subscribe!(display)
       display.stage!(new_app)    
-      5.times { display.messages.build(from: "someone", message: "message").save }
+      5.times { display.notes.build(from: "someone", message: "message").save }
       sign_in display
     end
 
@@ -26,7 +26,7 @@ describe "State pages" do
       body = JSON.parse(response.body)   
       body.should include('display')
       body.should include('apps')
-      body.should include('messages')
+      body.should include('notes')
       body.should include('staged_app')
       body.should include('setup')
     end
@@ -59,9 +59,9 @@ describe "State pages" do
     it "a message object" do    
       get api_state_url
       body = JSON.parse(response.body)
-      body['messages'][0].should include('from')
-      body['messages'][0].should include('message')
-      body['messages'].length.should be < 5
+      body['notes'][0].should include('from')
+      body['notes'][0].should include('message')
+      body['notes'].length.should be < 5
     end
        
     it "app_staged object" do      

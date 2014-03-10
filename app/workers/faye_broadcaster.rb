@@ -1,4 +1,3 @@
-
 require 'display_state'
 
 class FayeBroadcaster

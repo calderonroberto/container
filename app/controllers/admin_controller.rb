@@ -6,6 +6,12 @@ class AdminController < ApplicationController
     @display = current_display
     @apps = App.paginate(page: params[:page], per_page: 10)
     @setup = @display.setup
+
+    #log_usage
+    if (Container::Application.config.log_usage)
+      Log.create(controller: 'admin', method: 'home', display_id: @display.id, params: params, remote_ip: request.remote_ip )
+    end
+
     render :layout => 'admin'
   end
 

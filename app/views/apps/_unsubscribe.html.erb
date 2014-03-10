@@ -1,5 +1,5 @@
 <%= form_for(@app.subscriptions.find_by_app_id(@app),
 	      html: { method: :delete },
 	      remote: true) do |f| %>
-  <%= f.submit "Unsubscribe", class: "btn btn-large" %>
+  <%= f.submit "Unsubscribe", class: "btn btn-large", id: "unsubscribe-#{@app.id}" %>
 <% end %>

@@ -4,11 +4,19 @@ class SetupsController < ApplicationController
   
   def edit
     @setup = Setup.find_by_id(params[:id])
+    #log_usage
+    if (Container::Application.config.log_usage)
+      Log.create(controller: 'setups', method: 'edit', params: params, remote_ip: request.remote_ip )
+    end
     render :layout => 'admin'
   end
 
   def update
     @setup = Setup.find_by_id(params[:id])
+    #log_usage
+    if (Container::Application.config.log_usage)
+      Log.create(controller: 'setups', method: 'update', params: params, remote_ip: request.remote_ip )
+    end
     if params[:is_global]
        if Setup.update_all(:thingbroker_url => params[:setup][:thingbroker_url])
          flash[:success] = "All Display's Setup updated"

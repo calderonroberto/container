@@ -4,6 +4,12 @@
   <title>MAGIC Container</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= csrf_meta_tags %>
+
+  <!-- responsive css for mobile -->
+  <%= stylesheet_link_tag "bootstrap-responsive.min", :media => "all" %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> 
+  <%= csrf_meta_tags %>
+
 </head>
 <body>
 <div class="container">
@@ -17,5 +23,6 @@
 <%= javascript_include_tag "application" %>
 <%= debug(params) if Rails.env.development? %>
 </div>
+
 </body>
 </html>

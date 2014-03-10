@@ -14,6 +14,7 @@ gem 'bootstrap-will_paginate', '0.0.7'
 gem 'will_paginate', '3.0.3'
 gem 'bcrypt-ruby', '3.0.1'
 
+gem 'faker', '1.2.0'
 
 #testing faye
 gem 'faye', '0.8.3'
@@ -34,6 +35,17 @@ gem 'paperclip', '3.4.1'
 gem 'aws-sdk', '1.8.5'
 gem 'fog', '1.10.1'
 
+#For Facebook signin
+gem 'devise', '3.2.1'
+gem 'omniauth', '1.1.4'
+gem 'omniauth-facebook', '1.5.0'
+gem 'oauth2', '0.8.1'
+
+#Facebook data (friends
+gem 'koala', '1.8.0'
+
+#To make POST requests
+gem 'faraday', '0.9.0'
 
 # Gems used only for assets and not required
 # in production environments by default.

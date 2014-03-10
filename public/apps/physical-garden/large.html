@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">  
+<html lang="en">  
+<head>  
+  <title>A RED Application</title>  
+  <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="jquery.thingbroker-0.3.0.min.js"></script>
+
+<!-- 2) Use CSS to make things pretty -->
+  <style type="text/css">
+	#grass {background-image: url(grass.gif); width:100%; height:100px; position:absolute; bottom:0;}
+
+	#count {background:#66CC33; width:120px; height:120px; border-radius: 15px; position:absolute; top:30px; left:30px;}
+	#count_value {color:white; font-size:80px; text-align:center;font-family:"Arial", sans-serif;vertical-align:text-top;}
+	#count_message {color:white; font-size:15px; text-align:center;font-family:"Arial", sans-serif;}
+
+	#instructions {background-color:orange;position:absolute; right:20px; top:30px; width:160px; height: 200px; text-align: center;padding:15px 15px;border-radius: 15px; align:center;}
+	#instructions_code {background-color:white; }
+	#instructions_text {color:white; font-size:15px;font-family:"Arial", sans-serif;vertical-align:text-top;margin-bottom:10px;}
+
+
+	#garden {margin-left:auto; margin-right:auto; text-align:center; position:absolute; bottom:60px; left:180px;}
+
+        #people {position:absolute; top:170px; left:50px; width: 160px; background:#66CC33; border-radius: 10px; color:white; padding:5px 5px; text-align:center; font-weight:bold;}
+	.person {color:white; font-size: 10pt; height:10px; text-align:center; font-weight:normal;}
+
+  </style>
+
+
+
+
+    <script type="text/javascript">
+			
+	function getURLParameter(name) {
+	    return decodeURI(
+		(RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+	    );
+	}
+
+	function updateCheckins () {
+		var id = getURLParameter("displayId");
+		$.getJSON("/api/"+id+"/checkins", function(data) {
+			//pjs.updateCircles(data);
+			$(".person").remove();
+			$.each( data, function(index,value){
+				d = new Date(value.checkin.created_at);
+				$("#people").append('<p class="person">'+value.user.name+' ('+d.getUTCDate()+'/'+(d.getMonth()+1)+')</p>');
+				if (index == 4)
+					return false;
+
+
+			});
+		});
+	}
+
+
+	$(document).ready(function() {			
+		setTimeout(function() {
+			updateCheckins();
+		}, 500); //We need to wait for processing.js to download
+		setInterval(function() {
+		//setTimeout(function() {
+			updateCheckins();
+		}, 600000);						
+	});
+
+
+    </script>
+
+
+</head>
+
+<body>
+
+<!-- 3) Declare your document structure -->
+<div id="grass"></div>
+
+<div id="watergarden">
+
+  <div id="garden"><img src="garden-small.png" width="200px" height="200px"/></div>
+
+  <div id="instructions">
+	<div id="instructions_text">To water garden visit<br>icd.magic.ubc.ca/test</div> 
+        <!-- <div id="instructions_code"><img src="qrcode.png" width="150px"></img></div> -->
+  </div>
+ 
+
+
+  <div id="count">
+	<div id="count_value">0</div>
+	<div id="count_message">have watered.</div>
+  </div>
+
+
+  <div id="people">
+	Last five helpers:  
+  </div>
+
+</div>
+
+  <!-- connecting to the arduino, object needed for listener in js-->
+<div id="containercheckins"> 
+<script type="text/javascript">
+	$("#containercheckins").thing({listen:true,
+                   debug:false,
+		   container:false,
+                   eventCallback:function(json){
+			var currentValue =  parseInt($("#count_value").text(),10);
+                      	$("#count_value").text( currentValue+1 );
+                                               }
+        });
+</script>
+
+</body>
+</html>

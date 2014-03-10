@@ -3,15 +3,14 @@
  end
 
 class DisplayState
-    def self.get_state(display_id)
-
-      d = Display.find_by_id(display_id)
+    def self.get_state(display)
+      d = Display.find_by_unique_id(display.unique_id)
       display = { id: d.unique_id, name: d.name }
       apps = d.apps
       staged_app = d.staged_app
-      messages = d.messages.last(4).reverse
+      notes = d.notes.last(4).reverse
       setup = d.setup
-      @state = { display: display, apps: apps, staged_app: staged_app, messages: messages, setup: setup }      
+      @state = { display: display, apps: apps, staged_app: staged_app, notes: notes, setup: setup }      
       return @state
 
     end

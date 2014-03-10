@@ -5,7 +5,7 @@ class Display < ActiveRecord::Base
   
   has_many :stagings
   has_many :staged_apps, through: :stagings, source: "app"
-  has_many :messages
+  has_many :notes
 
   has_one :setup
 
@@ -15,7 +15,8 @@ class Display < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
   
-  before_save :create_remember_token, :create_unique_id, :set_broker_url
+  before_save :create_remember_token, :create_unique_id
+  after_commit :set_broker_url
 
   def stage!(app)
     if stagings.last.nil?

@@ -37,13 +37,13 @@ describe "App pages" do
     end
     describe "with valid information" do
       before do
-        fill_in "Name", with: new_app.name + Time.now.to_s
-        fill_in "Description", with: new_app.description
-        fill_in "Url", with: new_app.url
+        fill_in "app_name", with: new_app.name + Time.now.getutc.to_i.to_s
+        fill_in "app_description", with: new_app.description
+        fill_in "app_url", with: new_app.url
         fill_in "app_mobile_url", with: new_app.url
       end
       it "should be able to create an app" do
-        expect { click_button "Create" }.should change(App, :count).by(1)
+        expect { click_button "create" }.should change(App, :count).by(1)
       end
     end
   end
@@ -51,11 +51,12 @@ describe "App pages" do
   describe "modifying an app" do
     before do
       sign_in display
-      @app = App.new(name: "Application" + Time.now.to_s, 
+      @app = App.new(  name: "Application" + Time.now.getutc.to_i.to_s, 
                        description: "Application description",
                        url: "http://localhost/",
                        thumbnail_url: "http://localhost/")
       @app.save
+      #puts @app.inspect
       visit edit_app_path(@app)
     end
     describe "page" do

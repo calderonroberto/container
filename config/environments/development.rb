@@ -37,6 +37,9 @@ Container::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = false
 
+  # For device facebook
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
   # config/environments/production.rb
   #config.paperclip_defaults = {
   #  :storage => :s3,
@@ -58,5 +61,8 @@ Container::Application.configure do
       :command_path => "/usr/bin/"
   }
 
+  #facebook app keys
+  ENV['APP ID'] = "452405111537046";
+  ENV['SECRET KEY'] = "36159010d339ec21eca36aed4145a976";
 
 end

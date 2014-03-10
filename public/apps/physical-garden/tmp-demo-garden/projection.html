@@ -1,0 +1,74 @@
+<!DOCTYPE html >  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8">
+  <title>A RED Application</title>  
+
+  <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="jquery.thingbroker-0.3.0.min.js"></script>
+
+
+  <style type="text/css">
+	body {
+		background-color:black;
+	}
+
+	#water {width:500px; height:500px; position:absolute; top:0; left:0; -webkit-mask-image: url(mask2.png); background-image:url('water.gif');
+	}
+
+	#mask {background-color:black; width:500px; height:420px; position:absolute; top:0; left:0; z-index: 10;
+
+	}
+   
+
+  </style>
+
+
+</head>  
+
+<body onload="init()">
+
+<div id="water"></div>
+<div id="mask"></div>
+<div id="physicalGardenScan"></div>
+<div id="ardthing">
+
+  <script type="text/javascript">
+
+	$(document).ready(function(){
+       		 $("#physicalGardenScan").thing({listen:true,
+                   debug:true,
+                   container:false,
+                   eventCallback:function(json){
+                                                replenish();
+                                               }
+	        });
+	});
+
+  	$("#water").click(function(){deplete()});
+
+	function init() {
+	   var touchzone = document.getElementById("water");
+	   touchzone.addEventListener("touchstart", deplete, false);
+	}
+
+        function deplete() {
+                $("#mask").animate({height:'420'},1000)
+                var t = $.ThingBroker({debug:true, container:false});
+                t.postThing({thingId: "ardthing"});
+                var e = t.postEvent("#ardthing", {'type':'case'});
+        }
+        function replenish() {
+                if ($("#mask").height() > 100){
+                        $('#mask').height( $('#mask').height() - 50 );
+                }
+        }
+
+
+
+
+
+  </script>
+
+</body>
+</html>

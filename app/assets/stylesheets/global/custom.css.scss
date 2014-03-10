@@ -57,6 +57,16 @@ p {
   line-height: 1.7em;
 }
 */
+/*Messages*/
+
+.messages {
+  list-style:none;
+  .from {align: right; background-color: #CCFFCC; margin-left:50%; width:50%; padding: 5px 5px; margin-top:5px; border-radius: 10px; -moz-border-radius: 10px;}
+  .to {align: right; background-color: #F8F8F8; width:50%; padding: 5px 5px; margin-top:5px;  border-radius: 10px; -moz-border-radius: 10px;}
+  .date { font-size: xx-small; text-align: right;}
+  .message_thumbnail { height: 30px; width: 30px; padding-right: 10px;} 
+ }
+
 
 /*Apps*/
 
@@ -125,8 +135,16 @@ input {
 
 .signin-image {
   text-align:right;
-  padding-left:5em;
+  padding-left:10%;
 }
+
+/*Checkins*/
+.userlistitem {margin: 5px 5px; background:#F0F0F0; margin-right:10px; padding:5px 5px;height:80px;} 
+.checkins_user_img{float:left; width:50px; height:50px; margin-right:10px;}
+.checkins_user_name {float:left;}
+.checkins_count {float:left; width:50px; height:50px; background:#6699FF;font-size:40px; line-height:50px;text-align:center; margin-right:10px; color:white;}
+.checkin_form{text-align:right;}
+
 
 
 /*Errors*/
@@ -137,7 +155,6 @@ input {
     margin: 0 0 18px 0;
   }
 }
-
 
 .field_with_errors {
   @extend .control-group;

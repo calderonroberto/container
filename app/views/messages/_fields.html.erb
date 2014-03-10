@@ -1,9 +1,8 @@
 <%= render 'shared/error_messages', object: f.object %>
 
 <%= f.hidden_field :display_id, :value => @display_id %>
+<%= f.hidden_field :from_id, :value => @user.id %>
+<%= f.hidden_field :to_id, :value => @user_to_display.id %>
 
-<%= f.label :from %>
-<%= f.text_field :from %>
-    
 <%= f.label :message %>
 <%= f.text_area :message %>

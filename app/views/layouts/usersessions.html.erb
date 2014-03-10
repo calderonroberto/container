@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>MAGIC Container</title>
+
+  <%= javascript_include_tag  "application" %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+
+  <!-- responsive css for mobile-->
+  <%= stylesheet_link_tag "bootstrap-responsive.min", :media => "all" %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> 
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+
+<%= yield %>
+
+<!-- Place js at end of file so that page loads faster --> 
+<%= javascript_include_tag "application" %>
+<%= javascript_include_tag "mobile" %>
+
+</body>
+</html>

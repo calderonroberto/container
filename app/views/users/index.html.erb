@@ -1,0 +1,10 @@
+<% @users.each do |user| %>
+<div class="userlistitem" id="<%= user.id %>" >
+
+<%= link_to image_tag(user.thumbnail_url, :border => 0, :width => 50, :height => 50, :id => user.id), {:action => 'new', :controller => 'messages', :user_id => user.id, :class => 'user_thumb'}, {id: user.id} %>
+
+<%= link_to user.name, {:action => 'new', :controller => 'messages', :user_id => user.id}, {id: user.id} %>
+
+</div>
+<% end %>
+

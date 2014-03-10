@@ -1,0 +1,10 @@
+<div class="checkin_form" id="<%=user.id%>">
+
+<% if checkin_today[0] %>
+    <%= render 'checkins/uncheckin', :user => user, :display => display %>
+<% else %>
+    <%= render 'checkins/checkin', :user => user, :display => display %>
+<% end %>
+
+</div>
+

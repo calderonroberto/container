@@ -1,9 +1,32 @@
+
 <div class="row">
   <div class="span3 offset1">
-    <h2>Send a message</h2>
-    <%= form_for(@message) do |f| %>     
+    <div class="profile_picture">
+    <%= image_tag @user_to_display.picture_url, :border => 0, :id => @user_to_display.id, :class => "profile_picture", :alt => "profile_picture" %>
+    </div>
+    <div class="profile_name"><%= @user_to_display.name %></div>
+  
+    <h2>Send a Message</h2>
+    <%= form_for (@message) do |f| %>
       <%= render 'messages/fields', f: f %><br>
       <%= f.submit "Send", class: "btn btn-large btn-primary" %> 
     <% end %>
+
+    <div class="messages">
+      <% @messages.each do |message| %>
+        <div class ='<%= message.from.to_s == @user.id.to_s ? "from" : "to" %>' >    
+          <%= message.message %> 
+          <p class="date">
+            <%= message.created_at.strftime("%Y-%m-%d (%H:%M)") %>
+            <img src='<%= message.from.to_s == @user.id.to_s ? @user.thumbnail_url : @user_to_display.thumbnail_url %>' class="message_thumbnail">
+          </p>
+        </div>
+
+      <% end %>
+    </div>
+
   </div>
 </div>
+
+
+

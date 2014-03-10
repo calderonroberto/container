@@ -69,6 +69,8 @@ Container::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
+  # For device facebook
+  config.action_mailer.default_url_options = { :host => 'container.icd.magic.ubc.ca' }
 
   #config.paperclip_defaults = {
   #  :storage => :s3,
@@ -89,5 +91,10 @@ Container::Application.configure do
       :fog_host => "",
       :command_path => "/usr/bin/"
   }
+
+  #Facebook app keys
+  ENV['APP ID'] = "452405111537046";
+  ENV['SECRET KEY'] = "36159010d339ec21eca36aed4145a976";
+
 
 end
