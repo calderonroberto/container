@@ -25,6 +25,6 @@ production:
   #timeout: 5000
   adapter: mysql
   encoding: utf8
-  database: container
-  username: container
+  database: icd
+  username: icd
   password: aMUSEment2
