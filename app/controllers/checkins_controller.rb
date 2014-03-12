@@ -30,7 +30,7 @@ class CheckinsController < ApplicationController
   def show
     @display = Display.find_by_unique_id(params[:id])
     @display_id = params[:id]
-    @user = User.find_by_id(session[:user_id])
+    @user = User.find_by_id(cookies[:user_id])
     users = User.all
     @userlist = []
     users.each do |u|     

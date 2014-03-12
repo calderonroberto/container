@@ -23,8 +23,9 @@ production:
   #database: db/production.sqlite3
   #pool: 5
   #timeout: 5000
-  adapter: mysql
+  adapter: mysql2
   encoding: utf8
   database: icd
   username: icd
   password: aMUSEment2
+  reconnect: true

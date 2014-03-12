@@ -22,7 +22,7 @@
 		*/
 	
 		/*Deployment*/		
-		var id = getURLParameter("displayId");
+		var id = getURLParameter("display_id");
 		$.getJSON("/api/"+id+"/analytics", function(data) {
 			pjs.initCircles(data);
 		});
@@ -31,7 +31,7 @@
 			
 	function updateCircles (id) {
 		var pjs = Processing.getInstanceById(id);
-		var id = getURLParameter("displayId");
+		var id = getURLParameter("display_id");
 		$.getJSON("/api/"+id+"/analytics", function(data) {
 			pjs.updateCircles(data);
 		});
