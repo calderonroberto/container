@@ -124,7 +124,7 @@ p {
 
 /*Forms*/
 textarea {
-  height:6em;
+  height:3em;
   width: 100%;
 }
 
@@ -139,12 +139,19 @@ input {
 }
 
 /*Checkins*/
-.userlistitem {margin: 5px 5px; background:#F0F0F0; margin-right:10px; padding:5px 5px;height:80px;} 
+.userlistitem {margin: 5px 5px; background:#F0F0F0; margin-right:10px; padding:5px 5px;height:80px;}
+.userlistitem a {font-size:20px; font-style:bold; padding-left:10px; line-height:50px;} 
 .checkins_user_img{float:left; width:50px; height:50px; margin-right:10px;}
 .checkins_user_name {float:left;}
 .checkins_count {float:left; width:50px; height:50px; background:#6699FF;font-size:40px; line-height:50px;text-align:center; margin-right:10px; color:white;}
 .checkin_form{text-align:right;}
 
+/*Scanner apps*/
+.qr-scanner-list {position:absolute; bottom:5px; right:5px; background:#F0F0F0; text-align: center; border-radius: 5px; padding: 5px 5px; }
+.qr-scanner {height: 30px; margin: 2px 2px;}
+
+/*Tutorial*/
+.tutorial-text {font-size:100%; background: #DDFFFF; border-radius: 5px; padding: 5px 5px; margin: 5px 5px;}
 
 
 /*Errors*/
@@ -171,4 +178,7 @@ input {
   width:0px;
   heigth:0px;
 }
+
+
+
 

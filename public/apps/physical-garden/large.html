@@ -37,7 +37,7 @@
 	}
 
 	function updateCheckins () {
-		var id = getURLParameter("displayId");
+		var id = getURLParameter("display_id");
 		$.getJSON("/api/"+id+"/checkins", function(data) {
 			//pjs.updateCircles(data);
 			$(".person").remove();

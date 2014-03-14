@@ -6,7 +6,8 @@ class StagingsController < ApplicationController
 
   def create
     @app = App.find(params[:staging][:app_id])
-    @display = Display.find(current_display).stage!(@app)
+    @display = Display.find(current_display)
+    @display.stage!(@app)
     broadcast_state(current_display) #broadcast state change
     #log_usage
     if (Container::Application.config.log_usage)

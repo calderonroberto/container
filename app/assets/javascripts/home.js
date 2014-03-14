@@ -49,7 +49,7 @@ function updateNotes (notes) {
   $.each(notes, function() {
     var from = $(this)[0].from;
     var message = $(this)[0].message;
-    $(".messageboard").append("<div class='note'><b>"+from+": </b>"+message);
+    $(".messageboard").append("<div class='note'>"+message+"</div>");
     if (notecount > 4) {
       $(".messageboard :last-child").remove()
     }; 

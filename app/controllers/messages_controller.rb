@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
  
- before_filter :only => [:new, :create] do |c| c.signed_in_user params[:id] end 
+ before_filter :only => [:new, :create] do |c| c.signed_in_user params[:id], params[:display_name]  end 
 
  def new
    @display_id = params[:id]

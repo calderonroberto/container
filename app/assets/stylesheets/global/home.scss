@@ -10,7 +10,7 @@
   /*width: 80px; 10%*/
   /*height: 380px;90%*/
   width: 10%;
-  height:70%;
+  height:60%;
   .available {
     width:10%;
     float:right;
@@ -50,20 +50,20 @@
   /*width: 650px;89%*/
   /*height: 380px; 90%*/
   width: 90%;
-  height: 90%; 
+  height: 80%; 
   overflow:hidden;
   scrolling:no;
 }
 
 .messageboard {
-  position:fixed;
-  top:90%;
+  position:absolute;
+  top:80%;
   left:0px;
   //background-color:blue;
   /*width: 730px;100%*/
   /*height: 40px;9%*/
   width: 90%;
-  height: 9%;
+  height: 15%;
   margin-right:auto;
   margin-left:auto;
   float:left;
@@ -79,7 +79,7 @@
   margin:5px;
   float:left;
 
-  font-size: 0.7em;
+  font-size: 80%;
   font-style: normal;
   text-align: left;
 
@@ -87,18 +87,24 @@
 
 
 .qrcode {
-  position:fixed;
-  bottom: 6%;
+  position:absolute;
+  bottom: 10%;
   right: 0%;
-  width: 9%;
-  height: 9%;  
-
+  width: 10%;
   text-align: right;   
 }
 
 .qrcodeurl {
   position:fixed;
-  top:1%;
-  left:1%;
+  bottom:0%;
+  left:0%;
+  line-height:40px;
+  font-size:40px;
+  text-align:center;
+  background:black;
+  color:white;
+  padding:10px 10px;
+  width:100%;
+  height:5%;
 }
 

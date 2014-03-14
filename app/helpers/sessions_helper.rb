@@ -61,8 +61,14 @@ module SessionsHelper
     redirect_to '/mobile/'+cookies[:display_id]
   end
 
-  def signed_in_user(display_id)
-    cookies[:display_id] = display_id
+  def signed_in_user(display_id, display_name)
+    if display_id.present?   
+      cookies[:display_id] = display_id
+    end
+    if display_name.present?
+      display = Display.find_by_name(display_name)
+      cookies[:display_id] = display.unique_id
+    end        
     unless signed_in_user?
       store_location
       redirect_to signinuser_url, notice: "Please sign in."

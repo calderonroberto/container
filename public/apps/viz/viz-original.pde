@@ -84,20 +84,24 @@ float CIRCLE_MOVEMENT = 0.0005;
   }
 
   void mousePressed() {
+    /*
     for (int p=0, end=persons.length; p<end;p++){
       Person person = (Person) persons[p];
       if (mouseX > person.x-20 && mouseX < person.x +20 && mouseY > person.y-20 && mouseY < person.y+20){
 	person.links = true;
       }
     }
+    */
   }
 
   void mouseReleased() {
+    /*
     for (int p=0, end=persons.length; p<end;p++){
       Person person = (Person) persons[p];
         person.links = false;
      
     }
+    */
   }
 
 

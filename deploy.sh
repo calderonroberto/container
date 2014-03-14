@@ -27,3 +27,9 @@ killall nginx
 echo restarting nginx
 /etc/init.d/nginx restart
 
+echo restarting workers
+cd /var/www/icd
+sh start-workers.sh stop
+sh start-workers.sh start
+
+

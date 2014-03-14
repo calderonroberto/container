@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
 
-before_filter :only => [:new, :create] do |c| c.signed_in_user params[:id] end 
+before_filter :only => [:new, :create] do |c| c.signed_in_user params[:id], params[:display_name] end 
 
 def new
  @display_id = params[:id]
@@ -20,7 +20,8 @@ def create
   @display_id = display.unique_id
   @note = display.notes.build(from: params[:note][:user_id], message: params[:note][:message])
   if @note.save
-    broadcast_state(display)
+    #TODO: removed because unkown key "created_at" at faye_broadcaster.rb:9.
+    #broadcast_state(display) 
     #log_usage
     if (Container::Application.config.log_usage)
       Log.create(controller: 'notes', method: 'create', user_id: @user.id, display_id: @display_id, params: params, remote_ip: request.remote_ip)

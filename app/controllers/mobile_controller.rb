@@ -1,6 +1,6 @@
 class MobileController < ApplicationController
 
-before_filter :only => [:index, :show] do |c| c.signed_in_user params[:id] end 
+before_filter :only => [:index, :show] do |c| c.signed_in_user params[:id], params[:display_name] end 
 
 def index
  if params[:display_name].present?
@@ -22,13 +22,15 @@ end
 
 def show
  @app = App.find_by_id(params[:app_id])
- @display_id = session[:display_id]
+ @display_id = cookies[:display_id]
  @display = Display.find_by_unique_id(@display_id)
  @display.stage!(@app)
  @display_id_param = @display_id.to_query("display_id")
  @thingbroker_url_param = @display.setup[:thingbroker_url].to_query("thingbroker_url")
  @user = User.find_by_id(cookies[:user_id])
- broadcast_state(@display)
+ #TODO: results in a "undefined method `unique_id' for nil:NilClass in faye_broadcaster worker.
+ #broadcast_state(@display_id)
+
  #log_usage
  if (Container::Application.config.log_usage)
    Log.create(controller: 'mobile', method: 'index', user_id: @user.id, display_id: @display_id, app_id: @app.id, params: params, remote_ip: request.remote_ip )

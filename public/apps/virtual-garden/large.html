@@ -32,7 +32,7 @@
 	}
 
         function getData() {
-		var id = getURLParameter("displayId");
+		var id = getURLParameter("display_id");
 		$.getJSON("/api/"+id+"/analytics", function(data) {
         	        drawPlants(data);
 		});

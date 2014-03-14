@@ -11,11 +11,12 @@
 </div>
 
 <div class="qrcode">
+<img src="/img/scan.png">
 <%= image_tag "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=#{@qrcodeurl}&choe=UTF-8"%>
 </div>
 
 <div class="qrcodeurl">
-<p>Scan QR Code, or visit <%= @texturl %></p>
+<%= @texturl %>
 </div>
 
 

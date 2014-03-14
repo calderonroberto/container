@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
  
- before_filter :only => [:index] do |c| c.signed_in_user params[:id] end 
+ before_filter :only => [:index] do |c| c.signed_in_user params[:id], params[:display_name] end 
 
  def index
    @display_id = cookies[:display_id]

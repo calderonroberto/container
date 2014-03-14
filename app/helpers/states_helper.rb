@@ -2,8 +2,8 @@ require 'display_state'
 
 module StatesHelper
 
- def broadcast_state(display)
-    Resque.enqueue(FayeBroadcaster, display.id)
+ def broadcast_state(display_id)
+    Resque.enqueue(FayeBroadcaster, display_id)
  end
 
  # instead of using resque (i.e. the appropriate way) you could make
