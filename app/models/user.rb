@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :uid, :name, :provider, :password, :token, :thumbnail_url, :picture_url, :friends
 
-  has_many :checkins, dependent: :destroy #making sure that microposts are destroyed when a user is
+  has_many :checkins, dependent: :destroy #making sure that checkins are destroyed when a user is
+  has_many :registrations, dependent: :destroy #making sure that registrations are destroyed when a user is
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
    #user = User.where(:provider => auth.provider, :uid => auth.uid).first #TODO: remove after checking it works

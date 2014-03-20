@@ -5,7 +5,8 @@ class AnalyticsController < ApplicationController
     # [{ user:{id, name},data:{messages_sent, checkins}, links[{user_id,messages_sent, messages_received,reciprocity_ratio},{...}] }, {...}]
     display = Display.find_by_unique_id(params[:display_id])
     @response = Array.new
-    users = User.all
+    #users = User.all
+    users = User.where('users.id != ?', '0').joins(:registrations).where('registrations.display_id' => display.unique_id)
     users.each do |user|
       user_hash = Hash.new
       user_hash["user"] = {id: user.id, name: user.name}

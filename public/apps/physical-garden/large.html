@@ -13,12 +13,13 @@
 	#count_value {color:white; font-size:80px; text-align:center;font-family:"Arial", sans-serif;vertical-align:text-top;}
 	#count_message {color:white; font-size:15px; text-align:center;font-family:"Arial", sans-serif;}
 
-	#instructions {background-color:orange;position:absolute; right:20px; top:30px; width:160px; height: 200px; text-align: center;padding:15px 15px;border-radius: 15px; align:center;}
+	#instructions {background-color:orange;position:absolute; right:20px; bottom:50px; width:40%; text-align: center;padding:15px 15px; border-radius: 15px; align:center;}
 	#instructions_code {background-color:white; }
-	#instructions_text {color:white; font-size:15px;font-family:"Arial", sans-serif;vertical-align:text-top;margin-bottom:10px;}
+	#instructions_text {color:white; font-size:20px;font-family:"Arial", sans-serif;vertical-align:text-top;margin-bottom:10px;}
 
 
-	#garden {margin-left:auto; margin-right:auto; text-align:center; position:absolute; bottom:60px; left:180px;}
+	#garden {text-align:center; width: 50%; height:50%; margin-left:auto; margin-right:auto;}
+ 	#garden img {max-height: 75%; max-width:75%; }
 
         #people {position:absolute; top:170px; left:50px; width: 160px; background:#66CC33; border-radius: 10px; color:white; padding:5px 5px; text-align:center; font-weight:bold;}
 	.person {color:white; font-size: 10pt; height:10px; text-align:center; font-weight:normal;}
@@ -76,14 +77,16 @@
 
 <div id="watergarden">
 
-  <div id="garden"><img src="garden-small.png" width="200px" height="200px"/></div>
+  <div id="garden"><img src="garden.png"/></div>
 
-<!--
+
   <div id="instructions">
-	<div id="instructions_text">To water garden visit<br>icd.magic.ubc.ca/test</div> 
+	<div id="instructions_text">Scan QR code, or visit URL below. <br><b>CHECKIN</b> to water the garden.</div>
+<!-- 
          <div id="instructions_code"><img src="qrcode.png" width="150px"></img></div> 
+--> 
+
   </div>
- -->
 
 
   <div id="count">

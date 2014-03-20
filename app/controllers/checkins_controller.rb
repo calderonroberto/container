@@ -18,6 +18,10 @@ class CheckinsController < ApplicationController
         @checkin = user.checkin!(display)
         broadcast_checkin(user)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper) #TODO: this is a cheap hack for garden app
       end
+      if (user.email == 'roberto.entrepreneur@gmail.com') #for demos. If roberto
+        @checkin = user.checkin!(display)
+        broadcast_checkin(user)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper) #TODO: this is a cheap hack for garden app
+      end
     end
     @user = user
     #log_usage
@@ -31,10 +35,14 @@ class CheckinsController < ApplicationController
     @display = Display.find_by_unique_id(params[:id])
     @display_id = params[:id]
     @user = User.find_by_id(cookies[:user_id])
-    users = User.all
+    users = User.where('users.id != ?', '0').joins(:registrations).where('registrations.display_id' => @display_id)
     @userlist = []
     users.each do |u|     
       usr = {user: u, checkins_count: u.checkins.where("display_id", @display.id).count, checkin_today: u.checkins.where("display_id = ? AND created_at >= ?", @display.id, Time.zone.now.beginning_of_day) }
+     if (u.email == 'roberto.entrepreneur@gmail.com') #for demos. If roberto
+       usr["checkin_today"] = nil
+     end
+
       @userlist << usr
     end
     #log_usage

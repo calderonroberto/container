@@ -13,6 +13,7 @@ def index
  session[:display_id] = display.unique_id #cookies not accessible in controller below, using session instead (leaving cookies to not break other parts of app)
  @display_id = display.unique_id
  @user = User.find_by_id(cookies[:user_id])
+ Registration.create(user_id: @user.id, display_id: @display_id) #register that this user has visited this thid splay
  #log usage
  if (Container::Application.config.log_usage)
    Log.create(controller: 'mobile', method: 'index', user_id: @user.id, display_id: @display_id, params: params, remote_ip: request.remote_ip )

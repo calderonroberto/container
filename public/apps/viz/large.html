@@ -44,7 +44,7 @@
 		setInterval(function() {
 		//setTimeout(function() {
 			updateCircles('favours');
-		}, 600000);						
+		}, 60000);//1 min						
 	});
 
 
@@ -357,9 +357,19 @@
 
     </script>
 
+  <style type="text/css">
+	#instructions {background-color:orange;position:absolute; right:10px; bottom:10px; width:30%; text-align: center;padding:5px 5px; border-radius: 5px; align:center;}
+	#instructions_text {color:white; font-size:12px;font-family:"Arial", sans-serif;vertical-align:text-top;}
+  </style>
+
   </head>
   <body>
     <!--<canvas id="favours" data-processing-sources="favours.pde"></canvas> -->
     <canvas id="favours"></canvas>
+
+  <div id="instructions">
+	<div id="instructions_text">Scan QR code, or visit URL below. <br><b>CHECKIN</b> to water the garden.</div>
+  </div>
+
   </body>
 </html>
