@@ -9,8 +9,8 @@
   <style type="text/css">
 	#grass {background-image: url(grass.gif); width:100%; height:100px; position:absolute; bottom:0;}
 
-	#count {background:#66CC33; width:120px; height:120px; border-radius: 15px; position:absolute; top:30px; left:30px;}
-	#count_value {color:white; font-size:80px; text-align:center;font-family:"Arial", sans-serif;vertical-align:text-top;}
+	#count {background:#66CC33; width:120px; height:125px; border-radius: 15px; position:absolute; top:30px; left:30px;}
+	#count_value {color:white; font-size:80px; line-height:80px; text-align:center;font-family:"Arial", sans-serif;vertical-align:text-top;}
 	#count_message {color:white; font-size:15px; text-align:center;font-family:"Arial", sans-serif;}
 
 	#instructions {background-color:orange;position:absolute; right:20px; bottom:50px; width:40%; text-align: center;padding:15px 15px; border-radius: 15px; align:center;}
@@ -81,7 +81,7 @@
 
 
   <div id="instructions">
-	<div id="instructions_text">Scan QR code, or visit URL below. <br><b>CHECKIN</b> to water the garden.</div>
+	<div id="instructions_text">Scan QR code, or visit URL below. <br>Then <b>CHECKIN</b> to water the garden.</div>
 <!-- 
          <div id="instructions_code"><img src="qrcode.png" width="150px"></img></div> 
 --> 
@@ -91,12 +91,12 @@
 
   <div id="count">
 	<div id="count_value">0</div>
-	<div id="count_message">have watered.</div>
+	<div id="count_message">people have watered.</div>
   </div>
 
 
   <div id="people">
-	Last five helpers:  
+	Last five checkins:  
   </div>
 
 </div>

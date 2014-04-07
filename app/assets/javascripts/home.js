@@ -15,9 +15,11 @@ function stateHandler (json) {
   var display_id = json.display.id;
   var thingbroker_url = encodeURIComponent(json.setup.thingbroker_url)
   var notes = json.notes;
+  var interaction = json.interaction;
   if (typeof apps != 'undefined' ){ updateAppMenu(apps) };
   if (typeof staged_app != 'undefined' && staged_app != null){ updateAppContainer(staged_app, display_id, thingbroker_url) };
   if (typeof notes != 'undefined' ){ updateNotes(notes) };
+  if (typeof interaction != 'undefined' ){ updateInstructions(interaction) };
 };
 
 //use long-polling with faye to update DOM as needed.
@@ -33,6 +35,16 @@ $(function() {
   });
 */
 });
+
+function updateInstructions (interaction) {
+  if (interaction.interacting == "false") {
+     $("#interact-instructions").show("slow");
+  } 
+  if (interaction.interacting == "true") {
+     $("#interact-instructions").hide("slow");   
+  }
+
+}
 
 function updateAppContainer (staged_app, display_id, thingbroker_url) {
   if ($('.appcontainer').attr('id') != staged_app.id) {

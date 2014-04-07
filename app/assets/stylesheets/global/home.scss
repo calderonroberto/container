@@ -5,12 +5,16 @@
   position:fixed;
   left:90%;
   top:0px;
-  text-align:right;
-  //background-color:red;
+  text-align:center;
+
+  border-style:solid;
+  border-color: black;
+  border-width:1px;
+  /*background-color:gray;*/
   /*width: 80px; 10%*/
   /*height: 380px;90%*/
   width: 10%;
-  height:60%;
+  height:100%;
   .available {
     width:10%;
     float:right;
@@ -41,6 +45,25 @@
     padding-right: 10px;
     padding-top: 5px;
   }
+}
+
+#interact-instructions{
+   background-color: white;
+   align: center;
+   height:80%;
+   width:90%;
+   position:absolute;
+   top: 0;
+   left: 0;
+   z-index:1000;
+   margin-left:auto;
+   margin-right:auto;
+   margint-top:20px;
+   text-align: center;
+   font-size: 40px;
+   line-height: 40px;
+   font-color: black;
+   text-align: center;
 }
 
 .appcontainer {
@@ -90,7 +113,7 @@
   position:absolute;
   bottom: 10%;
   right: 0%;
-  width: 10%;
+  width: 9%;
   text-align: right;   
 }
 
