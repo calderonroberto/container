@@ -19,7 +19,7 @@ bundle exec rake assets:precompile --trace RAILS_ENV=production
 
 #change permissions
 echo ensuring permissions
-chown -R www-data:www-data ../icd/
+chown -R www-data:www-data ../container/
 
 #reset server
 echo killing nginx
