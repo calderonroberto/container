@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140318214751) do
+ActiveRecord::Schema.define(:version => 20140408184723) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
@@ -101,10 +101,11 @@ ActiveRecord::Schema.define(:version => 20140318214751) do
   add_index "registrations", ["user_id"], :name => "index_registrations_on_user_id"
 
   create_table "setups", :force => true do |t|
-    t.string   "thingbroker_url", :default => "http://kimberly.magic.ubc.ca:8080/thingbroker"
+    t.string   "thingbroker_url",       :default => "http://kimberly.magic.ubc.ca:8080/thingbroker"
     t.integer  "display_id"
-    t.datetime "created_at",                                                                   :null => false
-    t.datetime "updated_at",                                                                   :null => false
+    t.datetime "created_at",                                                                         :null => false
+    t.datetime "updated_at",                                                                         :null => false
+    t.boolean  "interact_instructions"
   end
 
   add_index "setups", ["display_id"], :name => "index_setups_on_display_id"

@@ -37,13 +37,17 @@ $(function() {
 });
 
 function updateInstructions (interaction) {
-  if (interaction.interacting == "false") {
-     $("#interact-instructions").show("slow");
-  } 
-  if (interaction.interacting == "true") {
-     $("#interact-instructions").hide("slow");   
-  }
-
+   if (interaction.instructions == "true") {
+      if (interaction.interacting == "false") {
+         $("#interact-instructions").show("slow");
+      } 
+      if (interaction.interacting == "true") {
+         $("#interact-instructions").hide("slow");   
+      }
+   }
+   if (interaction.instructions == "false") {
+      $("#interact-instructions").hide();   
+   }
 }
 
 function updateAppContainer (staged_app, display_id, thingbroker_url) {

@@ -8,6 +8,7 @@ describe Setup do
   subject { @setup }
  
   it { should respond_to(:thingbroker_url) }
+  it { should respond_to(:interact_instructions) }
 
   describe "it should have a default url" do
     it { should be_valid }

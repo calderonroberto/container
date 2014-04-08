@@ -7,8 +7,6 @@ describe "Setup pages" do
   let(:display) { FactoryGirl.create(:display) }
   #let(:new_app) { FactoryGirl.create(:app) }
 
-
-
   describe "when not signed in" do
     before { visit edit_setup_path(display.setup) } 
     it { should have_selector('h2', text: 'Sign in') }
@@ -22,6 +20,7 @@ describe "Setup pages" do
     it { should have_link ('Sign out') }
     it { should have_link ('Apps') }
     it { should have_xpath("//input[@id='setup_thingbroker_url']") }                 
+    it { should have_xpath("//input[@id='interact_instructions']") }                 
     it { should have_xpath("//input[@id='is_global']") }                 
   end
 
