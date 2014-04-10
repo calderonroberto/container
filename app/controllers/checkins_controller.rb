@@ -11,17 +11,18 @@ class CheckinsController < ApplicationController
     display = Display.find_by_id(params[:checkin][:display_id])
     if user.checkins.last.nil? then
       @checkin = user.checkin!(display)
-      broadcast_checkin(user)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper) #TODO: this is a cheap hack for garden app
+      broadcast_checkin(user)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper)
     else
       @checkin = user.checkins.last
       if (@checkin.created_at <= Time.zone.now.beginning_of_day) then
         @checkin = user.checkin!(display)
-        broadcast_checkin(user)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper) #TODO: this is a cheap hack for garden app
+        broadcast_checkin(user)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper)
       end
-      if (user.email == 'roberto.entrepreneur@gmail.com') #for demos. If roberto
-        @checkin = user.checkin!(display)
-        broadcast_checkin(user)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper) #TODO: this is a cheap hack for garden app
-      end
+      #TODO: REMOVE THIS
+      #if (user.email == 'roberto.entrepreneur@gmail.com') #for demos. If roberto
+      #  @checkin = user.checkin!(display)
+      #  broadcast_checkin(user)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper) 
+      #end
     end
     @user = user
     #log_usage
@@ -39,11 +40,13 @@ class CheckinsController < ApplicationController
     @userlist = []
     users.each do |u|     
       usr = {user: u, checkins_count: u.checkins.where("display_id", @display.id).count, checkin_today: u.checkins.where("display_id = ? AND created_at >= ?", @display.id, Time.zone.now.beginning_of_day) }
-     if (u.email == 'roberto.entrepreneur@gmail.com') #for demos. If roberto
-       usr["checkin_today"] = nil
-     end
 
+      #TODO: REMOVE THIS
+      #if (u.email == 'roberto.entrepreneur@gmail.com') #for demos. If roberto
+      #   usr["checkin_today"] = nil
+      #end
       @userlist << usr
+
     end
     #log_usage
     if (Container::Application.config.log_usage)
