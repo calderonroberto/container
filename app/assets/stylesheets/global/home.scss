@@ -48,7 +48,7 @@
 }
 
 #interact-instructions{
-   background-color: white;
+   background-color:white;
    align: center;
    height:80%;
    width:90%;
@@ -56,15 +56,22 @@
    top: 0;
    left: 0;
    z-index:1000;
-   margin-left:auto;
-   margin-right:auto;
-   margint-top:20px;
+}
+#instructions-block{
+   background-color: #FF6600;
+   border-radius: 15px;
+   margin: 20px;
+   padding: 20px;
    text-align: center;
    font-size: 40px;
-   line-height: 40px;
-   font-color: black;
+   line-height: 45px;
+   color: white;
    text-align: center;
+
+
+
 }
+
 
 .appcontainer {
   position:fixed;
@@ -105,9 +112,7 @@
   font-size: 80%;
   font-style: normal;
   text-align: left;
-
 }
-
 
 .qrcode {
   position:absolute;

@@ -25,7 +25,6 @@
 	.person {color:white; font-size: 10pt; height:10px; text-align:center; font-weight:normal;}
 
         #water {position:absolute; top:0; left:0; width:100%; height:2%;background:white; opacity:.9; background-image: url(rain.gif);}
-        #lastperson {background-color:#66CC33; margin:50px; padding:10px; border-radius: 10px; font-size:40px; font-weight:bold; color:white; text-align:center;}
 
   </style>
 
@@ -42,13 +41,12 @@
 		var id = getURLParameter("display_id");
 		$.getJSON("/api/"+id+"/checkins", function(data) {
 			//pjs.updateCircles(data);
-			$(".lastperson").remove();
 			$(".person").remove();
 			$.each( data, function(index,value){
 				d = new Date(value.checkin.created_at);
 				$("#people").append('<p class="person">'+value.user.name+' ('+d.getUTCDate()+'/'+(d.getMonth()+1)+')</p>');
                                 if (index == 0)
-                                        $("#lastperson").append('<p class="lastperson">Thank you '+value.user.name +'<br>for watering the garden!</p>');
+                                        $("#lastperson").append('<p class="person">Thank you '+value.user.name +'!</p>');
 				if (index == 4)
 					return false;
 
@@ -59,9 +57,14 @@
 
         
 
-	$(document).ready(function() {
-                $("#lastperson").hide();	
-	        updateCheckins();								
+	$(document).ready(function() {			
+		setTimeout(function() {
+			updateCheckins();
+		}, 500); //We need to wait for processing.js to download
+		setInterval(function() {
+		//setTimeout(function() {
+			updateCheckins();
+		}, 600000);						
 	});
 
 
@@ -88,12 +91,12 @@
 
   </div>
 
-<!--
+
   <div id="count">
 	<div id="count_value">0</div>
 	<div id="count_message">people have watered.</div>
   </div>
--->
+
 
   <div id="people">
 	Last five checkins:  
@@ -114,15 +117,11 @@
  		      //TODO: animation
  	              //var currentValue =  parseInt($("#count_value").text(),10);
                       //$("#count_value").text( currentValue+1 );
-		      $("#lastperson").show(); 
                       $("#water").animate({height:"100%"},2000, function(){     //when done
-										updateCheckins();
-										$("#lastperson").show(); 
+										console.log("thank you message");
 										setTimeout(function() {
 										  $("#water").animate({height:"1%"},6000)
-                        							  $("#lastperson").hide(); 
 										}, 8000);	
-
 									});
 
                    }
