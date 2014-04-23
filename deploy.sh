@@ -32,8 +32,8 @@ echo restarting nginx
 /etc/init.d/nginx restart
 
 #restart workers
-echo starting workers with foreman -f Procfile
-foreman start -f Procfile &
+#echo starting workers with foreman -f Procfile
+#foreman start -f Procfile &
 
 #echo restarting workers
 #cd /var/www/icd
