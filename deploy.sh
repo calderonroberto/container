@@ -11,7 +11,7 @@ bundle exec rake db:migrate RAILS_ENV="production"
 
 #remove previous assets
 echo removing previous assets
-rm -R /var/www/icd/public/assets/*
+rm -R /var/www/icd1/container/public/assets/*
  
 # precompile assets (if you need to debug delete all in /public/assets)
 echo precompiling assets
