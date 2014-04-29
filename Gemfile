@@ -23,8 +23,9 @@ gem 'thin', '1.4.1'
 #resque workers
 gem 'resque','1.22.0', :require => 'resque/server'
 
-#foreman export, use with: "bundle exec foreman export initscript /etc/init.d"
-#gem 'foreman-export-initscript', :git => 'git://github.com/lzgo/foreman-export-initscript.git'
+#foreman export, use with: "sudo bundle exec foreman export initscript /etc/init.d -u root -a icd"
+# then, to add: http://www.debian-administration.org/article/28/Making_scripts_run_at_boot_time_with_Debian
+gem 'foreman-export-initscript #', :git => 'git://github.com/lzgo/foreman-export-initscript.git'
 gem 'foreman', '0.62.0'
 
 #to deploy in heroku

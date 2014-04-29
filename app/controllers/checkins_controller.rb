@@ -6,6 +6,17 @@ class CheckinsController < ApplicationController
 
   respond_to :js
 
+  #TODO: this is temporary as a test for a demo
+  def anonymous
+    display = current_display
+    #log_usage
+    if (Container::Application.config.log_usage)
+      Log.create(controller: 'checkins', method: 'anonymous', display_id: display.id, params: params, remote_ip: request.remote_ip)
+    end
+    broadcast_checkin(nil)
+    redirect_to '/signinuser'
+  end
+
   def create 
     user = User.find_by_id(params[:checkin][:user_id])
     display = Display.find_by_id(params[:checkin][:display_id])
@@ -17,12 +28,7 @@ class CheckinsController < ApplicationController
       if (@checkin.created_at <= Time.zone.now.beginning_of_day) then
         @checkin = user.checkin!(display)
         broadcast_checkin(user)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper)
-      end
-      #TODO: REMOVE THIS
-      #if (user.email == 'roberto.entrepreneur@gmail.com') #for demos. If roberto
-      #  @checkin = user.checkin!(display)
-      #  broadcast_checkin(user)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper) 
-      #end
+      end      
     end
     @user = user
     #log_usage
@@ -40,13 +46,7 @@ class CheckinsController < ApplicationController
     @userlist = []
     users.each do |u|     
       usr = {user: u, checkins_count: u.checkins.where("display_id", @display.id).count, checkin_today: u.checkins.where("display_id = ? AND created_at >= ?", @display.id, Time.zone.now.beginning_of_day) }
-
-      #TODO: REMOVE THIS
-      #if (u.email == 'roberto.entrepreneur@gmail.com') #for demos. If roberto
-      #   usr["checkin_today"] = nil
-      #end
       @userlist << usr
-
     end
     #log_usage
     if (Container::Application.config.log_usage)

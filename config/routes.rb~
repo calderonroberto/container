@@ -31,14 +31,13 @@ Container::Application.routes.draw do
   #match '/people/user/:id', to: 'users#show', :as => :people_user #TODO: Delete
   match '/checkins/:id', to: 'checkins#show', :as => :checkins
 
-  match '/anonymouscheckin', to: 'checkins#anonymous', :as => :checkin_anonymous #TODO: change this to something with better meaning
-
   #api
   match '/api/state', to: 'states#state', :as => :api_state
   match '/api/:display_id/state', to: 'states#statedisplay', :as => :api_display_state
   match '/api/apps', to: 'apps#apps', :as => :api_apps
   match '/api/:display_id/analytics', to: 'analytics#show', :as => :api_display_analytics
   match '/api/:display_id/checkins', to: 'checkins#displaycheckins', :as => :api_display_checkins
+
 
   #resque web server
   mount Resque::Server, :at => "/resque"

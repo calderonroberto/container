@@ -131,12 +131,6 @@ textarea {
 input {
   width: 100%;
 }
-/*Images */
-
-.signin-image {
-  text-align:right;
-  padding-left:10%;
-}
 
 /*Checkins*/
 .userlistitem {margin: 5px 5px; background:#F0F0F0; margin-right:10px; padding:5px 5px;height:80px;}
@@ -145,6 +139,26 @@ input {
 .checkins_user_name {float:left;}
 .checkins_count {float:left; width:50px; height:50px; background:#6699FF;font-size:40px; line-height:50px;text-align:center; margin-right:10px; color:white;}
 .checkin_form{text-align:right;}
+
+/*User Login*/
+.usershowcase {height:60px; margin: 5px 5px; background-color:rgba(0,200,50,0.5); border-radius:5px;}
+.userlistitem-login {margin: 5px 5px; width:50px; height:50px; background:#F0F0F0; float:left; position:relative;}
+.checkins_user_img-login{width:50px; height:50px; position:absolute; top:0; left:0; }
+.checkins_count-login {width:25px; height:25px; background:#6699FF;font-size:20px; line-height:20px;text-align:center; color:white; position:absolute; z-index:10;}
+
+.signin-image {
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:-1;
+  text-align:center;
+  padding-left:10%;
+}
+.signin-intro { background-color:rgba(0,200,50,0.5); border-radius:5px; padding:5px; margin:20px; color:white; font-size:20px; line-height:20px; text-align:center;}
+.signin-button { height: 30px; text-align:center; }
+
+/*Login Study Disclaimer*/
+.studydisclaimer {font-size:8pt; line-height:9pt; margin: 5px 5px; margin-top:30px; }
 
 /*Scanner apps*/
 .qr-scanner-list {position:absolute; bottom:5px; right:5px; background:#F0F0F0; text-align: center; border-radius: 5px; padding: 5px 5px; }
