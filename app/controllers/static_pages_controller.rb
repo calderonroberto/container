@@ -16,6 +16,16 @@ class StaticPagesController < ApplicationController
     render layout: 'home'
   end
 
+  def content
+    display = Display.find_by_unique_id(params[:id])
+    sign_in(display)
+    #log_usage
+    if (Container::Application.config.log_usage)
+      Log.create(controller: 'static_pages', method: 'content', display_id: current_display.id, params: params, remote_ip: request.remote_ip)
+    end
+    redirect_to root_url
+  end
+
   def welcome
     #log_usage
     if (Container::Application.config.log_usage)

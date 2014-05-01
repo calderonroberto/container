@@ -6,6 +6,7 @@ class AdminController < ApplicationController
     @display = current_display
     @apps = App.paginate(page: params[:page], per_page: 10)
     @setup = @display.setup
+    @publicurl = "http://#{request.env['SERVER_NAME']}:#{request.env['SERVER_PORT']}/content/#{current_display.unique_id}"
 
     #log_usage
     if (Container::Application.config.log_usage)

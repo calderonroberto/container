@@ -112,6 +112,8 @@ GEM
       ruby-hmac
     foreman (0.62.0)
       thor (>= 0.13.6)
+    foreman-export-initscript (0.0.1)
+      foreman
     formatador (0.2.4)
     hashie (2.0.5)
     hike (1.2.3)
@@ -276,6 +278,7 @@ DEPENDENCIES
   faye (= 0.8.3)
   fog (= 1.10.1)
   foreman (= 0.62.0)
+  foreman-export-initscript
   jquery-rails (= 2.1.1)
   koala (= 1.8.0)
   mysql2 (= 0.3.11)

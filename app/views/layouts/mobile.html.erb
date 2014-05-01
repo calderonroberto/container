@@ -3,9 +3,8 @@
 <head>
   <title>MAGIC Container</title>
 
-  <%= javascript_include_tag  "application" %>
+  <!-- styles --> 
   <%= stylesheet_link_tag    "application", :media => "all" %>
-
   <!-- responsive css for mobile-->
   <%= stylesheet_link_tag "bootstrap-responsive.min", :media => "all" %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> 
@@ -16,8 +15,6 @@
 
 <%= render 'layouts/mobile_header' %>
 
-
-
 <div class="container">
 <% flash.each do |key, value| %>
   <%= content_tag(:div, value, class: "alert alert-#{key}") %>
@@ -27,7 +24,6 @@
 
 <!-- Place js at end of file so that page loads faster --> 
 <%= javascript_include_tag "application" %>
-<%= javascript_include_tag "mobile" %>
 
 </body>
 </html>

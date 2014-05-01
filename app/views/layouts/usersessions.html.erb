@@ -3,7 +3,7 @@
 <head>
   <title>MAGIC Container</title>
 
-  <%= javascript_include_tag  "application" %>
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
 
   <!-- responsive css for mobile-->
@@ -17,8 +17,7 @@
 <%= yield %>
 
 <!-- Place js at end of file so that page loads faster --> 
-<%= javascript_include_tag "application" %>
-<%= javascript_include_tag "mobile" %>
+<%= javascript_include_tag  "application" %>
 
 </body>
 </html>

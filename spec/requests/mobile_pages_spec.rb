@@ -18,6 +18,9 @@ describe "Mobile pages" do
   describe "visiting mobile page" do
     before { visit mobile_path(display.unique_id) }
     it { should have_link('Sign in using Facebook', href: "/users/auth/facebook") }   
+    it { should have_selector("div.signin-intro") }
+    it { should have_selector("div.signin-intro-people") }
+    it { should have_selector("div.signin-intro-text") }
   end
 
   describe "visiting mobile page signedin" do
@@ -33,6 +36,7 @@ describe "Mobile pages" do
     it { should have_link('Apps', href: "/mobile/#{display.unique_id}") }
     it { should have_link('Note', href: "/notes/new/#{display.unique_id}") }
     it { should have_link('People', href: "/people/#{display.unique_id}") }
+    it { should have_link('Signout', href: "/signoutuser") }
 
     it "should list subscribed apps leading to appropriate containers" do
       Display.find(display.id).apps.each do |app|

@@ -6,7 +6,7 @@ class CheckinBroadcaster
   # be configured for other purposes
 
   @queue = :checkins_queue  
-  def self.perform(user)
+  def self.perform(display, user)
     conn = Faraday.new(:url => 'http://kimberly.magic.ubc.ca:8080') do |faraday|
       faraday.request  :url_encoded             # form-encode POST params
       faraday.response :logger                  # log requests to STDOUT
@@ -14,10 +14,18 @@ class CheckinBroadcaster
     end
 
     # post payload as JSON instead of "www-form-urlencoded" encoding:
+
     conn.post do |req|
-      req.url '/thingbroker/things/containercheckins/events'
+      req.url "/thingbroker/things"
       req.headers['Content-Type'] = 'application/json'
-      req.body = '{ "type": "case" }'
+      req.body = "{ \"thingId\":\"checkin#{display["unique_id"]}\"}"
+    end
+
+    conn.post do |req|
+      req.url "/thingbroker/things/checkin#{display["unique_id"]}/events"
+      req.headers['Content-Type'] = 'application/json'
+      req.body = "{ \"type\":\"case\", \"user_name\":\"#{user["name"]}\" }"
+
     end
   end
   

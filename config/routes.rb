@@ -20,6 +20,7 @@ Container::Application.routes.draw do
   #large display
   match '/welcome', to: 'static_pages#welcome'
   match '/home', to: 'static_pages#home'
+  match '/content/:id', to: 'static_pages#content' #large display 
 
   #mobile display
   match 'm/:display_name', to: 'mobile#index', :as => :m
@@ -49,7 +50,7 @@ Container::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   match '/signinuser',  to: 'sessions#newuser'
-  match '/signoutuser', to: 'sessions#destroyuser'
+  match '/signoutuser', to: 'sessions#destroyuser', :as => :signoutuser
 
   # THIS MUST BE THE LAST ROUTE!
   #404 errors

@@ -133,20 +133,27 @@ input {
 }
 
 /*Checkins*/
-.userlistitem {margin: 5px 5px; background:#F0F0F0; margin-right:10px; padding:5px 5px;height:80px;}
-.userlistitem a {font-size:20px; font-style:bold; padding-left:10px; line-height:50px;} 
+.userlistitem {margin-bottom: 20px; background:#F0F0F0; padding:5px 5px; border-style:solid; border-color:#D0D0D0}
+.checkin-button {margin-top: 5px;}
+.userlistitem a {font-size:20px; font-style:bold; padding-left:10px; line-height:50px;}
 .checkins_user_img{float:left; width:50px; height:50px; margin-right:10px;}
 .checkins_user_name {float:left;}
 .checkins_count {float:left; width:50px; height:50px; background:#6699FF;font-size:40px; line-height:50px;text-align:center; margin-right:10px; color:white;}
-.checkin_form{text-align:right;}
+.checkin_form{clear:both; text-align:right;}
 
 /*User Login*/
-.usershowcase {height:60px; margin: 5px 5px; background-color:rgba(0,200,50,0.5); border-radius:5px;}
-.userlistitem-login {margin: 5px 5px; width:50px; height:50px; background:#F0F0F0; float:left; position:relative;}
-.checkins_user_img-login{width:50px; height:50px; position:absolute; top:0; left:0; }
-.checkins_count-login {width:25px; height:25px; background:#6699FF;font-size:20px; line-height:20px;text-align:center; color:white; position:absolute; z-index:10;}
+.signin-intro { background-color:rgba(0,153,51,0.7); border-radius:5px; padding:5px; margin:20px; color:white; font-size:20px; line-height:25px; text-align:center;}
+.userlistitem-login {margin: 5px 5px; width:50px; height:50px; background:#F0F0F0; float:right; position:relative;}
+  .user_img-login{width:50px; height:50px; position:absolute; top:0; left:0; }
+  .checkins_count-login {width:25px; height:25px; background:#6699FF;font-size:20px; line-height:20px;text-align:center; color:white; position:absolute; z-index:10;}
+.signin-intro-text {clear:both;} //clear float
+.signin-button {height: 30px; text-align:center;}
 
 .signin-image {
+  padding-left:10%;
+}
+
+.signin-image-mobile {
   position:absolute;
   top:0;
   left:0;
@@ -154,8 +161,8 @@ input {
   text-align:center;
   padding-left:10%;
 }
-.signin-intro { background-color:rgba(0,200,50,0.5); border-radius:5px; padding:5px; margin:20px; color:white; font-size:20px; line-height:20px; text-align:center;}
-.signin-button { height: 30px; text-align:center; }
+
+
 
 /*Login Study Disclaimer*/
 .studydisclaimer {font-size:8pt; line-height:9pt; margin: 5px 5px; margin-top:30px; }

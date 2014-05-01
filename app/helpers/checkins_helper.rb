@@ -1,7 +1,7 @@
 module CheckinsHelper
 
- def broadcast_checkin(user)
-    Resque.enqueue(CheckinBroadcaster, user)
+ def broadcast_checkin(display, user)
+    Resque.enqueue(CheckinBroadcaster, display, user)
  end
 
 end

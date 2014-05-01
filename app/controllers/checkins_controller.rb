@@ -6,28 +6,25 @@ class CheckinsController < ApplicationController
 
   respond_to :js
 
-  #TODO: this is temporary as a test for a demo
-  def anonymous
-    display = current_display
-    #log_usage
-    if (Container::Application.config.log_usage)
-      Log.create(controller: 'checkins', method: 'anonymous', display_id: display.id, params: params, remote_ip: request.remote_ip)
-    end
-    broadcast_checkin(nil)
-    redirect_to '/signinuser'
-  end
-
   def create 
     user = User.find_by_id(params[:checkin][:user_id])
     display = Display.find_by_id(params[:checkin][:display_id])
+
+
+
+    if user[:email] == "anonymous@email.com" then 
+      @checkin = user.checkin!(display)
+      broadcast_checkin(display, user)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper)
+    end
+
     if user.checkins.last.nil? then
       @checkin = user.checkin!(display)
-      broadcast_checkin(user)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper)
+      broadcast_checkin(display, user)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper)
     else
       @checkin = user.checkins.last
       if (@checkin.created_at <= Time.zone.now.beginning_of_day) then
         @checkin = user.checkin!(display)
-        broadcast_checkin(user)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper)
+        broadcast_checkin(display, user)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper)
       end      
     end
     @user = user

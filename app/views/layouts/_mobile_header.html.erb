@@ -1,14 +1,28 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+
   <div class="navbar-inner">
-      <% #<div class="nav-collapse collapse"> %>
-        <ul class="nav pull-right">
+
+     <div class="nav pull-right">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+     <button type="button" class="btn bg-primary">Menu</button>
+
+      <%= image_tag @user.thumbnail_url,  size: "40x40" %>
+      </a> 
+     </div>
+
+     <div class="nav-collapse collapse">
+        <ul class="nav pull-left">
           <li><%= link_to "Apps", mobile_path(@display_id) %></li>
           <li><%= link_to "Note", notes_new_path(@display_id) %></li>
           <li><%= link_to "Checkin", checkins_path(@display_id) %></li>
           <li><a href='<%= "/people/#{@display_id}" %>'>People</a></li>
-          <%= image_tag @user.thumbnail_url,  size: "40x40" %>
+          <li><%= link_to "Signout", signoutuser_path %></li>
         </ul>
-      <% #</div> %>
+      </div>
+
   </div>
-</div>
+</nav>
+
+
 
