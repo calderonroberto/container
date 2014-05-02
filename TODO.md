@@ -14,4 +14,5 @@
 
 + rspec tests for registrations model (belongs to user)
 + modify rspec for users to add registrations
++ messages:read boolean false default
 

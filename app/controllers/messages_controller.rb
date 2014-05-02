@@ -7,6 +7,12 @@ class MessagesController < ApplicationController
    @user = User.find_by_id(cookies[:user_id])
    @user_to_display = User.find_by_id(params[:user_id])
    @messages = Message.where(:to => [@user_to_display.id, @user.id], :from => [@user.id, @user_to_display.id]).order("created_at DESC")
+   #@messages.last.update_attributes(read: true)
+
+   unread_message = Message.where(:to => [@user.id], :from => [@user_to_display.id]).last
+   unless unread_message.nil? then
+     unread_message.update_attributes(read:true)
+   end
 
    @message = Message.new
    #log_usage

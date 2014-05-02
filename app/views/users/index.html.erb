@@ -1,5 +1,5 @@
 <div class="tutorial-text">
-These are people you can interact with. Tap on their name to message them.
+These are people you can talk to. Tap on their name to message them. Red envelopes indicate unread messages.
 </div>
 
 <% @users.each do |user| %>
@@ -8,6 +8,11 @@ These are people you can interact with. Tap on their name to message them.
 <%= link_to image_tag(user.thumbnail_url, :border => 0, :width => 50, :height => 50, :id => user.id), {:action => 'new', :controller => 'messages', :user_id => user.id, :class => 'user_thumb'}, {id: user.id} %>
 
 <%= link_to user.name, {:action => 'new', :controller => 'messages', :user_id => user.id}, {id: user.id} %>
+
+<% if ( @user.has_unread_messages_from(user) ) then %>
+<span class="glyphicon glyphicon-envelope unreadmessageflash"></span>
+
+<% end %>
 
 </div>
 <% end %>

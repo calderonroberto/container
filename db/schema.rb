@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140408184723) do
+ActiveRecord::Schema.define(:version => 20140502201718) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
@@ -72,8 +72,9 @@ ActiveRecord::Schema.define(:version => 20140408184723) do
     t.string   "from"
     t.string   "message"
     t.string   "to"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "read",       :default => false
   end
 
   add_index "messages", ["from"], :name => "index_messages_on_from"

@@ -16,6 +16,16 @@ class User < ActiveRecord::Base
   has_many :checkins, dependent: :destroy #making sure that checkins are destroyed when a user is
   has_many :registrations, dependent: :destroy #making sure that registrations are destroyed when a user is
 
+  def has_unread_messages_from(user)
+    #return !Message.where(:to => self.id).last.read
+    unread_message = Message.where(:to => [self.id], :from => [user.id]).last
+    if !unread_message.nil? then
+      return !unread_message.read
+    else
+      return false
+    end
+  end
+
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
    #user = User.where(:provider => auth.provider, :uid => auth.uid).first #TODO: remove after checking it works
     user = User.where(:provider => auth["provider"], :uid => auth["uid"]).first

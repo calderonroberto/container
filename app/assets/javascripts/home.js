@@ -60,8 +60,7 @@ function updateAppContainer (staged_app, display_id, thingbroker_url) {
 
 function updateNotes (notes) {
   var notecount = notes.length;
- 
-  $(".messageboard").empty()
+  $(".note").remove()
   $.each(notes, function() {
     var from = $(this)[0].from;
     var message = $(this)[0].message;

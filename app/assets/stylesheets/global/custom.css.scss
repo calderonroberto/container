@@ -67,6 +67,15 @@ p {
   .message_thumbnail { height: 30px; width: 30px; padding-right: 10px;} 
  }
 
+.unreadmessageflash {
+    color:white;
+    background:red;
+    border-radius:5px;
+    padding:5px;
+    margin:1px;
+    float:right;
+    font-height:10px;
+}
 
 /*Apps*/
 
@@ -89,7 +98,7 @@ p {
     float:left;
     width:60px;
     height:60px;
-    margin-right: 10px;
+    margin-right: 10px;    
   }
   .description {
     display: block;
