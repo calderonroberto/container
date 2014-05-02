@@ -1,5 +1,7 @@
 #!/bin/sh
- 
+chown -R magiclab:magiclab ../
+sudo -u magiclab git pull
+
 #put all our needed gems in vendors 
 echo building gems
 bundle install --path vendor/bundle
