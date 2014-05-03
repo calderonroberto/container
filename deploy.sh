@@ -8,8 +8,8 @@ bundle install --path vendor/bundle
 
 #migrate anything new
 echo running migrations
-bundle exec rake db:migrate
 bundle exec rake db:migrate RAILS_ENV="production" 
+bundle exec rake db:seed RAILS_ENV="production"
 
 #remove previous assets
 echo removing previous assets
