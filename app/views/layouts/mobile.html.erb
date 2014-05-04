@@ -3,6 +3,9 @@
 <head>
   <title>MAGIC Container</title>
 
+  <!-- We need JS here to run document.ready scripts for mobile --> 
+
+
   <!-- styles --> 
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <!-- responsive css for mobile-->
@@ -23,7 +26,7 @@
 </div>
 
 <!-- Place js at end of file so that page loads faster --> 
-<%= javascript_include_tag "application" %>
-
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "mobile" %>
 </body>
 </html>
