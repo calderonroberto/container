@@ -7,25 +7,28 @@
 
 <!-- 2) Use CSS to make things pretty -->
   <style type="text/css">
+        body{background-color:white;}
 	#grass {background-image: url(grass.gif); width:100%; height:100px; position:absolute; bottom:0;}
+        #cloud {background-image: url(cloud.png); width:315px; height:139px; position:absolute; left:-3150px; top:0;}
 
 	#count {background:#66CC33; width:120px; height:125px; border-radius: 15px; position:absolute; top:30px; left:30px;}
 	#count_value {color:white; font-size:80px; line-height:80px; text-align:center;font-family:"Arial", sans-serif;vertical-align:text-top;}
 	#count_message {color:white; font-size:15px; text-align:center;font-family:"Arial", sans-serif;}
 
-	#instructions {background-color:orange;position:absolute; right:20px; bottom:50px; width:40%; text-align: center;padding:15px 15px; border-radius: 15px; align:center;}
+	#instructions {background-color:orange;position:absolute; right:20px; bottom:50px; width:50%; text-align: center;padding:15px 15px; border-radius: 15px; align:center;}
 	#instructions_code {background-color:white; }
 	#instructions_text {color:white; font-size:20px;font-family:"Arial", sans-serif;vertical-align:text-top;margin-bottom:10px;}
 
 
-	#garden {text-align:center; width: 50%; height:50%; margin-left:auto; margin-right:auto;}
+	#garden {text-align:center; width: 50%; height:50%; margin-left:auto; margin-right:0px;}
  	#garden img {max-height: 75%; max-width:75%; }
 
-        #people {position:absolute; top:170px; left:50px; width: 160px; background:#66CC33; border-radius: 10px; color:white; padding:5px 5px; text-align:center; font-weight:bold;}
-	.person {color:white; font-size: 10pt; height:10px; text-align:center; font-weight:normal;}
+        #people {position:absolute; top:100px; left:50px; width: 260px; background:#66CC33; border-radius: 10px; color:white; padding:5px 5px; text-align:center; font-weight:bold; font-size:20px;}
+	.person {color:white; font-size: 15px; height:10px; text-align:center; font-weight:normal;}
 
         #water {position:absolute; top:0; left:0; width:100%; height:2%;background:white; opacity:.9; background-image: url(rain.gif);}
         #lastperson {background-color:#66CC33; margin:50px; padding:10px; border-radius: 10px; font-size:40px; font-weight:bold; color:white; text-align:center;}
+
 
   </style>
 
@@ -46,7 +49,11 @@
 			$(".person").remove();
 			$.each( data, function(index,value){
 				d = new Date(value.checkin.created_at);
-				$("#people").append('<p class="person">'+value.user.name+' ('+d.getUTCDate()+'/'+(d.getMonth()+1)+')</p>');
+                                var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+
+///document.write("The current month is " + monthNames[d.getMonth()]);
+
+				$("#people").append('<p class="person">'+value.user.name+' ('+monthNames[d.getMonth()]+' '+d.getUTCDate()+')</p>');
                                 if (index == 0)
                                         $("#lastperson").append('<p class="lastperson">Thank you '+value.user.name +'<br>for watering the garden!</p>');
 				if (index == 4)
@@ -60,10 +67,18 @@
         
 
 	$(document).ready(function() {
+	        //TODO: remove
+		//var id = getURLParameter("display_id");
+                //$("#checkin").attr("id","checkin"+id);
                 $("#lastperson").hide();	
-	        updateCheckins();								
+	        updateCheckins();
+                passingCloud();								
 	});
 
+        function passingCloud () {
+	    $("#cloud").css({ "left": "-315px"});	
+	    $("#cloud").animate({ "left": "100%"}, 50000, "linear", function(){passingCloud();});	               
+        } 
 
     </script>
 
@@ -74,10 +89,11 @@
 
 <!-- 3) Declare your document structure -->
 <div id="grass"></div>
+<div id="cloud"></div>
 
 <div id="watergarden">
 
-  <div id="garden"><img src="garden.png"/></div>
+<div id="garden"><img src="growingplant.gif"/></div>
 
 
   <div id="instructions">
@@ -105,22 +121,22 @@
 </div>
 
   <!-- connecting to the arduino, object needed for listener in js-->
-<div id="containercheckins"> 
+<div id="checkin"/> 
 <script type="text/javascript">
-	$("#containercheckins").thing({listen:true,
+        var id = "checkin" + getURLParameter("display_id"); //adding display_id
+        $("#checkin").attr("id",id); //let's change the ID to reflect the display
+	$("#"+id).thing({listen:true, //let's use that id to pull events
                    debug:false,
 		   container:false,
                    eventCallback:function(json){
  		      //TODO: animation
- 	              //var currentValue =  parseInt($("#count_value").text(),10);
-                      //$("#count_value").text( currentValue+1 );
 		      $("#lastperson").show(); 
                       $("#water").animate({height:"100%"},2000, function(){     //when done
 										updateCheckins();
 										$("#lastperson").show(); 
 										setTimeout(function() {
 										  $("#water").animate({height:"1%"},6000)
-                        							  $("#lastperson").hide(); 
+                        							  $("#lastperson").hide("slow"); 
 										}, 8000);	
 
 									});

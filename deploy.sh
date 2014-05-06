@@ -24,14 +24,17 @@ echo ensuring permissions
 chown -R www-data:www-data ../container/
 
 #killprevious instances
-echo killing all previous ruby
+echo killing all previous ruby and icd processes
+/etc/init.d/icd stop
 killall ruby
+
 
 #reset server
 echo killing nginx
 killall nginx
 echo restarting nginx
 /etc/init.d/nginx restart
+/etc/init.d/icd start
 
 #restart workers
 #echo starting workers with foreman -f Procfile
