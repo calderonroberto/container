@@ -1,6 +1,6 @@
 <div class="tutorial-text">
-  <h4>This Display's public URL: <%= link_to @publicurl, @publicurl, data: { confirm: "Leave Admin Page?" } %>  </h4>
-  <h4>This Display broadcasts checkin events at: <%= link_to "http://kimberly.magic.ubc.ca:8080/thingbroker/things/checkin#{@display.unique_id}/events", "http://kimberly.magic.ubc.ca:8080/thingbroker/things/checkin#{@display.unique_id}/events", data: { confirm: "Leave Admin Page? This is a long-pull, wait 30 secs for response." } %> </h4>
+  <p>This Display's public URL: <%= link_to @publicurl, @publicurl, data: { confirm: "Leave Admin Page?" } %>  </p>
+  <p>This Display broadcasts checkin events at: <%= link_to "http://kimberly.magic.ubc.ca:8080/thingbroker/things/checkin#{@display.unique_id}/events", "http://kimberly.magic.ubc.ca:8080/thingbroker/things/checkin#{@display.unique_id}/events", data: { confirm: "Leave Admin Page? This is a long-pull, wait 30 secs for response." } %> (<%= "checkin#{@display.unique_id}" %>)</p>
 </div>
 
 <%= will_paginate @apps %> 

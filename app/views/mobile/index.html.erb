@@ -2,7 +2,7 @@
 These are apps that you can currently use. Tap on the available icons to access them.
 </div>
 <% @apps.each do |app| %>
-<%= link_to image_tag(app.thumbnail_url, :border => 0, :width => 60, :height => 60), {:action => 'show', :controller => 'mobile', :app_id => app.id, :class => 'appthumbnail'}, {id: app.id} %>
+<%= link_to image_tag(app.thumbnail_url, :class => "appthumbnail-mobile"), {:action => 'show', :controller => 'mobile', :app_id => app.id}, {id: app.id} %>
 <% end %>
 
 

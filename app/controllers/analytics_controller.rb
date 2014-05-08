@@ -9,7 +9,7 @@ class AnalyticsController < ApplicationController
     users = User.where('users.id != ?', '0').joins(:registrations).where('registrations.display_id' => display.unique_id)
     users.each do |user|
       user_hash = Hash.new
-      user_hash["user"] = {id: user.id, name: user.name}
+      user_hash["user"] = {id: user.id, name: user.name, thumbnail_url: user.thumbnail_url}
       user_hash["data"] = {messages_sent: Message.where(from: user.id).count, checkins: Checkin.where("user_id = ? AND display_id = ?", user.id, display.id).count}
       user_hash["links"] = Array.new
       User.where('id != ?',user.id).each do |u|

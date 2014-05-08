@@ -30,6 +30,7 @@ describe "Analytics Checkins Pages" do
       body[0].should include('links')
       body[0]['user'].should include('id')
       body[0]['user'].should include('name')
+      body[0]['user'].should include('thumbnail_url')
       body[0]['data'].should include('messages_sent')
       body[0]['data'].should include('checkins')
       body[0]['links'][0].should include('user_id')

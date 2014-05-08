@@ -86,7 +86,7 @@ p {
   li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
-    height:60px;
+    min-height:60px;
   }
   h4 { line-spacing: 0.1;}
 
@@ -137,10 +137,6 @@ textarea {
   width: 100%;
 }
 
-input {
-  width: 100%;
-}
-
 /*Checkins*/
 .userlistitem {margin-bottom: 20px; background:#F0F0F0; padding:5px 5px; border-style:solid; border-color:#D0D0D0}
 .checkin-button {margin-top: 5px;}
@@ -171,6 +167,14 @@ input {
 }
 
 
+.appthumbnail-mobile {
+    margin: 10px;
+    border:1px solid gray;//#009933;
+    border-radius:10px;
+    padding: 2px;
+    width: 80px;
+    height: 80px;
+}
 
 /*Login Study Disclaimer*/
 .studydisclaimer {font-size:8pt; line-height:9pt; margin: 5px 5px; margin-top:30px; }
