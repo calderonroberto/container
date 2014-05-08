@@ -13,7 +13,9 @@
         <% end %>
       </div>
       <div class="signin-intro-text">
-        Meet your community.<br>Make this place yours.<br>Join common efforts.
+        <span class="glyphicon glyphicon-comment"></span> Meet your community.<br>
+        <span class="glyphicon glyphicon-home"></span> Make this place yours.<br>
+        <span class="glyphicon glyphicon-leaf"></span> Join common efforts.
       </div>
     </div>
     <div class="signin-button">
@@ -42,8 +44,32 @@
 
 <div class="tab-content">
 <div class="tab-pane active" id="about">
-This application allows you to interact with other members of your community. You can participate in common efforts and meet like-minded people. We will NOT post anything on Facebook, we will only need your name and profile image.
+  <div class="features-intro">
+     This application allows you to interact with other members of your community. You can participate in common efforts and meet like-minded people. We will NOT post anything on Facebook.
+  </div>
+  <div class="feature"> 
+    <div class="feature-image"><%= image_tag("feature-apps.png") %></div>
+    <div class="feature-text">Access interactive Apps.</div>
+  </div>
+
+  <div class="feature"> 
+    <div class="feature-image"><%= image_tag("feature-checkin.png") %></div>
+    <div class="feature-text">Checkin at common efforts.</div>
+  </div>
+
+  <div class="feature"> 
+    <div class="feature-image"><%= image_tag("feature-note.png") %></div>
+    <div class="feature-text">Publish public notes.</div>
+  </div>
+
+  <div class="feature"> 
+    <div class="feature-image"><%= image_tag("feature-map.png") %></div>
+    <div class="feature-text">Understand your community.</div>
+  </div>
+
 </div>
+
+
 <div class="tab-pane" id="ethics">
 This application is part of a behavioural study conducted by the Principal Investigator Dr. Sidney Fels (Associate Professor, Department of Electrical and Computer Engineering, University of British Columbia (604) 822-5338) and the Investigator Roberto Calderon ( PhD candidate. Media and Graphics Interdisciplinary Centre. Universtity of British Columbia.) <br>
 

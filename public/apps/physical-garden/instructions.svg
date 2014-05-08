@@ -25,17 +25,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="499.71462"
-     inkscape:cy="663.33333"
+     inkscape:zoom="0.24748737"
+     inkscape:cx="512.78776"
+     inkscape:cy="261.94057"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1366"
-     inkscape:window-height="692"
-     inkscape:window-x="0"
+     inkscape:window-width="998"
+     inkscape:window-height="668"
+     inkscape:window-x="310"
      inkscape:window-y="24"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="0" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -333,7 +333,10 @@ UyRJtao2RaaKhFzWUfoM4JzVhyc2GqGqFCGELpoe8v1JvmerJJ2CAt8/u16vfql7qD5Fty9MEWCe
 kqRayRRJUq3+f6F4DP4fxvvPAAAAAElFTkSuQmCC
 "
        height="242"
-       width="279" />
+       width="279"
+       inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/checkins-explained.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="fill:none;stroke:#25a325;stroke-width:4.59999999999999964;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:0.22831050000000000"
        id="rect2996"
@@ -341,11 +344,17 @@ kqRayRRJUq3+f6F4DP4fxvvPAAAAAElFTkSuQmCC
        height="56.428608"
        x="190.00002"
        y="449.505"
-       ry="8.5423727" />
+       ry="8.5423727"
+       inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/checkins-explained.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <g
        transform="matrix(0.74339427,0,0,0.74339427,290.36064,-169.78157)"
        id="layer1-4"
-       inkscape:label="Layer 1">
+       inkscape:label="Layer 1"
+       inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/checkins-explained.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <g
          transform="translate(0,-560)"
          id="g5351">
@@ -416,7 +425,10 @@ kqRayRRJUq3+f6F4DP4fxvvPAAAAAElFTkSuQmCC
     <g
        id="g3859"
        transform="matrix(0.82600611,0,0,0.82600611,56.28808,-55.590566)"
-       style="fill:#25a325;fill-opacity:1">
+       style="fill:#25a325;fill-opacity:1"
+       inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/instructions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <rect
          y="496.31927"
          x="513.16791"
@@ -447,6 +459,9 @@ kqRayRRJUq3+f6F4DP4fxvvPAAAAAElFTkSuQmCC
        style="fill:#24a324;fill-opacity:1;stroke:none"
        d="m 864.48433,494.88655 c 2.26379,-2.26384 2.07124,-8.17443 -0.5219,-16.01726 -2.62446,-7.93749 -7.79598,-17.99751 -11.51015,-22.39039 l -1.0602,-1.25395 0.63276,1.57629 c 1.0418,2.59548 2.19305,8.31269 3.7646,18.69592 1.59416,10.53201 2.73462,16.0171 3.73106,17.94405 1.4361,2.77703 3.13692,3.27227 4.96383,1.44534 z M 716.25628,456.16542 c 1.29673,-1.41532 2.1335,-3.24912 9.17536,-20.10795 3.56662,-8.53883 6.79713,-15.8794 7.17889,-16.31237 2.64838,-3.00363 8.03174,-5.79829 48.88427,-25.37728 l 26.87298,-12.87916 9.87834,7.29581 c 5.43306,4.0127 10.11957,7.29581 10.41442,7.29581 1.35902,0 4.33796,-7.38896 5.75527,-14.27525 0.99423,-4.83068 1.27924,-10.93301 0.68042,-14.56562 -0.57114,-3.46434 -2.36403,-7.68022 -3.85461,-9.06378 l -0.9648,-0.89555 -11.49453,6.42711 -11.49455,6.42711 -17.07876,6.28526 c -9.39332,3.45688 -17.33185,6.28525 -17.64119,6.28525 -0.46683,0 -18.42353,-9.32487 -18.92785,-9.82919 -0.0886,-0.0886 1.64788,-4.40362 3.85878,-9.58898 4.53008,-10.62469 4.46535,-10.2642 3.56805,-19.87229 -0.91551,-9.80308 -2.96545,-17.34468 -6.87373,-25.288 -8.72652,-17.73608 -23.6742,-27.86314 -44.14835,-29.91054 -12.534,-1.25338 -25.4458,2.16569 -35.79279,9.47799 -13.43013,9.49117 -25.63444,31.50409 -27.68987,49.9442 -0.93367,8.37635 0.55354,17.80312 4.51263,28.60344 l 1.69106,4.61319 -0.95202,2.72243 c -0.52361,1.49733 -3.4974,8.44984 -6.60843,15.45002 -6.33344,14.25095 -6.80339,15.55308 -6.39637,17.72274 0.23495,1.25236 0.67155,1.76598 2.45749,2.89097 1.19448,0.75243 17.71962,9.48989 36.72254,19.41658 25.87822,13.51819 34.90905,18.04851 35.97822,18.04851 0.94638,0 1.71787,-0.31696 2.28913,-0.94046 z M 656.94395,355.96173 c -2.20884,-2.39285 -2.54873,-6.49023 -1.17241,-14.13362 5.06091,-28.10598 25.19603,-47.14059 49.7372,-47.01878 11.26286,0.0559 19.59061,3.24275 29.80179,11.40448 8.18621,6.54319 11.66041,12.64407 15.19084,26.67595 2.0029,7.96058 2.19463,9.97121 1.0819,11.34538 -0.70435,0.86983 -0.82336,0.88457 -2.49443,0.30883 -0.96514,-0.33251 -14.42172,-7.39492 -29.9035,-15.69422 -15.48179,-8.29931 -28.99716,-15.46497 -30.03417,-15.92368 -3.09291,-1.36814 -5.42643,-0.2473 -7.78089,3.73733 -0.66918,1.13251 -15.47032,34.09284 -18.34441,40.85076 l -0.5747,1.35131 -2.19178,-0.84324 c -1.20549,-0.46378 -2.69743,-1.39101 -3.31544,-2.0605 z m 221.9743,89.29628 c 0.83657,-1.00798 0.95307,-2.95338 0.2885,-4.81728 -2.3082,-6.47424 -14.27301,-17.10533 -25.68871,-22.82525 l -2.25578,-1.13027 2.67379,2.67378 c 1.47052,1.47057 4.46064,5.00152 6.64458,7.84654 6.5878,8.58187 11.93625,15.19881 13.21342,16.34729 2.72155,2.44727 4.21388,3.0021 5.1242,1.90519 z m -8.23693,-50.28586 c 1.41787,-1.58475 1.14689,-3.09607 -0.96615,-5.38845 -3.73328,-4.05017 -13.18551,-9.12615 -21.70601,-11.65648 -2.42073,-0.71888 -2.64484,-0.55595 -0.58185,0.42304 0.81191,0.38525 4.72838,3.82677 8.70337,7.6478 3.975,3.82104 7.99932,7.48065 8.94295,8.13247 2.22573,1.53749 4.65843,1.9026 5.60769,0.84162 z"
        id="path3857"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/instructions.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
   </g>
 </svg>

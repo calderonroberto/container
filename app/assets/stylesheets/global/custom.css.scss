@@ -152,7 +152,7 @@ textarea {
 .userlistitem-login {margin: 5px 5px; width:50px; height:50px; background:#F0F0F0; float:right; position:relative;}
   .user_img-login{width:50px; height:50px; position:absolute; top:0; left:0; }
   .checkins_count-login {width:25px; height:25px; background:#6699FF;font-size:20px; line-height:20px;text-align:center; color:white; position:absolute; z-index:10;}
-.signin-intro-text {clear:both;} //clear float
+.signin-intro-text {clear:both; font-size:20px; line-height:30px; text-align:center;} //clear float
 .signin-button {height: 30px; text-align:center;}
 
 .signin-image {
@@ -168,13 +168,27 @@ textarea {
 }
 
 .appthumbnail-mobile {
-    margin: 10px;
+    margin: 5px;
     border:1px solid gray;//#009933;
     border-radius:10px;
     padding: 2px;
     width: 80px;
     height: 80px;
 }
+
+/*Facebook success login so that it looks like alert-success*/
+.alert-notice {
+   background-color: #dff0d8;
+   border-color: #d6e9c6;
+   color: #3c763d;
+}
+
+/*Shocase of features to entice people to login*/
+.features-intro {background-color:white; color:black; margin:5px; clear:both; padding:8px; font-size:15px; line-height:15px;}
+.feature {background-color:rgba(0,153,51,0.7); padding:10px; width:40%; min-height: 150px; border-radius:10px; margin:5px; margin-right:auto; margin-left:auto; float:left; margin:10px;}
+.feature-image {clear:both; text-align:center; }
+.feature-image img { max-width:80px; max-height:80px;}
+.feature-text{text-align:center;color:white; font-size:15px;line-height:15px; font-weight:bold; margin:5px; }
 
 /*Login Study Disclaimer*/
 .studydisclaimer {font-size:8pt; line-height:9pt; margin: 5px 5px; margin-top:30px; }
