@@ -40,11 +40,11 @@
     margin-right: auto;
     margin-left:auto;
     margin-top: 7px;
-    border:0px solid gray;//#009933;
+    border:0px solid #009933;
     border-radius:10px;
     padding: 2px;
-    max-width: 90px;
-    width: 90%;
+    /*max-width: 90px;*/
+    /*width: 90%;*/
   }
 }
 
@@ -61,11 +61,11 @@
 #instructions-block{
    background-color: #FF6600;
    border-radius: 15px;
-   margin: 20px;
-   padding: 20px;
+   margin: 10px;
+   padding: 10px;
    text-align: center;
    font-size: 40px;
-   line-height: 50px;
+   line-height: 40px;
    color: white;
    text-align: center;
 

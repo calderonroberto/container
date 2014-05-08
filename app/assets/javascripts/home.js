@@ -74,14 +74,13 @@ function updateNotes (notes) {
 }
 
 function updateAppMenu (apps) {
-
+  //resize thumbnails to fit app menu nicely  
   var appmenuheight = $(".appmenu").height();
   var appmenuwidth = $(".appmenu").width();
   var appcount = apps.length;
-  var thumbnailsize = appmenuheight/appcount;
+  var thumbnailsize = (appmenuheight/2.5)/appcount;
   if (thumbnailsize > 80 ) { thumbnailsize = 80 };
   if (thumbnailsize > appmenuwidth ) { thumbnailsize = appmenuwidth };
-
   //if on request but not on DOM, add
   $.each(apps, function() {
      if (this.thumbnail_url == "app_thumbnail.png") {
@@ -89,8 +88,12 @@ function updateAppMenu (apps) {
      }
      if ($(".appthumbnail#"+this.id).length == 0){
        //append object
+       //$(".appmenu").append("<img src='"+this.thumbnail_url+
+       // "' class='appthumbnail' id='"+this.id+"'></img>");
        $(".appmenu").append("<img src='"+this.thumbnail_url+
-         "' class='appthumbnail' id='"+this.id+"'></img>");
+         "' class='appthumbnail' id='"+this.id+"' width='"+
+         thumbnailsize+"px' height='"+thumbnailsize+"px'></img>");
+
        //bind to ajax call to stage app if clicked
        $(".appthumbnail#"+this.id).live("click", function(){
                                          $(this).animate({borderWidth: 1}, 100);
