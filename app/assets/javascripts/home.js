@@ -53,6 +53,8 @@ function updateInstructions (interaction) {
 function updateAppContainer (staged_app, display_id, thingbroker_url) {
   if ($('.appcontainer').attr('id') != staged_app.id) {
     $(".appcontainer").attr('id', staged_app.id);
+    $(".appthumbnail").animate({ borderWidth: 0 }, 100);
+    $(".appthumbnail#"+staged_app.id).animate({ borderWidth: 4 }, 500);
     //var display=getCookie("display_id");    
     $(".appcontainer").attr('src', staged_app.url+"?display_id="+display_id+"&thingbroker_url="+thingbroker_url);
   }
@@ -88,10 +90,10 @@ function updateAppMenu (apps) {
      if ($(".appthumbnail#"+this.id).length == 0){
        //append object
        $(".appmenu").append("<img src='"+this.thumbnail_url+
-         "' class='appthumbnail' id='"+this.id+"' width='"+
-         thumbnailsize+"px' height='"+thumbnailsize+"px'></img>");
+         "' class='appthumbnail' id='"+this.id+"'></img>");
        //bind to ajax call to stage app if clicked
        $(".appthumbnail#"+this.id).live("click", function(){
+                                         $(this).animate({borderWidth: 1}, 100);
                                          var id = $(this).attr('id');
                                          var data = {staging: {app_id: id}};
                                          $.ajax({
@@ -109,8 +111,6 @@ function updateAppMenu (apps) {
 
   //clear unused: if on DOM but not on request, remove
   $('.appmenu').find('img').each(function () {
-     //resize images if needed now that you're iterating through them
-     $(this).width(thumbnailsize); $(this).height(thumbnailsize);
      var id = $(this).attr('id')
      var exists = false;
      $.each(apps, function() {

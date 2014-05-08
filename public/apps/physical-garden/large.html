@@ -8,6 +8,9 @@
 <!-- 2) Use CSS to make things pretty -->
   <style type="text/css">
         body{background-color:white;}
+
+        #appdescription {background-color:orange; border-radius:15px; padding:5px; color:white; text-align:center; font-size:20px; line-height:20px; font-family:"Arial", sans-serif;}
+
 	#grass {background-image: url(grass.gif); width:100%; height:100px; position:absolute; bottom:0;}
         #cloud {background-image: url(cloud.png); width:315px; height:139px; position:absolute; left:-3150px; top:0;}
 
@@ -16,20 +19,17 @@
 	#count_message {color:white; font-size:15px; text-align:center;font-family:"Arial", sans-serif;}
 
 	#instructions {background-color:orange;position:absolute; right:20px; bottom:50px; width:50%; text-align: center;padding:15px 15px; border-radius: 15px; align:center;}
-	#instructions_code {background-color:white; }
-	#instructions_text {color:white; font-size:20px;font-family:"Arial", sans-serif;vertical-align:text-top;margin-bottom:10px;}
+	#instructions-title{color:white; font-size:10px;font-family:"Arial", sans-serif;}
+	#instructions-text {color:white; font-size:20px;font-family:"Arial", sans-serif;vertical-align:text-top;margin-bottom:10px;}
 
+	#garden {position:absolute; right:40px; bottom: 50px; }
+ 	#garden img {max-height: 100%; max-width:100%; }
 
-	#garden {text-align:center; width: 50%; height:50%; margin-left:auto; margin-right:0px;}
- 	#garden img {max-height: 75%; max-width:75%; }
-
-        #people {position:absolute; top:100px; left:50px; width: 260px; background:#66CC33; border-radius: 10px; color:white; padding:5px 5px; text-align:center; font-weight:bold; font-size:20px;}
+        #people {position:absolute; top:100px; left:20px; background:#66CC33; border-radius: 10px; color:white; padding:15px; text-align:center; font-weight:bold; font-size:20px;}
 	.person {color:white; font-size: 15px; height:10px; text-align:center; font-weight:normal;}
 
         #water {position:absolute; top:0; left:0; width:100%; height:2%;background:white; opacity:.9; background-image: url(rain.gif);}
-        #lastperson {background-color:#66CC33; margin:50px; padding:10px; border-radius: 10px; font-size:40px; font-weight:bold; color:white; text-align:center;}
-
-
+        #lastperson {background-color:rgba(0,153,51,0.7); margin:50px; padding:10px; border-radius: 10px; font-size:40px; font-weight:bold; color:white; text-align:center;}
   </style>
 
 
@@ -44,15 +44,11 @@
 	function updateCheckins () {
 		var id = getURLParameter("display_id");
 		$.getJSON("/api/"+id+"/checkins", function(data) {
-			//pjs.updateCircles(data);
 			$(".lastperson").remove();
 			$(".person").remove();
 			$.each( data, function(index,value){
 				d = new Date(value.checkin.created_at);
                                 var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
-
-///document.write("The current month is " + monthNames[d.getMonth()]);
-
 				$("#people").append('<p class="person">'+value.user.name+' ('+monthNames[d.getMonth()]+' '+d.getUTCDate()+')</p>');
                                 if (index == 0)
                                         $("#lastperson").append('<p class="lastperson">Thank you '+value.user.name +'<br>for watering the garden!</p>');
@@ -67,9 +63,6 @@
         
 
 	$(document).ready(function() {
-	        //TODO: remove
-		//var id = getURLParameter("display_id");
-                //$("#checkin").attr("id","checkin"+id);
                 $("#lastperson").hide();	
 	        updateCheckins();
                 passingCloud();								
@@ -88,20 +81,15 @@
 <body>
 
 <!-- 3) Declare your document structure -->
-<div id="grass"></div>
-<div id="cloud"></div>
+   <div id="grass"></div>
+   <div id="cloud"></div>
 
-<div id="watergarden">
-
-<div id="garden"><img src="growingplant.gif"/></div>
-
+  <div id="appdescription">Help us grow our community garden!</div>  
+  <div id="watergarden">
+  <div id="garden"><img src="growingplant.gif"/></div>
 
   <div id="instructions">
-	<div id="instructions_text">Scan QR code, or visit URL below. <br>Then <b>CHECKIN</b> to water the garden.</div>
-<!-- 
-         <div id="instructions_code"><img src="qrcode.png" width="150px"></img></div> 
---> 
-
+	<div id="instructions-text">Scan QR code, or visit URL below. <br><b>CHECKIN</b> to water the garden. Login for more.</div>
   </div>
 
 <!--
@@ -112,7 +100,7 @@
 -->
 
   <div id="people">
-	Last five checkins:  
+	Lastest checkins:  
   </div>
 
   <div id="water"/>
@@ -120,7 +108,7 @@
 
 </div>
 
-  <!-- connecting to the arduino, object needed for listener in js-->
+<!-- connecting to the arduino, object needed for listener in js-->
 <div id="checkin"/> 
 <script type="text/javascript">
         var id = "checkin" + getURLParameter("display_id"); //adding display_id
@@ -129,17 +117,17 @@
                    debug:false,
 		   container:false,
                    eventCallback:function(json){
- 		      //TODO: animation
-		      $("#lastperson").show(); 
-                      $("#water").animate({height:"100%"},2000, function(){     //when done
-										updateCheckins();
-										$("#lastperson").show(); 
-										setTimeout(function() {
-										  $("#water").animate({height:"1%"},6000)
-                        							  $("#lastperson").hide("slow"); 
-										}, 8000);	
+		      $("#lastperson").show();
+                      $("#water").animate({height:"100%"},2000, function(){     
+								//when done
+								updateCheckins();
+								$("#lastperson").show(); 
+								setTimeout(function() {
+							               $("#water").animate({height:"1%"},6000)
+                     						       $("#lastperson").hide("slow"); 
+								}, 8000);	
 
-									});
+							 });
 
                    }
         });
