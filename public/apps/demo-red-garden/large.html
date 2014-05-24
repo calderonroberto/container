@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 5.0//EN" "http://www.w3.org/TR/html4/strict.dtd">  
+<html lang="en">  
+<head>  
+  <title>A RED Application</title>  
+  <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="jquery.thingbroker-0.3.0.min.js"></script>
+
+  <style type="text/css">
+        body{background-color:white;}
+
+        #appdescription {background-color:rgba(0,153,51,0.7); border-radius:15px; padding:5px; color:white; text-align:center; font-size:20px; line-height:20px; font-family:"Arial", sans-serif;}
+
+	#grass {background-image: url(grass.gif); width:100%; height:100px; position:absolute; bottom:0;}
+        #cloud {background-image: url(cloud.png); width:315px; height:139px; position:absolute; left:-3150px; top:0;}
+        #point {background-image: url(point.png); width:600px; height:400px; position:absolute; left:50%; margin-left:-300px; z-index:100;}
+
+        #counters {position:absolute; top:40px; left:40px; width:100%; height:150px;}
+	.counter {background:#66CC33; width:120px; height:125px; border-radius:15px; float:left; margin:5px; background-image:url('water.gif');background-size:225px; background-repeat: no-repeat;}
+	.counter_value {color:white; font-size:80px; line-height:80px; text-align:center;font-family:"Arial", sans-serif;vertical-align:text-top;}
+	.counter_message {color:white; font-size:15px; text-align:center;font-family:"Arial", sans-serif;}
+        .counter-instructions-image {width:120px; margin-top:40px;}
+
+	#instructions {background-color:rgba(0,153,51,0.7);position:absolute; right:20px; bottom:50px; width:90%; text-align: center;padding:15px 15px; border-radius: 15px; align:center;}
+	#instructions-text {color:white; font-size:25px;font-family:"Arial", sans-serif;vertical-align:text-top;margin-bottom:10px; line-height:30px;}
+	#instructions-img {position:absolute; right:40px; bottom:150px; max-width:400px;}
+
+        #people {position:absolute; top:50px; right:40px; background:#6699FF; border-radius: 10px; color:white; padding:15px; text-align:center; font-weight:bold; font-size:20px;}
+	.person {color:white; font-size: 15px; height:10px; text-align:center; font-weight:normal;}
+
+        #water {position:absolute; top:0; left:0; width:100%; height:100%;background:white; opacity:0.9; background-image: url(rain.gif); z-index:100;font-size:80px; font-weight:bold; padding-top:200px; color:black;text-align:center;}
+  </style>
+
+    <script type="text/javascript">
+			
+	function getURLParameter(name) {
+	    return decodeURI(
+		(RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+	    );
+	}
+
+	function updateCheckins () {
+		var id = getURLParameter("display_id");
+		$.getJSON("/api/"+id+"/checkins", function(data) {
+			$(".person").remove();
+			$.each( data, function(index,value){
+				d = new Date(value.checkin.created_at);
+                                var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+				$("#people").append('<p class="person">'+value.user.name+' ('+monthNames[d.getMonth()]+' '+d.getUTCDate()+')</p>');
+
+			});
+		});
+	}
+
+	$(document).ready(function() {
+                $("#point").hide();	
+		$("#water").fadeOut("fast");
+	        updateCheckins();
+                passingCloud();	
+
+		//Initialize Checkins Counter
+		var counter_value_checkins = localStorage.getItem("counter_value_checkins");
+                if (counter_value_checkins == null ) { counter_value_checkins = "0" }
+		$("#counter_value_checkins").text( counter_value_checkins );
+		//Initialize Sittings Counter
+		var counter_value_sittings = localStorage.getItem("counter_value_sittings");
+                if (counter_value_sittings == null ) { counter_value_sittings = "0" }
+		$("#counter_value_sittings").text( counter_value_sittings );
+		//Initialize Bumps Counter
+		var counter_value_bumps = localStorage.getItem("counter_value_bumps");
+                if (counter_value_bumps == null ) { counter_value_bumps = "0" }
+		$("#counter_value_bumps").text( counter_value_bumps );
+		//Initialize Hifhfives Counter
+		var counter_value_highfives = localStorage.getItem("counter_value_highfives");
+                if (counter_value_highfives == null ) { counter_value_highfives = "0" }
+		$("#counter_value_highfives").text( counter_value_highfives );
+							
+	});
+
+        function passingCloud () {
+	    $("#cloud").css({ "left": "-315px"});	
+	    $("#cloud").animate({ "left": "100%"}, 50000, "linear", function(){passingCloud();});	               
+        } 
+
+    </script>
+</head>
+
+<body>
+
+<!-- 3) Declare your document structure -->
+   <div id="grass"></div>
+   <div id="cloud"></div>
+
+
+  <div id="appdescription">Help us grow a community garden!</div>  
+  <img id="instructions-img" src="instructions-image.png"/>
+
+  <div id="instructions">
+	<div id="instructions-text">Checkin, Sit together, Fist-bump, or High-five Roberto to add water.<br>Touch virtual water to water garden. Scan QR code, or visit URL below to checkin.</div>
+  </div>
+
+  <div id="counters">
+     <div class="counter">
+	<div class="counter_value" id="counter_value_checkins">0</div>
+	<div class="counter_message">Checkins.</div>
+        <img class="counter-instructions-image" src="counter-checkins-instructions.png"/>
+     </div>
+     <div class="counter">
+	<div class="counter_value" id="counter_value_sittings">0</div>
+	<div class="counter_message">Sitting together.</div>
+        <img class="counter-instructions-image" src="counter-sittings-instructions.png"/>
+     </div>
+     <div class="counter">
+	<div class="counter_value" id="counter_value_bumps">0</div>
+	<div class="counter_message">Fist-bumps.</div>
+        <img class="counter-instructions-image" src="counter-bumps-instructions.png"/>
+     </div>
+     <div class="counter">
+	<div class="counter_value" id="counter_value_highfives">0</div>
+	<div class="counter_message">High fives.</div>
+        <img class="counter-instructions-image" src="counter-highfives-instructions.png"/>
+     </div>
+ </div>
+
+
+
+
+  <div id="people">
+	Latest checkins:  
+  </div>
+
+
+
+  <div id="water">Thank you!</div>
+  <div id="point"/>
+
+</div>
+
+<!-- ThingBroker things, objects needed for listener in js-->
+  <div id="demovirtualwater"/> <!-- Projector -->
+  <div id="demowatergarden"/> <!-- Arduino --> 
+  <div id="demobumps"/> <!-- Kinect -->
+  <div id="demohighfives"/> <!-- Pebble -->
+  <div id="checkin"/> 
+
+
+
+<script type="text/javascript">
+
+        //Set listener for checkins
+        var checkinid = "checkin" + getURLParameter("display_id"); //adding display_id
+        $("#checkin").attr("id",checkinid); //let's change the ID to reflect the display
+	$("#"+checkinid).thing({listen:true, //let's use that id to pull events
+        	debug:false,
+		container:false,
+                eventCallback:function(json){
+			pointAnimation("checkins");
+		}
+	});
+
+	//Set listener for sittings and watering garden events
+        //catch arduino analog read events.
+        $("#demowatergarden").thing({listen:true,
+                   debug:false,
+		   container:false,
+                   eventCallback:function(json){
+			if (json[0].info.type == "read_results"){
+                           //if two people seating
+                           if ( json[0].info["0"] > 5 && json[0].info["1"] > 5 ) {
+				//console.log(json[0].info["0"]);
+				pointAnimation("sittings");
+			   }
+			}
+			if (json[0].info.type == "case"){
+				wateringAnimation();
+			}
+                   }
+        });
+
+	//Set a listener for bumps
+	$("#demobumps").thing({listen:true,
+                   debug:false,
+		   container:false,
+                   eventCallback:function(json){
+			pointAnimation("bumps");
+                   }
+        });
+
+	//Set a listener for highfives
+	$("#demohighfives").thing({listen:true,
+                   debug:false,
+		   container:false,
+                   eventCallback:function(json){
+			pointAnimation("highfives");
+                   }
+        });
+
+	//send and event to add water
+	function virtualWaterEvent() {
+		console.debug("Adding Virtual Water");
+   		var t = $.ThingBroker({debug:true, container:false});
+		t.postThing({thingId: "demovirtualwater"});
+		var e = t.postEvent("#demovirtualwater", {});
+        };
+
+	function wateringAnimation () {
+			console.log("Watering Animation");
+                        $("#water").fadeIn(2000, function(){     
+				//when done
+				updateCheckins();
+				setTimeout(function() {
+					$("#water").fadeOut("slow");
+				}, 15000);	
+			});
+	};
+
+	function pointAnimation (counter) { //+1 Point and add to counter
+		$("#point").fadeTo( 3000, 1.0 );
+		$("#point").fadeTo( "slow", 0.0, function() { //complete
+			var currentValue =  parseInt($("#counter_value_"+counter).text(),10);
+			var originalFontSize = $("#counter_value_"+counter).css("fontSize");
+	                $("#counter_value_"+counter).animate({fontSize: "2px"}, 300, function () { //complete
+				$("#counter_value_"+counter).animate({fontSize: originalFontSize}, 100);
+		                $("#counter_value_"+counter).text( currentValue+1 );	
+				virtualWaterEvent();			
+			})
+	                $("#counter_value_"+counter).text( currentValue+1 );
+			localStorage.setItem("counter_value_"+counter, currentValue+1);
+
+		} );
+	};
+
+  	//ask arduino to read regularly
+        setInterval(function(){
+            var t = $.ThingBroker({debug:false, container:false}); //send directly to the arduino
+            t.postEvent("demowatergarden", {"type":"read"})
+        },2000);
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">  
+<html lang="en">  
+<head>  
+  <title>A RED Application</title>  
+
+<!-- 1) Include the libraries -->
+  <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="jquery.thingbroker-0.3.0.min.js"></script>
+  <!-- Optional
+  <script type="text/javascript" src="jquery.thingbroker-0.3.0.min.js"></script>
+  -->
+
+<!-- 2) Use CSS to make things pretty -->
+  <style type="text/css">
+	#grass {background-image: url(grass.gif); width:100%; height:100px; position:absolute; bottom:0;}
+
+	#count {background:#66CC33; width:120px; height:120px; border-radius: 15px; position:absolute; top:30px; left:50px;}
+	#count_value {color:white; font-size:80px; text-align:center;font-family:"Arial", sans-serif;vertical-align:text-top;}
+	#count_message {color:white; font-size:15px; text-align:center;font-family:"Arial", sans-serif;}
+
+	#instructions {background-color:orange;position:absolute; right:20px; top:30px; width:160px; height: 200px; text-align: center;padding:15px 15px;border-radius: 15px; align:center;}
+	#instructions_code {background-color:white; }
+	#instructions_text {color:white; font-size:15px;font-family:"Arial", sans-serif;vertical-align:text-top;margin-bottom:10px;}
+
+
+        #chainimage {position:absolute; top:180px;}
+
+	#videogarden {text-align:center; padding:20px 10px; margin-right:auto;margin-left:auto;} 
+
+	#sitcouch {align:center; padding-top:45px;}
+ 	#couchimage {align:center; padding-left:auto;padding-right:auto;}
+	#couchtext { color: green ; font-size:18px; font-family:"Arial", sans-serif; text-align:center; margin-top:0px;}
+
+  </style>
+
+</head>
+
+<body>
+
+<!-- 3) Declare your document structure -->
+<div id="grass"></div>
+
+<div id="watergarden">
+
+  <div id="instructions">
+	<div id="instructions_text">Scan QR code to begin adding water.</div> 
+	<div id="instructions_code"><img src="qrcode.png" width="150px"></img></div>
+  </div>
+
+  <div id="count">
+	<div id="count_value">0</div>
+	<div id="count_message">people helped.</div>
+  </div>
+  <div id="chainimage"><img src="scanning-chain.png" width="300px"></img></div>
+  <div id="physicalGardenScan"></div>  
+
+</div>
+
+<div id="sitcouch">
+<!--
+  <div id="videogarden">
+  <iframe src="http://player.vimeo.com/video/67400665?autoplay=1&amp;loop=1" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  </div>
+-->
+    <!--Ask for a stranger or a friend to sit down next to you.-->
+    <img id="couchimage" src="couch01.png" width="300px"></img>
+    <p id="couchtext">To begin watering the garden please sit on the couch.</p>
+
+</div>
+
+
+<!-- connecting to the arduino, object needed for listener in js-->
+<div id="ardthing"> 
+
+
+<!-- 4) Build your app with jQuery and the Thingbroker Plugin -->
+<!-- API: https://github.com/ubc-magic/thingbroker-jquery-plugin#jquery-manipulations-api -->
+  <script type="text/javascript">
+
+
+        function showCouch01() {
+	   $("#watergarden").hide("slow");
+	   $("#sitcouch").show("slow");
+	   $("#couchimage").attr({src:"couch01.png"})
+	   $("#couchtext").text("To begin watering the garden please sit on the couch.")   	   
+        }
+        function showCouch02a() { 
+	   $("#watergarden").hide("slow");
+	   $("#sitcouch").show("slow");
+	   $("#couchimage").attr({src:"couch02a.png"})
+	   $("#couchtext").text("Ask for a stranger or a friend to sit down next to you.")
+	}
+        function showCouch02b() { 
+	   $("#watergarden").hide("slow");
+	   $("#sitcouch").show("slow");
+	   $("#couchimage").attr({src:"couch02b.png"})
+	   $("#couchtext").text("Ask for a stranger or a friend to sit down next to you.")
+	}
+        function showInstructions() {
+           $("#sitcouch").hide("slow");
+           $("#watergarden").show("slow");
+
+        };
+
+
+	$("#physicalGardenScan").thing({listen:true,
+                   debug:false,
+		   container:false,
+                   eventCallback:function(json){
+			var currentValue =  parseInt($("#count_value").text(),10);
+                      	$("#count_value").text( currentValue+1 );
+                                               }
+        });
+
+        //catch arduino analog read events.
+        $("#ardthing").thing({listen:true,
+                   debug:false,
+		   container:false,
+                   eventCallback:function(json){
+/**/
+			if (json[0].info.type == "read_results"){
+ 			   // if nobody seating 
+                           if ( json[0].info["0"] < 5 && json[0].info["1"] < 5 ) {
+			      showCouch01();
+                           }
+			   // if one person seating
+                           if ( json[0].info["0"] > 5 && json[0].info["1"] < 5 ) {
+			      showCouch02a();
+			   }
+                           if ( json[0].info["0"] < 5 && json[0].info["1"] > 5 ) {
+			      showCouch02b();
+			   }
+                           //if two people seating
+                           if ( json[0].info["0"] > 5 && json[0].info["1"] > 5 ) {
+			      //console.log(json[0].info["0"]);
+                              showInstructions();
+			   }
+			}
+/**/
+                   }
+        });
+/**/
+  	//ask arduino to read,
+        setInterval(function(){
+            var t = $.ThingBroker({debug:false, container:false}); //send directly to the arduino
+            t.postEvent("ardthing", {"type":"read"})
+        },2000);
+/**/
+
+	$(document).ready(function(){
+		//$("#watergarden").hide();
+		//showInstructions();
+ 	});
+
+  </script>
+
+</body>
+</html>

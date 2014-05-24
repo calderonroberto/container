@@ -1,0 +1,251 @@
+#!/usr/bin/python
+
+from array import array
+import serial
+import time
+import httplib, urllib
+import json
+import urlparse
+import threading
+import argparse
+import signal, sys
+import binascii
+import struct
+import sys
+
+# a thread that listens to the broker, if an event is received it sends a line on serial
+# Event protocol: examples
+# {"type":"digital", "13":"1", "timeout":"20"} -> Set digital pin 13 HIGH for 20 seconds
+# {"type":"analog", "6":"100"} -> Set analog pin 6 to 100, with no timeout
+# {"type":"read", "pin":"1"} -> Read analog pin A1 and generate and event: {sensor: "1", value: "10", type: "sensor"}
+
+# notes: I implemented the "read" case because when we send a post call to the broker the serial in the arduino
+# seems to be reset, this causes changes in the sensors and a loop of read->post->read->post...etc. We might also
+# only want to read data programatically.
+
+
+class BrokerListener(threading.Thread):
+
+	def __init__(self, ser, b):
+		threading.Thread.__init__(self)
+		self.ser = ser
+		self.broker = b
+
+	def stop(self):
+		print ('Stopping broker listener')
+		self.broker.conn.close()
+		
+	def run(self):
+		while True: 
+			event = self.broker.get_event()
+			if event:
+ 				arduinoevent = [0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00]
+				#set pins
+				for i in range(1,14):
+					if str(i) in event[0]["info"]:
+						e = int(event[0]["info"][str(i)])
+					else:
+						e = 0x00
+					arduinoevent[i] = e
+				#set timeout
+				if "timeout" in event[0]["info"]:
+					t = int(event[0]["info"]["timeout"])
+				else:
+					t = 0x00
+				arduinoevent[14] = t
+				#set type
+				if event[0]["info"]["type"] == "digital":
+					arduinoevent[0] = 0x01
+				if event[0]["info"]["type"] == "analog":
+					arduinoevent[0] = 0x02				
+				if event[0]["info"]["type"] == "read": #read analog pin
+					arduinoevent[0] = 0x08
+					if "pin" in event[0]["info"]:
+						#override pins set
+						arduinoevent[1] = int(event[0]["info"]["pin"])
+				if event[0]["info"]["type"] == "case": #a hidden feature
+					arduinoevent[0] = 0x09
+				#send event		
+				if (arduinoevent[0] > 0x00): #if a type at all.
+					#sys.stdout.write("\rLast msg sent to arduino: " + str(arduinoevent))
+					#sys.stdout.flush()
+				  	print (arduinoevent)
+					self.ser.write((struct.pack(15*'B',*arduinoevent)))				
+				
+
+
+
+# a thread that listens to Serial, if a line is received it sends and event
+class ArduinoListener(threading.Thread):
+	def __init__(self, ser, b):
+		threading.Thread.__init__(self)
+		self.ser = ser
+		self.b = b
+
+	def run(self):
+		while True:		
+			line = self.ser.readline()
+			if line:
+				#sensor = list(line)
+				#s = ord(sensor[0])
+				#v = ord(sensor[1])				
+				#print "incoming list: "
+				#print sensor
+				#self.b.post_event(s, v)
+				sensors = list(line)
+                                s0 = ord(sensors[0])
+                                s1 = ord(sensors[1])
+                                s2 = ord(sensors[2])
+                                s3 = ord(sensors[3])
+                                s4 = ord(sensors[4])
+				#print sensors
+				self.b.post_event(s0, s1, s2, s3, s4)
+			
+
+
+class Brokerthing:
+	def __init__(self,broker_url,thing_id):
+		self.thing_id = thing_id
+		self.thing_id_listener = thing_id + "_listener"
+		self.broker_url = broker_url
+
+	def register(self):
+		#register main thing
+		self.conn_register = httplib.HTTPConnection(self.broker_url, timeout=30)
+		json_dict = { 'thingId': self.thing_id }
+		json_data = json.dumps(json_dict)
+		post_data = json_data.encode('utf-8')
+		headers = {}
+		headers['Content-Type'] = 'application/json'
+		try: 		
+			self.conn_register.request("POST", "/thingbroker/things", post_data, headers)
+			response = self.conn_register.getresponse()
+			self.conn_register.close()
+			print (self.thing_id + " registered with thingbroker")
+		except:
+			print "Error registering main thing. Broker is possibly down."
+
+		#register listener thing
+		json_dict = { 'thingId': self.thing_id_listener }
+		json_data = json.dumps(json_dict)
+		post_data = json_data.encode('utf-8')
+		headers = {}
+		headers['Content-Type'] = 'application/json'		
+		try:
+			self.conn_register.request("POST", "/thingbroker/things", post_data, headers)
+			response = self.conn_register.getresponse()
+			self.conn_register.close()
+			print (self.thing_id_listener + " registered with thingbroker, to pull events")
+		except:
+			print "Error registering listener thing"
+
+		#make listener follow main thing
+		json_dict = [ self.thing_id ]
+		json_data = json.dumps(json_dict)
+		post_data = json_data.encode('utf-8')
+		headers = {}
+		headers['Content-Type'] = 'application/json'		
+		try:
+			self.conn_register.request("POST", "/thingbroker/things/"+self.thing_id_listener+"/follow", post_data, headers)
+			response = self.conn_register.getresponse()
+			self.conn_register.close()
+			print (self.thing_id_listener + " following " + self.thing_id)
+		except:
+			print "Error making listener follow main thing"
+
+		print ("Done setting up Yo! to pull events somewhere else register a new thing following " + self.thing_id + "\n")
+
+		#print response.status, response.reason,
+		#print json.load(response)
+
+	def get_event(self):
+		#print "getting events for " + self.thing_id
+		self.conn_get_event = httplib.HTTPConnection(self.broker_url, timeout=30)
+		try:
+			self.conn_get_event.request("GET", "/thingbroker/things/"+self.thing_id_listener+"/events")
+			response = self.conn_get_event.getresponse()
+			event = json.load(response)
+			print (event)
+			self.conn_get_event.close()
+			return event
+		except:
+			print "Error getting events"
+			return False
+
+	def post_event(self, s0, s1, s2, s3, s4):
+		conn_post_event = httplib.HTTPConnection(self.broker_url, timeout=30)
+		json_dict = { 'type': 'read_results', '0': str(s0), '1': str(s1), '2': str(s2), '3': str(s3), '4': str(s4) }
+		json_data = json.dumps(json_dict)
+		post_data = json_data.encode('utf-8')
+		headers = {}
+		headers['Content-Type'] = 'application/json'		
+		try:
+			#TODO: next call sends data on the serial port on the arduino!!! ??? a GET call doesn't do this.
+			conn_post_event.request("POST", "/thingbroker/things/"+self.thing_id+"/events", post_data, headers) 
+		
+			response = conn_post_event.getresponse()
+			conn_post_event.close()
+			#print response.status, response.reason,
+		except:
+			print "Error posting event"
+			
+
+
+def main(argv):
+	
+	parser = argparse.ArgumentParser()
+	parser.add_argument('-serial', required=True, help='serial port to use, e.g. `/dev/ttyUSB0`')
+	parser.add_argument('-thingId', required=True, help='a unique thingId to use')
+	parser.add_argument('-broker', required=False, default='kimberly.magic.ubc.ca:8080', help='thingbroker url to use (defaults to kimberly.magic.ubc.ca:8080)')
+	parser.add_argument('-arduinolistener', required=False, default='false', help='Flag to listen for data from arduino. Default: "false", you can pass "true" to listen to serial port')
+
+	args = vars(parser.parse_args())
+
+	serial_address = args['serial']
+	thing_id = args['thingId']
+	broker_url = args['broker']
+	if args['arduinolistener'] == "true":
+		arduinolistener = True
+	else:
+		arduinolistener = False
+	
+	b = Brokerthing(broker_url,thing_id)
+	b.register()
+
+	#opening serial
+	try:
+		ser = serial.Serial(serial_address, 9600, timeout=1)
+		time.sleep(3);
+
+		bl = BrokerListener(ser,b)
+		bl.start()
+		print "Done setting up broker listener"
+
+		if arduinolistener:
+			al = ArduinoListener(ser,b)
+			al.start()
+			print ("Now, listening for arduino events on serial port " + ser.portstr)
+
+	except:
+		print "There was an error opening the port " + serial_address + " other app might be using it."
+
+
+
+	
+
+
+#TODO: catch SIGTERM signal and end threads.
+#	def signal_handler(signal, frame):
+#        	print 'You pressed Ctrl+C!'#
+#		bl.stop()
+#		bl.join()
+#        	sys.exit(0)
+
+	#signal.signal(signal.SIGINT, signal_handler)
+	#print 'Press Ctrl+C to end server'
+	#signal.pause()
+	
+
+if __name__ == "__main__":
+	main(sys.argv[1:])
+
