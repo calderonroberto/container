@@ -46,6 +46,8 @@
 				d = new Date(value.checkin.created_at);
                                 var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
 				$("#people").append('<p class="person">'+value.user.name+' ('+monthNames[d.getMonth()]+' '+d.getUTCDate()+')</p>');
+				if (index == 4)
+					return false;
 
 			});
 		});
