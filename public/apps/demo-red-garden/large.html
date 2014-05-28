@@ -31,7 +31,7 @@
   </style>
 
     <script type="text/javascript">
-			
+
 	function getURLParameter(name) {
 	    return decodeURI(
 		(RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
@@ -97,7 +97,7 @@
   <img id="instructions-img" src="instructions-image.png"/>
 
   <div id="instructions">
-	<div id="instructions-text">Checkin, Sit together, Fist-bump, or High-five Roberto to add virtual water.<br>Touch virtual water to water garden. Scan QR code, or visit URL below to checkin.</div>
+	<div id="instructions-text">Scan QR code and Checkin, Sit together for 20 seconds, Convince someone to fist-bump you, or High-five Roberto to add virtual water.<br>Touch the projected virtual water to water the garden. Scan QR code, or visit URL below for more.</div>
   </div>
 
   <div id="counters">
@@ -161,15 +161,20 @@
 
 	//Set listener for sittings and watering garden events
         //catch arduino analog read events.
+        var sittingsFlag = false; //Flag
         $("#demowatergarden").thing({listen:true,
                    debug:false,
 		   container:false,
                    eventCallback:function(json){
 			if (json[0].info.type == "read_results"){
+			   //console.log(json[0]);
                            //if two people seating
-                           if ( json[0].info["0"] > 5 && json[0].info["1"] > 5 ) {
-				//console.log(json[0].info["0"]);
+                           if ( json[0].info["0"] > 5 && json[0].info["1"] > 5 && sittingsFlag == false) {
 				pointAnimation("sittings");
+				sittingsFlag = true;
+			   }
+                           if ( json[0].info["0"] < 2 && json[0].info["1"] < 2 && sittingsFlag == true) {
+				sittingsFlag = false;
 			   }
 			}
 			if (json[0].info.type == "case"){
@@ -199,7 +204,7 @@
 	//send and event to add water
 	function virtualWaterEvent() {
 		console.debug("Adding Virtual Water");
-   		var t = $.ThingBroker({debug:true, container:false});
+   		var t = $.ThingBroker({debug:false, container:false});
 		t.postThing({thingId: "demovirtualwater"});
 		var e = t.postEvent("#demovirtualwater", {});
         };
@@ -235,7 +240,7 @@
         setInterval(function(){
             var t = $.ThingBroker({debug:false, container:false}); //send directly to the arduino
             t.postEvent("demowatergarden", {"type":"read"})
-        },2000);
+        },10000);
 
 
 </script>
