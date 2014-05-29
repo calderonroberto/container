@@ -29,7 +29,7 @@
 <div id="mask"></div>
 
 <div id="demowatergarden">
-<div id="demothankyou">
+<div id="demothankyou1396992920">
 <div id="demovirtualwater"></div>
 
 <script type="text/javascript">
@@ -39,9 +39,9 @@
 		$("#mask").animate({height:'440'},4000)
    		var t = $.ThingBroker({debug:true, container:false});
 		t.postThing({thingId: "demowatergarden"});
-		var e = t.postEvent("#demowatergarden", {'type':'case'});
-		t.postThing({thingId: "demothankyou"});
-		var e = t.postEvent("#demothankyou", {});
+		var e = t.postEvent("#demowatergarden", {'type':'digital','13':'1','timeout':'20'});
+		t.postThing({thingId: "demothankyou1396992920"});
+		var e = t.postEvent("#demothankyou1396992920", {});
 
 	}
 	function replenish() {
