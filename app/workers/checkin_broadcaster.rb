@@ -6,9 +6,7 @@ class CheckinBroadcaster
   # be configured for other purposes
 
   @queue = :checkins_queue  
-  def self.perform(display, user)
-    setup = Setup.find_by_id(display["id"])
-    thingbroker_url = setup["thingbroker_url"]
+  def self.perform(display, user, thingbroker_url)
     conn = Faraday.new(:url => thingbroker_url) do |faraday|
       faraday.request  :url_encoded             # form-encode POST params
       faraday.response :logger                  # log requests to STDOUT

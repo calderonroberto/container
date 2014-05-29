@@ -9,22 +9,22 @@ class CheckinsController < ApplicationController
   def create 
     user = User.find_by_id(params[:checkin][:user_id])
     display = Display.find_by_id(params[:checkin][:display_id])
-
+    thingbroker_url = display.setup.thingbroker_url
 
 
     if user[:email] == "anonymous@email.com" then 
       @checkin = user.checkin!(display)
-      broadcast_checkin(display, user)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper)
+      broadcast_checkin(display, user,thingbroker_url)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper)
     end
 
     if user.checkins.last.nil? then
       @checkin = user.checkin!(display)
-      broadcast_checkin(display, user)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper)
+      broadcast_checkin(display, user,thingbroker_url)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper)
     else
       @checkin = user.checkins.last
       if (@checkin.created_at <= Time.zone.now.beginning_of_day) then
         @checkin = user.checkin!(display)
-        broadcast_checkin(display, user)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper)
+        broadcast_checkin(display, user,thingbroker_url)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper)
       end      
     end
     @user = user
