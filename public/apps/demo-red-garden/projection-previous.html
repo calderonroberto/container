@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html >  
+<!DOCTYPE html >  
 <html lang="en">  
 <head>  
   <meta charset="UTF-8">
@@ -27,21 +27,21 @@
 
 <div id="water"></div>
 <div id="mask"></div>
-<!-- file:///C:/Users/rober_000/Desktop/virtual-water/projection.html?display_id=1396992920&thingbroker_url=http%3A%2F%2F192.168.2.111%3A8080%2Fthingbroker -->
-<div id="demowatergarden">
-<div id="demothankyou">
-<div id="demovirtualwater"></div>
+
+<div id="demowatergarden1396992920">
+<div id="demothankyou1396992920">
+<div id="demovirtualwater1396992920"></div>
 
 <script type="text/javascript">
   	$("#water").click(function(){deplete()});
 
 	function deplete() {		
 		$("#mask").animate({height:'440'},4000)
-   		var t = $.ThingBroker({debug:true});
-		t.postThing({thingId: "demowatergarden"});
-		var e = t.postEvent("#demowatergarden", { 'type': 'digital', '13': '1', 'timeout': '20' });
-		t.postThing({thingId: "demothankyou"});
-		var e = t.postEvent("#demothankyou", {});
+   		var t = $.ThingBroker({debug:true,url:"http://192.168.2.111:8080/thingbroker",container:false});
+		t.postThing({thingId: "demowatergarden1396992920"});
+		var e = t.postEvent("#demowatergarden1396992920", {'type':'digital','13':'1','timeout':'20'});
+		t.postThing({thingId: "demothankyou1396992920"});
+		var e = t.postEvent("#demothankyou1396992920", {});
 
 	}
 	function replenish() {
@@ -50,9 +50,10 @@
 		}
 	}
 
-	$("#demovirtualwater").thing({listen:true,
+	$("#demovirtualwater1396992920").thing({listen:true,
+		   url:"http://192.168.2.111:8080/thingbroker",
                    debug:true,
-		           container:true,
+		   container:false,
                    eventCallback:function(json){
                                                 replenish();
                                                }
