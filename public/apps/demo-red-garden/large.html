@@ -149,6 +149,7 @@
 <script type="text/javascript">
 
         //Set listener for checkins
+/*
         var checkinid = "checkin" + getURLParameter("display_id"); //adding display_id
         $("#checkin").attr("id",checkinid); //let's change the ID to reflect the display
 	$("#"+checkinid).thing({listen:true, //let's use that id to pull events
@@ -156,6 +157,14 @@
 		//THis is a demo on how to manage false containers.
 		// if using container:true, the display_id is added automatically by api
 		container:false, 
+                eventCallback:function(json){
+			pointAnimation("checkins");
+		}
+	});
+*/
+        $("#checkin").thing({listen:true,
+        	debug:true,
+		container:true, 
                 eventCallback:function(json){
 			pointAnimation("checkins");
 		}
