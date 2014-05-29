@@ -215,7 +215,7 @@
 	//send and event to add water
 	function virtualWaterEvent() {
 		console.debug("Adding Virtual Water");
-   		var t = $.ThingBroker({debug:false, container:true});
+   		var t = $.ThingBroker({debug:false, container:true,url:"http://192.168.2.111:8080/thingbroker"});
 		t.postThing({thingId: "demovirtualwater"});
 		var e = t.postEvent("#demovirtualwater", {});
         };

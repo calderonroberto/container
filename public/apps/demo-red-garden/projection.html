@@ -37,7 +37,7 @@
 
 	function deplete() {		
 		$("#mask").animate({height:'440'},4000)
-   		var t = $.ThingBroker({debug:true, container:false});
+   		var t = $.ThingBroker({debug:true,url:"http://192.168.2.111:8080/thingbroker",container:false});
 		t.postThing({thingId: "demowatergarden1396992920"});
 		var e = t.postEvent("#demowatergarden1396992920", {'type':'digital','13':'1','timeout':'20'});
 		t.postThing({thingId: "demothankyou1396992920"});
@@ -51,6 +51,7 @@
 	}
 
 	$("#demovirtualwater1396992920").thing({listen:true,
+		   url:"http://192.168.2.111:8080/thingbroker",
                    debug:true,
 		   container:false,
                    eventCallback:function(json){
