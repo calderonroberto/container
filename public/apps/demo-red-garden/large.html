@@ -3,7 +3,7 @@
 <head>  
   <title>A RED Application</title>  
   <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
-  <script type="text/javascript" src="jquery.thingbroker-0.3.0.min.js"></script>
+  <script type="text/javascript" src="jquery.thingbroker-0.3.0.js"></script>
 
   <style type="text/css">
         body{background-color:white;}
@@ -153,7 +153,7 @@
         $("#checkin").attr("id",checkinid); //let's change the ID to reflect the display
 	$("#"+checkinid).thing({listen:true, //let's use that id to pull events
         	debug:false,
-		container:false,
+		container:true,
                 eventCallback:function(json){
 			pointAnimation("checkins");
 		}
@@ -164,7 +164,7 @@
         var sittingsFlag = false; //Flag
         $("#demowatergarden").thing({listen:true,
                    debug:false,
-		   container:false,
+		   container:true,
                    eventCallback:function(json){
 			if (json[0].info.type == "read_results"){
 			   //console.log(json[0]);
@@ -185,8 +185,8 @@
 
 	//Set a listener for bumps
 	$("#demobumps").thing({listen:true,
-                   debug:false,
-		   container:false,
+                   debug:true,
+		   container:true,
                    eventCallback:function(json){
 			pointAnimation("bumps");
                    }
@@ -195,7 +195,7 @@
 	//Set a listener for highfives
 	$("#demohighfives").thing({listen:true,
                    debug:false,
-		   container:false,
+		   container:true,
                    eventCallback:function(json){
 			pointAnimation("highfives");
                    }
@@ -238,7 +238,7 @@
 
   	//ask arduino to read regularly
         setInterval(function(){
-            var t = $.ThingBroker({debug:false, container:false}); //send directly to the arduino
+            var t = $.ThingBroker({debug:false, container:true}); //send directly to the arduino
             t.postEvent("demowatergarden", {"type":"read"})
         },10000);
 
