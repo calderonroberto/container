@@ -7,7 +7,9 @@ class CheckinBroadcaster
 
   @queue = :checkins_queue  
   def self.perform(display, user)
-    conn = Faraday.new(:url => 'http://kimberly.magic.ubc.ca:8080') do |faraday|
+    setup = Setup.find_by_id(display["id"])
+    thingbroker_url = setup["thingbroker_url"]
+    conn = Faraday.new(:url => thingbroker_url) do |faraday|
       faraday.request  :url_encoded             # form-encode POST params
       faraday.response :logger                  # log requests to STDOUT
       faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
