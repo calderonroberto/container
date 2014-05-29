@@ -28,9 +28,9 @@
 <div id="water"></div>
 <div id="mask"></div>
 
-<div id="demowatergarden">
+<div id="demowatergarden1396992920">
 <div id="demothankyou1396992920">
-<div id="demovirtualwater"></div>
+<div id="demovirtualwater1396992920"></div>
 
 <script type="text/javascript">
   	$("#water").click(function(){deplete()});
@@ -38,8 +38,8 @@
 	function deplete() {		
 		$("#mask").animate({height:'440'},4000)
    		var t = $.ThingBroker({debug:true, container:false});
-		t.postThing({thingId: "demowatergarden"});
-		var e = t.postEvent("#demowatergarden", {'type':'digital','13':'1','timeout':'20'});
+		t.postThing({thingId: "demowatergarden1396992920"});
+		var e = t.postEvent("#demowatergarden1396992920", {'type':'digital','13':'1','timeout':'20'});
 		t.postThing({thingId: "demothankyou1396992920"});
 		var e = t.postEvent("#demothankyou1396992920", {});
 
@@ -50,7 +50,7 @@
 		}
 	}
 
-	$("#demovirtualwater").thing({listen:true,
+	$("#demovirtualwater1396992920").thing({listen:true,
                    debug:true,
 		   container:false,
                    eventCallback:function(json){
