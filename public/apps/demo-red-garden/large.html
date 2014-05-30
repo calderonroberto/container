@@ -188,7 +188,7 @@
 				sittingsFlag = false;
 			   }
 			}
-			if (json[0].info.type == "case"){
+			if (json[0].info.type == "digital"){
 				wateringAnimation();
 			}
                    }
@@ -254,7 +254,7 @@
   	//ask arduino to read regularly
         setInterval(function(){
             var t = $.ThingBroker({debug:false, container:true}); //send directly to the arduino
-            t.postEvent("demowatergarden", {"type":"read"})
+            t.postEvent("demowatergarden", {"type":"read"});
             bumpsFlag = false; //Flag //TODO: REMOVE. best practice is to change code in kinect
         },10000);
 

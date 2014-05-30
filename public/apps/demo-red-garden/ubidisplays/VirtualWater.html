@@ -26,10 +26,12 @@
 <div id="mask"></div>
 <div id="demowatergarden">
 <div id="demothankyou">
+<div id="demovirtualwater1396992920"></div>
 <div id="demovirtualwater"></div>
 		
 		<script>
 
+    $("#demovirtualwater1396992920").thing({listen:true, container:false});
 			// When we press play.
 
 			$('#play').bind('touchstart', function(e)
@@ -85,7 +87,6 @@
             $("#mask").animate({height: $('#mask').height() - 50 },1000);
         }
     }
-
 
     $("#demovirtualwater").thing({listen:true,
         debug:true,
