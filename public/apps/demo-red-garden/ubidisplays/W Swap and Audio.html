@@ -1,0 +1,147 @@
+<html>
+	<head>
+		<style type="text/css">
+			html, body
+			{
+				overflow: hidden;
+				margin: 0px;
+				background-color:black;
+			}
+			
+			body
+			{
+				border: solid white 5px;
+				display: none;
+			}
+			.surf_info
+			{
+				margin: 0px 0px 0px 10px;
+				font-size: 40px;
+				color : white;
+			}
+			.button
+			{
+				position : absolute;
+				width: 20%;
+				height: 20%;
+				top: 40%;
+				left: 20%;
+				border: solid white 5px;
+				background-color: #e3c;
+			}
+			#sound
+			{
+				top: 40%;
+				left: 20%;
+				background-color: #e3c;
+				background : url(images/audio.png);
+				background-size:100% 100%;
+				background-repeat:no-repeat;
+			}
+			#move
+			{
+				top: 40%;
+				left: 60%;
+				background-color: #FF;
+				background : url(images/jump.png);
+				background-size:100% 100%;
+				background-repeat:no-repeat;
+			}
+			
+		</style>
+		
+		<title>Sound and Swap</title>
+		<script src="js/jquery-1.8.2.js" type="text/javascript"></script>
+		<script src="js/ubidisplays-multitouch-0.8.js" type="text/javascript"></script>
+		
+	</head>
+	<body>
+		
+		<div id="surfacedata">
+			<p id="surf_name" class="surf_info">Surface Name</p>
+			<p id="surf_dims" class="surf_info">XxY meters</p>
+			<p id="surf_angle" class="surf_info"></p>
+			<p id="surf_fps" class="surf_info"></p>
+		</div>
+		
+		<div id="sound" class="button"></div>
+		<div id="move" class="button"></div>
+		
+		<script>
+			
+			// Global variable for the multi-touch processor.
+			var pMTProcessor = null;
+			
+			$(document).ready(function()
+			{
+				// Write the surface properties.
+				Surface_PropertiesChanged();
+				
+				// Fade the display in.
+				$("body").fadeIn();
+				
+				// Enable multi-touch.
+				pMTProcessor = new KinectTouch({
+					debug : true,               // Turn on debug points.
+					trails : true,              // Turn on finger trails (this shows the Kinect data used to detect the finger).
+					point_limit : 200,          // The number of points we are allowed to process.
+					surface_zoffset : 0.010,    // The offset from the surface (in meters) at which to start capturing data.
+					height : 0.01,              // The distance from the surface offset (in meters) at which to stop capturing data.
+				});
+				
+				// Make some buttons!
+				$("#sound").bind("touchstart", function(e)
+				{
+					// Play the sound of a delighted sheep.
+					var pSound = new Audio("images/sheep.wav");
+					pSound.play();
+					
+					// Set our border to lime green and then white.
+					$("#sound").css({"border-color": "lime"});
+					setTimeout(function() { $("#sound").css({"border-color": "white"}); }, 500);
+				});
+				
+				// When we press the "move" button - make us swap to the other display.
+				$("#move").bind("touchstart", function(e)
+				{
+					// Set our border to lime green and then white.
+					$("#sound").css({"border-color": "lime"});
+					setTimeout(function() { $("#sound").css({"border-color": "white"}); }, 500);
+					
+					// Find a free surface that isn't this one.
+					
+					
+					// Get the name of the other display.
+					sOtherSurfaceName = Surface.Name == "Surface 0" ? "Surface 1" : "Surface 0";
+					
+					// Fade this display out, and once that has finished, make the swap.
+					$("body").fadeOut(function()
+					{
+						Authority.request("swapdisplay", { target : sOtherSurfaceName} );
+					});
+				});
+			});
+			
+			/**
+			 * @brief Update the information about updates to the surface.
+			 * This is called automatically by the toolkit when properties change.
+			 */
+			function Surface_PropertiesChanged()
+			{
+				$("#surf_name").text("" + Surface.Name);
+				$("#surf_dims").text("" + round(Surface.Width, 2) + "m x " + round(Surface.Height, 2) + "m");
+				$("#surf_angle").text("" + round(Surface.Angle * 57.2957795, 2) + " degrees");
+			}
+			
+			/** Called by another display when this one should fade out. */
+			function startFade(src_name, data)
+			{
+				$("body").fadeOut(function(){});
+			}
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

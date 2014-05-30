@@ -1,0 +1,90 @@
+<html>
+	<head>
+		<style type="text/css">
+			html, body { overflow: hidden; }
+			body { border: solid white 5px; background-color:black; }
+			#play { position:absolute; left:10%; top: 450px; width:30%; height:100px; -webkit-box-shadow: 0px 0px 6px 6px #00FF00;}
+			#pause { position:absolute; left:60%; top: 450px; width:30%; height:100px; -webkit-box-shadow: 0px 0px 6px 6px #FF0000; }
+			#youtube-player-container { position:absolute; left:10px; top: 20px; background-color: #0000FF; }
+		</style>
+		
+		<script src="js/jquery-1.8.2.js" type="text/javascript"></script>
+		<script src='js/jQuery.tubeplayer.min.js' type='text/javascript'></script>
+		<script src="js/ubidisplays-multitouch-0.8.js" type="text/javascript"></script>
+	</head>
+	
+	<body>
+	
+		<div id="play"></div>
+		<div id="pause"></div>
+		<div id='youtube-player-container'> </div>
+		
+		<script>
+			// Start up a youtube clip.
+			jQuery("#youtube-player-container").tubeplayer({
+				width: 780, // the width of the player
+				height: 400, // the height of the player
+				allowFullScreen: "true", // true by default, allow user to go full screen
+				initialVideo: "df1NO7MoAUY", // the video that is loaded into the player // ByE5YakDFrc
+				preferredQuality: "default",// preferred quality: default, small, medium, large, hd720
+				onPlay: function(id){}, // after the play method is called
+				onPause: function(){}, // after the pause method is called
+				onStop: function(){}, // after the player is stopped
+				onSeek: function(time){}, // after the video has been seeked to a defined point
+				onMute: function(){}, // after the player is muted
+				onUnMute: function(){} // after the player is unmuted
+			});
+			
+			// When we press play.
+			$('#play').bind('touchstart', function(e)
+			{
+				// Turn the border orange and start playback.
+				$('#play').css({"background-color": "orange"});
+				jQuery("#youtube-player-container").tubeplayer("play");
+				
+				// Wait 500ms and then fade the orange to transparent.
+				setTimeout(function() { $('#play').css({"background-color": "transparent"}); }, 500);
+			});
+			
+			
+			// When we press pause.
+			$('#pause').bind('touchstart', function(e)
+			{
+				// Turn the border orange and start playback.
+				$('#pause').css({"background-color": "orange"});
+				jQuery("#youtube-player-container").tubeplayer("pause");
+				
+				// Wait 500ms and then fade the orange to transparent.
+				setTimeout(function() { $('#pause').css({"background-color": "transparent"}); }, 500);
+			});
+			
+			// Global variable for the multi-touch processor.
+			var pMTProcessor = null;
+			
+			$(document).ready(function()
+			{
+				// Get us some multitouch.
+				mt = new KinectTouch({
+					debug : true,               // Turn on debug points.
+					trails : false,             // Turn on finger trails (this shows the Kinect data used to detect the finger).
+					point_limit : 200,          // The number of points we are allowed to process.
+					surface_zoffset : 0.015,    // The offset from the surface (in meters) at which to start capturing data.
+					height : 0.01,              // The distance from the surface offset (in meters) at which to stop capturing data.
+				});
+			});
+			
+			/**
+			 * @brief This is called by a control switch (on another display) which wishes to turn on or off the video.
+			 */
+			function handleObjectPresent(caller, data)
+			{
+				if (data == true)
+					jQuery("#youtube-player-container").tubeplayer("play");
+				else
+					jQuery("#youtube-player-container").tubeplayer("pause");
+			}
+			
+		</script>
+		
+	</body>
+</html>

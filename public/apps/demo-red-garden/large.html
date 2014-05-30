@@ -195,11 +195,15 @@
         });
 
 	//Set a listener for bumps
+        var bumpsFlag = false; //Flag//TODO: REMOVE. best practice is to change code in kinect
 	$("#demobumps").thing({listen:true,
                    debug:true,
 		   container:true,
                    eventCallback:function(json){
-			pointAnimation("bumps");
+			if (bumpsFlag == false) {
+  			   pointAnimation("bumps");
+                           bumpsFlag = true;//TODO: REMOVE. best practice is to change code in kinect
+			}
                    }
         });
 
@@ -251,6 +255,7 @@
         setInterval(function(){
             var t = $.ThingBroker({debug:false, container:true}); //send directly to the arduino
             t.postEvent("demowatergarden", {"type":"read"})
+            bumpsFlag = false; //Flag //TODO: REMOVE. best practice is to change code in kinect
         },10000);
 
 

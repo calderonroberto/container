@@ -1,0 +1,102 @@
+<html>
+	<head>
+		<style type="text/css">
+			html, body { overflow: hidden; }
+			body { background-color:black; }
+	#play { position:absolute; left:0%; top: 0%; width:500px; height:500px; background-color:transparent; z-index:1000;}
+			#pause { position:absolute; left:60%; top: 450px; width:30%; height:100px; -webkit-box-shadow: 0px 0px 6px 6px #FF0000; }
+			#youtube-player-container { position:absolute; left:10px; top: 20px; background-color: #0000FF; }
+	#water {width:500px; height:500px; position:absolute; top:0; left:0; -webkit-mask-image: url(images/mask2.png); background-image:url('images/water.gif');
+	}
+	#mask {background-color:black; width:500px; height:420px; position:absolute; top:0; left:0; z-index: 10;
+	}
+		</style>
+		
+		<script src="js/jquery-1.8.2.js" type="text/javascript"></script>
+		<script src='js/jQuery.tubeplayer.min.js' type='text/javascript'></script>
+		<script src="js/ubidisplays-multitouch-0.8.js" type="text/javascript"></script>
+                <script type="text/javascript" src="js/jquery.thingbroker-0.3.0.js"></script>
+	</head>
+	
+	<body>
+	
+<div id="play"></div>
+ 
+<div id="water"></div>
+<div id="mask"></div>
+<div id="demowatergarden">
+<div id="demothankyou">
+<div id="demovirtualwater"></div>
+		
+		<script>
+
+			// When we press play.
+
+			$('#play').bind('touchstart', function(e)
+			{
+				deplete();
+			});
+	
+			// Global variable for the multi-touch processor.
+			var pMTProcessor = null;
+			
+			$(document).ready(function()
+			{
+
+			   if(getParameterByName('reloaded')){
+			      //loaded once
+				// Get us some multitouch.
+				mt = new KinectTouch({
+					debug : true,               // Turn on debug points.
+					trails : false,             // Turn on finger trails (this shows the Kinect data used to detect the finger).
+					point_limit : 200,          // The number of points we are allowed to process.
+					surface_zoffset : 0.015,    // The offset from the surface (in meters) at which to start capturing data.
+					height : 0.01,              // The distance from the surface offset (in meters) at which to stop capturing data.
+				});
+			   }else{
+			      window.location = window.location.href+'?display_id=1396992920&thingbroker_url=http%3A%2F%2F192.168.2.111%3A8080%2Fthingbroker&reloaded=true';
+			   }
+
+
+
+
+
+			});
+			
+		
+			function getParameterByName(name) {
+			    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+			    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+			    results = regex.exec(location.search);
+			    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+			};
+
+
+    function deplete() {
+        $("#mask").animate({height:'400'},4000, function() {
+           var t = $.ThingBroker({debug:true});
+           t.postThing({thingId: "demowatergarden"});
+           var e = t.postEvent("#demowatergarden", { 'type': 'digital', '13': '1', 'timeout': '20' });
+        })
+  
+    }
+    function replenish() {
+        if ($("#mask").height() > 100){
+            $("#mask").animate({height: $('#mask').height() - 50 },1000);
+        }
+    }
+
+
+    $("#demovirtualwater").thing({listen:true,
+        debug:true,
+        container:true,
+        eventCallback:function(json){
+            replenish();
+        }
+    });
+
+
+		</script>
+		
+	</body>
+</html>

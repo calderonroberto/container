@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<title>Like Button</title>
+		
+		<style type="text/css">
+			html, body { overflow: hidden; background-color:black; }
+			
+			#like { position:absolute; left:10%; top: 10%; width:70%; }
+			
+			#count { position:absolute; left:70%; top: 10%; width:20%; font-size: 9em; font-family: arial; color: white; text-shadow: 0 0 0.3em white; }
+			
+			#border { position: fixed; width: 790px; height: 590px; padding: 0; margin: 0; top: 0; left: 0; border: solid white 5px; }
+		</style>
+		
+		<script src="js/jquery-1.8.2.js" type="text/javascript"></script>
+		
+	</head>
+	
+	<body>
+		<div id="border"></div>
+		<img id="like" src="images/like.png"/>
+		<div id="count"></div>
+		
+		
+		
+		<script>
+			
+			$(document).ready(function()
+			{
+				// Show the border.
+				Surface_PropertiesChanged();
+				
+				// Request the lowest point cube.
+				Authority.request("KinectLowestPointCube", {
+					relativeto : Surface.Name,			// The surface we want information relative too.
+					surface_zoffset : 0.02, // 0.015	// The height from the surface we want to accept points from (in meters).
+					height:0.10,						// The height from the surface+offset we want to no longer accept points from (in meters).
+					callback : "Handle_LowestPoints",	// The function we want to call back with information.
+					point_limit : 50,					// The max number of points to accept.
+					sendemptyframes : false,			// Do we want callbacks when we have empty frames (i.e. when we have no points at all).
+				});
+				
+			});
+			
+			// Little snippit which fades out the border when we are changing the surface properties.
+			//   This makes it a bit easier to see when we are dragging the corners.
+			function Surface_PropertiesChanged()
+			{
+				$("#border").show().delay(2000).fadeOut(500);
+			}
+			
+			// The number of frames where the hand has been in place.
+			var iFrameCount = 0;
+			
+			// The starting number of "likes".
+			var iLikeCount = 23;
+			
+			/**
+			 * @brief Called by the toolkit with point cloud data.
+			 * This is because we set it up to be called when we go: Authority.request("KinectLowestPointCube", {...args...})
+			 * @param pointList This is a list of points in the format: [[x,y,z],[x,y,z],[x,y,z]]
+			 */
+			function Handle_LowestPoints(pointList)
+			{
+				// If we have more than 40 points.
+				if (pointList.length > 40)
+				{
+					// If the points have been there for x frames.
+					if (iFrameCount == 5)
+					{
+						// A change has happened, so increase the like count and fade in etc.
+						iLikeCount++;
+						$("#count").text(iLikeCount + "");
+						$("#count").stop().fadeIn().delay(1000).fadeOut();
+					}
+					
+					// Increase the frame count.
+					iFrameCount++;
+				}
+				
+				// We have less than 40 points, so reset the counter.
+				else
+				{
+					// We do not have a hand in place.
+					iFrameCount = 0;
+				}
+			}
+		</script>
+		
+	</body>
+</html>

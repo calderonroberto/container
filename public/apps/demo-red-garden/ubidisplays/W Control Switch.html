@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<title>Control Switch</title>
+		<style type="text/css">
+			html, body { overflow: hidden; margin: 0; padding: 0; background-color:white; }
+			body { background-color:black; }
+		</style>
+		<script src="js/jquery-1.8.2.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<script>
+			$(document).ready(function()
+			{
+				// Request the lowest points around this surface
+				Authority.request("KinectLowestPointCube", {
+					relativeto : Surface.Name,			// The surface we want our data to be relative too.
+					surface_zoffset : 0.02, // 0.015	// The offset from the surface to check.
+					height:0.1,							// The height above the surface to check.
+					callback : "Handle_LowestPoints",	// The function we want to call with the point data.
+					point_limit : 50,					// The max number of points to accept.
+					sendemptyframes : true,				// Do we want callbacks when we have empty frames (i.e. when we have no points at all).
+				});
+			});
+			
+			/** The surface we want to send control signals too. */
+			var sControlSurface = "Video";//Surface 0";
+			
+			/** Is an object present over this control surface. */
+			var bObject = false;
+			
+			/** @brief Called when an object is detected. */
+			function pressed()
+			{
+				if (!bObject)
+				{
+					$("body").fadeToggle();
+					Authority.call(sControlSurface, "handleObjectPresent", true);
+				}
+				bObject = true;
+			}
+			
+			/** @brief Called when an object is no longer detected. */
+			function removed()
+			{
+				if (bObject)
+				{
+					$("body").fadeToggle();
+					Authority.call(sControlSurface, "handleObjectPresent", false);
+				}
+				bObject = false;
+			}
+			
+			/** The number of frames of point cloud data. */
+			var iFrameCount = 0;
+			
+			/**
+			 * Called with point cloud data.
+			 */
+			function Handle_LowestPoints(pointList)
+			{
+				if (pointList.length > 30)
+				{
+					if (iFrameCount >= 5)
+						pressed();
+					iFrameCount++;
+				}
+				else
+				{
+					iFrameCount = 0;
+					removed();
+				}
+			}
+		</script>
+	</body>
+</html>

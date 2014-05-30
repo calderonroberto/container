@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<title>Image Scroller</title>
+		<style type="text/css">
+			html, body { background-color:black; overflow: hidden; margin: 0px; }
+			body { /* border: solid white 5px; */ }
+			
+			.subtitle { margin-top: 20px; margin-bottom: 20px; background-color: white; text-align: center; font-weight: bold; font-size: 2em; font-family: Arial; }
+			#wrapper  { width:100%; float:left; position:relative; z-index:1; overflow:hidden; }
+			#fb { width:100%; float:left; overflow:hidden; }
+			
+			#scroller  { width:3260px; height:450px; float:left; padding:0; }
+			#scroller ul  { list-style:none; display:block; float:left; width:100%; height:100%; padding:0; margin:0; text-align:left; }
+			#scroller li { margin-left: 10px; display:block; float:left; }
+			#scroller li img { width: 800px; height: 450px; }
+			
+		</style>
+		
+		<script src="js/jquery-1.8.2.js" type="text/javascript"></script>
+		<script src="js/iscroll.js" type="text/javascript"></script>
+		<script src="js/ubidisplays-multitouch-0.8.js" type="text/javascript"></script>
+		
+	</head>
+	<body>
+		
+		<div class="subtitle">ST Excalibur</div>
+		
+		<div id="wrapper">
+			<div id="scroller">
+				<ul>
+					<li><img src="images/excalibur1.png" /></li>
+					<li><img src="images/excalibur2.png" /></li>
+					<li><img src="images/excalibur3.png" /></li>
+					<li><img src="images/excalibur4.png" /></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="fb" class="subtitle">follow us at facebook.com/stexcalibur</div>
+		
+		<script>
+			// Global variable for the multi-touch processor.
+			var pMTProcessor = null;
+			
+			/**
+			 * Once the page is ready, inject multi-touch from the Ubi Displays script.
+			 */
+			$(document).ready(function()
+			{
+				// Get me some multi-touch.
+				pMTProcessor = new KinectTouch({
+					debug : true,               // Turn on debug points.
+					trails : false,              // Turn on finger trails (this shows the Kinect data used to detect the finger).
+					point_limit : 200,          // The number of points we are allowed to process.
+					surface_zoffset : 0.015,    // The offset from the surface (in meters) at which to start capturing data.
+					height : 0.01,              // The distance from the surface offset (in meters) at which to stop capturing data.
+				});
+				
+				// Turn on the scrolling.
+				var myScroll = new iScroll('wrapper', { 
+					hScrollbar: false,
+					vScrollbar: false,
+					snap: false,
+				});
+			});
+		</script>
+		
+	</body>
+</html>
