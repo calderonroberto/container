@@ -14,7 +14,12 @@
 
 <div class="qrcode">
 <img src="/img/scan.png">
-<%= image_tag "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=#{@qrcodeurl}&choe=UTF-8"%>
+<% if @displayname == "demo" %>
+<%= image_tag "demoqrcode.png" %>
+<%  else %>
+<%= image_tag "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=#{@qrcodeurl}&choe=UTF-8" %>
+<% end %>
+
 </div>
 
 <div class="qrcodeurl">
