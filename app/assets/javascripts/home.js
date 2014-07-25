@@ -2,17 +2,38 @@
 
 $(document).ready(function() {
   initState();
+  checkCheckinEvents(); //check for events and update (not using thingbroker jquery plugin)
   //if you prefer to not use faye long pulling you can do synchronous calls [setting this up for now]
   setInterval(initState,  5000); 
 });
 
 function initState () {
   $.ajax({ type: "GET", url: "/api/state", dataType: "json", success: stateHandler });
+  $("#checkin-notice").hide();
 };
+
+// NOTE: We don't want to depend on loading a separate file (thingbroker jquery api)
+// so we are writing an independent caller. Without the need to load external files.
+function checkCheckinEvents(json) {
+  if (json!=undefined && json[0]!=undefined){
+     $("#checkin-notice").empty();
+     $("#checkin-notice").append("<div class='checkin-notice-person'>"+json[0].info.user_name + " just checked in!</div>");
+     $("#checkin-notice").fadeIn("slow", function(){
+        //when done
+	 setTimeout(function() {
+	    $("#checkin-notice").fadeOut("slow");
+	 }, 10000);	
+     });
+  }
+  var events_url = "http://kimberly.magic.ubc.ca:8080/thingbroker/things/checkin"+localStorage.getItem("display_id")+"/events?waitTime=30";
+  $.ajax({ type: "GET", url: events_url, dataType: "json", success: checkCheckinEvents });
+}
+
 function stateHandler (json) {
   var apps = json.apps;
   var staged_app = json.staged_app;
   var display_id = json.display.id;
+  localStorage.setItem("display_id", json.display.id);//set global variable for ajaxcalls
   var thingbroker_url = encodeURIComponent(json.setup.thingbroker_url)
   var notes = json.notes;
   var interaction = json.interaction;
