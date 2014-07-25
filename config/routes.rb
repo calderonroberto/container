@@ -40,6 +40,7 @@ Container::Application.routes.draw do
   match '/api/apps', to: 'apps#apps', :as => :api_apps
   match '/api/:display_id/analytics', to: 'analytics#show', :as => :api_display_analytics
   match '/api/:display_id/checkins', to: 'checkins#displaycheckins', :as => :api_display_checkins
+  match '/api/currentuser', to: 'users#currentuser', :as => :api_currentuser
 
   #resque web server
   mount Resque::Server, :at => "/resque"

@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Trivia Game</title>
+   <script src="jquery-1.7.2.min.js"></script> 
+   <script src="jquery.thingbroker-0.3.0.min.js"></script> 
+
+   <style>
+     .instructions{font-family:"Verdana", sans-serif; font-size:10pt;}
+     .button { width:90%; height: 35px; background-color:rgba(47,93,124,0.7); border-radius:10px; color:white; text-align:center; margin:10px 10px; font-size:30px; padding: 5px 5px; font-weight:bold;} 
+   </style>
+</head>
+
+<body>
+
+
+  <div class="instructions"> 
+    <p>Make your selection by tapping on a button</p>
+  </div>
+
+   <div id="a" class="button">A</div>
+   <div id="b" class="button">B</div>
+   <div id="c" class="button">C</div>
+   <div id="d" class="button">D</div>
+
+   <div id="answertapped"></div>
+
+    <script type="text/javascript">
+
+	var userData;
+        var t = $.ThingBroker({debug:true, container:true}); //send directly to the arduino
+
+	$(document).ready(function() {			
+		setTimeout(function() {
+  		   $.getJSON("/api/currentuser", function(data) {
+			userData = data;
+
+		   });
+		}, 500); //We need to wait for processing.js to download		
+	});      
+
+        $(".button").click(function(){
+		var answerTapped = $(this).attr("id");
+                var username = userData.name;
+                var userthumbnail_url = userData.thumbnail_url;
+	        t.postEvent("answertapped", {"answer":answerTapped, "name":username, "thumbnail_url":userthumbnail_url});
+
+	});
+
+
+    </script>
+
+</body>
+</html

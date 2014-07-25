@@ -1,0 +1,10 @@
+[
+  {"id":"0","image":"0.jpg","question":"Canada is a bilingual country, but what is the only officially bilingual province?","a":"Quebec","b":"New Brunswick","c":"Ontario","d":"Nova Scotia","answer":"b"},
+  {"id":"1","image":"1.jpg","question":"How many oceans border Canada?","a":"1","b":"2","c":"3","d":"4","answer":"c"},
+  {"id":"2","image":"2.jpg","question":"What is the oldest walled city that still exists north of Mexico? ","a":"Montreal","b":"Halifax","c":"Quebec City","d":"Vancouver","answer":"c"},
+  {"id":"3","image":"3.jpg","question":"Where does the word Canada come from?","a":"Jacques Cartier","b":"Samuel de Champlain","c":"Jean Nicollet","d":"Francis Bacon","answer":"a"},
+  {"id":"4","image":"4.jpg","question":"Whose face is on the Canadian hundred-dollar bill?","a":"Wilfred Laurier","b":"John A. MacDonald","c":"William Lyon Mackenzie King","d":"Robert Borden","answer":"d"},
+  {"id":"5","image":"5.jpg","question":"When did Oh, Canada officially become the national anthem of Canada?","a":"1880","b":"1920","c":"1950","d":"1980","answer":"d"},
+  {"id":"6","image":"6.jpg","question":"How many points did Wayne Gretzky score in his career?","a":"1,876","b":"2,295","c":"2,857","d":"3,204","answer":"c"},
+  {"id":"7","image":"7.jpg","question":"What major sporting event was held in Canada in 2010","a":"Summer Olympics","b":"Winter Olympics","c":"World Cup","d":"Commonwealth Games","answer":"b"}
+]

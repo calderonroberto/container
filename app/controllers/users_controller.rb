@@ -15,4 +15,10 @@ class UsersController < ApplicationController
    render :layout => 'mobile'
  end
 
+ def currentuser
+   @user = User.find_by_id(cookies[:user_id])
+   render json: @user
+ end
+
+
 end
