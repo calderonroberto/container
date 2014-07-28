@@ -25,7 +25,10 @@ function checkCheckinEvents(json) {
 	 }, 7000);	
      });
   }
-  var events_url = "http://kimberly.magic.ubc.ca:8080/thingbroker/things/checkin"+localStorage.getItem("display_id")+"/events?waitTime=30";
+  //QTWeb throws error on localstorage
+  //var events_url = "http://kimberly.magic.ubc.ca:8080/thingbroker/things/checkin"+localStorage.getItem("display_id")+"/events?waitTime=30";
+  var displayId=getCookie("display_id");    
+  var events_url = "http://kimberly.magic.ubc.ca:8080/thingbroker/things/checkin"+displayId+"/events?waitTime=30";
   $.ajax({ type: "GET", url: events_url, dataType: "json", success: checkCheckinEvents });
 }
 
@@ -33,7 +36,10 @@ function stateHandler (json) {
   var apps = json.apps;
   var staged_app = json.staged_app;
   var display_id = json.display.id;
-  localStorage.setItem("display_id", json.display.id);//set global variable for ajaxcalls
+  //QTWeb throws error on localstorage
+  //if display_id != undefined {
+  //  localStorage.setItem("display_id", json.display.id);//set global variable for ajaxcalls
+  //}
   var thingbroker_url = encodeURIComponent(json.setup.thingbroker_url)
   var notes = json.notes;
   var interaction = json.interaction;
