@@ -18,7 +18,7 @@ def create
   @user = User.find_by_id(cookies[:user_id])
   display = Display.find_by_unique_id(params[:note][:display_id])
   @display_id = display.unique_id
-  @note = display.notes.build(from: params[:note][:user_id], message: params[:note][:message])
+  @note = display.notes.build(from: params[:note][:user_id], message: Obscenity.sanitize(params[:note][:message]))
   if @note.save
     #TODO: removed because unkown key "created_at" at faye_broadcaster.rb:9.
     #broadcast_state(display) 

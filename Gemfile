@@ -48,6 +48,9 @@ gem 'koala', '1.8.0'
 #To make POST requests
 gem 'faraday', '0.9.0'
 
+#To allow profanity filter
+gem 'obscenity', '1.0.2'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
