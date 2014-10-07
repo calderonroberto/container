@@ -34,7 +34,9 @@ describe "CheckinsPages" do
         page.should have_xpath("//img[@id='#{u.id}']")
         page.should have_xpath("//div[@class='checkins_count']")
         page.should have_xpath("//div[@class='checkins_user_name']")
-        page.should have_selector('div.checkin_form')
+	if u.id == user.id #only when current user	#TODO: because @user is nill (see above) test doesn't pass.
+	   page.should have_selector('div.checkin_form')
+	end 
       end
     end
   end

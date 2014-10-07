@@ -138,7 +138,7 @@ textarea {
 }
 
 /*Checkins*/
-.userlistitem {margin-bottom: 20px; background:#F0F0F0; padding:5px 5px; border-style:solid; border-color:#D0D0D0}
+.userlistitem {margin-bottom: 20px; background:#F0F0F0; padding:5px 5px; border-style:solid; border-color:#D0D0D0;min-height:65px;}
 .checkin-button {margin-top: 5px;}
 .userlistitem a {font-size:20px; font-style:bold; padding-left:10px; line-height:50px;}
 .checkins_user_img{float:left; width:50px; height:50px; margin-right:10px;}

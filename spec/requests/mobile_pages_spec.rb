@@ -37,6 +37,7 @@ describe "Mobile pages" do
     it { should have_link('Note', href: "/notes/new/#{display.unique_id}") }
     it { should have_link('People', href: "/people/#{display.unique_id}") }
     it { should have_link('Signout', href: "/signoutuser") }
+    it { should have_selector('div.checkin_form') }
 
     it "should list subscribed apps leading to appropriate containers" do
       Display.find(display.id).apps.each do |app|

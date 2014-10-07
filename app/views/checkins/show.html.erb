@@ -6,7 +6,12 @@
 
 <div class="checkins_count"><%= user[:checkins_count] %></div>
 <div class="checkins_user_name"><%= user[:user].name %></div>
-<%= render 'checkins/checkin_form', :user => user[:user], :display => @display, :checkin_today => user[:checkin_today] %>
+
+  <%= 
+    if user[:user].id == @user.id
+       render 'checkins/checkin_form', :user => user[:user], :display => @display, :checkin_today => user[:checkin_today]
+    end
+  %>
 
 </div>
 

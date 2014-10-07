@@ -5,7 +5,10 @@ These are apps that you can currently use. Tap on the available icons to access 
 <%= link_to image_tag(app.thumbnail_url, :class => "appthumbnail-mobile"), {:action => 'show', :controller => 'mobile', :app_id => app.id}, {id: app.id} %>
 <% end %>
 
-
+<%= render 'checkins/checkin_form', :user => @user, :display => @display, :checkin_today => @checkin_today %>
+<div class="tutorial-text">
+Remember that you can only 'checkin' once a day
+</div>
 
 <div class="qr-scanner-list">
 Get a QR-Code Scanner:<br>
