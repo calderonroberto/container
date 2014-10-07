@@ -24,7 +24,11 @@
 
     <p style="text-align:center"><br>Or, checkin Anonymously and support our community!</p>
 
-    <%= render 'checkins/checkin_form', :user => @user, :display => @display, :checkin_today => [] %>
+    <%= 
+   	unless @user.nil?
+	  render 'checkins/checkin_form', :user => @user, :display => @display, :checkin_today => [] 
+   	end
+    %>
 
   </div>
 

@@ -6,12 +6,14 @@ describe "Analytics Checkins Pages" do
   subject { page }
   let!(:user) { FactoryGirl.create(:user) }  
   let!(:display) { FactoryGirl.create(:display) }
-  before(:all) do
-  
+  before(:all) do  
     3.times { FactoryGirl.create(:user) }
     User.all.each do |u|
       Message.create(from: user.id, message: "message", to: u.id)
       Message.create(from: u.id, message: "message", to: user.id)
+    end
+    User.all.each do |usr|
+      Registration.create(user_id: usr.id, display_id: display.unique_id) #register that this user has visited this thid splay
     end
   end
   after(:all) do
@@ -24,7 +26,6 @@ describe "Analytics Checkins Pages" do
     it "should have a user" do
       get "/api/#{display.unique_id}/analytics"
       body = JSON.parse(response.body)
-      #puts body.inspect
       body[0].should include('user')
       body[0].should include('data')
       body[0].should include('links')

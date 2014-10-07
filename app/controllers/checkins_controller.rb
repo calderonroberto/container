@@ -38,7 +38,10 @@ class CheckinsController < ApplicationController
   def show
     @display = Display.find_by_unique_id(params[:id])
     @display_id = params[:id]
+
+    #TODO:
     @user = User.find_by_id(cookies[:user_id])
+    
     users = User.where('users.id != ?', '0').joins(:registrations).where('registrations.display_id' => @display_id)
     @userlist = []
     users.each do |u|     

@@ -44,12 +44,10 @@ describe "MessagePages" do
     
     it "should list user info" do
       page.should have_selector(:xpath, "//img[@src='#{User.last.picture_url}']")
-      page.should have_selector(:xpath, "//div[@class='profile_name']")
-      page.should have_selector(:xpath, "//div[text()='#{User.last.name}']")
     end
  
     it "should have a form to submit a message" do
-      page.should have_selector('h2', text: "Send a Message")
+      page.should have_selector('h3', text: "Message #{User.last.name}")
       page.should have_selector(:xpath, "//input[@type='hidden' and @id='message_display_id' and @value='#{display.unique_id}']")
       page.should have_selector(:xpath, "//input[@type='hidden' and @id='message_from_id' and @value='#{user.id}']")
       page.should have_selector(:xpath, "//input[@type='hidden' and @id='message_to_id' and @value='#{User.last.id}']")

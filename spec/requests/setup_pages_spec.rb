@@ -20,7 +20,7 @@ describe "Setup pages" do
     it { should have_link ('Sign out') }
     it { should have_link ('Apps') }
     it { should have_xpath("//input[@id='setup_thingbroker_url']") }                 
-    it { should have_xpath("//input[@id='interact_instructions']") }                 
+    it { should have_xpath("//input[@id='setup_interact_instructions']") }                 
     it { should have_xpath("//input[@id='is_global']") }                 
   end
 

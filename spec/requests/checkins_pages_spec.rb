@@ -12,6 +12,9 @@ describe "CheckinsPages" do
     3.times { FactoryGirl.create(:app) }    
     App.all.each do |app|
       app.subscribe!(display)
+    end
+    User.all.each do |usr|
+      Registration.create(user_id: usr.id, display_id: display.unique_id) #register that this user has visited this thid splay
     end        
   end
   after(:all) do
@@ -23,6 +26,7 @@ describe "CheckinsPages" do
     before{
       sign_in_user(display, user) 
       visit "checkins/#{display.unique_id}" #TODO: signing (omniauth) does not update cookies for test, failing as it cannot find User.find(cookies[:user_id]) in checkins controller. We don't have time to check this before my experiment, so we'll have to trust it.
+
     }
     it "should list all users" do
       User.all.each do |u|

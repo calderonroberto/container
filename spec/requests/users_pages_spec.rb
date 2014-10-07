@@ -12,6 +12,10 @@ describe "UsersPages" do
     App.all.each do |app|
       app.subscribe!(display)
     end
+    User.all.each do |usr|
+      Registration.create(user_id: usr.id, display_id: display.unique_id) #register that this user has visited this thid splay
+    end
+
   end
   after(:all) do
     App.delete_all 
@@ -35,6 +39,7 @@ describe "UsersPages" do
       page.should have_selector(:xpath, "//img[@src='#{user.thumbnail_url}']")
     end
     it "should list all users" do
+
       #User.all.each do |user|
       User.where('id != ?', user.id).each do |u|
         page.should have_xpath("//div[@id='#{u.id}']")

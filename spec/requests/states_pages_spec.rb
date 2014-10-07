@@ -35,7 +35,7 @@ describe "State pages" do
     it "an interacting object" do
       get api_state_url   
       body = JSON.parse(response.body)
-      body['interaction'].should include('interacting')
+      body['interaction'].should include('instructions')
     end
 
     it "a setup object" do
