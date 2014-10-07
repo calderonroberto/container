@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :uid, :name, :provider, :password, :token, :thumbnail_url, :picture_url, :friends
+  attr_accessible :email, :uid, :name, :provider, :password, :token, :thumbnail_url, :picture_url, :friends, :test_group
 
   has_many :checkins, dependent: :destroy #making sure that checkins are destroyed when a user is
   has_many :registrations, dependent: :destroy #making sure that registrations are destroyed when a user is

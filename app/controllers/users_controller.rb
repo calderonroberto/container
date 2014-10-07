@@ -5,8 +5,8 @@ class UsersController < ApplicationController
  def index
    @display_id = cookies[:display_id]
    @user = User.find_by_id(cookies[:user_id])
-   
-   @users = User.where('users.id != ?', cookies[:user_id]).joins(:registrations).where('registrations.display_id' => @display_id) #in this model display_id refers to the display_id pervasive in this app, which is actually display_unique_id.
+
+   @users = User.where('users.id != ?', cookies[:user_id]).where(:test_group => @user.test_group).joins(:registrations).where('registrations.display_id' => @display_id) #in this model display_id refers to the display_id pervasive in this app, which is actually display_unique_id.; Also, only show people in the same test group (for research purposes)
 
    #log_usage
    if (Container::Application.config.log_usage)

@@ -41,7 +41,7 @@ class CheckinsController < ApplicationController
 
     @user = User.find_by_id(cookies[:user_id])#this doesnt pass the test as capybara doesn't save cookies during test.
     
-    users = User.where('users.id != ?', '0').joins(:registrations).where('registrations.display_id' => @display_id)
+    users = User.where('users.id != ?', '0').where(:test_group => @user.test_group).joins(:registrations).where('registrations.display_id' => @display_id)
     @userlist = []
     users.each do |u|     
       usr = {user: u, checkins_count: u.checkins.where("display_id", @display.id).count, checkin_today: u.checkins.where("display_id = ? AND created_at >= ?", @display.id, Time.zone.now.beginning_of_day) }

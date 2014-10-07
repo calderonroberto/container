@@ -27,6 +27,7 @@ describe User do
   it { should respond_to(:token) }
   it { should respond_to(:friends) }
   it { should respond_to(:checkins) }
+  it { should respond_to(:test_group) }
 
   it { should be_valid }
 
