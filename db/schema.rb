@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141007191256) do
+ActiveRecord::Schema.define(:version => 20141014042306) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
@@ -55,6 +55,14 @@ ActiveRecord::Schema.define(:version => 20141007191256) do
 
   add_index "displays", ["remember_token", "name"], :name => "index_displays_on_remember_token_and_name"
   add_index "displays", ["unique_id"], :name => "index_displays_on_unique_id"
+
+  create_table "gifts", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "from_id"
+    t.integer  "type",       :default => 0
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
 
   create_table "logs", :force => true do |t|
     t.string   "controller"

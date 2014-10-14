@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :uid, :name, :provider, :password, :token, :thumbnail_url, :picture_url, :friends, :test_group
 
   has_many :checkins, dependent: :destroy #making sure that checkins are destroyed when a user is
+  has_many :gifts, dependent: :destroy #making sure that gifts are destroyed when a user is
   has_many :registrations, dependent: :destroy #making sure that registrations are destroyed when a user is
 
   def has_unread_messages_from(user)
