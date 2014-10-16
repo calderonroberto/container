@@ -21,7 +21,7 @@ class CheckinsController < ApplicationController
       @checkin = user.checkin!(display)
       broadcast_checkin(display, user,thingbroker_url)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper)
     else
-      @checkin = user.checkins.last
+      @checkin = user.checkins.where(display_id: display.id).last
       if (@checkin.created_at <= Time.zone.now.beginning_of_day) then
         @checkin = user.checkin!(display)
         broadcast_checkin(display, user,thingbroker_url)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper)
