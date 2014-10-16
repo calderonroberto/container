@@ -6,7 +6,7 @@
 </div>
 
 <div class="messageboard">
-  <div class="title">Notes and Messages from your community:</div>
+  <div class="title">Notes</div>
   <div class="note">
     <b>Roberto</b>: Welcome to the MAGIC Web-App container.
   </div>
@@ -23,14 +23,17 @@
 </div>
 
 <div class="qrcodeurl">
-<%= @texturl %>
+Visit <b>bit.do/myseedlings</b>
+<!-- <%= @texturl %> -->
 </div>
 
 <div id="interact-instructions">
   <div id="instructions-block">
-	  You can interact with this Display!<br/>
+<!--
 	  <iframe src="http://player.vimeo.com/video/91363613?autoplay=1&amp;loop=1" width="420" height="320" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-	  <br/>Visit URL below or scan QR Code.<br/>
+-->
+    <%= image_tag("seedlings.gif", alt: "video", id: "interact-instructions-video") %>   
+    Try ME!
   </div>
 </div>
 
