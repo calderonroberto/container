@@ -17,7 +17,7 @@ class CheckinsController < ApplicationController
       broadcast_checkin(display, user,thingbroker_url)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper)
     end
 
-    if user.checkins.last.nil? then
+    if user.checkins.where(display_id: display.id).last.nil? then
       @checkin = user.checkin!(display)
       broadcast_checkin(display, user,thingbroker_url)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper)
     else
