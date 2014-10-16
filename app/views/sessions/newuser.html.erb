@@ -12,13 +12,13 @@
         <% end %>
       </div>
       <div class="signin-intro-text">
-        <span class="glyphicon glyphicon-comment"></span> Interact with others.<br>
-        <span class="glyphicon glyphicon-home"></span> Checkin to say hi.<br>
+        <span class="glyphicon glyphicon-home"></span> Join Virtual Seedlings.<br>
+        <span class="glyphicon glyphicon-comment"></span> Meet other people.<br>
         
 <!--
         <span class="glyphicon glyphicon-home"></span>Checkin to say hi.<br>
         <span class="glyphicon glyphicon-leaf"></span>
-        <span class="glyphicon glyphicon-gift"></span> Love this place.<br>
+        <span class="glyphicon glyphicon-gift"></span> Share the love.<br>
 -->
       </div>
     </div>
@@ -36,10 +36,9 @@
 
   </div>
 
-  <div class="span10 offset1 signin-image-mobile">
-    <%= image_tag("roots.gif", alt: "roots") %>   
+  <div class="signin-image-mobile">
+    <%= image_tag("seedlings-logo.png", alt: "logo") %>   
   </div>
-
   
   <div class="span10 offset1 studydisclaimer">
 
@@ -53,27 +52,29 @@
 <div class="tab-content">
 <div class="tab-pane active" id="about">
   <div class="features-intro">
-     This application allows you to interact with other members of your community. You can participate in common efforts and meet like-minded people. We will NOT post anything on Facebook.
+     In Virtual Seedlings you will be able to post public messages that can be read by everyone, meet other people that also visit Seedlings, and send private messages or virtual gifts.
   </div>
+<!--
   <div class="feature"> 
     <div class="feature-image"><%= image_tag("feature-apps.png") %></div>
     <div class="feature-text">Access interactive Apps.</div>
   </div>
-
-  <div class="feature"> 
-    <div class="feature-image"><%= image_tag("feature-checkin.png") %></div>
-    <div class="feature-text">Checkin at common efforts.</div>
-  </div>
-
-  <div class="feature"> 
-    <div class="feature-image"><%= image_tag("feature-note.png") %></div>
-    <div class="feature-text">Publish public notes.</div>
-  </div>
-
   <div class="feature"> 
     <div class="feature-image"><%= image_tag("feature-map.png") %></div>
     <div class="feature-text">Understand your community.</div>
   </div>
+
+--> 
+  <div class="feature"> 
+    <div class="feature-image"><%= image_tag("feature-note.png") %></div>
+    <div class="feature-text">Publish notes.</div>
+  </div>
+
+  <div class="feature"> 
+    <div class="feature-image"><%= image_tag("feature-checkin.png") %></div>
+    <div class="feature-text">Checkin for points.</div>
+  </div>
+
 
 </div>
 
