@@ -60,4 +60,8 @@ class User < ActiveRecord::Base
     checkins.create!(display_id: display.id)
   end
 
+  def gift!(from, gift_type)
+    gifts.create!(from_id: from.id, gift_type: gift_type) 
+  end
+
 end

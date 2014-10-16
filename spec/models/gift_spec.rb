@@ -15,7 +15,7 @@ describe Gift do
 
   it { should respond_to(:user_id) }
   it { should respond_to(:from_id) }
-  it { should respond_to(:type) }
+  it { should respond_to(:gift_type) }
   it { should respond_to(:user) } #testing that gift.user exists
   its(:user) { should == user } #testing that gift.user exists
   
@@ -27,7 +27,7 @@ describe Gift do
   end
 
   describe "when type is not present" do
-    before { @gift.type = "" }
+    before { @gift.gift_type = "" }
     it { should_not be_valid }
   end
 

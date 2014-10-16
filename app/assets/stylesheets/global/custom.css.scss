@@ -13,6 +13,10 @@ body {
   padding-top: 60px; /*so that container goes below navbar*/
 }
 
+.hidden {
+  display: nonoe;
+}
+
 /*
 section {
   overflow: auto;
@@ -77,6 +81,8 @@ p {
     font-height:10px;
 }
 
+
+
 /*Apps*/
 
 .apps {
@@ -137,13 +143,68 @@ textarea {
   width: 100%;
 }
 
-/*Checkins*/
+
+/*Gifts*/
+
+.giftflash {
+    color:white;
+    background:#FF6633;
+    border-radius:5px;
+    padding:5px;
+    margin:1px;
+    width: 40px;
+    height: 40px;
+    font-size:28px;
+    line-height:28px;
+}
+
+
+/*Profile*/
+
+.profile-giftlist{
+  //border-style:solid;
+  //border-width:2px;
+  //border-color:gray;
+  margin-top:5px;  
+}
+
+.profile-giftlist-item{
+  font-size:8px;
+  border-style:solid;
+  border-width:1px;
+  border-color:gray;
+  width: 60px;
+  float:left;
+  padding: 2px;
+  margin: 1px;
+}
+
+.profile-checkins{
+  height:65px;
+  padding:5px 5px;
+  margin-top:5px;
+}
+
+
+
+/*Checkins and UserLists*/
 .userlistitem {margin-bottom: 20px; background:#F0F0F0; padding:5px 5px; border-style:solid; border-color:#D0D0D0;min-height:65px;}
 .checkin-button {margin-top: 5px;}
-.userlistitem a {font-size:20px; font-style:bold; padding-left:10px; line-height:50px;}
-.checkins_user_img{float:left; width:50px; height:50px; margin-right:10px;}
+.userlistitem a {font-size:15px; font-style:bold; padding-left:5px; line-height:50px; float:left;}
+.checkins_user_img{float:left; width:50px; height:50px;}
 .checkins_user_name {float:left;}
-.checkins_count {float:left; width:50px; height:50px; background:#6699FF;font-size:40px; line-height:50px;text-align:center; margin-right:10px; color:white;}
+.checkins_count {float:right; width:50px; height:50px; background:#6699FF;font-size:40px; line-height:45px;text-align:center; color:white; position:relative;}
+.checkins_count:after{
+   content:"Checkins";
+   font-weight: bold;
+   font-size: 10px;
+   line-height:10px;
+   position:absolute;
+   bottom:0px;
+   left:2px;
+   vertical-align:bottom;
+}
+
 .checkin_form{clear:both; text-align:right;}
 .checkin_form input{width:100%}
 

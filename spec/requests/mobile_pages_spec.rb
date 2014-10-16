@@ -32,10 +32,12 @@ describe "Mobile pages" do
     #TODO: check this later
     #it { should display_flash_message('Successfully authenticated from Facebook account.') }
     
-    it { should have_selector(:xpath, "//img[@src='#{user.thumbnail_url}']") }
-    it { should have_link('Apps', href: "/mobile/#{display.unique_id}") }
-    it { should have_link('Note', href: "/notes/new/#{display.unique_id}") }
+    it { should have_selector(:xpath, "//img[@src='#{user.thumbnail_url}']") }    
+    it { should have_link('Profile', href: "/profile") }
     it { should have_link('People', href: "/people/#{display.unique_id}") }
+    it { should have_link('Note', href: "/notes/new/#{display.unique_id}") }
+    it { should have_link('Apps', href: "/mobile/#{display.unique_id}") }
+
     it { should have_link('Signout', href: "/signoutuser") }
     it { should have_selector('div.checkin_form') }
 

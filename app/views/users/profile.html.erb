@@ -1,0 +1,58 @@
+
+<div class="row">
+  <div class="span11 offset1">
+
+
+    <div class="tutorial-text">
+       Welcome <%= @user.name %>. Here you can see your checkins and gifts.
+    </div>
+
+    <!-- Checkins -->
+   <h4>Your Checkins:</h4>
+    <div class="profile-checkins">
+       <div class="checkins_count"><%= @checkins_count %></div>
+       <div class="col-xs-8">
+          <%= render 'checkins/checkin_form', :user => @user, :display => @display, :checkin_today => @checkin_today %>
+       </div>
+    </div>
+
+    <!-- Gifts -->
+    <h4>Your Gifts:</h4>
+    <div class="profile-giftlist">    
+       <% if @gifts.empty? %>
+          <div class="tutorial-text">
+            <span class="glyphicon glyphicon-gift"></span> You have no gifts yet :(
+          </div>
+       <% end %>  
+       <% @gifts.each do |g| %>
+
+          <% fromuser = User.find(g.from_id) %>
+          <div class="profile-giftlist-item">
+ 	    <!-- Draw according to type of gift -->
+	    <% if g.gift_type == 0 %>
+	       <span class="glyphicon glyphicon-thumbs-up giftflash"></span>
+            <% elsif g.gift_type == 1 %>
+	       <span class="glyphicon glyphicon-music giftflash"></span>
+            <% elsif g.gift_type == 2 %>
+	       <span class="glyphicon glyphicon-star giftflash"></span>
+            <% elsif g.gift_type == 3 %>
+	       <span class="glyphicon glyphicon-heart giftflash"></span>
+
+	    <% end %> 
+	    <br></br>
+	    Sent by <%= link_to fromuser.name, {:action => 'new', :controller => 'messages', id: @display.unique_id, user_id: fromuser.id} %>
+	    on <%= g.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%a %b %d") %>
+
+<!--
+link_to image_tag(fromuser.thumbnail_url, :border => 0, :width => 50, :height => 50, :id => fromuser.id), {:action => 'new', :controller => 'messages', :user_id => fromuser.id, :class => 'user_thumb', id: @display.unique_id}
+-->    
+
+	  </div>
+       <% end %>
+    </div>
+
+  </div>
+</div>
+
+
+

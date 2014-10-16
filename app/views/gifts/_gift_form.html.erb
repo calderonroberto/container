@@ -1,0 +1,10 @@
+<div class="gift_form" id="<%=user.id%>">
+
+<% if gift_today[0] %>
+    <%= render 'gifts/ungift', :user => user, :from => from, :display_id => display_id %>
+<% else %>
+    <%= render 'gifts/gift', :user => user, :from => from, :display_id => display_id %>
+<% end %>
+
+</div>
+

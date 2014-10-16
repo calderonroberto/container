@@ -3,7 +3,7 @@ class CreateGifts < ActiveRecord::Migration
     create_table :gifts do |t|
       t.integer :user_id
       t.integer :from_id
-      t.integer :type, :default=>0
+      t.integer :gift_type, :default=>0
 
       t.timestamps
     end

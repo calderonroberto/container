@@ -4,14 +4,25 @@
     <div class="profile_picture">
     <%= image_tag @user_to_display.picture_url, :border => 0, :id => @user_to_display.id, :class => "profile_picture", :alt => "profile_picture" %>
     </div>
-    <h3>Message <%= @user_to_display.name %></h3>
+
+    <h4>Send a gift to <%= @user_to_display.name %></h4>
+    <div class="tutorial-text">
+      You can only send ONE gift PER DAY to <%= @user_to_display.name %>. 
+    </div>
+    <%= render 'gifts/gift_form', :user => @user_to_display, :from => @user, :gift_today => @gift_today, :display_id => @display_id %>
+    
+
+    <h4>Message <%= @user_to_display.name %></h4>
+    <div class="tutorial-text">
+      These messages can only be read by you and <%= @user_to_display.name %>.
+    </div>
     <%= form_for (@message) do |f| %>
       <%= render 'messages/fields', f: f %><br>
       <%= f.submit "Send", class: "btn btn-large btn-primary" %> 
     <% end %>
-    <div class="tutorial-text">
-    These messages can only be read by you and <%= @user_to_display.name %>.
-    </div>
+    
+
+
     <div class="messages">
       <% @messages.each do |message| %>
         <div class ='<%= message.from.to_s == @user.id.to_s ? "from" : "to" %>' >    

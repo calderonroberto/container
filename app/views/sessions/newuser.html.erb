@@ -2,7 +2,6 @@
 
 
   <div class="span10 offset1">
-    <h2>Welcome!</h2>    
     <div class="signin-intro">
       <div class="signin-intro-people">
         <% @userlist.each do |user| %>
@@ -13,16 +12,21 @@
         <% end %>
       </div>
       <div class="signin-intro-text">
-        <span class="glyphicon glyphicon-comment"></span> Meet your community.<br>
-        <span class="glyphicon glyphicon-home"></span> Make this place yours.<br>
-        <span class="glyphicon glyphicon-leaf"></span> Join common efforts.
+        <span class="glyphicon glyphicon-comment"></span> Interact with others.<br>
+        <span class="glyphicon glyphicon-home"></span> Checkin to say hi.<br>
+        
+<!--
+        <span class="glyphicon glyphicon-home"></span>Checkin to say hi.<br>
+        <span class="glyphicon glyphicon-leaf"></span>
+        <span class="glyphicon glyphicon-gift"></span> Love this place.<br>
+-->
       </div>
     </div>
     <div class="signin-button">
       <%= link_to "Sign in using Facebook", user_omniauth_authorize_path(:facebook),  :class => "btn btn-primary btn-lg", :role => "button"  %>
     </div>
 
-    <p style="text-align:center"><br>Or, checkin Anonymously and support our community!</p>
+    <p style="text-align:center"><br>Or, checkin Anonymously!</p>
 
     <%= 
    	unless @user.nil?

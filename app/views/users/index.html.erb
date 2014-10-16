@@ -2,19 +2,17 @@
 These are people you can talk to. Tap on their name to message them. Red envelopes indicate unread messages.
 </div>
 
-<% @users.each do |user| %>
-
-<div class="userlistitem" id="<%= user.id %>" >
-
-<%= link_to image_tag(user.thumbnail_url, :border => 0, :width => 50, :height => 50, :id => user.id), {:action => 'new', :controller => 'messages', :user_id => user.id, :class => 'user_thumb'}, {id: user.id} %>
-
-<%= link_to user.name, {:action => 'new', :controller => 'messages', :user_id => user.id}, {id: user.id} %>
-
-<% if ( @user.has_unread_messages_from(user) ) then %>
-<span class="glyphicon glyphicon-envelope unreadmessageflash"></span>
-
+<% @userlist.each do |user| %>
+   <div class="userlistitem" id="<%= user[:user].id %>" >
+      <div class="checkins_count"><%= user[:checkins_count] %></div>
+      <%= link_to image_tag(user[:user].thumbnail_url, :border => 0, :width => 50, :height => 50, :id => user[:user].id), {:action => 'new', :controller => 'messages', :user_id => user[:user].id, :class => 'user_thumb'}, {id: user[:user].id} %>
+      <%= link_to user[:user].name, {:action => 'new', :controller => 'messages', :user_id => user[:user].id}, {id: user[:user].id} %>
+      <% if ( @user.has_unread_messages_from(user[:user]) ) then %>
+         <span class="glyphicon glyphicon-envelope unreadmessageflash"></span>
+      <% end %>
+   </div>
 <% end %>
 
-</div>
-<% end %>
+
+
 

@@ -31,7 +31,7 @@ describe "NotesPages" do
       page.should have_link('Note', href: "/notes/new/#{display.unique_id}")
       page.should have_link('People', href: "/people/#{display.unique_id}")
       page.should have_selector(:xpath, "//img[@src='#{user.thumbnail_url}']")
-      page.should have_selector('h3', text: "Publish a Note")
+      page.should have_selector('h4', text: "Publish a Note")
       page.should have_selector(:xpath, "//input[@type='hidden' and @value='#{display.unique_id}']")
     end 
     it "should not create with invalid information" do

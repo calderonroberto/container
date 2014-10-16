@@ -8,6 +8,7 @@ Container::Application.routes.draw do
   resources :messages, only: [:create]
   resources :stagings, only: [:create]
   resources :checkins, only: [:create, :show] #TODO: REMOVE SHOW
+  resources :gifts, only: [:create]
   resources :setups, only: [:update, :edit]
   resources :users, only:[:create]
 
@@ -31,6 +32,7 @@ Container::Application.routes.draw do
   match '/people/:id', to: 'users#index', :as => :people
   #match '/people/user/:id', to: 'users#show', :as => :people_user #TODO: Delete
   match '/checkins/:id', to: 'checkins#show', :as => :checkins
+  match '/profile', to: 'users#profile', :as => :profile
 
   match '/anonymouscheckin', to: 'checkins#anonymous', :as => :checkin_anonymous #TODO: change this to something with better meaning
 

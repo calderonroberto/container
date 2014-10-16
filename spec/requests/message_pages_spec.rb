@@ -46,8 +46,12 @@ describe "MessagePages" do
       page.should have_selector(:xpath, "//img[@src='#{User.last.picture_url}']")
     end
  
+    it "should have a form to submit a gift" do
+       pending "add gift form test #{__FILE__}"
+    end
+
     it "should have a form to submit a message" do
-      page.should have_selector('h3', text: "Message #{User.last.name}")
+      page.should have_selector('h4', text: "Message #{User.last.name}")
       page.should have_selector(:xpath, "//input[@type='hidden' and @id='message_display_id' and @value='#{display.unique_id}']")
       page.should have_selector(:xpath, "//input[@type='hidden' and @id='message_from_id' and @value='#{user.id}']")
       page.should have_selector(:xpath, "//input[@type='hidden' and @id='message_to_id' and @value='#{User.last.id}']")

@@ -1,0 +1,23 @@
+<%= form_for( :gift, url: {controller: "gifts", action: "create"}, remote: true) do |f| %>
+  <%= f.hidden_field :user_id, :value => user.id %>
+  <%= f.hidden_field :from_id, :value => from.id %>
+  <%= f.hidden_field :display_id, :value => display_id %>
+
+  <%= button_tag(type: 'submit', value: '0', class: "btn btn-primary giftflash", name: 'commit') do %>
+    <span class="glyphicon glyphicon-thumbs-up"></span> 
+  <% end %>
+
+  <%= button_tag(type: 'submit', value: '1', class: "btn btn-primary giftflash", name: 'commit') do %>
+    <span class="glyphicon glyphicon-music"></span> 
+  <% end %>
+
+  <%= button_tag(type: 'submit', value: '2', class: "btn btn-primary giftflash", name: 'commit') do %>
+    <span class="glyphicon glyphicon-star"></span> 
+  <% end %>
+
+  <%= button_tag(type: 'submit', value: '3', class: "btn btn-primary giftflash", name: 'commit') do %>
+    <span class="glyphicon glyphicon-heart"></span> 
+  <% end %>
+
+<% end %>
+
