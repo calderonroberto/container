@@ -35,6 +35,11 @@ class SessionsController < ApplicationController
     #To render anonymous checkin
     @user = User.find_by_email("anonymous@email.com")
 
+    #To render note form
+    @display_id = cookies[:display_id]
+    @user_id = @user.id
+    @note = Display.find_by_unique_id(@display_id).notes.build
+
     #log usage
     if (Container::Application.config.log_usage)
       Log.create(controller: 'sessions', method: 'newuser', display_id: @display.unique_id, params: params, remote_ip: request.remote_ip )

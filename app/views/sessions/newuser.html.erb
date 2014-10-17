@@ -2,6 +2,9 @@
 
 
   <div class="span10 offset1">
+    <div class="signin-welcome">
+      <span style="color:#4BB66E">Welcome to </span>my<%= image_tag("seedlings-logo.png", alt: "logo") %>
+    </div>
     <div class="signin-intro">
       <div class="signin-intro-people">
         <% @userlist.each do |user| %>
@@ -12,9 +15,11 @@
         <% end %>
       </div>
       <div class="signin-intro-text">
-        <span class="glyphicon glyphicon-home"></span> Join Virtual Seedlings.<br>
-        <span class="glyphicon glyphicon-comment"></span> Meet other people.<br>
-        
+        In MySeedlings you can<br>
+<span class="glyphicon glyphicon-user"></span> Make new friends.<br>
+<span class="glyphicon glyphicon-comment"></span> Chat with people around here.<br>
+<span class="glyphicon glyphicon-home"></span> Post public messages.<br>                
+<span class="glyphicon glyphicon-leaf"></span> Help a cause.<br>
 <!--
         <span class="glyphicon glyphicon-home"></span>Checkin to say hi.<br>
         <span class="glyphicon glyphicon-leaf"></span>
@@ -26,35 +31,50 @@
       <%= link_to "Sign in using Facebook", user_omniauth_authorize_path(:facebook),  :class => "btn btn-primary btn-lg", :role => "button"  %>
     </div>
 
-    <p style="text-align:center"><br>Or, checkin Anonymously!</p>
+    <p style="text-align:center; font-size:10px;margin:5px;"><br>Pssst, this is a private social network and we will never post anything on FB. To create your account fast we can use your Facebook photo and name. Still wary? That's fine, checkin or send notes Anonymously below!</p>
 
-    <%= 
-   	unless @user.nil?
-	  render 'checkins/checkin_form', :user => @user, :display => @display, :checkin_today => [] 
-   	end
-    %>
 
   </div>
-
+<!--
   <div class="signin-image-mobile">
     <%= image_tag("seedlings-logo.png", alt: "logo") %>   
   </div>
-  
+-->  
   <div class="span10 offset1 studydisclaimer">
 
 
 <!-- Nav tabs -->
 <ul class="nav nav-tabs">
-  <li class="active"><a href="#about" data-toggle="tab">About</a></li>
+  <li class="active"><a href="#note" data-toggle="tab">Anonymous Interaction</a></li>
   <li><a href="#ethics" data-toggle="tab">Ethics Disclaimer</a></li>
 </ul>
 
 <div class="tab-content">
-<div class="tab-pane active" id="about">
-  <div class="features-intro">
-     In Virtual Seedlings you will be able to post public messages that can be read by everyone, meet other people that also visit Seedlings, and send private messages or virtual gifts.
-  </div>
+<div class="tab-pane active" id="note">
+
+    <h4>Checkin Anonymously:</h4>
+    <%=
+   	unless @user.nil?
+	  render 'checkins/checkin_form', :user => @user, :display => @display, :checkin_today => [] 
+   	end
+    %>
+
+    <h4>Publish a Note:</h4>
+    <div class="tutorial-text">
+      Notes are small messages you can publish on the large display. They can be read by everyone.
+    </div>
+    <div style="font-size:14px;">
+    <%= form_for(@note) do |f| %>     
+      <%= render 'notes/fields', f: f %><br>
+      <%= f.submit "Send", class: "btn btn-large btn-primary" %> 
+    <% end %>
+    </div>
+
 <!--
+  <div class="features-intro">
+     In MySeedlings you can post public messages, meet other people that also visit Seedlings, and send private messages or virtual gifts.
+  </div>
+
   <div class="feature"> 
     <div class="feature-image"><%= image_tag("feature-apps.png") %></div>
     <div class="feature-text">Access interactive Apps.</div>
@@ -63,8 +83,6 @@
     <div class="feature-image"><%= image_tag("feature-map.png") %></div>
     <div class="feature-text">Understand your community.</div>
   </div>
-
---> 
   <div class="feature"> 
     <div class="feature-image"><%= image_tag("feature-note.png") %></div>
     <div class="feature-text">Publish notes.</div>
@@ -74,7 +92,7 @@
     <div class="feature-image"><%= image_tag("feature-checkin.png") %></div>
     <div class="feature-text">Checkin for points.</div>
   </div>
-
+--> 
 
 </div>
 

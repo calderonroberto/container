@@ -206,7 +206,7 @@ textarea {
 .checkin_form input{width:100%}
 
 /*User Login*/
-.signin-intro { background-color:rgba(0,153,51,0.7); border-radius:5px; padding:5px; margin:20px; margin-top: 60px; color:white; font-size:20px; line-height:25px; text-align:center;}
+.signin-intro { background-color:rgba(0,153,51,0.7); border-radius:5px; padding:5px; margin:10px; color:white; font-size:20px; line-height:25px; text-align:center;}
 .userlistitem-login {margin: 5px 5px; width:50px; height:50px; background:#F0F0F0; float:right; position:relative;}
   .user_img-login{width:50px; height:50px; position:absolute; top:0; left:0; }
   .checkins_count-login {width:25px; height:25px; background:#6699FF;font-size:20px; line-height:20px;text-align:center; color:white; position:absolute; z-index:10;}
@@ -216,7 +216,11 @@ textarea {
 .signin-image {
   padding-left:10%;
 }
-
+.signin-welcome{
+  text-align:right;
+  font-size:20px;
+  color:black;
+}
 .signin-image-mobile {
   position:absolute;
   top:0;

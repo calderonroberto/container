@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
 
-before_filter :only => [:new, :create] do |c| c.signed_in_user params[:id], params[:display_name] end 
+before_filter :only => [:new] do |c| c.signed_in_user params[:id], params[:display_name] end 
 
 def new
  @display_id = params[:id]
@@ -15,7 +15,7 @@ def new
 end
 
 def create
-  @user = User.find_by_id(cookies[:user_id])
+  @user = User.find_by_id(params[:note][:user_id])
   display = Display.find_by_unique_id(params[:note][:display_id])
   @display_id = display.unique_id
   @note = display.notes.build(from: params[:note][:user_id], message: Obscenity.sanitize(params[:note][:message]))
