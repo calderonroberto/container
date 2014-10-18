@@ -5,6 +5,9 @@ describe CheckinsController do
 
   let!(:display) { FactoryGirl.create(:display) }
   let!(:user) { FactoryGirl.create(:user) }
+  before(:all) {  FactoryGirl.create(:user, :email => "anonymous@email.com") }
+  after(:all) { User.delete_all }
+ 
 
   describe "creating a checkin with Ajax" do
     before { sign_in_user(display, user) }

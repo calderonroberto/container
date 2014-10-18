@@ -7,6 +7,7 @@ describe "CheckinsPages" do
   let!(:display) { FactoryGirl.create(:display) }
   let!(:user) { FactoryGirl.create(:user) }
   before(:all) do
+    FactoryGirl.create(:user, :email => "anonymous@email.com")
     user.checkins.build(display_id: display.id).save
     3.times { FactoryGirl.create(:user) }
     3.times { FactoryGirl.create(:app) }    

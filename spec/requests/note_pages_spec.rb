@@ -7,13 +7,20 @@ describe "NotesPages" do
 
   let!(:display) { FactoryGirl.create(:display) }
   let!(:user) { FactoryGirl.create(:user) }
+  #let!(:anonymoususer) { FactoryGirl.create(:user, :email => "anonymous@email.com") }
+
   before(:all) do
+    FactoryGirl.create(:user, :email => "anonymous@email.com")
     3.times { FactoryGirl.create(:app) }
     App.all.each do |app|
       app.subscribe!(display)
     end
   end
-  after(:all) { App.delete_all }
+
+  after(:all) { 
+    App.delete_all
+    User.delete_all
+  }
 
   describe "without signing in" do
     before { visit notes_new_path(display.unique_id) }

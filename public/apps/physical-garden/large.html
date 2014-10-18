@@ -14,15 +14,15 @@
 	#grass {background-image: url(grass.gif); width:100%; height:100px; position:absolute; bottom:0;}
         #cloud {background-image: url(cloud.png); width:315px; height:139px; position:absolute; left:-3150px; top:0;}
 
-	#count {background:#66CC33; width:120px; height:125px; border-radius: 15px; position:absolute; top:30px; left:30px;}
+	#count {background:rgba(0,153,51,0.7); width:120px; height:125px; border-radius: 15px; position:absolute; top:50px; left:300px;}
 	#count_value {color:white; font-size:80px; line-height:80px; text-align:center;font-family:"Arial", sans-serif;vertical-align:text-top;}
 	#count_message {color:white; font-size:15px; text-align:center;font-family:"Arial", sans-serif;}
 
 	#instructions {background-color:rgba(0,153,51,0.7);position:absolute; right:20px; bottom:50px; width:60%; text-align: center;padding:15px 15px; border-radius: 15px; align:center;}
-	#instructions-text {color:white; font-size:20px;font-family:"Arial", sans-serif;vertical-align:text-top;margin-bottom:10px; line-height:25px;}
-	#instructions-img {position:absolute; right:40px; top: 30%; max-width:400px;}
+	#instructions-text {color:white; font-size:40px;font-family:"Arial", sans-serif;vertical-align:text-top;margin-bottom:10px; line-height:25px;}
+	#instructions-img {position:absolute; right:40px; top: 50px; max-width:500px;}
 
-        #people {position:absolute; top:100px; left:20px; background:#6699FF; border-radius: 10px; color:white; padding:15px; text-align:center; font-weight:bold; font-size:20px;}
+        #people {position:absolute; top:50px; left:20px; background:#6699FF; border-radius: 10px; color:white; padding:15px; text-align:center; font-weight:bold; font-size:20px;}
 	.person {color:white; font-size: 15px; height:10px; text-align:center; font-weight:normal;}
 
         #water {position:absolute; top:0; left:0; width:100%; height:2%;background:white; opacity:.9; background-image: url(rain.gif);}
@@ -40,21 +40,30 @@
 
 	function updateCheckins () {
 		var id = getURLParameter("display_id");
+                var checkinstoday = 0;
+
 		$.getJSON("/api/"+id+"/checkins", function(data) {
 			$(".lastperson").remove();
 			$(".person").remove();
 			$.each( data, function(index,value){
 				d = new Date(value.checkin.created_at);
-                                var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
-				$("#people").append('<p class="person">'+value.user.name+' ('+monthNames[d.getMonth()]+' '+d.getUTCDate()+')</p>');
-                                if (index == 0)
-                                        $("#lastperson").append('<p class="lastperson">Thank you '+value.user.name +'<br>for watering the garden!</p>');
-				if (index == 4)
-					return false;
+ 				today = new Date();
 
+				if ( d.getUTCDate() == today.getUTCDate()) {
+		                    	checkinstoday++;
+				}
+
+                                var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+ 				if (index < 5)
+					$("#people").append('<p class="person">'+value.user.name+' ('+monthNames[d.getMonth()]+' '+d.getUTCDate()+')</p>');
+                                if (index == 0)
+                                        $("#lastperson").append('<p class="lastperson">Thank you '+value.user.name +'<br>for watering the garden!</p>');				
 
 			});
+			$("#count_value").empty();
+        	        $("#count_value").html(checkinstoday.toString());
 		});
+
 	}
 
         
@@ -67,7 +76,7 @@
 
         function passingCloud () {
 	    $("#cloud").css({ "left": "-315px"});	
-	    $("#cloud").animate({ "left": "100%"}, 50000, "linear", function(){passingCloud();});	               
+	    $("#cloud").animate({ "left": "100%"}, 20000, "linear", function(){passingCloud();});	               
         } 
 
     </script>
@@ -80,20 +89,21 @@
 <!-- 3) Declare your document structure -->
    <div id="grass"></div>
    <div id="cloud"></div>
-
-  <div id="appdescription">Help us grow a table-top community garden!</div>  
+<!--
+  <div id="appdescription">Help us grow a community garden!</div>  
+-->
   <img id="instructions-img" src="instructions-image.png"/>
 
   <div id="instructions">
-	<div id="instructions-text">Scan QR code, or visit URL below. Login.<br><b>CHECKIN</b> to water the garden.</div>
+	<div id="instructions-text"><b>CHECKIN</b> to water the garden.</div>
   </div>
 
-<!--
+
   <div id="count">
 	<div id="count_value">0</div>
-	<div id="count_message">people have watered.</div>
+	<div id="count_message">people have watered today.</div>
   </div>
--->
+
 
   <div id="people">
 	Latest checkins:  

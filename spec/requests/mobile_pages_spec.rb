@@ -8,12 +8,16 @@ describe "Mobile pages" do
   let!(:display) { FactoryGirl.create(:display) }
   let!(:user) { FactoryGirl.create(:user) }
   before(:all) do
+    FactoryGirl.create(:user, :email => "anonymous@email.com")
     9.times { FactoryGirl.create(:app) }
     App.all.each do |app|
       app.subscribe!(display)
     end
   end
-  after(:all) { App.delete_all }
+  after(:all) { 
+    App.delete_all
+    User.delete_all
+  }
 
   describe "visiting mobile page" do
     before { visit mobile_path(display.unique_id) }

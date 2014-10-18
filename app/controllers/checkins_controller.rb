@@ -57,7 +57,6 @@ class CheckinsController < ApplicationController
   def displaycheckins
     display = Display.find_by_unique_id(params[:display_id])
     @response = Array.new
-
     checkins = Checkin.find(:all, :conditions => ["display_id = ?", display.id], :limit => 50, :order => 'created_at desc')
     checkins.each do |checkin|
       checkin_hash = Hash.new

@@ -7,6 +7,7 @@ describe "Analytics Checkins Pages" do
   let!(:user) { FactoryGirl.create(:user) }  
   let!(:display) { FactoryGirl.create(:display) }
   before(:all) do  
+    FactoryGirl.create(:user, :email => "anonymous@email.com")
     3.times { FactoryGirl.create(:user) }
     User.all.each do |u|
       Message.create(from: user.id, message: "message", to: u.id)
