@@ -24,8 +24,7 @@ class CheckinBroadcaster
     conn.post do |req|
       req.url "/thingbroker/things/checkin#{display["unique_id"]}/events"
       req.headers['Content-Type'] = 'application/json'
-      req.body = "{ \"type\":\"case\", \"user_name\":\"#{user["name"]}\" }"
-
+      req.body = "{ \"type\":\"digital\", \"13\":\"1\",\"timeout\":\"5\",\"user_name\":\"#{user["name"]}\" }"
     end
   end
   
