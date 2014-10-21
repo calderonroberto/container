@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Virtual Garden</title>
+    <script src="jquery-1.7.2.min.js"></script> 
+
+    <style>
+        #appdescription {background-color:rgba(0,153,51,0.7); border-radius:15px; padding:5px; color:white; text-align:center; font-size:20px; line-height:20px; font-family:"Arial", sans-serif; height:7%}
+	#instructions {background-color:rgba(0,153,51,0.7);position:absolute; right:10px; bottom:10px; text-align: center;padding: 10px; border-radius: 15px;}
+	#instructions-text {color:white; font-size:30px;font-family:"Arial", sans-serif;line-height:20px;}
+
+	#lots{width:60%; height:70%; background-color:rgba(0,153,51,0.7); border-radius:15px; padding:10px; color:white; text-align:center; position:fixed; right:10px;top:10%;}
+	#lots-join-message{font-weight:bold; font-size:30px;}
+  	div .lot{float:left; position:relative; background:white; margin: 2px 2px; font-family:"Verdana", sans-serif;}
+	.checkins{font-size:20px;color:white;position:absolute; top:5px;right:5px;background-color:#6699FF; text-align:center; padding:5px; min-width:30%;}
+        .user_thumbnail{position:absolute; top:5%; left:5%;}
+	.name{font-size:14px;color:black;position:absolute;bottom:5%;left:5%;background-color:white;}
+
+.checkins:after{
+   content:"Checkins";
+   font-weight: bold;
+   font-size: 7px;
+   line-height:7px;
+   position:absolute;
+   bottom:2px;
+   right:2px;
+   vertical-align:bottom;
+}
+
+
+
+	#logo-wrapper{width:40%; overflow:hidden; top:1%; left:0%;}
+	#logo-div{float:left;}
+	#logo-div img {width:100px;}
+	#rotator-div{float:right;}
+	#rotator-div img {width:70%; height:auto;}
+
+    </style>
+
+    <script type="text/javascript">
+
+	var data;
+	$(document).ready(function() {			
+		setTimeout(function() {
+			getData();
+		}, 500); //We need to wait for processing.js to download
+		setInterval(function() {
+			getData();
+		}, 600000);	
+
+                var rotator = document.getElementById('rotator'); //get the element
+                var delayInSeconds = 1;                           //delay in seconds
+                var num = 0;                                      //start number
+                var len = 2;                                      //limit
+                setInterval(function(){                           //interval changer
+                   num = (num === len) ? 0 : num;                //reset if limit reached
+                   rotator.src = num + '.jpg';                     //change picture
+                   num++;                                        //increment counter
+                }, delayInSeconds * 10000);
+					
+	});
+
+ 	function resizeLots() {
+		$("#lots").css({"width": $(window).width()})
+		$("#lots").css({"height": $(window).height()})
+	}
+
+
+	function getURLParameter(name) {
+	    return decodeURI(
+		(RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+	    );
+	}
+
+        function getData() {
+		var id = getURLParameter("display_id");
+		$.getJSON("/api/"+id+"/analytics", function(data) {
+        	        drawPlants(data);
+		});
+
+		/*Development*/
+		
+		data = jQuery.parseJSON( '[{"user":{"id":1,"name":"Roberto Calderon","thumbnail_url":"http://graph.facebook.com/100003241054057/picture?type=small"},"data":{"messages_sent":24,"checkins":2},"links":[{"user_id":2,"messages_sent":22,"messages_received":2,"reciprocity_ratio":11}]},{"user":{"id":2,"name":"John Black","thumbnail_url":"http://graph.facebook.com/81008311/picture?type=small"},"data":{"messages_sent":2,"checkins":1},"links":[{"user_id":1,"messages_sent":2,"messages_received":22,"reciprocity_ratio":0}]},{"user":{"id":3,"name":"Dawood Mslw","thumbnail_url":"http://graph.facebook.com/81008311/picture?type=small"},"data":{"messages_sent":0,"checkins":0},"links":[]},{"user":{"id":4,"name":"Four Name","thumbnail_url":"http://graph.facebook.com/81008311/picture?type=small"},"data":{"messages_sent":0,"checkins":10},"links":[]},{"user":{"id":5,"name":"Five Mslw","thumbnail_url":"http://graph.facebook.com/81008311/picture?type=small"},"data":{"messages_sent":0,"checkins":100},"links":[]}]' );
+		console.log(data)
+                drawPeople(data);
+		
+	}
+
+        function drawPeople(d) { //load object to procesing 
+		$('#lots').empty();
+		$('#lots').append("<span id='lots-join-message'>Join mySeedlings!<br></span>");
+		var sqr = Math.sqrt(d.length);
+		var rows = Math.floor(sqr);
+		var columns = Math.ceil(d.length/rows);
+		$.each( d, function(index,value){
+  			var imageNumber = Math.ceil(value.data.checkins/4);
+			if (imageNumber < 1)
+				imageNumber = 1;
+			else if (imageNumber > 6)
+				imageNumber = 6;
+			$('#lots').append("<div class='lot' style='width:"+90/columns+"%; height:"+80/rows+"%;'><span class='checkins'>"+value.data.checkins+"</span><span class='checkins-text'><br>Checkins</span><span class='user_thumbnail'><img src='"+value.user.thumbnail_url+"'></img></span><span class='name'>"+value.user.name.split(" ")[0]+"</span></div>");
+		});
+
+		$('#lots div').each(function(){
+		  var divWidth = $(this).width();
+		  var divHeight = $(this).height();
+ 		  var newFontSize = Math.min(divWidth, divHeight);
+		  var checkinsSize = newFontSize/2;
+		  var checkinsTextSize = newFontSize/10;
+		  var nameSize = newFontSize/6;
+   	   	  $(".checkins").css({"font-size" : checkinsSize});
+   	   	  $(".checkins-text").css({"font-size" : checkinsTextSize});
+   	   	  $(".name").css({"font-size" : nameSize});
+   	   	  $(this).css({"background" : ":url(img/01.jpg)"});
+		});
+
+	}
+
+
+
+
+    </script>
+    
+  </head>
+  <body>
+
+ 	<div id="logo-wrapper">
+	  <div id="logo-div"><img src="logo.png" alt="logo"></div>
+	  <div id="rotator-div"><img src="0.jpg" alt="rotating image" width="600" height="500" id="rotator"></div>
+	</div>
+        <div id="lots"></div>
+        <div id="instructions">
+	   <div id="instructions-text">Scan QR Code or visit link below.</div>
+        </div>
+        
+  </body>
+</html>
