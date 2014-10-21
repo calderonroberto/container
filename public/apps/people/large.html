@@ -75,15 +75,15 @@
         function getData() {
 		var id = getURLParameter("display_id");
 		$.getJSON("/api/"+id+"/analytics", function(data) {
-        	        drawPlants(data);
+        	        drawPeople(data);
 		});
 
 		/*Development*/
-		
+		/*
 		data = jQuery.parseJSON( '[{"user":{"id":1,"name":"Roberto Calderon","thumbnail_url":"http://graph.facebook.com/100003241054057/picture?type=small"},"data":{"messages_sent":24,"checkins":2},"links":[{"user_id":2,"messages_sent":22,"messages_received":2,"reciprocity_ratio":11}]},{"user":{"id":2,"name":"John Black","thumbnail_url":"http://graph.facebook.com/81008311/picture?type=small"},"data":{"messages_sent":2,"checkins":1},"links":[{"user_id":1,"messages_sent":2,"messages_received":22,"reciprocity_ratio":0}]},{"user":{"id":3,"name":"Dawood Mslw","thumbnail_url":"http://graph.facebook.com/81008311/picture?type=small"},"data":{"messages_sent":0,"checkins":0},"links":[]},{"user":{"id":4,"name":"Four Name","thumbnail_url":"http://graph.facebook.com/81008311/picture?type=small"},"data":{"messages_sent":0,"checkins":10},"links":[]},{"user":{"id":5,"name":"Five Mslw","thumbnail_url":"http://graph.facebook.com/81008311/picture?type=small"},"data":{"messages_sent":0,"checkins":100},"links":[]}]' );
 		console.log(data)
                 drawPeople(data);
-		
+		*/		
 	}
 
         function drawPeople(d) { //load object to procesing 
