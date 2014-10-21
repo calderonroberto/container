@@ -92,8 +92,12 @@ function updateNotes (notes) {
   $(".note").remove()
   $.each(notes, function() {
     var from = $(this)[0].from;
+    var thumbnail = $(this)[0].user_thumbnail_url;
+    if (thumbnail == null) {
+       thumbnail = "/img/anonymous-thumbnail.jpg"
+    }
     var message = $(this)[0].message;
-    $(".messageboard").append("<div class='note'>"+message+"</div>");
+    $(".messageboard").append("<div class='note'><img class='note-user-thumbnail' src='"+thumbnail+"'></img><span class='note-text'>"+message+"</span></div>");
     if (notecount > 4) {
       $(".messageboard :last-child").remove()
     }; 

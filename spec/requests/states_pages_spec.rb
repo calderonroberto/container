@@ -6,12 +6,13 @@ describe "State pages" do
   subject { page }
   let(:display) { FactoryGirl.create(:display) }
   let(:new_app) { FactoryGirl.create(:app) }
+  let(:user) { FactoryGirl.create(:user) }
 
   describe "Calling the api" do
     before do      
       new_app.subscribe!(display)
       display.stage!(new_app)    
-      5.times { display.notes.build(from: "someone", message: "message").save }
+      5.times { display.notes.build(from: user.id, message: "message").save }
       sign_in display
     end
 

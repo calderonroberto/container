@@ -15,6 +15,13 @@ class DisplayState
       apps = d.apps
       staged_app = d.staged_app
       notes = d.notes.last(4).reverse
+      #add user info. Done like this to allow back-compatibility with apps using this
+      notes.each do |n| 
+       u = User.find(n.from)
+       user = Hash.new
+       n["user_name"] = u.name
+       n["user_thumbnail_url"] = u.thumbnail_url
+      end
       setup = d.setup
       @state = { display: display, interaction: interaction, apps: apps, staged_app: staged_app, notes: notes, setup: setup }      
       return @state

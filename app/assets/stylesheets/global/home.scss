@@ -121,6 +121,21 @@
   text-align: left;
 }
 
+.note-user-thumbnail {
+  left: 2px;
+  top: 2px;
+  width: 30px;
+}
+
+.note-user-thumbnail img {
+  width:30px;
+}
+
+.note-text {
+  position:absolute;
+  left:35px;
+}
+
 .qrcode {
   position:absolute;
   bottom: 10%;
