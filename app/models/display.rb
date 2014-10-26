@@ -18,6 +18,11 @@ class Display < ActiveRecord::Base
   before_save :create_remember_token, :create_unique_id
   after_commit :set_broker_url
 
+  def week_score
+    score = Hash["score" => Checkin.where("display_id = ? AND created_at >= ?", self.id, Time.zone.now.beginning_of_week).count ]
+    return score
+  end
+
   def stage!(app)
     if stagings.last.nil?
       stagings.create!(app_id: app.id)

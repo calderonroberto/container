@@ -11,7 +11,6 @@ class CheckinsController < ApplicationController
     display = Display.find_by_id(params[:checkin][:display_id])
     thingbroker_url = display.setup.thingbroker_url
 
-
     if user[:email] == "anonymous@email.com" then 
       @checkin = user.checkin!(display)
       broadcast_checkin(display, user,thingbroker_url)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper)

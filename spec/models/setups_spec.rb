@@ -9,10 +9,11 @@ describe Setup do
  
   it { should respond_to(:thingbroker_url) }
   it { should respond_to(:interact_instructions) }
+  it { should respond_to(:experimental_setup) }
 
   describe "it should have a default url" do
     it { should be_valid }
-  end
+  end 
 
   describe "when thingbroker_url is valid" do
     before { @setup.thingbroker_url = "http://localhost:8080/thingbroker" }

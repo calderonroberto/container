@@ -14,8 +14,18 @@ class User < ActiveRecord::Base
   attr_accessible :email, :uid, :name, :provider, :password, :token, :thumbnail_url, :picture_url, :friends, :test_group
 
   has_many :checkins, dependent: :destroy #making sure that checkins are destroyed when a user is
-  has_many :gifts, dependent: :destroy #making sure that gifts are destroyed when a user is
+  has_many :gifts, dependent: :destroy #making sure  that gifts are destroyed when a user is
   has_many :registrations, dependent: :destroy #making sure that registrations are destroyed when a user is
+
+  def week_score
+    score = Hash["score" => 0, "checkins" => 0, "gifts" => 0]
+    checkins= Checkin.where("user_id = ? AND created_at >= ?", self.id, Time.zone.now.beginning_of_week).count
+    score["checkins"] = checkins
+    gifts= Gift.where("user_id = ? AND created_at <= ?", self.id, Time.zone.now.beginning_of_week).count
+    score["gifts"] = gifts
+    score["score"] = checkins+ gifts
+    return score
+  end
 
   def has_unread_messages_from(user)
     #return !Message.where(:to => self.id).last.read
