@@ -17,7 +17,11 @@ class ScoresController < ApplicationController
 				  checkins: user.week_score["checkins"],
 				  gifts: user.week_score["gifts"]}
       elsif (display.setup.experimental_setup == 1)
-         user_hash["week_total_score"]= user.week_score["score"] + display.week_score["score"]
+         if user.week_score["checkins"] > 0
+            user_hash["week_total_score"]= user.week_score["score"] + display.week_score["score"]
+         else 
+	    user_hash["week_total_score"]= user.week_score["score"]
+         end
          user_hash["week_scores"] = {score: user.week_score["score"],
 				  checkins: user.week_score["checkins"],
 				  gifts: user.week_score["gifts"],
