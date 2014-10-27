@@ -66,8 +66,9 @@ class ScoresController < ApplicationController
         else
 	  user_hash["lastweek_score"]= lastweek_gifts
         end
-
-        @response.push(user_hash)
+        if lastweek_checkins > 0
+           @response.push(user_hash)
+ 	end
     end
 
     @response.sort_by! { |hash| -hash['lastweek_score']  }
