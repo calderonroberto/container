@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
     score = Hash["score" => 0, "checkins" => 0, "gifts" => 0]
     checkins= Checkin.where("user_id = ? AND created_at >= ?", self.id, Time.zone.now.beginning_of_week).count
     score["checkins"] = checkins
-    gifts= Gift.where("user_id = ? AND created_at <= ?", self.id, Time.zone.now.beginning_of_week).count
+    gifts= Gift.where("user_id = ? AND created_at >= ?", self.id, Time.zone.now.beginning_of_week).count
     score["gifts"] = gifts
     score["score"] = checkins+ gifts
     return score

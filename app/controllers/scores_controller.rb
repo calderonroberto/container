@@ -55,7 +55,12 @@ class ScoresController < ApplicationController
         user_hash["user"] = {id: user.id, name: user.name, thumbnail_url: user.thumbnail_url} 
         lastweek_checkins= Checkin.where("user_id = ? AND created_at >= ? AND created_at <= ?", user.id, Time.zone.now.beginning_of_week-7.days, Time.zone.now.beginning_of_week).count
         lastweek_gifts = Gift.where("user_id = ? AND created_at >= ? AND created_at <= ?", user.id, Time.zone.now.beginning_of_week-7.days, Time.zone.now.beginning_of_week).count    
-        user_hash["lastweek_score"]= lastweek_place_score + lastweek_checkins + lastweek_gifts
+        if lastweek_checkins > 0 
+          user_hash["lastweek_score"]= lastweek_place_score + lastweek_checkins + lastweek_gifts
+        else
+	  user_hash["lastweek_score"]= lastweek_gifts
+        end
+
         @response.push(user_hash)
     end
 
