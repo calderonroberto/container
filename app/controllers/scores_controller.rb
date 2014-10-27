@@ -57,6 +57,12 @@ class ScoresController < ApplicationController
         lastweek_gifts = Gift.where("user_id = ? AND created_at >= ? AND created_at <= ?", user.id, Time.zone.now.beginning_of_week-7.days, Time.zone.now.beginning_of_week).count    
         if lastweek_checkins > 0 
           user_hash["lastweek_score"]= lastweek_place_score + lastweek_checkins + lastweek_gifts
+          user_hash["lastweek_place_score"]= lastweek_place_score
+          user_hash["lastweek_checkins"]= lastweek_checkins
+          user_hash["lastweek_gifts"]= lastweek_gifts
+	  user_hash["week-from"] = Time.zone.now.beginning_of_week-7.days
+	  user_hash["week-to"] =  Time.zone.now.beginning_of_week
+
         else
 	  user_hash["lastweek_score"]= lastweek_gifts
         end
