@@ -4,20 +4,44 @@
 
 
     <div class="tutorial-text">
-       Hi <%= @user.name.split(' ').first %>. <b>Checkins</b> show how often you visit Seedlings and are seen by everyone else, <b>Gifts</b> are privately sent by other members and only the receiver can see them. 
+       Hi <%= @user.name.split(' ').first %>. If you are displayed as a <b>Week Winner</b> on the garden contact <a href="mailto:roberto@alumni.ubc.ca"><b>roberto@alumni.ubc.ca</b></a> 
     </div>
 
-    <!-- Checkins -->
-   <h4>Your Checkins:</h4>
+    <%= image_tag(@user.picture_url, alt: "User Picture", class: 'user_profile_picture' ) %>
+
+    <div class="week_score"><%= @week_score %></div>
+
+    <div class="tutorial-text">
+       <b>Checkins</b> show how often you visit Seedlings and are seen by everyone else, <b>Gifts</b> are privately sent by other members and only the receiver can see them. Learn how your points are computed in the <a href="/help"><b>help</b></a> page.
+    </div>
+
+    <% if @display.setup.experimental_setup == 1 %>
+    <!-- Place -->
+   <hr>
+   <h4>Place points this week:</h4> 
     <div class="profile-checkins">
-       <div class="checkins_count"><%= @checkins_count %></div>
+       <div class="place_points_count"><%= @display.week_score['score'] %></div>
+       <div class="col-xs-8">
+          <div class="tutorial-text">Place points earned watering the garden.</div>
+       </div>
+    </div>
+    <% end %>
+
+    <!-- Checkins -->
+   <hr>
+   <h4>Your Checkins this week:</h4>
+    <div class="profile-checkins">
+       <div class="checkins_count"><%= @user.week_score['checkins'] %></div>
        <div class="col-xs-8">
           <%= render 'checkins/checkin_form', :user => @user, :display => @display, :checkin_today => @checkin_today %>
        </div>
     </div>
 
     <!-- Gifts -->
-    <h4>Your Gifts:</h4>
+    <hr>
+    <h4>Your Gifts this week:</h4>
+    <div class="gifts_count"><%= @user.week_score['gifts'] %></div>
+ <div class="col-xs-8">
     <div class="profile-giftlist">    
        <% if @gifts.empty? %>
           <div class="tutorial-text">
@@ -30,7 +54,7 @@
           <div class="profile-giftlist-item">
  	    <!-- Draw according to type of gift -->
 	    <% if g.gift_type == 0 %>
-	       <span class="glyphicon glyphicon-thumbs-up giftflash"></span>
+	       <span class="glyphicon glyphicon-gift giftflash"></span>
             <% elsif g.gift_type == 1 %>
 	       <span class="glyphicon glyphicon-music giftflash"></span>
             <% elsif g.gift_type == 2 %>
@@ -50,6 +74,7 @@ link_to image_tag(fromuser.thumbnail_url, :border => 0, :width => 50, :height =>
 	  </div>
        <% end %>
     </div>
+  </div>
 
   </div>
 </div>

@@ -3,5 +3,39 @@
 <%= f.hidden_field :display_id, :value => @display_id %>
 <%= f.hidden_field :user_id, :value => @user_id %>
 
-<%= f.label :message %>
-<%= f.text_area :message %>
+
+<%= f.label :message, class: 'hidden' %>
+<%= f.text_area :message, class: 'hidden' %>
+
+<div class="input-group">
+   <span class="input-group-addon"><%= f.radio_button :message, 'Hello Everyone!', class: 'big-radio-button' %></span>
+   <%= label :message, 'Hello Everyone!', class: 'form-control' %>
+</div>
+
+<div class="input-group">
+   <span class="input-group-addon"><%= f.radio_button :message, 'Does anybody want to chat?', class: 'big-radio-button' %></span>
+   <%= label :message, 'Does anybody want to chat?', class: 'form-control' %>
+</div>
+
+<div class="input-group">
+   <span class="input-group-addon"><%= f.radio_button :message, 'We need more checkins!', class: 'big-radio-button' %></span>
+   <%= label :message, 'We need more checkins!', class: 'form-control' %>
+</div>
+
+<div class="input-group">
+   <span class="input-group-addon"><%= f.radio_button :message, 'Does anybody want a gift?', class: 'big-radio-button' %></span>
+   <%= label :message, 'Does anybody want a gift?', class: 'form-control' %>
+</div>
+
+<div class="input-group">
+   <span class="input-group-addon"><%= f.radio_button :message, 'Anybody willing to give me a gift?', class: 'big-radio-button' %></span>
+   <%= label :message, 'Anybody willing to give me a gift?', class: 'form-control' %>
+</div>
+
+<div class="input-group">
+   <span class="input-group-addon"><%= f.radio_button :message, 'I like MySeedlings!', class: 'big-radio-button' %></span>
+   <%= label :message, 'I like MySeedlings!', class: 'form-control' %>
+</div>
+
+
+

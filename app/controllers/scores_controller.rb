@@ -36,9 +36,38 @@ class ScoresController < ApplicationController
     if (Container::Application.config.log_usage)
       Log.create(controller: 'scores', method: 'show', display_id: display.id, params: params, remote_ip: request.remote_ip )
     end
-    render json: @response
+    render json: @response.take(9)
   end
 
+  def lastweekwinners
+    @response = Array.new
+    display = Display.find_by_unique_id(params[:display_id])
+    users = User.where('users.id != ?', '0').joins(:registrations).where('registrations.display_id' => display.unique_id)  
+
+    if display.setup.experimental_setup == 1 
+      lastweek_place_score = Checkin.where("display_id = ? AND created_at >= ? AND created_at <= ?", display.id, Time.zone.now.beginning_of_week-7.days, Time.zone.now.beginning_of_week).count
+    else 
+      lastweek_place_score = 0
+    end
+
+    users.each do |user|
+        user_hash = Hash.new
+        user_hash["user"] = {id: user.id, name: user.name, thumbnail_url: user.thumbnail_url} 
+        lastweek_checkins= Checkin.where("user_id = ? AND created_at >= ? AND created_at <= ?", user.id, Time.zone.now.beginning_of_week-7.days, Time.zone.now.beginning_of_week).count
+        lastweek_gifts = Gift.where("user_id = ? AND created_at >= ? AND created_at <= ?", user.id, Time.zone.now.beginning_of_week-7.days, Time.zone.now.beginning_of_week).count    
+        user_hash["lastweek_score"]= lastweek_place_score + lastweek_checkins + lastweek_gifts
+        @response.push(user_hash)
+    end
+
+    @response.sort_by! { |hash| -hash['lastweek_score']  }
+
+    #log_usage
+    if (Container::Application.config.log_usage)
+      Log.create(controller: 'scores', method: 'winners', display_id: display.id, params: params, remote_ip: request.remote_ip )
+    end
+    render json:@response.take(3)
+
+  end 
 
 
 end

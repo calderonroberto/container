@@ -19,7 +19,12 @@ class Display < ActiveRecord::Base
   after_commit :set_broker_url
 
   def week_score
-    score = Hash["score" => Checkin.where("display_id = ? AND created_at >= ?", self.id, Time.zone.now.beginning_of_week).count ]
+    if setup.experimental_setup == 1
+      score = Hash["score" => Checkin.where("display_id = ? AND created_at >= ?", self.id, Time.zone.now.beginning_of_week).count ]
+    else
+      score = Hash["score" => 0 ]
+    end
+
     return score
   end
 

@@ -30,6 +30,8 @@ class UsersController < ApplicationController
    @checkins_count = @user.checkins.where("display_id", @display.id).count
    @checkin_today = @user.checkins.where("display_id = ? AND created_at >= ?", @display.id, Time.zone.now.beginning_of_day)
 
+   @week_score = @user.week_score['score'] + @display.week_score['score']
+
    @gifts = @user.gifts
 
    #log_usage

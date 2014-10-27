@@ -21,6 +21,7 @@
           <li><a href='/profile'>Profile</a></li>
           <li><a href='<%= "/people/#{@display_id}" %>'>People</a></li>
           <li><%= link_to "Note", notes_new_path(@display_id) %></li>
+          <li><%= link_to "Help", help_path %></li>
 
           <!-- Removed for now" -->
           <li class="hidden"><%= link_to "Checkins", checkins_path(@display_id) %></li>

@@ -10,60 +10,66 @@
         <% @userlist.each do |user| %>
           <div class="userlistitem-login" id="<%= user[:user].id %>" >
             <%= image_tag(user[:user].thumbnail_url, :border => 0, :width => 50, :height => 50, :class => 'user_img-login', :id => user[:user].id) %>
+	    <!-- Removed checkins count
             <div class="checkins_count-login"><%= user[:checkins_count] %></div>
+            -->
           </div>
         <% end %>
       </div>
       <div class="signin-intro-text">
         In MySeedlings you can<br>
-<span class="glyphicon glyphicon-user"></span> Make new friends.<br>
-<span class="glyphicon glyphicon-comment"></span> Chat with people around here.<br>
-<span class="glyphicon glyphicon-home"></span> Post public messages.<br>                
-<span class="glyphicon glyphicon-leaf"></span> Help a cause.<br>
-<!--
+        <span class="glyphicon glyphicon-user"></span> Meet people.<br>
+        <span class="glyphicon glyphicon-comment"></span> Chat with others here.<br>
+        <span class="glyphicon glyphicon-gift"></span> Win a coffee every week.<br>            
+        <span class="glyphicon glyphicon-leaf"></span> Help water the garden.<br>
+        <!-- Other icons
+        <span class="glyphicon glyphicon-home"></span> Post to wall.<br>    
         <span class="glyphicon glyphicon-home"></span>Checkin to say hi.<br>
         <span class="glyphicon glyphicon-leaf"></span>
-        <span class="glyphicon glyphicon-gift"></span> Share the love.<br>
--->
+
+        -->
       </div>
     </div>
     <div class="signin-button">
       <%= link_to "Sign in using Facebook", user_omniauth_authorize_path(:facebook),  :class => "btn btn-primary btn-lg", :role => "button"  %>
     </div>
 
-    <p style="text-align:center; font-size:10px;margin:5px;"><br>Pssst, this is a private social network and we will never post anything on FB. To create your account fast we can use your Facebook photo and name. Still wary? That's fine, interact Anonymously below!</p>
+    <p style="text-align:center; font-size:10px;margin:5px;"><br>Pssst, this is a private social network and we will never post anything on FB. To create your account fast we can use your Facebook photo and name. Still wary? Contact us below!</p>
 
 
   </div>
-<!--
+  <!-- Possible background image (removed to make it faster to load
   <div class="signin-image-mobile">
     <%= image_tag("seedlings-logo.png", alt: "logo") %>   
   </div>
--->  
-
-    <div class="tutorial-text">
-       Need help or have comments? Email: <a href="mailto:roberto@alumni.ubc.ca">roberto@alumni.ubc.ca</a> 
-    </div>
+  -->  
 
   <div class="span10 offset1 studydisclaimer">
 
 
 <!-- Nav tabs -->
 <ul class="nav nav-tabs">
-  <li class="active"><a href="#note" data-toggle="tab">Anonymous Interaction</a></li>
+  <li class="active"><a href="#note" data-toggle="tab">Help</a></li>
   <li><a href="#ethics" data-toggle="tab">Ethics Disclaimer</a></li>
 </ul>
 
 <div class="tab-content">
 <div class="tab-pane active" id="note">
 
+    <div class="tutorial-text">
+       Need help or have comments? Email: <a href="mailto:roberto@alumni.ubc.ca">roberto@alumni.ubc.ca</a> 
+    </div>
+
+    <!-- CHECKIN Removed for experiment
     <h4>Checkin Anonymously:</h4>
     <%=
    	unless @user.nil?
 	  render 'checkins/checkin_form', :user => @user, :display => @display, :checkin_today => [] 
    	end
     %>
+    -->
 
+    <!-- NOTE Removed for experiment
     <h4>Publish a Note:</h4>
     <div class="tutorial-text">
       Notes are small messages you can publish on the large display. They can be read by everyone.
@@ -74,8 +80,8 @@
       <%= f.submit "Send", class: "btn btn-large btn-primary" %> 
     <% end %>
     </div>
-
-<!--
+    -->
+  <!-- FEATURES REMOVED FOR EXPERIMENT
   <div class="features-intro">
      In MySeedlings you can post public messages, meet other people that also visit Seedlings, and send private messages or virtual gifts.
   </div>
@@ -97,10 +103,9 @@
     <div class="feature-image"><%= image_tag("feature-checkin.png") %></div>
     <div class="feature-text">Checkin for points.</div>
   </div>
---> 
+  --> 
 
 </div>
-
 
 <div class="tab-pane" id="ethics">
 This application is part of a behavioural study conducted by the Principal Investigator Dr. Sidney Fels (Associate Professor, Department of Electrical and Computer Engineering, University of British Columbia (604) 822-5338) and the Investigator Roberto Calderon ( PhD candidate. Media and Graphics Interdisciplinary Centre. Universtity of British Columbia.) <br>

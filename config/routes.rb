@@ -33,6 +33,7 @@ Container::Application.routes.draw do
   #match '/people/user/:id', to: 'users#show', :as => :people_user #TODO: Delete
   match '/checkins/:id', to: 'checkins#show', :as => :checkins
   match '/profile', to: 'users#profile', :as => :profile
+  match '/help', to: 'help#show', :as => :help
 
   match '/anonymouscheckin', to: 'checkins#anonymous', :as => :checkin_anonymous #TODO: change this to something with better meaning
 
@@ -42,6 +43,8 @@ Container::Application.routes.draw do
   match '/api/apps', to: 'apps#apps', :as => :api_apps
   match '/api/:display_id/analytics', to: 'analytics#show', :as => :api_display_analytics
   match '/api/:display_id/scores', to: 'scores#show', :as => :api_display_scores
+  match '/api/:display_id/lastweekwinners', to: 'scores#lastweekwinners', :as => :api_display_lastweekwinners
+
   match '/api/:display_id/checkins', to: 'checkins#displaycheckins', :as => :api_display_checkins
   match '/api/currentuser', to: 'users#currentuser', :as => :api_currentuser
 
