@@ -1,0 +1,11 @@
+<%= form_for( :favour, url: {controller: "favours", action: "create"}, remote: true) do |f| %>
+  <%= f.hidden_field :user_id, :value => user.id %>
+  <%= f.hidden_field :from_id, :value => from.id %>
+  <%= f.hidden_field :display_id, :value => display_id %>
+
+  <%= button_tag(type: 'submit', value: 'Ask', class: "btn btn-primary", name: 'commit') do %>
+    Ask Favour
+  <% end %>
+
+<% end %>
+

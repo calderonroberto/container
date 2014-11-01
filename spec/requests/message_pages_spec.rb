@@ -16,19 +16,16 @@ describe "MessagePages" do
   end
   after(:all) do
     App.delete_all 
-    User.delete_all
     Message.delete_all
+    User.delete_all
   end
   
   describe "without signing in" do
-
     before { visit "/messages/new/#{display.unique_id}?user_id=#{User.last.id}" }
     it { should have_link('Sign in using Facebook', href: "/users/auth/facebook") }
   end
 
-  describe "visiting signed in" do
-
-    
+  describe "visiting signed in" do    
     before{
       sign_in_user(display, user)
       visit "/messages/new/#{display.unique_id}?user_id=#{User.last.id}"
@@ -48,6 +45,10 @@ describe "MessagePages" do
     end
  
     it "should have a form to submit a gift" do
+       pending "add gift form test #{__FILE__}"
+    end
+
+    it "should have a form to submit a favour" do
        pending "add gift form test #{__FILE__}"
     end
 

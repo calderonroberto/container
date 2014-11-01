@@ -1,5 +1,5 @@
 class Setup < ActiveRecord::Base
-  attr_accessible :thingbroker_url, :interact_instructions, :display_id, :experimental_setup
+  attr_accessible :thingbroker_url, :interact_instructions, :display_id, :experimental_setup, :communal_pool_size
   belongs_to :display
 
   VALID_URL_REGEX = /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(:[0-9]{1,5})?(\/.*)?$/ix

@@ -3,10 +3,8 @@
 <%= f.hidden_field :display_id, :value => @display_id %>
 <%= f.hidden_field :user_id, :value => @user_id %>
 
-
-<%= f.label :message, class: 'hidden' %>
-<%= f.text_area :message, class: 'hidden' %>
-
+<!-- Preset options -->
+<!--
 <div class="input-group">
    <span class="input-group-addon"><%= f.radio_button :message, 'Hello Everyone!', class: 'big-radio-button' %></span>
    <%= label :message, 'Hello Everyone!', class: 'form-control' %>
@@ -36,6 +34,11 @@
    <span class="input-group-addon"><%= f.radio_button :message, 'I like MySeedlings!', class: 'big-radio-button' %></span>
    <%= label :message, 'I like MySeedlings!', class: 'form-control' %>
 </div>
+-->
 
+
+<!-- Open message -->
+<%= f.label :message %>
+<%= f.text_area :message %>
 
 

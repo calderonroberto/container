@@ -31,6 +31,7 @@ describe "Mobile pages" do
 
     before { 
       sign_in_user(display, user)
+      visit mobile_path(display.unique_id)
     }
 
     #TODO: check this later

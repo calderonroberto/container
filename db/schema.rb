@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141026041647) do
+ActiveRecord::Schema.define(:version => 20141031204250) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
@@ -55,6 +55,14 @@ ActiveRecord::Schema.define(:version => 20141026041647) do
 
   add_index "displays", ["remember_token", "name"], :name => "index_displays_on_remember_token_and_name"
   add_index "displays", ["unique_id"], :name => "index_displays_on_unique_id"
+
+  create_table "favours", :force => true do |t|
+    t.integer  "from_id"
+    t.integer  "to_id"
+    t.boolean  "reciprocated", :default => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
 
   create_table "gifts", :force => true do |t|
     t.integer  "user_id"
@@ -116,6 +124,7 @@ ActiveRecord::Schema.define(:version => 20141026041647) do
     t.datetime "updated_at",                                                                         :null => false
     t.boolean  "interact_instructions"
     t.integer  "experimental_setup",    :default => 0
+    t.integer  "communal_pool_size",    :default => 5
   end
 
   add_index "setups", ["display_id"], :name => "index_setups_on_display_id"

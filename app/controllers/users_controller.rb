@@ -27,12 +27,10 @@ class UsersController < ApplicationController
    @display = Display.find_by_unique_id(cookies[:display_id])
    @display_id = cookies[:display_id]
 
-   @checkins_count = @user.checkins.where("display_id", @display.id).count
    @checkin_today = @user.checkins.where("display_id = ? AND created_at >= ?", @display.id, Time.zone.now.beginning_of_day)
 
-   @week_score = @user.week_score['score'] + @display.week_score['score']
-
    @gifts = @user.gifts
+   @favours = Favour.where("to_id = ? AND reciprocated = ?", @user.id, false)
 
    #log_usage
    if (Container::Application.config.log_usage)

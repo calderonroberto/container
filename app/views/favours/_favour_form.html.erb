@@ -1,0 +1,10 @@
+<div class="favour_form" id="<%=user.id%>">
+
+<% if favour_today.any? %>
+    <%= render 'favours/unfavour', :user => user, :from => from, :display_id => display_id %>
+<% else %>
+    <%= render 'favours/favour', :user => user, :from => from, :display_id => display_id %>
+<% end %>
+
+</div>
+

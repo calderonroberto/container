@@ -61,6 +61,11 @@ p {
   line-height: 1.7em;
 }
 */
+
+/*Fixing Navbar gray colors to look better in mobile, i.e. not gray*/
+ul.nav a { color: #ddd !important; }
+div.nav a { color: #ddd !important; }
+
 /*Messages*/
 
 .messages {
@@ -143,8 +148,64 @@ textarea {
   width: 100%;
 }
 
+/*Favour*/
+
+.profile-favourlist-item{
+  font-size:12px;
+  border-style:solid;
+  border-width:1px;
+  border-color:gray;
+  width: 100px;
+  float:left;
+  padding: 2px;
+  margin: 1px;
+}
+
+.favours_count {float:right; width:50px; height:50px; background:#FF6633;font-size:40px; line-height:45px;text-align:center; color:white; position:relative;}
+
+.favours_count:after{
+   content:"Favours";
+   font-weight: bold;
+   text-align:center;
+   font-size: 10px;
+   line-height:10px;
+   position:absolute;
+   bottom:0px;
+   left:0px;
+   width: 50px;
+   vertical-align:bottom;
+}
+
+.favourflash {
+    color:white;
+    background:#FF6633;
+    border-radius:5px;
+    padding:5px;
+    margin:1px;
+    //width: 40px;
+    //height: 40px;
+    font-size:20px;
+    line-height:20px;
+}
 
 /*Gifts*/
+
+.profile-giftlist{
+  margin-top:5px;
+  min-height:100px;
+  //width: 80%;
+}
+
+.profile-giftlist-item{
+  font-size:8px;
+  border-style:solid;
+  border-width:1px;
+  border-color:gray;
+  width: 60px;
+  float:left;
+  padding: 2px;
+  margin: 1px;
+}
 
 .giftflash {
     color:white;
@@ -157,7 +218,6 @@ textarea {
     font-size:28px;
     line-height:28px;
 }
-
 
 .gifts_count {float:right; width:50px; height:50px; background:#FF6633;font-size:40px; line-height:45px;text-align:center; color:white; position:relative;}
 
@@ -175,28 +235,7 @@ textarea {
 }
 
 
-
-
-
-
-
 /*Profile*/
-
-.profile-giftlist{
-  margin-top:5px;
-  //width: 80%;
-}
-
-.profile-giftlist-item{
-  font-size:8px;
-  border-style:solid;
-  border-width:1px;
-  border-color:gray;
-  width: 60px;
-  float:left;
-  padding: 2px;
-  margin: 1px;
-}
 
 .profile-checkins{
   height:65px;

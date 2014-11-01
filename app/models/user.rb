@@ -17,15 +17,36 @@ class User < ActiveRecord::Base
   has_many :gifts, dependent: :destroy #making sure  that gifts are destroyed when a user is
   has_many :registrations, dependent: :destroy #making sure that registrations are destroyed when a user is
 
-  def week_score
-    score = Hash["score" => 0, "checkins" => 0, "gifts" => 0]
-    checkins= Checkin.where("user_id = ? AND created_at >= ?", self.id, Time.zone.now.beginning_of_week).count
+  def score(display, time_from, time_to)
+    score = Hash["score" => 0, "checkins" => 0, "favours" => 0]
+    checkins = Checkin.where("display_id = ? AND user_id = ? AND created_at >= ? AND created_at <= ?", display.id, self.id, time_from, time_to).count
+    favours= Favour.where("(to_id = ? OR from_id = ?) AND reciprocated =? AND created_at >= ? AND created_at <= ?", self.id, self.id, true, time_from, time_to).count
+    
     score["checkins"] = checkins
-    gifts= Gift.where("user_id = ? AND created_at >= ?", self.id, Time.zone.now.beginning_of_week).count
-    score["gifts"] = gifts
-    score["score"] = checkins+ gifts
+    score["favours"] = favours
+
+    if display.setup.experimental_setup == 0
+       #When individual: Checkins + favours resolved
+       score["pool_points"] = 0 
+       score["score"] = checkins+ favours
+    elsif display.setup.experimental_setup == 1
+       #When communal: (Checkins/N)*N + favours resolved
+       display_week_score = display.score(time_from, time_to)
+       pool_points = display_week_score["pool_size"] * display_week_score["pools_completed"]     
+       
+       #only take pool_points into account if user has checked in this week
+       if checkins > 0
+         score["pool_points"] = pool_points 
+         score["score"] = pool_points + favours
+       else 
+         score["pool_points"] = 0
+         score["score"] = favours
+       end    
+    end
+
     return score
   end
+
 
   def has_unread_messages_from(user)
     #return !Message.where(:to => self.id).last.read

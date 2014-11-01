@@ -18,7 +18,7 @@ class SetupsController < ApplicationController
       Log.create(controller: 'setups', method: 'update', params: params, remote_ip: request.remote_ip )
     end
     if params[:is_global]
-       if Setup.update_all(:thingbroker_url => params[:setup][:thingbroker_url], :interact_instructions => params[:setup][:interact_instructions], :experimental_setup => params[:setup][:experimental_setup])
+       if Setup.update_all(:thingbroker_url => params[:setup][:thingbroker_url], :interact_instructions => params[:setup][:interact_instructions], :experimental_setup => params[:setup][:experimental_setup], :communal_pool_size => params[:setup][:communal_pool_size])
          flash[:success] = "All Display's Setup updated"
          redirect_to admin_path
        else

@@ -5,6 +5,10 @@
 <%= f.label :experimental_setup %>
 <%= f.select :experimental_setup, options_for_select([["Individual", "0"], ["Communal", "1"]], selected: @setup.experimental_setup) %>
 <br><br>
+Checkins needed for people to receive all points in pool.
+<%= f.label :communal_pool_size %>
+<%= f.text_field :communal_pool_size, :size => 2 %>
+<br><br>
 <%= f.check_box :interact_instructions %>
 <%= label_tag(:interact_instructions, "Enable Interact Instructions Video when idle") %>
 <br>

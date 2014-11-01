@@ -1,0 +1,10 @@
+<%= form_for( :favour, url: {controller: "favours", action: "reciprocate"}, remote: true) do |f| %>
+
+  <%= f.hidden_field :favour_id, :value => favour_id %>
+
+  <%= button_tag(type: 'submit', value: 'Reciprocate', class: "btn btn-primary", name: 'commit') do %>
+    Reciprocate Favour
+  <% end %>
+
+<% end %>
+

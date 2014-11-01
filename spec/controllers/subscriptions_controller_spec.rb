@@ -5,6 +5,7 @@ describe SubscriptionsController do
 
   let(:display) { FactoryGirl.create(:display) }
   let(:an_app) { FactoryGirl.create(:app) }
+  let(:a_second_app) { FactoryGirl.create(:app) }
   before { sign_in display }
 
   describe "creating a subscription with Ajax" do

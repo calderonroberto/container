@@ -18,13 +18,13 @@ class Display < ActiveRecord::Base
   before_save :create_remember_token, :create_unique_id
   after_commit :set_broker_url
 
-  def week_score
-    if setup.experimental_setup == 1
-      score = Hash["score" => Checkin.where("display_id = ? AND created_at >= ?", self.id, Time.zone.now.beginning_of_week).count ]
-    else
-      score = Hash["score" => 0 ]
-    end
-
+  def score (time_from, time_to)
+    checkins = Checkin.where("display_id = ? AND created_at >= ? AND created_at <= ?", self.id, time_from, time_to).count
+    pool_size = self.setup.communal_pool_size
+    pools_completed = (checkins/pool_size).floor
+    current_pool = checkins-(pools_completed*pool_size)
+    pool_points = pools_completed*pool_size
+    score = Hash["checkins" => checkins, "pool_points" => pool_points , "pool_size" => pool_size, "pools_completed" => pools_completed, "current_pool" => current_pool ]
     return score
   end
 

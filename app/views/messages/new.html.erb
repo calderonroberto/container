@@ -5,13 +5,23 @@
     <%= image_tag @user_to_display.picture_url, :border => 0, :id => @user_to_display.id, :class => "profile_picture", :alt => "profile_picture" %>
     </div>
 
+    <hr>
+    <h4>Ask for a favour to <%= @user_to_display.name %></h4>
+    <div class="tutorial-text">
+      You can only request ONE favour PER DAY to <%= @user_to_display.name %>. 
+    </div>
+    <%= render 'favours/favour_form', :user => @user_to_display, :from => @user, :favour_today => @favour_today, :display_id => @display_id %>
+
+    <hr>
     <h4>Send a gift to <%= @user_to_display.name %></h4>
     <div class="tutorial-text">
       You can only send ONE gift PER DAY to <%= @user_to_display.name %>. 
     </div>
     <%= render 'gifts/gift_form', :user => @user_to_display, :from => @user, :gift_today => @gift_today, :display_id => @display_id %>
-    
 
+
+
+    <hr>
     <h4>Message <%= @user_to_display.name %></h4>
     <div class="tutorial-text">
       These messages can only be read by you and <%= @user_to_display.name %>.

@@ -45,7 +45,6 @@ describe "UsersPages" do
       User.where('id != ?', user.id).each do |u|
         page.should have_xpath("//div[@id='#{u.id}']")
         page.should have_xpath("//img[@id='#{u.id}']")
-        page.should have_xpath("//div[@class='checkins_count']")
         page.should have_link(u.name)
       end
     end

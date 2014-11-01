@@ -9,10 +9,14 @@ Container::Application.routes.draw do
   resources :stagings, only: [:create]
   resources :checkins, only: [:create, :show] #TODO: REMOVE SHOW
   resources :gifts, only: [:create]
+  resources :favours, only: [:create]
+   match '/favours/reciprocate', to: 'favours#reciprocate' #added new method for reciprocate form
   resources :setups, only: [:update, :edit]
   resources :users, only:[:create]
 
   root :to => 'static_pages#home'  
+
+
   match '/admin',   to: 'admin#home'
   match '/signup',  to: 'displays#new'
   match '/signin',  to: 'sessions#new'
@@ -24,8 +28,10 @@ Container::Application.routes.draw do
   match '/content/:id', to: 'static_pages#content' #large display 
 
   #mobile display
-  match 'm/:display_name', to: 'mobile#index', :as => :m
-  match '/mobile/:id', to: 'mobile#index', :as => :mobile
+  match 'm/:display_name', to: 'mobile#index', :as => :m #To render apps on mobile login
+  #match '/m/:display_name', to: 'users#profile', :as => :profile
+  match '/mobile/:id', to: 'mobile#index', :as => :mobile 
+  
   match '/mobile/app/:app_id', to: 'mobile#show', :as => :mobile_app
   match '/notes/new/:id', to: 'notes#new', :as => :notes_new #for particular display_id
   match '/messages/new/:id', to: 'messages#new', :as => :messages_new #for particular display_id
@@ -37,14 +43,14 @@ Container::Application.routes.draw do
 
   match '/anonymouscheckin', to: 'checkins#anonymous', :as => :checkin_anonymous #TODO: change this to something with better meaning
 
+
+
   #api
   match '/api/state', to: 'states#state', :as => :api_state
   match '/api/:display_id/state', to: 'states#statedisplay', :as => :api_display_state
   match '/api/apps', to: 'apps#apps', :as => :api_apps
   match '/api/:display_id/analytics', to: 'analytics#show', :as => :api_display_analytics
   match '/api/:display_id/scores', to: 'scores#show', :as => :api_display_scores
-  match '/api/:display_id/lastweekwinners', to: 'scores#lastweekwinners', :as => :api_display_lastweekwinners
-
   match '/api/:display_id/checkins', to: 'checkins#displaycheckins', :as => :api_display_checkins
   match '/api/currentuser', to: 'users#currentuser', :as => :api_currentuser
 

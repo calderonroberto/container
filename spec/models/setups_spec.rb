@@ -10,6 +10,7 @@ describe Setup do
   it { should respond_to(:thingbroker_url) }
   it { should respond_to(:interact_instructions) }
   it { should respond_to(:experimental_setup) }
+  it { should respond_to(:communal_pool_size) }
 
   describe "it should have a default url" do
     it { should be_valid }
