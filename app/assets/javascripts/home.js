@@ -1,5 +1,7 @@
 //= require jquery
 
+var interacting = false;
+
 $(document).ready(function() {
   initState();
   $("#checkin-notice").hide();
@@ -7,6 +9,13 @@ $(document).ready(function() {
   //if you prefer to not use faye long pulling you can do synchronous calls [setting this up for now]
   setInterval(initState,  5000); 
 });
+
+function passingInstructions () {
+    if (interacting == false) {
+    	$("#interact-instructions").css({ "left": "-500px"});	
+        $("#interact-instructions").animate({ "left": "100%"}, 20000, "linear", function(){ passingInstructions(); });	               
+    }
+} 
 
 function initState () {
   $.ajax({ type: "GET", url: "/api/state", dataType: "json", success: stateHandler });
@@ -67,13 +76,17 @@ function updateInstructions (interaction) {
    if (interaction.instructions == "true") {
       if (interaction.interacting == "false") {
          $("#interact-instructions").show("slow");
+	 interacting = false;
+	 passingInstructions(); //animate instructions! 
       } 
       if (interaction.interacting == "true") {
          $("#interact-instructions").hide("slow");   
+	 interacting = true;
       }
    }
    if (interaction.instructions == "false") {
       $("#interact-instructions").hide();   
+      interacting = true;
    }
 }
 

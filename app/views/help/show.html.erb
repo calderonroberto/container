@@ -1,38 +1,14 @@
 <h4>What MySeedlings stands for:</h4>
+
 <div class="tutorial-text">
-   MySeedlings is a local and private (not connected to other social networks like Facebook or Twitter) that aims to be the virtual component of Seedlings Cafe.
+   MySeedlings is a local social network that aims to be a virtual room of Seedlings Cafe. It allows you to interact with other members via messages, gifts, a "notes board" and a game.
 </div>
 
 <div class="help-image">
   <%= image_tag("garden.png") %>
 </div>
 
-<div class="tutorial-text">
-   MySeedlings is also a Garden that represents interaction between cafe-goers. People can "checkin" once a day on MySeedlings to water the garden and make this place more beautiful. We have also introduced a game where you can interact with other people (send private messages and virtual gifts) to earn weekly rewards.
-</div>
-
-<hr>
-<h4>How we compute your score:</h4>
-
-<div class="tutorial-text">
-   Hi <%= @user.name.split(' ').first %>. Your weekly points reflect the sum of your Checkins and Gifts
-</div>
-<div class="help-image">
-  <%= image_tag("score-computing-individual.png") %>
-</div>
-
-<% if  @display.setup.experimental_setup == 1 %>
-<div class="tutorial-text">
-   You can earn Place points by participating in common efforts, like watering the MySeedlings garden by tapping on "Checkin".
-</div>
-<div class="help-image">
-  <%= image_tag("score-computing-communal.png") %>
-  <%= image_tag("watering-communal-instructions.png") %>
-</div>
-<div class="tutorial-text">
-   Place points are a "digital harvest" that can be used by everyone taking care of the garden.
-</div>
-<% end %>
+<div class="tutorial-text">MySeedlings, however, is designed to reflect social interactions online onto the real Seedlings. Members can help beautify this place by taking care of a table-top garden, and in the process earn rewards (like tea/coffee or lunch).</div>
 
 <div class="tutorial-text">
   Are you being displayed as a <b>Week Winner</b>? Do you need help or have comments? contact <a href="mailto:roberto@alumni.ubc.ca"><b>roberto@alumni.ubc.ca</b></a> 

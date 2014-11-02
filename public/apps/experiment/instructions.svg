@@ -1,0 +1,1187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="600"
+   height="400"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="instructions.svg"
+   inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/experiment/instructions-image.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       id="perspective2985"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.69999999"
+     inkscape:cx="278.56279"
+     inkscape:cy="198.4365"
+     inkscape:document-units="px"
+     inkscape:current-layer="g3202"
+     showgrid="false"
+     inkscape:window-width="1315"
+     inkscape:window-height="749"
+     inkscape:window-x="1996"
+     inkscape:window-y="24"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-652.36218)">
+    <g
+       id="g3859"
+       transform="matrix(0.60851375,0,0,0.60851375,-100.6312,54.427738)"
+       style="fill:#428bca;fill-opacity:1"
+       inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/instructions-image.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         y="496.31927"
+         x="513.16791"
+         height="59.72361"
+         width="111.78601"
+         id="rect3823"
+         style="fill:#428bca;fill-opacity:1;stroke:none" />
+      <path
+         transform="matrix(0.22490164,-0.83934432,0.83934432,0.22490164,216.5439,954.09808)"
+         inkscape:transform-center-y="-17.562832"
+         inkscape:transform-center-x="-14.775791"
+         d="m 616.87628,399.52848 -53.44987,-53.44986 -53.44986,-53.44986 73.01387,-19.56401 73.01387,-19.56401 -19.56401,73.01387 z"
+         inkscape:randomized="0"
+         inkscape:rounded="0"
+         inkscape:flatsided="false"
+         sodipodi:arg2="2.3561945"
+         sodipodi:arg1="1.3089969"
+         sodipodi:r2="43.641628"
+         sodipodi:r1="87.283257"
+         sodipodi:cy="315.21933"
+         sodipodi:cx="594.28571"
+         sodipodi:sides="3"
+         id="path3825"
+         style="fill:#428bca;fill-opacity:1;stroke:none"
+         sodipodi:type="star" />
+    </g>
+    <g
+       id="layer1-1"
+       inkscape:label="Layer 1"
+       transform="matrix(0.4432765,0,0,0.4432765,277.1552,188.62358)"
+       inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/instructions-image.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         inkscape:connector-curvature="0"
+         id="path3771"
+         d="M 407.74552,555.65865 161.24826,413.34341"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         inkscape:connector-curvature="0"
+         id="path3771-6"
+         d="M 407.74552,721.63957 161.24826,579.32433"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         inkscape:connector-curvature="0"
+         id="path3771-2"
+         d="M 405.49548,556.10059 651.99274,413.78534"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3771-2-9"
+         d="M 407.74552,721.63957 651.99274,579.3243"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3769-2"
+         d="m 161.24826,414.66261 0,314.41311"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         inkscape:connector-curvature="0"
+         id="path3771-2-4"
+         d="M 161.24826,413.34341 407.74552,271.02816"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         inkscape:connector-curvature="0"
+         id="path3771-3"
+         d="M 654.24279,413.34341 407.74552,271.02816"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3771-3-0"
+         d="M 409.05118,519.51548 218.85155,409.58988"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3771-2-41"
+         d="M 409.05118,519.51548 597.60137,410.40793"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3771-2-41-1"
+         d="M 218.85155,409.58988 408.96239,301.44156"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3771-3-0-6"
+         d="M 597.60137,410.40793 408.96239,301.44156"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         inkscape:connector-curvature="0"
+         id="path3771-4"
+         d="M 407.74552,590.57452 161.24826,448.25928"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         inkscape:connector-curvature="0"
+         id="path3771-2-2"
+         d="M 407.74552,590.57452 654.24279,448.25928"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         inkscape:connector-curvature="0"
+         id="path3771-6-2"
+         d="M 407.74552,739.6399 161.24826,597.32466"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         inkscape:connector-curvature="0"
+         id="path3771-2-9-7"
+         d="M 405.49548,739.63988 651.99274,597.32463"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3769-2-4"
+         d="m 407.74552,554.13675 0,315.54954"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3769-2-4-8"
+         d="m 651.99274,413.96809 0,314.69722"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         inkscape:connector-curvature="0"
+         id="path4107"
+         d="m 161.24826,728.16772 27.81343,16.05809"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         inkscape:connector-curvature="0"
+         id="path4107-7"
+         d="m 379.9321,854.42489 27.81342,16.0581"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         inkscape:connector-curvature="0"
+         id="path4107-7-8"
+         d="m 435.55895,854.42489 -27.81343,16.0581"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         inkscape:connector-curvature="0"
+         id="path4107-7-8-8"
+         d="m 216.87511,728.16772 -27.81342,16.05809"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         inkscape:connector-curvature="0"
+         id="path4107-7-8-8-3"
+         d="m 651.99274,728.60965 -27.81342,16.05809"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         inkscape:connector-curvature="0"
+         id="path4107-7-2"
+         d="m 596.36589,728.60965 27.81343,16.05809"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3769-2-4-9"
+         d="m 596.36589,628.82527 0,100.26622"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3769-2-4-9-7"
+         d="m 626.42936,611.93629 0,132.03227"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3769-2-4-9-5"
+         d="m 435.55895,700.13275 0,154.34774"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3769-2-4-9-5-0"
+         d="m 379.9321,575.87879 0,129.51537"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3769-2-4-9-5-0-6"
+         d="m 435.55895,574.46203 0,130.11514"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3769-2-4-9-5-9"
+         d="m 379.9321,724.08425 0,130.96454"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3769-2-4-9-5-0-6-9"
+         d="m 626.42936,464.95724 0,128.97869"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3769-2-4-9-5-0-6-9-7"
+         d="m 598.61594,480.94513 0,96.93271"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         inkscape:connector-curvature="0"
+         id="path4107-7-4"
+         d="m 598.61594,577.87784 27.81342,16.05809"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3769-2-4-9-5-0-6-9-0"
+         d="m 191.42147,466.84914 0,126.70582"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3769-2-4-9-5-0-6-9-7-9"
+         d="m 219.23489,481.7006 0,95.79626"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         inkscape:connector-curvature="0"
+         id="path4107-7-4-9"
+         d="m 219.23489,577.49686 -27.81342,16.0581"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3769-2-4-9-9"
+         d="m 216.87511,628.38334 0,100.69238"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3769-2-4-9-7-2"
+         d="m 186.81164,611.49435 0,132.03228"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         inkscape:connector-curvature="0"
+         id="path4447"
+         d="m 219.23489,577.49686 158.8056,91.68647"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path4447-1"
+         d="M 598.61594,577.87784 435.79241,671.97507"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path4485"
+         d="M 253.45678,429.49546 408.06643,339.67658"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path4485-2"
+         d="M 562.67607,431.10262 408.06643,339.67658"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         inkscape:connector-curvature="0"
+         id="path4505"
+         d="m 408.96239,301.44156 0,38.38591"
+         style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="134.94"
+         inkscape:export-xdpi="134.94"
+         inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+         inkscape:connector-curvature="0"
+         id="path4507"
+         d="m 332.94339,472.79554 c -40.28103,-23.39583 -72.39764,-43.37847 -71.37025,-44.40584 1.02739,-1.02739 34.40914,-20.75346 74.18166,-43.83572 l 72.31367,-41.96773 73.49364,43.46955 c 40.42153,23.90827 73.47353,44.12266 73.44894,44.92091 -0.0594,1.92266 -140.86744,83.11913 -145.35092,83.81601 -1.91319,0.29737 -36.43571,-18.60136 -76.71674,-41.99718 l 0,0 z"
+         style="fill:#25a325;fill-opacity:1;stroke:none" />
+    </g>
+    <path
+       style="fill:#24a324;fill-opacity:1;stroke:none"
+       d="m 440.7163,342.23258 c 1.55238,-1.55242 1.42034,-5.60559 -0.3579,-10.98379 -1.79971,-5.44311 -5.34607,-12.34174 -7.89305,-15.35414 l -0.72703,-0.8599 0.43391,1.08094 c 0.71442,1.77984 1.50388,5.7004 2.58157,12.82067 1.09319,7.2223 1.87526,10.98369 2.55856,12.30509 0.9848,1.90434 2.15114,2.24395 3.40394,0.99113 z m -101.64698,-26.5529 c 0.88923,-0.97055 1.46304,-2.22808 6.29198,-13.78897 2.4458,-5.85548 4.66111,-10.88926 4.9229,-11.18617 1.81612,-2.05973 5.50775,-3.97616 33.52226,-17.4024 l 18.42807,-8.83184 6.77404,5.00308 c 3.72571,2.7517 6.93947,5.00308 7.14166,5.00308 0.93194,0 2.97474,-5.06696 3.94666,-9.78921 0.68179,-3.31263 0.87724,-7.49729 0.4666,-9.98834 -0.39166,-2.37566 -1.62113,-5.26669 -2.64329,-6.21546 l -0.66161,-0.61412 -7.88234,4.40737 -7.88236,4.40738 -11.71171,4.3101 c -6.44144,2.37054 -11.88527,4.31009 -12.0974,4.31009 -0.32012,0 -12.63388,-6.39451 -12.97972,-6.74034 -0.0608,-0.0608 1.13003,-3.01977 2.64615,-6.57562 3.10649,-7.28585 3.0621,-7.03865 2.44678,-13.62737 -0.62781,-6.72243 -2.03355,-11.89406 -4.71364,-17.34117 -5.98419,-12.16247 -16.23452,-19.10707 -30.27461,-20.51107 -8.59516,-0.8595 -17.44939,1.48511 -24.54481,6.4995 -9.20967,6.50855 -17.57874,21.60385 -18.98825,34.2491 -0.64026,5.74406 0.37959,12.20844 3.09453,19.61473 l 1.15964,3.16348 -0.65285,1.8669 c -0.35906,1.02679 -2.39833,5.79446 -4.53171,10.59481 -4.34314,9.77255 -4.66541,10.66548 -4.38629,12.15332 0.16111,0.8588 0.46051,1.21101 1.68521,1.98247 0.81911,0.51598 12.15118,6.50767 25.18238,13.31487 17.74592,9.27006 23.93879,12.37672 24.67197,12.37672 0.64897,0 1.17802,-0.21736 1.56976,-0.64492 z m -40.67326,-68.71441 c -1.51471,-1.64089 -1.74779,-4.45065 -0.80398,-9.69209 3.4705,-19.27359 17.27811,-32.32652 34.10715,-32.24299 7.72347,0.0383 13.4342,2.2237 20.43649,7.82059 5.61367,4.48697 7.99609,8.67063 10.41708,18.29296 1.37348,5.45894 1.50496,6.83773 0.74191,7.78006 -0.48301,0.59648 -0.56462,0.60659 -1.71055,0.21178 -0.66184,-0.22802 -9.88966,-5.07105 -20.50624,-10.76227 -10.6166,-5.69123 -19.88473,-10.60506 -20.59585,-10.91962 -2.12096,-0.9382 -3.72116,-0.16958 -5.33573,2.56286 -0.45889,0.77662 -10.60873,23.37907 -12.57962,28.0133 l -0.3941,0.92666 -1.50301,-0.57825 c -0.82666,-0.31804 -1.84976,-0.95388 -2.27355,-1.41299 z m 152.21826,61.23468 c 0.57367,-0.69122 0.65356,-2.02527 0.19783,-3.30344 -1.58284,-4.43969 -9.78767,-11.72993 -17.61596,-15.65235 l -1.54689,-0.77508 1.83354,1.83354 c 1.00841,1.00844 3.05887,3.42978 4.5565,5.38074 4.51757,5.885 8.18525,10.42255 9.06107,11.21011 1.8663,1.67821 2.88966,2.05868 3.51391,1.30648 z m -5.64846,-34.48339 c 0.9723,-1.08674 0.78648,-2.12312 -0.66253,-3.69511 -2.56009,-2.7774 -9.04193,-6.25823 -14.88484,-7.9934 -1.66001,-0.49297 -1.81369,-0.38124 -0.399,0.2901 0.55677,0.26418 3.24247,2.62419 5.96831,5.24445 2.72585,2.62027 5.48551,5.12984 6.13261,5.57682 1.52628,1.05433 3.1945,1.30471 3.84545,0.57714 z"
+       id="path3857"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/instructions-image.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <image
+       y="355.18866"
+       x="-63.154396"
+       id="image3020"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAAoCAIAAACemLPeAAAAA3NCSVQICAjb4U/gAAAFiUlEQVR4 nO3dfWwTdRgH8Od6vb5sLXPt2EYnY1AnGQhICFMYApGhkaASEyUyhakIyEtCiJpIwhBfEkADSzCw BAU1gsbgHwoJERXGNiGwkDhT2sm6l26wre3aydrr9V7rH+3arWPtEQMLu+eTS9b97vbsernv7fe7 l5WIRCKAkFKpxnoFEBpLGACkaOr4K4fLXVPb1eplPAF+DFcIoXsk10hZJ+o3LZ1cMiUv3khExwAO l/ud7xyGDJ1Bp9FQ6tGLIPSg4nhhIMSGwuyR10riGYgFYNvXjW1+kVRTDC9JOCpG45GKgEwtyXPc NBN5qHJ+rDH6pc3LRAgVzeHej8YtKQKBsBghVG1eJt4YC4A3KPASMUYrhtD9w0uENyjEv02cBcJj P1KCpP0cT4MiRcMAIEXDACBFwwAgRcMAIEXDi76y8QE24BMYTgIA0Kj1Zo3JSAIAsKzHJRgfzdQP WZjpDvgho8BCAst6XNyIm0tUpsHl5ZdlugN+TpNbpKWA99wIq6cYTVqI1TfoCixUYlV9tIfVFVjI e7AZxhkMgDy8j9Bn71hdurzQYFQDCOyNZufR022NVD5JZu3cVTH3b9sbl5n4fp49e+kfL/IfHWq/ KGTt3FWxwphcr/eKrbKe4eWXZXotcxd9udJw7pS9ukP1wvaKbUH7y7/QNJm1c1fFCp3744MttSpt tDhVOOe3d6mDNe0X2fu2gR5UGAA5WGqi9dj64gndfd+cvekYkAym7JULZ3623fTh0Zv1Yvqf9zW1 7P6L5Ya0cHSYl1+W78+xzj+80nDpdHN1hwCgSf4FVN7255yNZ4Cmkueg1DAAMpC6ypeKzbc6N/7o 7orulz10Y3vo/VU5s/LI+u70Bbgg6/Qyyf0gWWV54H3a3BnVa8xNZ+37/uHgDkTb5f6cBfM2/Nnw eTALuz13BQOQHjVhwmITd/VUX9fQo3LIv/+kHwCApAAgwnQGb/XHd0/KYh1aIWkugEFXYMmQURaE kNpo/WLtJPf55k+ujxxKDHL3VNum733l4Z9rAm0j/jygFDAA6WkMRjOETw2k6utYylc0lCe19Y06 VwgdPHb9goyymtzJBzYWFvmvv95wm8/Qjr4g31jX1fBm8Xuz6zY3G1IUREkwADKQaoCIlPIxIV9T 66e2RC/fUDR5b9nQuUljgEjvAIApfVlzSX7rNY99zsz9y2rXndeK+tEXDfkP1088/uys5fbmC+ne EIrD6wDpcbTgB8MTBnb4sZpl/R3M4H21XJCx99COwcnZJw2rEGSdXqY1MYVpeWV7rjirLriqzvi0 ZQv3WD2RlGlx21zf+rM3P69+SMa4HEVhANLj/b7af8kF5dnT/D6eZ0WeFZkAExKrPlh1+El5Pe47 HedllRUkAOh3tlddERaseertbE+qCIjhn3730iWPb7IIdxwso5EwADKIzPe/ejrzZh7ZOmN1ATdN H5xttRzYtuQZ6fYPLbL2NI12wMz3moZNzN2UjTjqW/a1Z7y6bu4yPpDi+M73dO+3qZaWW8z/5/0q CY4BZKG7XFtPhLYsnrRubeEWABBYe3Pnjjp3UwiApEgVEEkbUkMBEAQAAEWqwFy65ETp8AV8nZXH 3V13UZY7d6Z1xtrpuzcQ3pMeUg0EFT3nT5EqQpU49yk21bkaHilepNPg801yxJ4JLt193mgccbkS ofEoEAhc3fN09DV2gZCiYQCQomEAkKJhAJCiYQCQomEAkKJhAJCixQKgp4gI/mcspACSJOZkJq4v xgLwmCWD48JjtEoI3T88x03NSdxYHgvA+rJ8EkSWZSUJ7yRE45MkiSwbJkFcX5YfbyTinxF2zdH+ 1SV3h4/ro4VRKiD0AMvJVBeZNW8tzJtXMjXeSOCH5CElw7NASNEwAEjR/gN8ldcuhLtaPAAAAABJ RU5ErkJggg== "
+       height="40"
+       width="256"
+       inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/instructions-image.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <g
+       transform="matrix(0.74339427,0,0,0.74339427,24.814567,-268.90268)"
+       id="layer1-4"
+       inkscape:label="Layer 1"
+       inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/instructions-image.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <g
+         transform="translate(0,-560)"
+         id="g5351">
+        <g
+           id="g3915-6-3"
+           transform="matrix(1.2311028,0,0,1.2311028,66.254642,265.61835)">
+          <path
+             sodipodi:nodetypes="cssc"
+             inkscape:connector-curvature="0"
+             id="path3894-6-5"
+             d="m 89.470687,1065.8714 c 3.726832,6.1263 -0.483788,10.0494 -6.15995,12.9466 -8.030164,4.0988 -27.897855,2.1019 -34.699927,-2.0136 -6.24272,-3.777 -9.012804,-9.3495 -6.040333,-14.1838"
+             style="fill:#ffffff;stroke:#000000;stroke-width:4.06139946;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <path
+             sodipodi:nodetypes="sssssccsscs"
+             inkscape:connector-curvature="0"
+             id="path3112-2-1"
+             d="m 21.354167,1021.0446 c -0.857278,15.6815 13.892348,40.2979 31.364007,46.0182 9.021749,2.9538 29.32616,3.8464 36.493957,-1.431 12.273189,-9.0365 18.480019,-20.6858 21.285449,-35.0876 0.99446,-5.1051 1.70705,-10.9864 0.95737,-15.7018 -3.18982,-20.06352 -14.950717,-20.04837 -19.514002,-20.76045 -2.727222,-8.72459 -12.698539,-15.04429 -26.06769,-12.39072 -0.102903,-10.74585 0.225533,-17.36509 1.112237,-27.5361 1.483222,-17.01343 -27.985964,-20.84495 -26.490615,-0.0121 1.018326,14.18708 0.02688,25.67513 -2.49934,39.00011 -3.449562,1.03814 -15.746297,11.52876 -16.641373,27.90146 z"
+             style="fill:#ffffff;stroke:#000000;stroke-width:4.06139946;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <path
+             style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.78096485;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+             d="m 63.837658,981.04376 c 0.0308,10.25346 1.214824,18.22508 7.225849,26.10544 -2.509089,-6.5752 -3.369203,-19.66596 -3.176554,-27.93864 z"
+             id="path3882-6-0"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="cccc" />
+          <path
+             style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.78096485;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+             d="m 93.470999,992.23059 -3.809103,1.48624 c 1.928991,5.57681 4.050861,11.84227 7.113743,15.18307 -1.080443,-2.6051 -2.077135,-11.97832 -3.30464,-16.66931 z"
+             id="path3884-6-5"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="cccc" />
+          <path
+             sodipodi:nodetypes="cc"
+             inkscape:connector-curvature="0"
+             id="path3886-8-8"
+             d="m 79.641568,1058.2706 c 4.036934,-9.6783 3.975985,-12.4651 5.195081,-17.4048"
+             style="fill:none;stroke:#000000;stroke-width:4.06139946;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <path
+             sodipodi:nodetypes="cc"
+             inkscape:connector-curvature="0"
+             id="path3888-4-1"
+             d="m 70.260373,1058.9664 c 1.692214,-11.4747 1.424195,-17.1521 1.855536,-24.8979"
+             style="fill:none;stroke:#000000;stroke-width:4.06139946;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <path
+             sodipodi:nodetypes="cc"
+             inkscape:connector-curvature="0"
+             id="path3890-1-7"
+             d="m 59.041477,1059.499 c 0.0971,-7.9806 -0.598866,-11.7536 -1.048961,-16.8311"
+             style="fill:none;stroke:#000000;stroke-width:4.06139946;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <path
+             style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.78096485;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+             d="m 36.24871,991.71443 c -1.702568,12.09177 -6.196661,31.68167 -4.810655,38.21307 1.185012,-3.9899 8.355982,-33.63596 9.1333,-39.70318 z"
+             id="path3892-0-5"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="cccc" />
+        </g>
+        <g
+           transform="matrix(0.96352779,0.26760829,-0.26760829,0.96352779,839.02796,474.35113)"
+           id="g4671-5-9-2-3">
+          <path
+             sodipodi:nodetypes="ccc"
+             inkscape:connector-curvature="0"
+             id="path4616-2-2-2-1-6-7"
+             d="m -446.17317,1107.773 c 3.54464,-18.27 27.9637,-22.2237 38.28148,-11.565 -10.5985,-22.6101 -45.94323,-8.1782 -38.28148,11.565 z"
+             style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="g3202"
+       transform="matrix(1.2603234,0,0,1.2603234,-39.154862,-260.1291)">
+      <g
+         id="g3859-1-56"
+         transform="matrix(0.53586891,0,0,0.53586891,-72.709434,596.40306)"
+         style="fill:#428bca;fill-opacity:1;display:inline"
+         inkscape:export-filename="/home/roberto/Dropbox/ICD-experiments/Design-iterations/v5/communal-3.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90">
+        <rect
+           y="496.31927"
+           x="513.16791"
+           height="59.72361"
+           width="111.78601"
+           id="rect3823-3-0"
+           style="fill:#428bca;fill-opacity:1;stroke:none" />
+        <path
+           transform="matrix(0.22490164,-0.83934432,0.83934432,0.22490164,216.5439,954.09808)"
+           inkscape:transform-center-y="-17.562832"
+           inkscape:transform-center-x="-14.775791"
+           d="m 616.87628,399.52848 -53.44987,-53.44986 -53.44986,-53.44986 73.01387,-19.56401 73.01387,-19.56401 -19.56401,73.01387 z"
+           inkscape:randomized="0"
+           inkscape:rounded="0"
+           inkscape:flatsided="false"
+           sodipodi:arg2="2.3561945"
+           sodipodi:arg1="1.3089969"
+           sodipodi:r2="43.641628"
+           sodipodi:r1="87.283257"
+           sodipodi:cy="315.21933"
+           sodipodi:cx="594.28571"
+           sodipodi:sides="3"
+           id="path3825-9-6"
+           style="fill:#428bca;fill-opacity:1;stroke:none"
+           sodipodi:type="star" />
+      </g>
+      <g
+         id="layer1-1-6-2"
+         inkscape:label="Layer 1"
+         transform="matrix(0.3903578,0,0,0.3903578,242.54395,698.30797)"
+         inkscape:export-filename="/home/roberto/Dropbox/ICD-experiments/Design-iterations/v5/communal-3.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"
+         style="display:inline">
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           inkscape:connector-curvature="0"
+           id="path3771-5-6"
+           d="M 407.74552,555.65865 161.24826,413.34341"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           inkscape:connector-curvature="0"
+           id="path3771-6-21-99"
+           d="M 407.74552,721.63957 161.24826,579.32433"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           inkscape:connector-curvature="0"
+           id="path3771-2-8-29"
+           d="M 405.49548,556.10059 651.99274,413.78534"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3771-2-9-8-6"
+           d="M 407.74552,721.63957 651.99274,579.3243"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3769-2-3-5"
+           d="m 161.24826,414.66261 0,314.41311"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           inkscape:connector-curvature="0"
+           id="path3771-2-4-8-5"
+           d="M 161.24826,413.34341 407.74552,271.02816"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           inkscape:connector-curvature="0"
+           id="path3771-3-8-3"
+           d="M 654.24279,413.34341 407.74552,271.02816"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3771-3-0-4-8"
+           d="M 409.05118,519.51548 218.85155,409.58988"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3771-2-41-6-6"
+           d="M 409.05118,519.51548 597.60137,410.40793"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3771-2-41-1-3-7"
+           d="M 218.85155,409.58988 408.96239,301.44156"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3771-3-0-6-6-3"
+           d="M 597.60137,410.40793 408.96239,301.44156"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           inkscape:connector-curvature="0"
+           id="path3771-4-4-6"
+           d="M 407.74552,590.57452 161.24826,448.25928"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           inkscape:connector-curvature="0"
+           id="path3771-2-2-2-02"
+           d="M 407.74552,590.57452 654.24279,448.25928"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           inkscape:connector-curvature="0"
+           id="path3771-6-2-5-6"
+           d="M 407.74552,739.6399 161.24826,597.32466"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           inkscape:connector-curvature="0"
+           id="path3771-2-9-7-1-93"
+           d="M 405.49548,739.63988 651.99274,597.32463"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3769-2-4-6-0"
+           d="m 407.74552,554.13675 0,315.54954"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3769-2-4-8-0-8"
+           d="m 651.99274,413.96809 0,314.69722"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           inkscape:connector-curvature="0"
+           id="path4107-2-7"
+           d="m 161.24826,728.16772 27.81343,16.05809"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           inkscape:connector-curvature="0"
+           id="path4107-7-27-6"
+           d="m 379.9321,854.42489 27.81342,16.0581"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           inkscape:connector-curvature="0"
+           id="path4107-7-8-6-5"
+           d="m 435.55895,854.42489 -27.81343,16.0581"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           inkscape:connector-curvature="0"
+           id="path4107-7-8-8-7-2"
+           d="m 216.87511,728.16772 -27.81342,16.05809"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           inkscape:connector-curvature="0"
+           id="path4107-7-8-8-3-3-4"
+           d="m 651.99274,728.60965 -27.81342,16.05809"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           inkscape:connector-curvature="0"
+           id="path4107-7-2-7-0"
+           d="m 596.36589,728.60965 27.81343,16.05809"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3769-2-4-9-2-06"
+           d="m 596.36589,628.82527 0,100.26622"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3769-2-4-9-7-7-8"
+           d="m 626.42936,611.93629 0,132.03227"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3769-2-4-9-5-06-5"
+           d="m 435.55895,700.13275 0,154.34774"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3769-2-4-9-5-0-67-49"
+           d="m 379.9321,575.87879 0,129.51537"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3769-2-4-9-5-0-6-3-46"
+           d="m 435.55895,574.46203 0,130.11514"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3769-2-4-9-5-9-1-8"
+           d="m 379.9321,724.08425 0,130.96454"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3769-2-4-9-5-0-6-9-8-3"
+           d="m 626.42936,464.95724 0,128.97869"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3769-2-4-9-5-0-6-9-7-4-2"
+           d="m 598.61594,480.94513 0,96.93271"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           inkscape:connector-curvature="0"
+           id="path4107-7-4-92-3"
+           d="m 598.61594,577.87784 27.81342,16.05809"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3769-2-4-9-5-0-6-9-0-2-6"
+           d="m 191.42147,466.84914 0,126.70582"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3769-2-4-9-5-0-6-9-7-9-9-2"
+           d="m 219.23489,481.7006 0,95.79626"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           inkscape:connector-curvature="0"
+           id="path4107-7-4-9-8-2"
+           d="m 219.23489,577.49686 -27.81342,16.0581"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3769-2-4-9-9-0-4"
+           d="m 216.87511,628.38334 0,100.69238"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3769-2-4-9-7-2-5-7"
+           d="m 186.81164,611.49435 0,132.03228"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           inkscape:connector-curvature="0"
+           id="path4447-4-04"
+           d="m 219.23489,577.49686 158.8056,91.68647"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path4447-1-5-9"
+           d="M 598.61594,577.87784 435.79241,671.97507"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path4485-9-6"
+           d="M 253.45678,429.49546 408.06643,339.67658"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path4485-2-1-5"
+           d="M 562.67607,431.10262 408.06643,339.67658"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           inkscape:connector-curvature="0"
+           id="path4505-8-4"
+           d="m 408.96239,301.44156 0,38.38591"
+           style="fill:none;stroke:#000000;stroke-width:2.25004411px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:export-ydpi="134.94"
+           inkscape:export-xdpi="134.94"
+           inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/physical-garden/garden.png"
+           inkscape:connector-curvature="0"
+           id="path4507-7-6"
+           d="m 332.94339,472.79554 c -40.28103,-23.39583 -72.39764,-43.37847 -71.37025,-44.40584 1.02739,-1.02739 34.40914,-20.75346 74.18166,-43.83572 l 72.31367,-41.96773 73.49364,43.46955 c 40.42153,23.90827 73.47353,44.12266 73.44894,44.92091 -0.0594,1.92266 -140.86744,83.11913 -145.35092,83.81601 -1.91319,0.29737 -36.43571,-18.60136 -76.71674,-41.99718 l 0,0 z"
+           style="fill:#25a325;fill-opacity:1;stroke:none" />
+      </g>
+      <path
+         style="fill:#428bca;fill-opacity:1;stroke:none;display:inline"
+         d="m 392.59064,852.59856 c 1.36701,-1.36703 1.25078,-4.93641 -0.31518,-9.67252 -1.58485,-4.79334 -4.70792,-10.86841 -6.95084,-13.52119 l -0.64018,-0.75724 0.38212,0.95191 c 0.62906,1.56732 1.32426,5.01987 2.2733,11.29016 0.96279,6.36008 1.65148,9.67244 2.25313,10.83608 0.8673,1.67704 1.89441,1.97603 2.99765,0.8728 z m -89.51227,-23.38299 c 0.78303,-0.85469 1.28829,-1.96204 5.54082,-12.1428 2.15374,-5.15652 4.10465,-9.58929 4.33521,-9.8508 1.5993,-1.8138 4.85019,-3.50149 29.52031,-15.3249 l 16.22807,-7.77743 5.96535,4.40583 c 3.28093,2.42313 6.11106,4.4057 6.28912,4.4057 0.82075,0 2.61965,-4.462 3.47548,-8.62054 0.60039,-2.91714 0.77259,-6.6022 0.41088,-8.79583 -0.34485,-2.09206 -1.42756,-4.63799 -2.32764,-5.47352 l -0.58262,-0.54078 -6.94133,3.88121 -6.94145,3.88121 -10.31351,3.79557 c -5.67244,2.08757 -10.46646,3.79556 -10.65322,3.79556 -0.28191,0 -11.12566,-5.63115 -11.43015,-5.93565 -0.0538,-0.0539 0.99513,-2.65931 2.33017,-5.79063 2.73567,-6.41603 2.69658,-6.19843 2.15476,-12.00052 -0.55293,-5.91995 -1.79088,-10.47414 -4.15098,-15.27102 -5.26979,-10.71053 -14.2964,-16.82606 -26.66035,-18.06241 -7.56913,-0.75688 -15.36629,1.30776 -21.6147,5.72356 -8.11014,5.7316 -15.48013,19.02475 -16.72139,30.16038 -0.56383,5.0584 0.3343,10.751 2.72512,17.27318 l 1.02114,2.78578 -0.57483,1.64401 c -0.31618,0.90422 -2.112,5.10276 -3.99069,9.32998 -3.82469,8.60598 -4.10855,9.39221 -3.86274,10.7025 0.14192,0.75631 0.4056,1.06643 1.48408,1.74582 0.72136,0.45434 10.70055,5.73079 22.17611,11.72525 15.62733,8.16346 21.08091,10.89924 21.72659,10.89924 0.57151,0 1.03732,-0.19145 1.38239,-0.56795 z M 267.2607,768.70439 c -1.33389,-1.44498 -1.53912,-3.91938 -0.70805,-8.53512 3.05622,-16.97259 15.21541,-28.46729 30.03541,-28.39369 6.80146,0.0333 11.83038,1.95815 17.99683,6.88687 4.94351,3.95137 7.04141,7.6355 9.17348,16.10919 1.20951,4.8072 1.3253,6.02142 0.65325,6.85122 -0.42534,0.52529 -0.49722,0.53425 -1.50633,0.18652 -0.58274,-0.20074 -8.70893,-4.46568 -18.05817,-9.47751 -9.34922,-5.01174 -17.51083,-9.33891 -18.13702,-9.61601 -1.86782,-0.82614 -3.27704,-0.14927 -4.69876,2.25691 -0.40412,0.68397 -9.34234,20.58805 -11.07785,24.66908 l -0.34715,0.81605 -1.32359,-0.50926 c -0.72788,-0.28008 -1.62888,-0.84 -2.00205,-1.24425 z m 134.04632,53.92434 c 0.50512,-0.60866 0.57552,-1.78343 0.17414,-2.90903 -1.39386,-3.90964 -8.61917,-10.32956 -15.51292,-13.78371 l -1.36222,-0.6826 1.61468,1.61468 c 0.88804,0.88803 2.6937,3.02033 4.01247,4.73841 3.97832,5.18243 7.20811,9.17829 7.97944,9.87179 1.64345,1.47789 2.54468,1.81288 3.09441,1.15046 z M 396.33288,792.262 c 0.85619,-0.95695 0.69257,-1.86965 -0.58343,-3.25399 -2.2545,-2.44574 -7.96259,-5.51102 -13.10788,-7.03913 -1.46184,-0.43405 -1.59724,-0.33568 -0.35139,0.25555 0.49034,0.23262 2.85537,2.31092 5.25582,4.61827 2.40044,2.30746 4.83059,4.51748 5.40049,4.91106 1.3441,0.92852 2.81317,1.14898 3.38639,0.50824 z"
+         id="path3857-1-4"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/roberto/Dropbox/ICD-experiments/Design-iterations/v5/communal-3.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90" />
+      <g
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/roberto/Dropbox/ICD-experiments/Design-iterations/v5/communal-3.png"
+         transform="matrix(0.99648983,0,0,0.99648983,1029.6847,845.89001)"
+         id="g4865-1"
+         style="display:inline">
+        <rect
+           style="fill:#f3f3f3;fill-opacity:1;stroke:#000000;stroke-width:2.5650003;stroke-linecap:square;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3270"
+           width="129.55208"
+           height="200.80574"
+           x="-983.91705"
+           y="-70.811668"
+           rx="4.5078936"
+           ry="4.5078936" />
+        <path
+           style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.66648906;stroke-opacity:1"
+           inkscape:connector-curvature="0"
+           d="m -844.58356,-86.982191 c 0,-12.131433 -9.83604,-21.967479 -21.96748,-21.967479 h -104.34552 c -12.13142,0 -21.96748,9.836046 -21.96748,21.967479 V 143.67633 c 0,12.13144 9.83606,21.96749 21.96748,21.96749 h 104.34552 c 12.13144,0 21.96748,-9.83605 21.96748,-21.96749 V -86.982191 z m -85.03533,2.745936 h 21.9668 c 1.51761,0 2.74594,1.229672 2.74594,2.745934 0,1.516262 -1.22833,2.745935 -2.74594,2.745935 h -21.9668 c -1.51627,0 -2.74594,-1.229673 -2.74594,-2.745935 0,-1.516262 1.22967,-2.745934 2.74594,-2.745934 z m 10.06932,236.879535 c -6.06573,0 -10.98775,-4.91803 -10.98775,-10.98307 0,-6.06638 4.92202,-10.98374 10.98775,-10.98374 6.06571,0 10.9784,4.91802 10.9784,10.98374 0,6.06504 -4.91269,10.98307 -10.9784,10.98307 z m 61.23634,-30.93442 H -979.13436 V -62.268778 h 120.82113 V 121.70886 z"
+           id="path4857-2" />
+      </g>
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/roberto/Dropbox/ICD-experiments/Design-iterations/v5/communal-3.png"
+         ry="5.6614609"
+         rx="5.6614609"
+         y="859.03137"
+         x="56.93375"
+         height="22.110209"
+         width="110.55105"
+         id="rect4870-1"
+         style="fill:#428bca;fill-opacity:1;stroke:none;display:inline" />
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/roberto/Dropbox/ICD-experiments/Design-iterations/v5/communal-3.png"
+         sodipodi:linespacing="125%"
+         id="text4872-08"
+         y="873.68896"
+         x="67.250191"
+         style="font-size:10.43917179px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-weight:bold;fill:#ffffff;-inkscape-font-specification:Sans Bold"
+           y="873.68896"
+           x="67.250191"
+           id="tspan4874-9"
+           sodipodi:role="line">WATER GARDEN</tspan></text>
+      <g
+         transform="matrix(0.65464729,0,0,0.65464729,64.440776,308.87205)"
+         id="layer1-4-1-0"
+         inkscape:label="Layer 1"
+         inkscape:export-filename="/home/roberto/Dropbox/ICD-experiments/Design-iterations/v5/communal-3.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"
+         style="display:inline">
+        <g
+           transform="translate(0,-560)"
+           id="g5351-1-1">
+          <g
+             id="g3915-6-3-6-3"
+             transform="matrix(1.2311028,0,0,1.2311028,66.254642,265.61835)">
+            <path
+               sodipodi:nodetypes="cssc"
+               inkscape:connector-curvature="0"
+               id="path3894-6-5-8-4"
+               d="m 89.470687,1065.8714 c 3.726832,6.1263 -0.483788,10.0494 -6.15995,12.9466 -8.030164,4.0988 -27.897855,2.1019 -34.699927,-2.0136 -6.24272,-3.777 -9.012804,-9.3495 -6.040333,-14.1838"
+               style="fill:#ffffff;stroke:#000000;stroke-width:4.06139946;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+            <path
+               sodipodi:nodetypes="sssssccsscs"
+               inkscape:connector-curvature="0"
+               id="path3112-2-1-6-8"
+               d="m 21.354167,1021.0446 c -0.857278,15.6815 13.892348,40.2979 31.364007,46.0182 9.021749,2.9538 29.32616,3.8464 36.493957,-1.431 12.273189,-9.0365 18.480019,-20.6858 21.285449,-35.0876 0.99446,-5.1051 1.70705,-10.9864 0.95737,-15.7018 -3.18982,-20.06352 -14.950717,-20.04837 -19.514002,-20.76045 -2.727222,-8.72459 -12.698539,-15.04429 -26.06769,-12.39072 -0.102903,-10.74585 0.225533,-17.36509 1.112237,-27.5361 1.483222,-17.01343 -27.985964,-20.84495 -26.490615,-0.0121 1.018326,14.18708 0.02688,25.67513 -2.49934,39.00011 -3.449562,1.03814 -15.746297,11.52876 -16.641373,27.90146 z"
+               style="fill:#ffffff;stroke:#000000;stroke-width:4.06139946;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+            <path
+               style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;color:#000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.78096485;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+               d="m 63.837658,981.04376 c 0.0308,10.25346 1.214824,18.22508 7.225849,26.10544 -2.509089,-6.5752 -3.369203,-19.66596 -3.176554,-27.93864 z"
+               id="path3882-6-0-5-5"
+               inkscape:connector-curvature="0"
+               sodipodi:nodetypes="cccc" />
+            <path
+               style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;color:#000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.78096485;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+               d="m 93.470999,992.23059 -3.809103,1.48624 c 1.928991,5.57681 4.050861,11.84227 7.113743,15.18307 -1.080443,-2.6051 -2.077135,-11.97832 -3.30464,-16.66931 z"
+               id="path3884-6-5-1-8"
+               inkscape:connector-curvature="0"
+               sodipodi:nodetypes="cccc" />
+            <path
+               sodipodi:nodetypes="cc"
+               inkscape:connector-curvature="0"
+               id="path3886-8-8-3-2"
+               d="m 79.641568,1058.2706 c 4.036934,-9.6783 3.975985,-12.4651 5.195081,-17.4048"
+               style="fill:none;stroke:#000000;stroke-width:4.06139946;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+            <path
+               sodipodi:nodetypes="cc"
+               inkscape:connector-curvature="0"
+               id="path3888-4-1-8-2"
+               d="m 70.260373,1058.9664 c 1.692214,-11.4747 1.424195,-17.1521 1.855536,-24.8979"
+               style="fill:none;stroke:#000000;stroke-width:4.06139946;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+            <path
+               sodipodi:nodetypes="cc"
+               inkscape:connector-curvature="0"
+               id="path3890-1-7-9-06"
+               d="m 59.041477,1059.499 c 0.0971,-7.9806 -0.598866,-11.7536 -1.048961,-16.8311"
+               style="fill:none;stroke:#000000;stroke-width:4.06139946;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+            <path
+               style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;color:#000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.78096485;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+               d="m 36.24871,991.71443 c -1.702568,12.09177 -6.196661,31.68167 -4.810655,38.21307 1.185012,-3.9899 8.355982,-33.63596 9.1333,-39.70318 z"
+               id="path3892-0-5-1-36"
+               inkscape:connector-curvature="0"
+               sodipodi:nodetypes="cccc" />
+          </g>
+          <g
+             transform="matrix(0.96352779,0.26760829,-0.26760829,0.96352779,839.02796,474.35113)"
+             id="g4671-5-9-2-3-5-1">
+            <path
+               sodipodi:nodetypes="ccc"
+               inkscape:connector-curvature="0"
+               id="path4616-2-2-2-1-6-7-4-0"
+               d="m -446.17317,1107.773 c 3.54464,-18.27 27.9637,-22.2237 38.28148,-11.565 -10.5985,-22.6101 -45.94323,-8.1782 -38.28148,11.565 z"
+               style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;color:#000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <rect
+       ry="11.951632"
+       rx="11.951632"
+       style="fill:#428bca;fill-opacity:1;stroke:#ffffff;stroke-width:2.85928226;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
+       id="rect3867-3-9-8-7-3"
+       width="91.559059"
+       height="77.392456"
+       x="639.70709"
+       y="835.80664"
+       inkscape:export-filename="/home/roberto/Dropbox/ICD-experiments/Design-iterations/v5/communal-3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4968-6-3-1-7"
+       y="891.67719"
+       x="684.37"
+       style="font-size:14.11848831px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/roberto/Dropbox/ICD-experiments/Design-iterations/v5/communal-3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         id="tspan5458-4-9-4-3"
+         style="font-size:50.82655716px;font-weight:bold;text-align:center;text-anchor:middle;fill:#ffffff;-inkscape-font-specification:Sans Bold"
+         y="891.67719"
+         x="684.37"
+         sodipodi:role="line">+1</tspan><tspan
+         id="tspan5476-3-4-2-0"
+         style="font-size:9.88294125px;font-weight:bold;fill:#ffffff;-inkscape-font-specification:Sans Bold"
+         y="955.21039"
+         x="684.37"
+         sodipodi:role="line" /><tspan
+         id="tspan4972-8-0-6-0"
+         style="font-weight:bold;fill:#ffffff;-inkscape-font-specification:Sans Bold"
+         y="1018.7436"
+         x="684.37"
+         sodipodi:role="line" /></text>
+    <rect
+       ry="11.951632"
+       rx="11.951632"
+       style="fill:#25a325;fill-opacity:1;stroke:#ffffff;stroke-width:2.85928226;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
+       id="rect3867-3-9-8-7-0-1"
+       width="91.559059"
+       height="77.392456"
+       x="640.93677"
+       y="925.80353"
+       inkscape:export-filename="/home/roberto/Dropbox/ICD-experiments/Design-iterations/v5/communal-3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4968-6-3-1-6-5"
+       y="981.67413"
+       x="685.59967"
+       style="font-size:14.11848831px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/roberto/Dropbox/ICD-experiments/Design-iterations/v5/communal-3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         id="tspan5458-4-9-4-4-80"
+         style="font-size:50.82655716px;font-weight:bold;text-align:center;text-anchor:middle;fill:#ffffff;-inkscape-font-specification:Sans Bold"
+         y="981.67413"
+         x="685.59967"
+         sodipodi:role="line">+1</tspan><tspan
+         id="tspan5476-3-4-2-2-0"
+         style="font-size:9.88294125px;font-weight:bold;fill:#ffffff;-inkscape-font-specification:Sans Bold"
+         y="1045.2073"
+         x="685.59967"
+         sodipodi:role="line" /><tspan
+         id="tspan4972-8-0-6-2-0"
+         style="font-weight:bold;fill:#ffffff;-inkscape-font-specification:Sans Bold"
+         y="1108.7405"
+         x="685.59967"
+         sodipodi:role="line" /></text>
+  </g>
+</svg>

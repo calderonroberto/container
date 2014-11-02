@@ -3,9 +3,11 @@
   <%= f.hidden_field :from_id, :value => from.id %>
   <%= f.hidden_field :display_id, :value => display_id %>
 
-  <%= button_tag(type: 'submit', value: '0', class: "btn btn-primary giftflash", name: 'commit') do %>
-    <span class="glyphicon glyphicon-gift"></span> 
+  <%= button_tag(type: 'submit', value: '0', class: "btn btn-warning btn-sm", name: 'commit') do %>
+    GIVE
   <% end %>
+
+
 <!--
   <%= button_tag(type: 'submit', value: '1', class: "btn btn-primary giftflash", name: 'commit') do %>
     <span class="glyphicon glyphicon-music"></span> 

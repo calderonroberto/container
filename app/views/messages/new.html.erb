@@ -1,53 +1,108 @@
-
 <div class="row">
-  <div class="span11 offset1">
-    <div class="profile_picture">
-    <%= image_tag @user_to_display.picture_url, :border => 0, :id => @user_to_display.id, :class => "profile_picture", :alt => "profile_picture" %>
+
+    <div class="col-xs-8">
+       <div class="profile_picture">
+          <%= image_tag @user_to_display.picture_url, :border => 0, :id => @user_to_display.id, :class => "profile_picture", :alt => "profile_picture" %>
+       </div>
+    </div>
+    <div class="col-xs-4">
+       <div class="favours_count"><%= @user_to_display.score(@display, Time.zone.now.beginning_of_week, Time.zone.now)['favours'] %></div>    
+       <% if @display.setup.experimental_setup == 0 %>
+       <div class="checkins_count"><%= @user_to_display.score(@display, Time.zone.now.beginning_of_week, Time.zone.now)['checkins'] %></div>
+       <% elsif @display.setup.experimental_setup == 1 %>
+       <div class="place_points_count"><%= @user_to_display.score(@display,Time.zone.now.beginning_of_week, Time.zone.now)['pool_points'] %></div>
+       <% end %>
     </div>
 
-    <hr>
-    <h4>Ask for a favour to <%= @user_to_display.name %></h4>
-    <div class="tutorial-text">
-      You can only request ONE favour PER DAY to <%= @user_to_display.name %>. 
+    <!-- Favours -->
+    <div class="col-xs-12">
+       <hr>
+       <h4>Request a favour from <%= @user_to_display.name %></h4>
+       <div class="tutorial-text">
+         You can only request ONE favour PER DAY to each person. Each favour you send that is marked as "done" by whomever you send it to earns both of you 1 help point. 
+       </div>
     </div>
-    <%= render 'favours/favour_form', :user => @user_to_display, :from => @user, :favour_today => @favour_today, :display_id => @display_id %>
 
-    <hr>
-    <h4>Send a gift to <%= @user_to_display.name %></h4>
-    <div class="tutorial-text">
-      You can only send ONE gift PER DAY to <%= @user_to_display.name %>. 
+    <div class="col-xs-6">
+       <div class="message-request-item">
+          Request favour.        
+          <span class="favourflash"></span>
+          <%= render 'favours/favour_form', :user => @user_to_display, :from => @user, :favour_today => @favour_today, :display_id => @display_id %>
+       </div> 
     </div>
-    <%= render 'gifts/gift_form', :user => @user_to_display, :from => @user, :gift_today => @gift_today, :display_id => @display_id %>
 
-
-
-    <hr>
-    <h4>Message <%= @user_to_display.name %></h4>
-    <div class="tutorial-text">
-      These messages can only be read by you and <%= @user_to_display.name %>.
+    <div class="col-xs-6">
+       <div class="message-request-item">
+          Favours pending.
+          <span class="favourpendingflash"><%= @favours_pending.count %></span>
+       </div>
     </div>
-    <%= form_for (@message) do |f| %>
-      <%= render 'messages/fields', f: f %><br>
-      <%= f.submit "Send", class: "btn btn-large btn-primary" %> 
-    <% end %>
+
+
+    <!-- Gifts --> 
+    <div class="col-xs-12">
+       <hr>
+       <h4>Send a gift to <%= @user_to_display.name %></h4>
+       <div class="tutorial-text">
+         You can only send ONE gift PER DAY to each person. 
+       </div>
+    </div>
+    <div class="col-xs-6">
+       <div class="message-request-item">
+          Send a Seedling.        
+          <span class="giftflash"></span>
+       <%= render 'gifts/gift_form', :user => @user_to_display, :from => @user, :gift_today => @gift_today, :display_id => @display_id %>
+       </div> 
+    </div>
+
+    <div class="col-xs-6">
+       <div class="message-request-item">
+          Seedlings  sent.
+          <span class="giftpendingflash"><%= @gifts_sent.count %></span>
+       </div>
+    </div>
+
+    <!-- Messages -->
+    <div class="col-xs-12">
+       <hr>
+       <h4>Message <%= @user_to_display.name %></h4>
+       <div class="tutorial-text">
+         These messages can only be read by you and <%= @user_to_display.name %>.
+       </div>
+       <%= form_for (@message) do |f| %>
+          <%= render 'messages/fields', f: f %><br>
+       <%= f.submit "Send", class: "btn btn-large btn-primary" %> 
+       <% end %>
     
+       <div class="messages">
+         <% @messages.each do |message| %>
+           <div class ='<%= message.from.to_s == @user.id.to_s ? "from" : "to" %>' >    
+             <img src='<%= message.from.to_s == @user.id.to_s ? @user.thumbnail_url : @user_to_display.thumbnail_url %>' class="message_thumbnail"><br>
+             <%= message.message %> 
+             <p class="date">
+	       <%= message.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%a %b %d") %>
+             </p>
+           </div>
 
-
-    <div class="messages">
-      <% @messages.each do |message| %>
-        <div class ='<%= message.from.to_s == @user.id.to_s ? "from" : "to" %>' >    
-          <%= message.message %> 
-          <p class="date">
-            <%= message.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%Y-%m-%d (%H:%M)") %>
-            <img src='<%= message.from.to_s == @user.id.to_s ? @user.thumbnail_url : @user_to_display.thumbnail_url %>' class="message_thumbnail">
-          </p>
-        </div>
-
-      <% end %>
+         <% end %>
+       </div>
     </div>
 
-  </div>
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -63,15 +63,15 @@ p {
 */
 
 /*Fixing Navbar gray colors to look better in mobile, i.e. not gray*/
-ul.nav a { color: #ddd !important; }
-div.nav a { color: #ddd !important; }
+ul.nav a { color: #999966 !important; }
+div.nav a { color: #999966 !important; }
 
 /*Messages*/
 
 .messages {
   list-style:none;
-  .from {align: right; background-color: #CCFFCC; margin-left:50%; width:50%; padding: 5px 5px; margin-top:5px; border-radius: 10px; -moz-border-radius: 10px;}
-  .to {align: right; background-color: #F8F8F8; width:50%; padding: 5px 5px; margin-top:5px;  border-radius: 10px; -moz-border-radius: 10px;}
+  .from {align: right; background-color: #CCFFCC; margin-left:30%; width:70%; padding: 5px 5px; margin-top:5px; border-radius: 10px; -moz-border-radius: 10px;}
+  .to {align: right; background-color: #F8F8F8; width:70%; padding: 5px 5px; margin-top:5px;  border-radius: 10px; -moz-border-radius: 10px;}
   .date { font-size: xx-small; text-align: right;}
   .message_thumbnail { height: 30px; width: 30px; padding-right: 10px;} 
  }
@@ -86,7 +86,16 @@ div.nav a { color: #ddd !important; }
     font-height:10px;
 }
 
-
+.message-request-item {
+  font-size:12px;
+  text-align:center;
+  //border-style:solid;
+  //border-width:1px;
+  // border-color:gray;
+  width: 100%;  
+  padding: 2px;
+  //margin: 1px;
+}
 
 /*Apps*/
 
@@ -151,42 +160,81 @@ textarea {
 /*Favour*/
 
 .profile-favourlist-item{
-  font-size:12px;
+  text-align:center;
+  font-size:10px;
   border-style:solid;
   border-width:1px;
   border-color:gray;
-  width: 100px;
+  width: 80px;
   float:left;
   padding: 2px;
   margin: 1px;
 }
 
-.favours_count {float:right; width:50px; height:50px; background:#FF6633;font-size:40px; line-height:45px;text-align:center; color:white; position:relative;}
-
-.favours_count:after{
-   content:"Favours";
-   font-weight: bold;
-   text-align:center;
-   font-size: 10px;
-   line-height:10px;
-   position:absolute;
-   bottom:0px;
-   left:0px;
-   width: 50px;
-   vertical-align:bottom;
-}
-
 .favourflash {
-    color:white;
-    background:#FF6633;
+    display: inline-block;
+    background: #a8c954 url('help.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;  
     border-radius:5px;
     padding:5px;
     margin:1px;
-    //width: 40px;
-    //height: 40px;
-    font-size:20px;
-    line-height:20px;
+    width: 70px;
+    height: 70px;
+    text-align: center;
 }
+
+.favourpendingflash {    
+    display: inline-block;
+    background: #A8A8A8 url('help.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;  
+    border-radius:5px;
+    padding:5px;
+    margin:1px;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    color: white;
+    font-size:60px;
+    line-height:60px;
+}
+
+.favours_count {
+    float:right;
+    display: block;
+    background: #a8c954 url('help.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;  
+    border-radius:5px;
+    width:60px;
+    height:60px;
+    margin:3px;
+    font-size:50px;
+    line-height:55px;
+    text-align:center;
+    color:white;
+    position:relative;
+}
+
+.favours_count:after{
+   content:"Help";
+   font-weight: bold;
+   text-align:center;
+   font-size: 15px;
+   line-height:15px;
+   position:absolute;
+   bottom:0px;
+   left:0px;
+   width: 60px;
+   vertical-align:bottom;
+}
+
+
+
 
 /*Gifts*/
 
@@ -197,41 +245,45 @@ textarea {
 }
 
 .profile-giftlist-item{
-  font-size:8px;
+  font-size:12px;
   border-style:solid;
   border-width:1px;
   border-color:gray;
-  width: 60px;
+  width: 90px;
   float:left;
   padding: 2px;
   margin: 1px;
 }
 
 .giftflash {
-    color:white;
-    background:#FF6633;
+    display: inline-block;
+    background: #FF6633 url('gift.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;  
     border-radius:5px;
     padding:5px;
     margin:1px;
-    width: 40px;
-    height: 40px;
-    font-size:28px;
-    line-height:28px;
+    width: 80px;
+    height: 80px;
+    text-align: center;
 }
 
-.gifts_count {float:right; width:50px; height:50px; background:#FF6633;font-size:40px; line-height:45px;text-align:center; color:white; position:relative;}
-
-.gifts_count:after{
-   content:"Gifts";
-   font-weight: bold;
-   text-align:center;
-   font-size: 10px;
-   line-height:10px;
-   position:absolute;
-   bottom:0px;
-   left:0px;
-   width: 50px;
-   vertical-align:bottom;
+.giftpendingflash {
+    display: inline-block;
+    background: #A8A8A8 url('gift.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;  
+    border-radius:5px;
+    padding:5px;
+    margin:1px;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    color: white;
+    font-size:70px;
+    line-height:70px;
 }
 
 
@@ -243,14 +295,14 @@ textarea {
   margin-top:5px;
 }
 
-.week_score {float:right; width:140px; height:140px; background:#00C36D;font-size:120px; line-height:130px;text-align:center; color:white; position:relative;}
+.week_score {float:right; border-radius:5px; width:140px; height:140px; background:#00C36D;font-size:120px; line-height:130px;text-align:center; color:white; position:relative;}
 
 .week_score:after{
-   content:"Week Score";
+   content:"Points";
    font-weight: bold;
    text-align:center;
-   font-size: 15px;
-   line-height:15px;
+   font-size: 25px;
+   line-height:25px;
    position:absolute;
    bottom:0px;
    left:0px;
@@ -258,24 +310,43 @@ textarea {
    vertical-align:bottom;
 }
 
-.place_points_count {float:right; width:50px; height:50px; background:#BF096C;font-size:40px; line-height:45px;text-align:center; color:white; position:relative;}
+.place_points_count {
+    float:right;
+    display: block;
+    background: #553400 url('harvest.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;  
+    border-radius:5px;
+    width:60px;
+    height:60px;
+    margin:3px;
+    font-size:50px;
+    line-height:55px;
+    text-align:center;
+    color:white;
+    position:relative;
+}
+
 
 .place_points_count:after{
-   content:"Place";
+   content:"Harvest";
    font-weight: bold;
    text-align:center;
-   font-size: 10px;
-   line-height:10px;
+   font-size: 15px;
+   line-height:15px;
    position:absolute;
    bottom:0px;
    left:0px;
-   width: 50px;
+   width: 60px;
    vertical-align:bottom;
 }
 
 .user_profile_picture {
-   height:150px;
+   height:140px;
 }
+
+
 
 /*help*/
 
@@ -295,16 +366,33 @@ textarea {
 .userlistitem a {font-size:15px; font-style:bold; padding-left:5px; line-height:50px; float:left;}
 .checkins_user_img{float:left; width:50px; height:50px;}
 .checkins_user_name {float:left;}
-.checkins_count {float:right; width:50px; height:50px; background:#6699FF;font-size:40px; line-height:45px;text-align:center; color:white; position:relative;}
+
+.checkins_count {
+    float:right;
+    display: block;
+    background: #6699FF url('water.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;  
+    border-radius:5px;
+    width:60px;
+    height:60px;
+    margin:3px;
+    font-size:50px;
+    line-height:55px;
+    text-align:center;
+    color:white;
+    position:relative;
+}
 .checkins_count:after{
-   content:"Checkins";
+   content:"Water";
    font-weight: bold;
-   font-size: 10px;
-   line-height:10px;
+   font-size: 15px;
+   line-height:15px;
    position:absolute;
    bottom:0px;
    left:0px;
-   width: 50px;
+   width: 60px;
    vertical-align:bottom;
 }
 

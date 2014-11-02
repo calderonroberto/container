@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">  
+<html lang="en">  
+<head>  
+  <title>A RED Application</title>  
+  <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="jquery.thingbroker-0.3.0.min.js"></script>
+
+<!-- 2) Use CSS to make things pretty -->
+  <style type="text/css">
+        body{background-color:white;}
+
+        #appdescription {background-color:rgba(0,153,51,0.7); border-radius:15px; padding:5px; color:white; text-align:center; font-size:20px; line-height:20px; font-family:"Arial", sans-serif;}
+
+	#grass {background-image: url(grass.gif); width:100%; height:100px; position:absolute; bottom:0;}
+        #cloud {background-image: url(cloud.png); width:315px; height:139px; position:absolute; left:-3150px; top:0;}
+
+        /*Watered*/
+	#count {background:rgba(0,153,51,0.7); width:120px; height:125px; border-radius: 15px; position:absolute; top:50px; left:300px;}
+	#count_value {color:white; font-size:80px; line-height:80px; text-align:center;font-family:"Arial", sans-serif;vertical-align:text-top;}
+	#count_message {color:white; font-size:15px; text-align:center;font-family:"Arial", sans-serif;}
+
+	/*Place score*/
+	#place_count {background:#bf096c; width:120px; height:125px; border-radius: 15px; position:absolute; top:50px; left:450px;}
+	#place_count_value {color:white; font-size:80px; line-height:80px; text-align:center;font-family:"Arial", sans-serif;vertical-align:text-top;}
+	#place_count_message {color:white; font-size:15px; text-align:center;font-family:"Arial", sans-serif; font-weight:bold;}
+
+
+	
+
+        #water {position:absolute; top:0; left:0; width:100%; height:2%;background:white; opacity:.9; background-image: url(rain.gif);}
+        #lastperson {background-color:rgba(0,153,51,0.7); margin:50px; padding:10px; border-radius: 10px; font-size:40px; font-weight:bold; color:white; text-align:center;}
+
+	/*#leaders*/
+	#leaders{width:380px; height:360px; background-color:#383838; border-radius:15px; padding:10px; color:white; text-align:center; position:fixed; right:10px;top:20px;}
+	#leaders-message{font-weight:bold; font-size:30px; width:100%;}
+  	div .lot{float:left; position:relative; background:white; margin: 2px 2px; font-family:"Verdana", sans-serif; width:170px; height:90px; padding:5px;}
+        .user_thumbnail{position:absolute; top:5%; left:5%;}
+	.name{font-size:20px;color:black;position:absolute;bottom:5%;left:5%;background-color:white;}
+	.weekscorethumb {float:right; width:80px; height:80px; background-color:#00C36D;font-size:60px; line-height:65px;text-align:center; color:white; position:relative; border-radius:5px; z-index:1}	
+	.weekscorethumb:after{
+	   content:"Points";
+	   font-weight: bold;
+	   text-align:center;
+	   font-size: 20px;
+	   line-height:20px;
+	   position:absolute;
+	   bottom:0px;
+	   left:0px;
+	   width: 80px;
+	   vertical-align:bottom;
+	}
+
+	/*#winners*/	
+	#winners{width:380px; height:110px; background-color:#383838; border-radius:15px; padding:10px; color:white; text-align:center; position:fixed; right:10px;top:450px;}
+	#winners-message{font-weight:bold; font-size:20px; width:100%;}
+	div .winner{float:left; position:relative; background:white; margin: 2px 2px; font-family:"Verdana", sans-serif; width:60px; height:70px; padding:5px;}
+        .winner_thumbnail{position:absolute; top:5%; left:5%;}
+	.winner_name{font-size:15px;color:black;position:absolute;bottom:5%;left:5%;background-color:white;}
+
+	/*Instructions*/
+	#instructions {background-color:#383838;position:absolute; left:20px; bottom:50px; text-align: center;padding:15px 15px; border-radius: 15px; align:center;}
+	#instructions-text {color:white; font-size:50px;font-family:"Arial", sans-serif;vertical-align:text-top;margin-bottom:10px; line-height:25px;}
+
+	#instructions-img {
+		position:absolute; right:550px; top: 20px; 
+		width:600px; height:400px;
+		background-image: url('instructions-image.png');
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;  
+		text-align: center;
+	}
+
+        /*Gauges*/
+	#gauge-background {width:230px;height:200px; padding:10px; position:absolute; right:550px; top:450px; display:
+		background-color: white;
+		background-image: url('gauge-water.png');
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;  
+	}
+	#gauge {width:100px; height:200px; background-color:#428BCA; display:inline-block; position:absolute; bottom:10px; left:30px; border-radius:5px;}
+
+
+	#seedlings-logo {
+		position:absolute; left:20px; top: 20px; 
+		width:400px; height:300px;
+		background-image: url('logo.png');
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;  
+		text-align: center;
+	}
+
+
+	/*Participation*/
+        #people {position:absolute; top:400px; right:850px; background:#428BCA; border-radius: 10px; color:white; padding:15px; text-align:center; font-weight:bold; font-size:30px;}
+	.person {color:white; font-size: 20px; height:10px; text-align:center; font-weight:normal;}
+
+	/*Participation-encourager*/
+	#participation-encourager {
+		position:absolute; top:580px; right:850px; 
+		background:#428BCA; border-radius: 10px;
+		color:white; padding:15px; 
+		text-align:center; font-weight:bold; font-size:25px;
+	}
+
+	/*Badges*/
+	.place_points_count {
+	    display: inline-block;
+	    background: #553400 url('harvest.png');
+	    background-size: cover;
+	    background-repeat: no-repeat;
+	    background-position: center center;  
+	    border-radius:5px;
+	    width:60px;
+	    height:60px;
+	    margin:3px;
+	    font-size:50px;
+	    line-height:55px;
+	    text-align:center;
+	    color:white;
+	    position:relative;
+	}
+
+	.place_points_count:after{
+	   content:"Harvest";
+	   font-weight: bold;
+	   text-align:center;
+	   font-size: 15px;
+	   line-height:15px;
+	   position:absolute;
+	   bottom:0px;
+	   left:0px;
+	   width: 60px;
+	   vertical-align:bottom;
+	}
+
+	.checkins_count {
+	    display: inline-block;
+	    background: #6699FF url('water.png');
+	    background-size: cover;
+	    background-repeat: no-repeat;
+	    background-position: center center;  
+	    border-radius:5px;
+	    width:60px;
+	    height:60px;
+	    margin:3px;
+	    font-size:50px;
+	    line-height:55px;
+	    text-align:center;
+	    color:white;
+	    position:relative;
+	}
+	.checkins_count:after{
+	   content:"Water";
+	   font-weight: bold;
+	   font-size: 15px;
+	   line-height:15px;
+	   position:absolute;
+	   bottom:0px;
+	   left:0px;
+	   width: 60px;
+	   vertical-align:bottom;
+	}
+
+
+  </style>
+
+
+
+
+
+    <script type="text/javascript">
+			
+	function getURLParameter(name) {
+	    return decodeURI(
+		(RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+	    );
+	}
+
+	function updateCheckins () {
+		var id = getURLParameter("display_id");
+                var checkinstoday = 0;
+
+		$.getJSON("/api/"+id+"/checkins", function(data) {
+			$(".lastperson").remove();
+			$(".person").remove();
+			$.each( data, function(index,value){
+				d = new Date(value.checkin.created_at);
+ 				today = new Date();
+
+				if ( d.getUTCDate() == today.getUTCDate()) {
+		                    	checkinstoday++;
+				}
+
+                                var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+ 				if (index < 3)
+					$("#people").append('<p class="person">'+value.user.name.split(" ")[0]+' ('+monthNames[d.getMonth()]+' '+d.getUTCDate()+')</p>');
+                                if (index == 0)
+                                        $("#lastperson").append('<p class="lastperson">Thank you '+value.user.name +'<br>for watering the garden!</p>');				
+
+			});
+			$("#count_value").empty();
+        	        $("#count_value").html(checkinstoday.toString());
+		});
+
+	}
+
+	function updateScores() {
+		var id = getURLParameter("display_id");
+		$.getJSON("/api/"+id+"/scores", function(data) {
+	
+
+			/*Update treatment (individual VS communal)*/
+ 			setup = data.display_setup.experimental_setup;
+			pool_size = data.display_week_score.pool_size;
+			current_pool = data.display_week_score.current_pool;
+			pool_left = pool_size - current_pool;
+
+			if (setup == 0) {
+				console.log("Setting up individual display");
+				$("#instructions-img").css("background-image", "url('instructions-image.png')");
+				$("#gauge-background").css("background-image", "url('gauge-water.png')");
+				$("#participation-encourager").append('Each participation earns you <div class="checkins_count">1</div<');
+			}
+ 			else if (setup == 1) {
+				console.log("Setting up communal display")
+				$("#instructions-img").css("background-image", "url('instructions-image.png')");
+				$("#gauge-background").css("background-image", "url('gauge-harvest.png')");
+				$("#participation-encourager").empty();
+				$("#participation-encourager").append(pool_left+' more participations to earn <div class="place_points_count">'+pool_size+'</div<');
+			}
+
+
+                        /*Update leaders*/
+			$('#leaders').empty();
+			$('#leaders').append("<div id='leaders-message'>This Week Leaders</div>");
+			$.each( data.this_week_leaders, function(index,value){
+	                        $("#leaders").append("<div class='lot'><span class='weekscorethumb'>"+value.score.score+"</span><span class='user_thumbnail'><img src='"+value.user.thumbnail_url+"'></img></span><span class='name'>"+value.user.name.split(" ")[0]+"</span></div>");
+			});
+
+			/*Update winners*/
+			$('#winners').empty();
+			$('#winners').append("<div id='winners-message'>Last Week winners get a FREE meal!</div>");
+			$.each( data.last_week_winners, function(index,value){
+	                        //$("#winners").append('<div class="winner">'+value.user.name +'</div>');	
+				$("#winners").append("<div class='winner'><span class='winner_thumbnail'><img src='"+value.user.thumbnail_url+"'></img></span><span class='winner_name'>"+value.user.name.split(" ")[0]+"</span></div>");	
+			});		
+			$('#winners').append("<img src='freemeal.png' width='80px' height='80px'></img>");
+			/*Update Gauge*/
+                        pool_size = data.display_week_score.pool_size;
+			current_pool = data.display_week_score.current_pool;
+			barPercentage = (current_pool*100)/pool_size;
+			$('#gauge').css({"height":(barPercentage*200)/100+10+"px"});
+
+
+	
+
+		});
+			
+	}
+
+	$(document).ready(function() {
+                $("#lastperson").hide();	
+	        updateCheckins();
+                passingCloud();
+                //updateWinners();								
+                //updateLeaders();
+                //updatePlacescore();
+                updateScores();	
+		setInterval(function(){
+			updateScores();
+  		}, 600000);														
+	});
+
+        function passingCloud () {
+	    $("#cloud").css({ "left": "-315px"});	
+	    $("#cloud").animate({ "left": "100%"}, 20000, "linear", function(){passingCloud();});	               
+        } 
+
+    </script>
+
+
+</head>
+
+<body>
+
+<!-- 3) Declare your document structure -->
+   <div id="grass"></div>
+   <div id="cloud"></div>
+<!--
+  <div id="appdescription">Help us grow a community garden!</div>  
+  <img id="instructions-img" src="instructions-image-communal.png"/>
+-->
+  <div id="instructions-img"></div>
+
+  <div id="instructions">
+	<div id="instructions-text">Scan QR-Code or visit <u>bit.do/myseedlings</u> to play</div>
+  </div>
+
+  <div id="seedlings-logo"></div>
+
+  <div id="leaders"></div>
+  <div id="winners"></div>
+
+<!--
+  <div id="count">
+	<div id="count_value">0</div>
+	<div id="count_message">people have watered today.</div>
+  </div>
+-->
+
+  <div id="people">
+	Latest participation:
+  </div>
+
+  <div id="gauge-background">
+	<span id="gauge"></span>
+  </div>
+
+  <div id="participation-encourager"></div>
+
+  <div id="water"/>
+  <div id="lastperson"/>
+
+</div>
+
+<!-- connecting to the arduino, object needed for listener in js-->
+<div id="checkin"/> 
+<script type="text/javascript">
+        var id = "checkin" + getURLParameter("display_id"); //adding display_id
+        $("#checkin").attr("id",id); //let's change the ID to reflect the display
+	$("#"+id).thing({listen:true, //let's use that id to pull events
+                   debug:false,
+		   container:false,
+                   eventCallback:function(json){
+		      $("#lastperson").show();
+                      $("#water").animate({height:"100%"},2000, function(){     
+								//when done
+								updateCheckins();
+								$("#lastperson").show(); 
+								setTimeout(function() {
+							               $("#water").animate({height:"1%"},6000)
+                     						       $("#lastperson").hide("slow"); 
+								}, 8000);	
+
+							 });
+
+                   }
+        });
+</script>
+
+</body>
+</html>

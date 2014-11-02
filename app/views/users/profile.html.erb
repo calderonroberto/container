@@ -1,136 +1,155 @@
+<!--
+REmoved so that it all fits nicely
+  <div class="span11 offset1">
+-->
 
 <div class="row">
-  <div class="span11 offset1">
-
-
-    <div class="tutorial-text">
-       Hi <%= @user.name.split(' ').first %>. If you are displayed as a <b>Week Winner</b> on the garden contact <a href="mailto:roberto@alumni.ubc.ca"><b>roberto@alumni.ubc.ca</b></a> 
-    </div>
-
-    <%= image_tag(@user.picture_url, alt: "User Picture", class: 'user_profile_picture' ) %>
-
-    <div class="week_score"><%= @user.score(@display, Time.zone.now.beginning_of_week, Time.zone.now)['score'] %></div>
-
-
-
-    <div class="tutorial-text">
-       <b>Checkins</b> show how often you visit Seedlings and are seen by everyone else, <b>Gifts</b> are privately sent by other members and only the receiver can see them. Learn how your points are computed in the <a href="/help"><b>help</b></a> page.
-    </div>
-
-    <% if @display.setup.experimental_setup == 1 %>
-
-    <!-- Place -->
-<!--
-   <hr>
-   <h4>Place points this week:</h4> 
-    <div class="profile-checkins">
-       <div class="place_points_count"><%= @display.score(Time.zone.now.beginning_of_week, Time.zone.now)['score'] %></div>
-       <div class="col-xs-8">
-          <div class="tutorial-text">Place points earned watering the garden.</div>
-       </div>
-    </div>
-    <% end %>
--->
-    <!-- Checkins -->
    
- <div class="col-xs-12">
-    <hr><h4>Your Checkins this week:</h4> 
- </div>
-    <div class="profile-checkins">
-
-       <div class="col-xs-8">
-          <%= render 'checkins/checkin_form', :user => @user, :display => @display, :checkin_today => @checkin_today %>
-       </div>
-
-       <div class="col-xs-4">
-          <div class="checkins_count"><%= @user.score(@display, Time.zone.now.beginning_of_week, Time.zone.now)['checkins'] %></div>
-       </div>
+    <div class="tutorial-text">
+       Hi <%= @user.name.split(' ').first %>. are you a <b>Week Winner</b>? To get your coupon contact <a href="mailto:roberto@alumni.ubc.ca"><b>roberto@alumni.ubc.ca</b></a> 
     </div>
 
+   <div class="col-xs-12">
+       <hr><h4>Your points this week:</h4> 
+    </div>
+    <div class="col-xs-8">       
+       <%= image_tag(@user.picture_url, alt: "User Picture", class: 'user_profile_picture' ) %>
+    </div>
+    <div class="col-xs-4">
+       <div class="week_score"><%= @user.score(@display, Time.zone.now.beginning_of_week, Time.zone.now)['score'] %></div>
+    </div>
 
+    <div class="col-xs-12">    
+    </div>
 
+    <div class="col-xs-12">
 
- <!-- Favours --> 
- <div class="col-xs-12">
-    <hr><h4>Your Favours this week:</h4> 
- </div>
+    <div class="tutorial-text">
+       Your points are calculated by adding:
+    </div>
 
- <div class="col-xs-8">
-    <div class="profile-favourlist">
-       <% if @favours.empty? %>
-          <div class="tutorial-text">
-            <span class="glyphicon glyphicon-info-sign"></span> You have no Favour requests yet :(
-          </div>
-       <% end %>  
-       <% @favours.each do |f| %>
-          <% fromuser = User.find(f.from_id) %>
-          <div class="profile-favourlist-item">
-
-	    <span class="glyphicon glyphicon-gift favourflash"></span>
-	    <%= render 'favours/reciprocatefavour_form', :favour_id => f.id%>
-	    <br></br>
-	    Sent by <%= link_to fromuser.name, {:action => 'new', :controller => 'messages', id: @display.unique_id, user_id: fromuser.id} %>
-	    on <%= f.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%a %b %d") %>
-
-	  </div>
+       <div class="favours_count"><%= @user.score(@display, Time.zone.now.beginning_of_week, Time.zone.now)['favours'] %></div>    
+       <% if @display.setup.experimental_setup == 0 %>
+       <div class="checkins_count"><%= @user.score(@display, Time.zone.now.beginning_of_week, Time.zone.now)['checkins'] %></div>
+       <% elsif @display.setup.experimental_setup == 1 %>
+       <div class="place_points_count"><%= @user.score(@display,Time.zone.now.beginning_of_week, Time.zone.now)['pool_points'] %></div>
        <% end %>
     </div>
-  </div>
-
-<div class="col-xs-4">
-       <div class="favours_count"><%= @user.score(@display, Time.zone.now.beginning_of_week, Time.zone.now)['favours'] %></div>
-</div>
 
 
 
+    <% if @display.setup.experimental_setup == 0 %>
+    <!-- Checkins --> 
+    <div class="col-xs-12">
+       <hr><h4>Your Water points this week:</h4> 
+    </div>
+    <div class="col-xs-8">
+       <div class="tutorial-text">
+          Earn 1 point every time you water the garden. 
+       </div>
+    </div>
+    <div class="col-xs-4">
+       <div class="checkins_count"><%= @user.score(@display, Time.zone.now.beginning_of_week, Time.zone.now)['checkins'] %></div>
+    </div>
+    <% elsif @display.setup.experimental_setup == 1 %>
+    <!-- Place -->
+    <div class="col-xs-12">
+       <hr><h4>Your Harvest points this week:</h4> 
+    </div>
+    <div class="col-xs-8">
+          <div class="tutorial-text">Everyone that helps to water the garden <%= @display.score(Time.zone.now.beginning_of_week, Time.zone.now)['pool_size'] %> times earns <%= @display.score(Time.zone.now.beginning_of_week, Time.zone.now)['pool_size'] %> points. Currently <%= @display.score(Time.zone.now.beginning_of_week, Time.zone.now)['current_pool'] %> people have watered the garden. Convince other people to help out!</div>
+    </div>
+    <div class="col-xs-4">
+          <div class="place_points_count"><%= @user.score(@display,Time.zone.now.beginning_of_week, Time.zone.now)['pool_points'] %></div>
+    </div>
+    <% end %>   
+
+    <div class="col-xs-12">
+       <%= render 'checkins/checkin_form', :user => @user, :display => @display, :checkin_today => @checkin_today %>
+    </div>
 
 
+    <!-- Favours --> 
+    <div class="col-xs-12">
+       <hr><h4>Your Help points this week:</h4> 
+      <div class="tutorial-text">Earn help points by answering to, or requesting, virtual garden favours from other people. When favours are answered both the issuer and resolver will earn 1 point.</div>
+    </div>
+
+    <div class="col-xs-8">
+       <div class="profile-favourlist">
+          <% if @favours.empty? %>
+             <div class="tutorial-text">
+               <span class="glyphicon glyphicon-info-sign"></span> You have no Favour requests yet :(
+             </div>
+          <% end %>  
+          <% @favours.each do |f| %>
+             <% fromuser = User.find(f.from_id) %>
+             <div class="profile-favourlist-item">
 
 
+	       <%= render 'favours/reciprocatefavour_form', :favour_id => f.id%>
+   	       <span class="favourflash"></span>
+	       Request by <%= link_to image_tag(fromuser.thumbnail_url, :border => 0, :width => 20, :height => 20, :id => fromuser.id), {:action => 'new', :controller => 'messages', :user_id => fromuser.id, :class => 'user_thumb', id: @display.unique_id} %> on <%= f.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%a %b %d") %>
+  	       <br><%= link_to "Message them", {:action => 'new', :controller => 'messages', id: @display.unique_id, user_id: fromuser.id} %>
+
+
+ 	     </div>
+          <% end %>
+       </div>
+     </div>
+
+     <div class="col-xs-4">
+        <div class="favours_count"><%= @user.score(@display, Time.zone.now.beginning_of_week, Time.zone.now)['favours'] %></div>
+     </div>
 
 
 
     <!-- Gifts -->
- <div class="col-xs-12">
-    <hr><h4>Gifts you have received:</h4> 
- </div>
- <div class="col-xs-12">
-    <div class="profile-giftlist">    
-       <% if @gifts.empty? %>
-          <div class="tutorial-text">
-            <span class="glyphicon glyphicon-gift"></span> You have no gifts yet :(
-          </div>
-       <% end %>  
-       <% @gifts.each do |g| %>
-
-          <% fromuser = User.find(g.from_id) %>
-          <div class="profile-giftlist-item">
- 	    <!-- Draw according to type of gift -->
-	    <% if g.gift_type == 0 %>
-	       <span class="glyphicon glyphicon-gift giftflash"></span>
-            <% elsif g.gift_type == 1 %>
-	       <span class="glyphicon glyphicon-music giftflash"></span>
-            <% elsif g.gift_type == 2 %>
-	       <span class="glyphicon glyphicon-star giftflash"></span>
-            <% elsif g.gift_type == 3 %>
-	       <span class="glyphicon glyphicon-heart giftflash"></span>
-
-	    <% end %> 
-	    <br></br>
-	    Sent by <%= link_to fromuser.name, {:action => 'new', :controller => 'messages', id: @display.unique_id, user_id: fromuser.id} %>
-	    on <%= g.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%a %b %d") %>
-
-<!--
-link_to image_tag(fromuser.thumbnail_url, :border => 0, :width => 50, :height => 50, :id => fromuser.id), {:action => 'new', :controller => 'messages', :user_id => fromuser.id, :class => 'user_thumb', id: @display.unique_id}
--->    
-
-	  </div>
-       <% end %>
+    <div class="col-xs-12">
+       <hr><h4>Gifts you have received:</h4> 
+       <div class="tutorial-text">These are virtual gifts, kind of like "pokes", other people have sent you. Collect them!</div>
     </div>
+    <div class="col-xs-12">
+       <div class="profile-giftlist">    
+          <% if @gifts.empty? %>
+             <div class="tutorial-text">
+               <span class="glyphicon glyphicon-gift"></span> You have no gifts yet :(
+             </div>
+          <% end %>  
+          <% @gifts.each do |g| %>
+
+             <% fromuser = User.find(g.from_id) %>
+             <div class="profile-giftlist-item">
+   	       <!-- Draw only one type -->
+               <span class="giftflash"></span>
+ 	       <!-- Draw according to type of gift -->
+	       <!--
+   	       <% if g.gift_type == 0 %>
+	          <span class="glyphicon glyphicon-gift giftflash"></span>
+               <% elsif g.gift_type == 1 %>
+	          <span class="glyphicon glyphicon-music giftflash"></span>
+               <% elsif g.gift_type == 2 %>
+	          <span class="glyphicon glyphicon-star giftflash"></span>
+               <% elsif g.gift_type == 3 %>
+	          <span class="glyphicon glyphicon-heart giftflash"></span>
+	       <% end %> 
+               -->
+	       Sent by <%= link_to image_tag(fromuser.thumbnail_url, :border => 0, :width => 20, :height => 20, :id => fromuser.id), {:action => 'new', :controller => 'messages', :user_id => fromuser.id, :class => 'user_thumb', id: @display.unique_id} %> on <%= g.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%a %b %d") %>
+ 	       <br><%= link_to "Message them", {:action => 'new', :controller => 'messages', id: @display.unique_id, user_id: fromuser.id} %>
+
+
+
+
+	     </div>
+          <% end %>
+       </div>
+    </div>
+
+</div>
+<!--
   </div>
 
-  </div>
-</div>
+-->
 
 
 

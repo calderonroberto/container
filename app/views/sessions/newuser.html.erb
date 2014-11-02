@@ -20,7 +20,7 @@
         In MySeedlings you can<br>
         <span class="glyphicon glyphicon-user"></span> Meet people.<br>
         <span class="glyphicon glyphicon-comment"></span> Chat with others here.<br>
-        <span class="glyphicon glyphicon-gift"></span> Win a coffee every week.<br>            
+        <span class="glyphicon glyphicon-gift"></span> Play to win weekly rewards.<br>            
         <span class="glyphicon glyphicon-leaf"></span> Help water the garden.<br>
         <!-- Other icons
         <span class="glyphicon glyphicon-home"></span> Post to wall.<br>    
@@ -34,7 +34,7 @@
       <%= link_to "Sign in using Facebook", user_omniauth_authorize_path(:facebook),  :class => "btn btn-primary btn-lg", :role => "button"  %>
     </div>
 
-    <p style="text-align:center; font-size:10px;margin:5px;"><br>Pssst, this is a private social network and we will never post anything on FB. To create your account fast we can use your Facebook photo and name. Still wary? Contact us below!</p>
+    <p style="text-align:center; font-size:10px;margin:5px;"><br>Pssst, this is a private social network and we will never post anything on FB. To create your account fast we can use your Facebook photo and name. Still wary? You can try it out below anonymously!</p>
 
 
   </div>
@@ -49,7 +49,7 @@
 
 <!-- Nav tabs -->
 <ul class="nav nav-tabs">
-  <li class="active"><a href="#note" data-toggle="tab">Help</a></li>
+  <li class="active"><a href="#note" data-toggle="tab">Anonymous</a></li>
   <li><a href="#ethics" data-toggle="tab">Ethics Disclaimer</a></li>
 </ul>
 
@@ -69,7 +69,6 @@
     %>
     -->
 
-    <!-- NOTE Removed for experiment
     <h4>Publish a Note:</h4>
     <div class="tutorial-text">
       Notes are small messages you can publish on the large display. They can be read by everyone.
@@ -80,7 +79,8 @@
       <%= f.submit "Send", class: "btn btn-large btn-primary" %> 
     <% end %>
     </div>
-    -->
+
+
   <!-- FEATURES REMOVED FOR EXPERIMENT
   <div class="features-intro">
      In MySeedlings you can post public messages, meet other people that also visit Seedlings, and send private messages or virtual gifts.
