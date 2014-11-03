@@ -46,17 +46,17 @@
     <linearGradient
        id="linearGradient5551">
       <stop
-         style="stop-color:#4eff5e;stop-opacity:1;"
+         style="stop-color:#4ef95e;stop-opacity:1;"
          offset="0"
          id="stop5553" />
       <stop
-         style="stop-color:#fd9256;stop-opacity:1;"
+         style="stop-color:#e86837;stop-opacity:1;"
          offset="1"
          id="stop5555" />
     </linearGradient>
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient3799"
+       xlink:href="#linearGradient5551"
        id="linearGradient5557"
        x1="56.877865"
        y1="10.739062"
@@ -143,15 +143,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="154.45516"
+     inkscape:cx="28.026589"
      inkscape:cy="122.99149"
      inkscape:document-units="px"
      inkscape:current-layer="g5752"
      showgrid="false"
      inkscape:window-width="1336"
      inkscape:window-height="659"
-     inkscape:window-x="1950"
-     inkscape:window-y="41"
+     inkscape:window-x="2008"
+     inkscape:window-y="84"
      inkscape:window-maximized="0"
      showguides="true"
      inkscape:guide-bbox="true"
@@ -202,7 +202,7 @@
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="Layer 1"
+     inkscape:label="water"
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-852.36218)"
@@ -292,7 +292,7 @@
        height="189.20714"
        width="99.79776"
        id="rect5754"
-       style="fill:url(#linearGradient5557);fill-opacity:1.0;stroke:#535353;stroke-width:2;stroke-linecap:square;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+       style="fill:url(#linearGradient5557);fill-opacity:1;stroke:#535353;stroke-width:2;stroke-linecap:square;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <text
        sodipodi:linespacing="125%"
        id="text5756"

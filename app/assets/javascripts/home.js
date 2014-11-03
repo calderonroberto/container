@@ -13,7 +13,7 @@ $(document).ready(function() {
 function passingInstructions () {
     if (interacting == false) {
     	$("#interact-instructions").css({ "left": "-500px"});	
-        $("#interact-instructions").animate({ "left": "100%"}, 20000, "linear", function(){ passingInstructions(); });	               
+        $("#interact-instructions").animate({ "left": "100%"}, 80000, "linear", function(){ passingInstructions(); });	               
     }
 } 
 
@@ -75,12 +75,12 @@ $(function() {
 function updateInstructions (interaction) {
    if (interaction.instructions == "true") {
       if (interaction.interacting == "false") {
-         $("#interact-instructions").show("slow");
+         $("#interact-instructions").show();
 	 interacting = false;
 	 passingInstructions(); //animate instructions! 
       } 
       if (interaction.interacting == "true") {
-         $("#interact-instructions").hide("slow");   
+         $("#interact-instructions").hide();   
 	 interacting = true;
       }
    }
