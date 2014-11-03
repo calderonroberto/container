@@ -75,12 +75,12 @@ $(function() {
 function updateInstructions (interaction) {
    if (interaction.instructions == "true") {
       if (interaction.interacting == "false") {
-         $("#interact-instructions").show();
+         $("#interact-instructions").show("slow");
 	 interacting = false;
-	 passingInstructions(); //animate instructions! 
+	 //passingInstructions(); //animate instructions! 
       } 
       if (interaction.interacting == "true") {
-         $("#interact-instructions").hide();   
+         $("#interact-instructions").hide("slow");   
 	 interacting = true;
       }
    }
