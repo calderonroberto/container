@@ -343,7 +343,8 @@ textarea {
 }
 
 .user_profile_picture {
-   height:140px;
+   max-height:140px;
+   max-width:120px;
 }
 
 
