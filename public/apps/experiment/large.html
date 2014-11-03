@@ -61,7 +61,7 @@
 
 	/*Participation-encourager*/
 	#participation-encourager {
-		position:absolute; left:20px; bottom:120px;
+		position:absolute; right:560px; bottom:140px;
 		background:#428BCA; border-radius: 10px;
 		color:white; padding:10px; 
 		text-align:center; font-weight:bold; font-size:40px;
@@ -73,7 +73,7 @@
 	#instructions-text {color:white; font-size:50px;font-family:"Arial", sans-serif;vertical-align:text-top;margin-bottom:10px; line-height:25px;}
 
 	#instructions-img {
-		position:absolute; right:550px; top: 20px; 
+		position:absolute; right:750px; top: 150px; 
 		width:600px; height:400px;
 		background-image: url('instructions-image.png');
 		background-size: cover;
@@ -83,7 +83,7 @@
 	}
 
         /*Gauges*/
-	#gauge-background {width:230px;height:200px; padding:10px; position:absolute; right:700px; top:450px; display:
+	#gauge-background {width:230px;height:200px; padding:10px; position:absolute; right:700px; top:450px; 
 		background-color: white;
 		background-image: url('gauge-water.png');
 		background-size: cover;
@@ -91,6 +91,18 @@
 		background-position: center center;  
 	}
 	#gauge {width:100px; height:200px; background-color:#428BCA; display:inline-block; position:absolute; bottom:10px; left:30px; border-radius:5px;}
+
+
+        /*Gauges Large*/
+	#gauge-background-large {width:230px;height:500px; position:absolute; right:450px; top:100px;
+		background-color: white;
+		background-image: url('gauge-water-large.png');
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;  
+	}
+	#gauge-large {width:90px; height:500px; background-color:#428BCA; display:inline-block; position:absolute; bottom:10px; left:30px; border-radius:5px;}
+
 
 
 	#seedlings-logo {
@@ -221,14 +233,16 @@
 			if (setup == 0) {
 				console.log("Setting up individual display");
 				$("#instructions-img").css("background-image", "url('instructions-image.png')");
-				$("#gauge-background").css("background-image", "url('gauge-water.png')");
+				//$("#gauge-background").css("background-image", "url('gauge-water.png')");
+				$("#gauge-background-large").css("background-image", "url('gauge-water-large.png')");
 				$("#participation-encourager").empty();
 				$("#participation-encourager").append('Each participation earns you <div class="checkins_count">1</div<');
 			}
  			else if (setup == 1) {
 				console.log("Setting up communal display")
 				$("#instructions-img").css("background-image", "url('instructions-image.png')");
-				$("#gauge-background").css("background-image", "url('gauge-harvest.png')");
+				//$("#gauge-background").css("background-image", "url('gauge-harvest.png')");
+				$("#gauge-background-large").css("background-image", "url('gauge-harvest-large.png')");
 				$("#participation-encourager").empty();
 				$("#participation-encourager").append(pool_left+' more participations to earn <div class="place_points_count">'+pool_size+'</div<');
 			}
@@ -254,6 +268,8 @@
 			current_pool = data.display_week_score.current_pool;
 			barPercentage = (current_pool*100)/pool_size;
 			$('#gauge').css({"height":(barPercentage*200)/100+10+"px"});
+
+			$('#gauge-large').css({"height":(barPercentage*500)/100+10+"px"});
 
 
 	
@@ -315,11 +331,11 @@
   </div>
   <div id="participation-encourager"></div>
 
+<!--
+  <div id="gauge-background"><span id="gauge"></span></div>
+-->
 
-  <div id="gauge-background">
-	<span id="gauge"></span>
-  </div>
-
+  <div id="gauge-background-large"><span id="gauge-large"></span></div>
 
   <div id="water"/>
   <div id="lastperson"/>
