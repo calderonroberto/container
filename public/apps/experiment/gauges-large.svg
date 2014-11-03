@@ -16,7 +16,7 @@
    version="1.1"
    inkscape:version="0.48.4 r9939"
    sodipodi:docname="gauges-large.svg"
-   inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/experiment/gauge-harvest-large.png"
+   inkscape:export-filename="/home/roberto/Dropbox/container/public/apps/experiment/gauge-water-large.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -142,11 +142,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.9899495"
-     inkscape:cx="107.28186"
-     inkscape:cy="365.63348"
+     inkscape:zoom="0.7"
+     inkscape:cx="24.362107"
+     inkscape:cy="286.60469"
      inkscape:document-units="px"
-     inkscape:current-layer="g5752"
+     inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1336"
      inkscape:window-height="659"
@@ -169,17 +169,9 @@
        position="120,115.66247"
        id="guide4752" />
     <sodipodi:guide
-       orientation="0,1"
-       position="81.822356,190"
-       id="guide4754" />
-    <sodipodi:guide
        orientation="1,0"
        position="0,183.57143"
        id="guide5664" />
-    <sodipodi:guide
-       orientation="0,1"
-       position="23.214286,200"
-       id="guide5666" />
     <sodipodi:guide
        orientation="1,0"
        position="30,149.50258"
@@ -230,8 +222,7 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-552.36218)"
-     style="display:none"
-     sodipodi:insensitive="true">
+     style="display:inline">
     <rect
        style="fill:url(#linearGradient5782);fill-opacity:1;stroke:#535353;stroke-width:2;stroke-linecap:square;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect4756"
@@ -269,13 +260,13 @@
        xml:space="preserve"
        style="font-size:17.09981537px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="129.29953"
-       y="763.35693"
+       y="803.35693"
        id="text5526-0"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5528-4"
          x="129.29953"
-         y="763.35693"
+         y="803.35693"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Purisa;-inkscape-font-specification:Purisa Bold">Moderate</tspan></text>
     <text
        xml:space="preserve"
@@ -304,7 +295,7 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Purisa;-inkscape-font-specification:Purisa Bold" /></text>
   </g>
   <g
-     style="display:inline"
+     style="display:none"
      transform="translate(0,-552.36218)"
      id="g5752"
      inkscape:groupmode="layer"
@@ -345,12 +336,12 @@
     <text
        sodipodi:linespacing="125%"
        id="text5764"
-       y="756.49097"
+       y="802.49097"
        x="129.10846"
        style="font-size:15.08607578px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Purisa;-inkscape-font-specification:Purisa Bold"
-         y="756.49097"
+         y="802.49097"
          x="129.10846"
          id="tspan5766"
          sodipodi:role="line">Grown</tspan></text>

@@ -84,7 +84,6 @@
 
         /*Gauges*/
 	#gauge-background {width:230px;height:200px; padding:10px; position:absolute; right:700px; top:450px; 
-		background-color: white;
 		background-image: url('gauge-water.png');
 		background-size: cover;
 		background-repeat: no-repeat;
@@ -95,13 +94,12 @@
 
         /*Gauges Large*/
 	#gauge-background-large {width:230px;height:500px; position:absolute; right:450px; top:100px;
-		background-color: white;
 		background-image: url('gauge-water-large.png');
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center center;  
 	}
-	#gauge-large {width:90px; height:500px; background-color:#428BCA; display:inline-block; position:absolute; bottom:10px; left:30px; border-radius:5px;}
+	#gauge-large {width:90px; height:480px; background-color:#428BCA; display:inline-block; position:absolute; bottom:10px; left:30px; border-radius:5px;}
 
 
 
@@ -267,9 +265,8 @@
                         pool_size = data.display_week_score.pool_size;
 			current_pool = data.display_week_score.current_pool;
 			barPercentage = (current_pool*100)/pool_size;
-			$('#gauge').css({"height":(barPercentage*200)/100+10+"px"});
-
-			$('#gauge-large').css({"height":(barPercentage*500)/100+10+"px"});
+			//$('#gauge').css({"height":(barPercentage*200)/100+10+"px"});
+			$('#gauge-large').css({"height":(barPercentage*480)/100+10+"px"});
 
 
 	
