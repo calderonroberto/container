@@ -96,7 +96,8 @@ html, body {
 }
 
 .messageboard {
-  background-color: #FFFFCC;
+  /*background-color: #FFFFCC;*/
+  background-color: #D3AC8B;
   position:absolute;
   top:75%;
   left:0px;
@@ -113,7 +114,9 @@ html, body {
 }
 
 .note {
-  background-color: #DBA901;
+  background-color:#6F4E37;
+  /*background-color: #FFFFCC;*/
+  color:#EEEEEE;
   padding:2px;
   position:relative;
   width:22%;
