@@ -335,15 +335,15 @@
                    debug:false,
 		   container:false,
                    eventCallback:function(json){
+		      updateCheckins();
 		      $("#lastperson").show();
                       $("#water").animate({height:"100%"},2000, function(){     
 								//when done
-								updateCheckins();
 								$("#lastperson").show(); 
 								setTimeout(function() {
 							               $("#water").animate({height:"1%"},6000)
                      						       $("#lastperson").hide("slow"); 
-								}, 8000);	
+								}, 16000);	
 
 							 });
 
