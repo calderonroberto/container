@@ -4,13 +4,16 @@ REmoved so that it all fits nicely
 -->
 
 <div class="row">
-   
-    <div class="tutorial-text">
-       Hi <%= @user.name.split(' ').first %>. are you a <b>Week Winner</b>? To get your coupon contact <a href="mailto:roberto@alumni.ubc.ca"><b>roberto@alumni.ubc.ca</b></a> 
+
+    <% if @is_a_winner %>   
+    <div class="winner-flash">
+        <span class="glyphicon glyphicon-gift"></span> Hi <%= @user.name.split(' ').first %>. You are a <b>Week Winner</b>! To collect your voucher visit Seedlings Monday, Tuesday or Wednesday, from 11am to 1pm, or contact <a href="mailto:roberto@alumni.ubc.ca"><b>roberto@alumni.ubc.ca</b>.</a>
     </div>
+    <hr>
+    <% end %>
 
    <div class="col-xs-12">
-       <hr><h4>Your points this week:</h4> 
+       <h4>Your points this week:</h4> 
     </div>
     <div class="col-xs-8">       
        <%= image_tag(@user.picture_url, alt: "User Picture", class: 'user_profile_picture' ) %>

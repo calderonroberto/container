@@ -27,6 +27,9 @@ class UsersController < ApplicationController
    @display = Display.find_by_unique_id(cookies[:display_id])
    @display_id = cookies[:display_id]
 
+   winners = LastWeekWinners.get_winners(@display) 
+   @is_a_winner = winners.detect {|u| u['user'][:id] == @user.id}.present?
+
    @checkin_today = @user.checkins.where("display_id = ? AND created_at >= ?", @display.id, Time.zone.now.beginning_of_day)
 
    @gifts = @user.gifts

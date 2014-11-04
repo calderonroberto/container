@@ -17,12 +17,16 @@ class CheckinsController < ApplicationController
     end
 
     if user.checkins.where(display_id: display.id).last.nil? then
-      @checkin = user.checkin!(display)
+      unless user[:email] == "roberto@alumni.ubc.ca" then #TODO: REMOVE, this if for demoing purposes.
+        @checkin = user.checkin!(display)
+      end
       broadcast_checkin(display, user,thingbroker_url)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper)
     else
       @checkin = user.checkins.where(display_id: display.id).last
       if (@checkin.created_at <= Time.zone.now.beginning_of_day) then
-        @checkin = user.checkin!(display)
+        unless user[:email] == "roberto@alumni.ubc.ca" then #TODO: REMOVE, this if for demoing purposes.
+          @checkin = user.checkin!(display)
+        end
         broadcast_checkin(display, user,thingbroker_url)#broadcast checkin to arduino (app/workers/checkin_broadcaster, and /app/helpers/checkins_helper)
       end      
     end

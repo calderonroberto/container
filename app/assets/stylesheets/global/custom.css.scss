@@ -289,13 +289,17 @@ textarea {
 
 /*Profile*/
 
+/*Tutorial*/
+.winner-flash {font-size:100%; color:black; background-color: #FFCC99 ; border-radius: 5px; padding: 5px 5px; margin: 5px 5px;}
+
+
 .profile-checkins{
   height:65px;
   padding:5px 5px;
   margin-top:5px;
 }
 
-.week_score {float:right; border-radius:5px; width:140px; height:140px; background:#00C36D;font-size:120px; line-height:130px;text-align:center; color:white; position:relative;}
+.week_score {float:right; border-radius:5px; width:140px; height:140px; background:#00C36D;font-size:120px; line-height:110px;text-align:center; color:white; position:relative;}
 
 .week_score:after{
    content:"Points";
@@ -396,6 +400,23 @@ textarea {
    width: 60px;
    vertical-align:bottom;
 }
+
+
+.week_score_small {float:right; border-radius:5px; width:50px; height:50px; background:#00C36D;font-size:40px; line-height:40px;text-align:center; color:white; position:relative;}
+
+.week_score_small:after{
+   content:"Points";
+   font-weight: bold;
+   text-align:center;
+   font-size: 10px;
+   line-height:10px;
+   position:absolute;
+   bottom:0px;
+   left:0px;
+   width: 50px;
+   vertical-align:bottom;
+}
+
 
 .checkin_form{clear:both; text-align:right;}
 .checkin_form input{width:100%}

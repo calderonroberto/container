@@ -4,9 +4,11 @@ These are people you can talk to. Tap on their name to message them. Red envelop
 
 <% @userlist.each do |user| %>
    <div class="userlistitem" id="<%= user[:user].id %>" >
-      <!--
-      <div class="checkins_count"><%= user[:checkins_count] %></div>
-      -->
+      
+      <div class="week_score_small"><%= user[:user].score(@display,Time.zone.now.beginning_of_week,Time.zone.now)["score"] %></div>
+
+
+
       <%= link_to image_tag(user[:user].thumbnail_url, :border => 0, :width => 50, :height => 50, :id => user[:user].id), {:action => 'new', :controller => 'messages', :user_id => user[:user].id, :class => 'user_thumb'}, {id: user[:user].id} %>
       <%= link_to user[:user].name, {:action => 'new', :controller => 'messages', :user_id => user[:user].id}, {id: user[:user].id} %>
       <% if ( @user.has_unread_messages_from(user[:user]) ) then %>
