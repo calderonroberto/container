@@ -14,8 +14,8 @@ class FavoursController < ApplicationController
     if Favour.where(from_id: fromuser.id).last.nil? then
       @favour = Favour.new(from_id: fromuser.id, to_id: user.id).save
     else
-      @favour = Favour.where('from_id = ? AND to_id = ?', fromuser.id, user.id).last
-      if ( @favour. created_at <= Time.zone.now.beginning_of_day) then 
+      @favour = Favour.where('from_id = ? AND to_id = ? AND created_at <= ?', fromuser.id, user.id, Time.zone.now.beginning_of_day).last
+      if ( @favour.present? ) then 
          @favour = Favour.new(from_id: fromuser.id, to_id: user.id).save
       end
     end
