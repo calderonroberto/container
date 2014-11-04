@@ -7,35 +7,38 @@
     </div>
     <div class="signin-intro">
       <div class="signin-intro-people">
+<!--
         <% @userlist.each do |user| %>
           <div class="userlistitem-login" id="<%= user[:user].id %>" >
             <%= image_tag(user[:user].thumbnail_url, :border => 0, :width => 50, :height => 50, :class => 'user_img-login', :id => user[:user].id) %>
-	    <!-- Removed checkins count
             <div class="checkins_count-login"><%= user[:checkins_count] %></div>
-            -->
+
           </div>
         <% end %>
+-->
       </div>
+      <!-- Other icons
       <div class="signin-intro-text">
         In MySeedlings you can<br>
         <span class="glyphicon glyphicon-user"></span> Meet people.<br>
         <span class="glyphicon glyphicon-comment"></span> Chat with others here.<br>
         <span class="glyphicon glyphicon-leaf"></span> Water the garden.<br>
         <span class="glyphicon glyphicon-gift"></span> Get points and win free meals.<br>            
-        
-        <!-- Other icons
-        <span class="glyphicon glyphicon-home"></span> Post to wall.<br>    
-        <span class="glyphicon glyphicon-home"></span>Checkin to say hi.<br>
-        <span class="glyphicon glyphicon-leaf"></span>
-
-        -->
       </div>
+        -->
+      <div class="signin-intro-text">
+        <%= image_tag ("freemeal.png") %><br>
+        Sign-in to "Water the garden", accumulate points and win FREE meals and drinks at Seedlings.
+      </div>
+
+
+
     </div>
     <div class="signin-button">
       <%= link_to "Sign in using Facebook", user_omniauth_authorize_path(:facebook),  :class => "btn btn-primary btn-lg", :role => "button"  %>
     </div>
 
-    <p style="text-align:center; font-size:10px;margin:5px;"><br>Pssst, this is a private social network and we will never post anything on FB. To create your account fast we can use your Facebook photo and name. Still wary? You can try it out below anonymously!</p>
+    <p style="text-align:center; font-size:10px;margin:5px;"><br>Pssst, this is a private social network and we will never post anything on FB. To create your account fast we can use your Facebook photo and name.</p>
 
 
   </div>
@@ -50,7 +53,7 @@
 
 <!-- Nav tabs -->
 <ul class="nav nav-tabs">
-  <li class="active"><a href="#note" data-toggle="tab">Anonymous</a></li>
+  <li class="active"><a href="#note" data-toggle="tab">Help</a></li>
   <li><a href="#ethics" data-toggle="tab">Ethics Disclaimer</a></li>
 </ul>
 
@@ -69,17 +72,6 @@
    	end
     %>
     -->
-
-    <h4>Publish a Note:</h4>
-    <div class="tutorial-text">
-      Notes are small messages you can publish on the large display. They can be read by everyone.
-    </div>
-    <div style="font-size:14px;">
-    <%= form_for(@note) do |f| %>     
-      <%= render 'notes/fields', f: f %><br>
-      <%= f.submit "Send", class: "btn btn-large btn-primary" %> 
-    <% end %>
-    </div>
 
 
   <!-- FEATURES REMOVED FOR EXPERIMENT

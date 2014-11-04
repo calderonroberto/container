@@ -426,7 +426,7 @@ textarea {
 .userlistitem-login {margin: 5px 5px; width:50px; height:50px; background:#F0F0F0; float:right; position:relative;}
   .user_img-login{width:50px; height:50px; position:absolute; top:0; left:0; }
   .checkins_count-login {width:25px; height:25px; background:#6699FF;font-size:20px; line-height:20px;text-align:center; color:white; position:absolute; z-index:10;}
-.signin-intro-text {clear:both; font-size:20px; line-height:30px; text-align:center;} //clear float
+.signin-intro-text {clear:both; font-size:20px; font-weight:bold; line-height:26px; text-align:center;} //clear float
 .signin-button {height: 30px; text-align:center;}
 
 .signin-image {
