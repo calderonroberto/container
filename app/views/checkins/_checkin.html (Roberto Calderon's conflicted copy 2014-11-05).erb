@@ -1,6 +1,0 @@
-<%= form_for( :checkin, url: {controller: "checkins", action: "create"}, remote: true) do |f| %>
-  <%= f.hidden_field :user_id, :value => user.id %>
-  <%= f.hidden_field :display_id, :value => display.id %>
-  <%= f.submit "CHECKIN", class: "btn btn-primary checkin-button"%>
-<% end %>
-
