@@ -15,7 +15,6 @@ class UsersController < ApplicationController
      @userlist << usr
    end
 
-puts @userlist
    #@userlist.sort_by! { |hash| -hash['score']['score'] }
 
    #log_usage
