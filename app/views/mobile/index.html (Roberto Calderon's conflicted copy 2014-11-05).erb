@@ -1,0 +1,15 @@
+<div class="tutorial-text">
+These are apps that you can currently use. Tap on the available icons to access them.
+</div>
+<% @apps.each do |app| %>
+<%= link_to image_tag(app.thumbnail_url, :class => "appthumbnail-mobile"), {:action => 'show', :controller => 'mobile', :app_id => app.id}, {id: app.id} %>
+<% end %>
+
+
+
+<div class="qr-scanner-list">
+Get a QR-Code Scanner:<br>
+<a href="https://play.google.com/store/apps/details?id=com.google.zxing.client.android"><img class="qr-scanner" src="/img/android.png"></a>
+<a href="https://itunes.apple.com/en/app/qr-reader-for-iphone/id368494609"><img class="qr-scanner" src="/img/ios.png"></a>
+</div>
+

@@ -15,6 +15,9 @@ class UsersController < ApplicationController
      @userlist << usr
    end
 
+puts @userlist
+   #@userlist.sort_by! { |hash| -hash['score']['score'] }
+
    #log_usage
    if (Container::Application.config.log_usage)
      Log.create(controller: 'users', method: 'index', user_id: @user.id, display_id: @display_id, params: params, remote_ip: request.remote_ip)

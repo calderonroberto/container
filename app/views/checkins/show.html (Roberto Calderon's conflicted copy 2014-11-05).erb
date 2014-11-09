@@ -1,0 +1,15 @@
+<% @userlist.each do |user| %>
+
+<div class="userlistitem" id="<%= user[:user].id %>" >
+
+<%= image_tag(user[:user].thumbnail_url, :border => 0, :width => 50, :height => 50, :class => 'checkins_user_img', :id => user[:user].id) %>
+
+<div class="checkins_count"><%= user[:checkins_count] %></div>
+<div class="checkins_user_name"><%= user[:user].name %></div>
+<%= render 'checkins/checkin_form', :user => user[:user], :display => @display, :checkin_today => user[:checkin_today] %>
+
+</div>
+
+
+<% end %>
+

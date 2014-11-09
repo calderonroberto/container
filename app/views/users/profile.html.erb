@@ -12,9 +12,11 @@ REmoved so that it all fits nicely
     <hr>
     <% end %>
 
-   <div class="col-xs-12">
+    <div class="col-xs-12">
        <h4>Your points this week:</h4> 
     </div>
+
+
     <div class="col-xs-8">       
        <%= image_tag(@user.picture_url, alt: "User Picture", class: 'user_profile_picture' ) %>
     </div>
@@ -22,24 +24,24 @@ REmoved so that it all fits nicely
        <div class="week_score"><%= @user.score(@display, Time.zone.now.beginning_of_week, Time.zone.now)['score'] %></div>
     </div>
 
-    <div class="col-xs-12">    
-    </div>
-
     <div class="col-xs-12">
-
-    <div class="tutorial-text">
-       Your points are calculated by adding:
-    </div>
-
        <div class="favours_count"><%= @user.score(@display, Time.zone.now.beginning_of_week, Time.zone.now)['favours'] %></div>    
+       <div class="score_blank">+</div>
        <% if @display.setup.experimental_setup == 0 %>
-       <div class="checkins_count"><%= @user.score(@display, Time.zone.now.beginning_of_week, Time.zone.now)['checkins'] %></div>
+          <div class="checkins_count"><%= @user.score(@display, Time.zone.now.beginning_of_week, Time.zone.now)['checkins'] %></div>
        <% elsif @display.setup.experimental_setup == 1 %>
-       <div class="place_points_count"><%= @user.score(@display,Time.zone.now.beginning_of_week, Time.zone.now)['pool_points'] %></div>
+          <div class="place_points_count"><%= @user.score(@display,Time.zone.now.beginning_of_week, Time.zone.now)['pool_points'] %></div>
        <% end %>
+       <div class="score_blank">=</div>
     </div>
 
+    <div class="col-xs-12">    
+       <div class="tutorial-text">
+          Earn points each week when you water the garden or send-respond to "Help" requests. Every Monday the top 3 players win a FREE meal at Seedlings. <a href='<%= "/people/#{@display_id}" %>'>See other People.</a>
+       </div>
+    </div>
 
+    
 
     <% if @display.setup.experimental_setup == 0 %>
     <!-- Checkins --> 
@@ -55,6 +57,8 @@ REmoved so that it all fits nicely
        <div class="checkins_count"><%= @user.score(@display, Time.zone.now.beginning_of_week, Time.zone.now)['checkins'] %></div>
     </div>
     <% elsif @display.setup.experimental_setup == 1 %>
+
+
     <!-- Place -->
     <div class="col-xs-12">
        <hr><h4>Your Harvest points this week:</h4> 
@@ -67,9 +71,33 @@ REmoved so that it all fits nicely
     </div>
     <% end %>   
 
+
+
+    <!-- Garden Gauge-->
+    <div class="col-xs-12">       
+       <%
+          score = @display.score(Time.zone.now.beginning_of_week, Time.zone.now) 
+          barPercentage = (score["current_pool"]*100)/score["pool_size"]
+          barHeight = (barPercentage*200)/100+10
+          
+          if @display.setup.experimental_setup == 0
+              backgroundUrl = "assets/gauge-water-mobile.png"
+          elsif @display.setup.experimental_setup == 1
+              backgroundUrl = "assets/gauge-harvest-mobile.png"
+          end
+       %>
+       <div id="gauge-background" style="width:230px;height:200px; position:relative; background-image: url('<%= backgroundUrl%>'); background-size: cover; background-repeat: no-repeat; background-position: center center;">
+		<span id="gauge" style="width:90px; height:<%= barHeight %>px; background-color:#428BCA; display:inline-block; position:absolute; bottom:10px; left:30px; border-radius:5px;"></span>
+	</div>
+    </div>
+
+    <!-- Checkin button -->
     <div class="col-xs-12">
        <%= render 'checkins/checkin_form', :user => @user, :display => @display, :checkin_today => @checkin_today %>
     </div>
+
+
+
 
 
     <!-- Favours --> 

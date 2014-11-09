@@ -8,6 +8,7 @@ $(document).ready(function() {
   checkCheckinEvents(); //check for events and update (not using thingbroker jquery plugin)
   //if you prefer to not use faye long pulling you can do synchronous calls [setting this up for now]
   setInterval(initState,  5000); 
+  setInterval(toggleAdvertisement,  20000);  //300000 = five minutes
 });
 
 function passingInstructions () {
@@ -16,6 +17,17 @@ function passingInstructions () {
         $("#interact-instructions").animate({ "left": "100%"}, 80000, "linear", function(){ passingInstructions(); });	               
     }
 } 
+
+function toggleAdvertisement() {
+   if (interacting == false) {
+      $("#advertisement").fadeToggle(5000);
+   }
+   if (interacting == true) {
+      $("#advertisement").hide("slow");
+   }
+
+}
+
 
 function initState () {
   $.ajax({ type: "GET", url: "/api/state", dataType: "json", success: stateHandler });
@@ -77,15 +89,17 @@ function updateInstructions (interaction) {
       if (interaction.interacting == "false") {
          $("#interact-instructions").show("slow");
 	 interacting = false;
-	 //passingInstructions(); //animate instructions! 
+	 //passingInstructions(); //animate instructions!
       } 
       if (interaction.interacting == "true") {
-         $("#interact-instructions").hide("slow");   
+         $("#interact-instructions").hide("slow");
+         $("#advertisement").hide("slow");      
 	 interacting = true;
       }
    }
    if (interaction.instructions == "false") {
       $("#interact-instructions").hide();   
+      $("#advertisement").hide("slow");      
       interacting = true;
    }
 }

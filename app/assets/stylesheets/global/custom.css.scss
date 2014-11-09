@@ -314,6 +314,19 @@ textarea {
    vertical-align:bottom;
 }
 
+.score_blank {
+    float:right;
+    display: block;
+    /*width:30px;*/
+    height:60px;
+    margin:3px;
+    font-size:50px;
+    line-height:55px;
+    text-align:center;
+    color:#505050;
+    position:relative;
+}
+
 .place_points_count {
     float:right;
     display: block;

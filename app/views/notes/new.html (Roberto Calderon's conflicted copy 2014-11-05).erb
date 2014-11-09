@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="span11 offset1">
+    <h3>Publish a Note</h3>
+    <%= form_for(@note) do |f| %>     
+      <%= render 'notes/fields', f: f %><br>
+      <%= f.submit "Send", class: "btn btn-large btn-primary" %> 
+    <% end %>
+    <div class="tutorial-text">
+    Notes are small messages you can publish on the large display. They can be read by everyone.
+    </div>
+  </div>
+</div>

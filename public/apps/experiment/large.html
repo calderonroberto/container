@@ -173,8 +173,6 @@
 	   width: 60px;
 	   vertical-align:bottom;
 	}
-
-
   </style>
 
 
@@ -255,7 +253,7 @@
 
 			/*Update winners*/
 			$('#winners').empty();
-			$('#winners').append("<div id='winners-message'>Last Week winners get a FREE meal!</div>");
+			$('#winners').append("<div id='winners-message'>Congratulations to last week winners!</div>");
 			$.each( data.last_week_winners, function(index,value){
 	                        //$("#winners").append('<div class="winner">'+value.user.name +'</div>');	
 				$("#winners").append("<div class='winner'><span class='winner_thumbnail'><img src='"+value.user.thumbnail_url+"'></img></span><span class='winner_name'>"+value.user.name.split(" ")[0]+"</span></div>");	
@@ -266,10 +264,7 @@
 			current_pool = data.display_week_score.current_pool;
 			barPercentage = (current_pool*100)/pool_size;
 			//$('#gauge').css({"height":(barPercentage*200)/100+10+"px"});
-			$('#gauge-large').css({"height":(barPercentage*480)/100+10+"px"});
-
-
-	
+			$('#gauge-large').css({"height":(barPercentage*480)/100+10+"px"});	
 
 		});
 			
@@ -333,6 +328,12 @@
 -->
 
   <div id="gauge-background-large"><span id="gauge-large"></span></div>
+  
+
+
+  <div id="instructions">
+	<div id="instructions-text">Scan QR-Code or visit <u>bit.do/myseedlings</u> to play</div>
+  </div>
 
   <div id="water"/>
   <div id="lastperson"/>
