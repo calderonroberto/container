@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
    @user_to_display = User.find_by_id(params[:user_id])
    @gift_today = @user_to_display.gifts.where("from_id = ? AND created_at >= ?", @user.id, Time.zone.now.beginning_of_day)
    @favour_today = Favour.where("from_id = ? AND to_id = ? AND created_at >= ?", @user.id, @user_to_display.id, Time.zone.now.beginning_of_day)
-   @favours_pending = Favour.where("from_id = ? AND to_id = ? AND reciprocated = ?", @user.id, @user_to_display.id, false)
+   @favours_pending = Favour.where("from_id = ? AND to_id = ? AND reciprocated = ? AND created_at >= ?", @user.id, @user_to_display.id, false, Time.zone.now.beginning_of_week)
    @gifts_sent = @user_to_display.gifts.where("from_id = ?", @user.id)
 
    @messages = Message.where(:to => [@user_to_display.id, @user.id], :from => [@user.id, @user_to_display.id]).order("created_at DESC")
@@ -36,7 +36,7 @@ class MessagesController < ApplicationController
    @user_to_display = User.find_by_id(params[:message][:to_id])
    @gift_today = @user_to_display.gifts.where("from_id = ? AND created_at >= ?", @user.id, Time.zone.now.beginning_of_day)
    @favour_today = Favour.where("from_id = ? AND to_id = ? AND created_at >= ?", @user.id, @user_to_display.id, Time.zone.now.beginning_of_day)
-   @favours_pending = Favour.where("from_id = ? AND to_id = ? AND reciprocated = ?", @user.id, @user_to_display.id, false)
+   @favours_pending = Favour.where("from_id = ? AND to_id = ? AND reciprocated = ? AND created_at >= ?", @user.id, @user_to_display.id, false, Time.zone.now.beginning_of_week)
    @gifts_sent = @user_to_display.gifts.where("from_id = ?", @user.id)
 
    @messages = Message.where(:to => [@user_to_display.id, @user.id], :from => [@user.id, @user_to_display.id]).order("created_at DESC")

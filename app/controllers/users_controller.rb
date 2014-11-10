@@ -35,7 +35,7 @@ class UsersController < ApplicationController
    @checkin_today = @user.checkins.where("display_id = ? AND created_at >= ?", @display.id, Time.zone.now.beginning_of_day)
 
    @gifts = @user.gifts
-   @favours = Favour.where("to_id = ? AND reciprocated = ?", @user.id, false)
+   @favours = Favour.where("to_id = ? AND reciprocated = ? AND created_at >= ?", @user.id, false, Time.zone.now.beginning_of_week)
 
    #log_usage
    if (Container::Application.config.log_usage)
