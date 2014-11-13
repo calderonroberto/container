@@ -17,15 +17,15 @@
     <!-- Favours -->
     <div class="col-xs-12">
        <hr>
-       <h4>Request a favour from <%= @user_to_display.name %></h4>
+       <h4>Request a "help" point from <%= @user_to_display.name %></h4>
        <div class="tutorial-text">
-         You can only request ONE favour PER DAY to each person. Favours you send that are marked as "done" by the receiver earns you 1 "Help" point. 
+         You can only request ONE "help" point PER DAY from each person. Help points you request that are marked as "done" by the receiver earn you both one "Help" point. 
        </div>
     </div>
 
     <div class="col-xs-6">
        <div class="message-request-item">
-          Request favour.        
+          Request "help".        
           <span class="favourflash"></span>
           <%= render 'favours/favour_form', :user => @user_to_display, :from => @user, :favour_today => @favour_today, :display_id => @display_id %>
        </div> 
@@ -33,7 +33,7 @@
 
     <div class="col-xs-6">
        <div class="message-request-item">
-          Favours pending.
+          Requests pending.
           <span class="favourpendingflash"><%= @favours_pending.count %></span>
        </div>
     </div>
@@ -44,7 +44,7 @@
        <hr>
        <h4>Send a gift to <%= @user_to_display.name %></h4>
        <div class="tutorial-text">
-         You can only send ONE gift PER DAY to each person. 
+         Gifts don't earn you points, they are like "Pokes". You can only send ONE gift PER DAY to each person. 
        </div>
     </div>
     <div class="col-xs-6">
@@ -67,7 +67,7 @@
        <hr>
        <h4>Message <%= @user_to_display.name %></h4>
        <div class="tutorial-text">
-         These messages can only be read by you and <%= @user_to_display.name %>.
+         Want to message this person? These messages can only be read by you and <%= @user_to_display.name %>.
        </div>
        <%= form_for (@message) do |f| %>
           <%= render 'messages/fields', f: f %><br>

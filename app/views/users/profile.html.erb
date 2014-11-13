@@ -7,7 +7,7 @@ REmoved so that it all fits nicely
 
     <% if @is_a_winner %>   
     <div class="winner-flash">
-        <span class="glyphicon glyphicon-gift"></span> Hi <%= @user.name.split(' ').first %>. You are a <b>Week Winner</b>! To collect your voucher visit Seedlings Tuesday or Wednesday, from 11am to 1pm, or contact <a href="mailto:roberto@alumni.ubc.ca"><b>roberto@alumni.ubc.ca</b>.</a>
+        <span class="glyphicon glyphicon-gift"></span> Yay <%= @user.name.split(' ').first %>! You are a <b>Week Winner</b>! To collect your voucher visit Seedlings Tuesday or Wednesday, from 11am to 1pm, or contact <a href="mailto:roberto@alumni.ubc.ca"><b>roberto@alumni.ubc.ca</b>.</a>
     </div>
     <hr>
     <% end %>
@@ -37,7 +37,7 @@ REmoved so that it all fits nicely
 
     <div class="col-xs-12">    
        <div class="tutorial-text">
-          Earn points each week when you water the garden or send-respond to "Help" requests. Every Monday the top 3 players win a FREE meal at Seedlings. <a href='<%= "/people/#{@display_id}" %>'>See other People.</a>
+          Hi <%= @user.name.split(' ').first %>. Welcome to MySeedlings, a game and social network. Earn points each week when you water the garden or send-respond to "Help" requests. Every Monday the top 3 players win a FREE meal at Seedlings. <a href='<%= "/people/#{@display_id}" %>'>See other People.</a>
        </div>
     </div>
 
@@ -103,14 +103,14 @@ REmoved so that it all fits nicely
     <!-- Favours --> 
     <div class="col-xs-12">
        <hr><h4>Your Help points this week:</h4> 
-      <div class="tutorial-text">Earn help points by answering to, or requesting, virtual garden favours from other people. When favours are answered both the issuer and resolver will earn 1 point.</div>
+      <div class="tutorial-text">Earn help points by answering to, or requesting, "help" points from other people. When "help" is answered both the issuer and resolver will earn 1 point. <a href='<%= "/people/#{@display_id}" %>'>See other People</a> and visit their profiles to request "help" points.</div>
     </div>
 
     <div class="col-xs-8">
        <div class="profile-favourlist">
           <% if @favours.empty? %>
              <div class="tutorial-text">
-               <span class="glyphicon glyphicon-info-sign"></span> You have no Favour requests yet :(
+               <span class="glyphicon glyphicon-info-sign"></span> You have no "Help" point requests yet. Visit <a href='<%= "/people/#{@display_id}" %>'>other people's profiles</a> to request some points! 
              </div>
           <% end %>  
           <% @favours.each do |f| %>
