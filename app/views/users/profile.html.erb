@@ -50,14 +50,15 @@ REmoved so that it all fits nicely
     </div>
     <div class="col-xs-8">
        <div class="tutorial-text">
-          Earn 1 point every time you water the garden. 
+          This week you can earn 1 point every time you water the garden. 
        </div>
     </div>
     <div class="col-xs-4">
        <div class="checkins_count"><%= @user.score(@display, Time.zone.now.beginning_of_week, Time.zone.now)['checkins'] %></div>
     </div>
-    <% elsif @display.setup.experimental_setup == 1 %>
 
+
+    <% elsif @display.setup.experimental_setup == 1 %>
 
     <!-- Place -->
     <div class="col-xs-12">
