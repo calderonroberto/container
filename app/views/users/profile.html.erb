@@ -78,7 +78,7 @@ REmoved so that it all fits nicely
        <%
           score = @display.score(Time.zone.now.beginning_of_week, Time.zone.now) 
           barPercentage = (score["current_pool"]*100)/score["pool_size"]
-          barHeight = (barPercentage*170)/100+5
+          barHeight = ((barPercentage*160)/100)+5
           
           if @display.setup.experimental_setup == 0
               backgroundUrl = "assets/gauge-water-mobile.png"
