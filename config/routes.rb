@@ -29,7 +29,6 @@ Container::Application.routes.draw do
 
   #mobile display
   match 'm/:display_name', to: 'mobile#index', :as => :m #To render apps on mobile login
-  #match '/m/:display_name', to: 'users#profile', :as => :profile
   match '/mobile/:id', to: 'mobile#index', :as => :mobile 
   
   match '/mobile/app/:app_id', to: 'mobile#show', :as => :mobile_app

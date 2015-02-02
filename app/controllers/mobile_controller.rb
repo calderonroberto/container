@@ -21,11 +21,11 @@ def index
  if (Container::Application.config.log_usage)
    Log.create(controller: 'mobile', method: 'index', user_id: @user.id, display_id: @display_id, params: params, remote_ip: request.remote_ip )
  end
- #render :layout => 'mobile' #TODO: for experiment we are redirecting
- 
- logger.debug ">>>>>>>>>>>>>>>>>NOTE: redirecting mobile controller (app selection) to Profile for PhD experiment"
+ render :layout => 'mobile' 
 
- redirect_to profile_url
+#TODO: Commented this out for a bit, for the PhD expeirment we redirected to profile. 
+#logger.debug ">>>>>>>>>>>>>>>>>NOTE: redirecting mobile controller (app selection) to Profile for PhD experiment"
+#redirect_to profile_url
 
 end
 
