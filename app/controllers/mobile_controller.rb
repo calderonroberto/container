@@ -15,7 +15,7 @@ def index
 
  @user = User.find_by_id(cookies[:user_id])
  @checkin_today = @user.checkins.where("display_id = ? AND created_at >= ?", @display.id, Time.zone.now.beginning_of_day)
- Registration.create(user_id: @user.id, display_id: @display_id) #register that this user has visited this thid splay
+ Registration.create(user_id: @user.id, display_id: @display_id) #register that this user has visited this display
 
  #log usage
  if (Container::Application.config.log_usage)
