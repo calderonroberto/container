@@ -23,7 +23,8 @@ def index
  end
  #render :layout => 'mobile' #TODO: for experiment we are redirecting
  
- logger.debug ">>>>>>>>>>>>>>>>>NOTE: redirecting mobile controller (app selection) to Profile for experiment"
+ logger.debug ">>>>>>>>>>>>>>>>>NOTE: redirecting mobile controller (app selection) to Profile for PhD experiment"
+
  redirect_to profile_url
 
 end

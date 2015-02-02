@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :uid, :name, :provider, :password, :token, :thumbnail_url, :picture_url, :friends, :test_group
+  attr_accessible :email, :uid, :name, :provider, :password, :token, :thumbnail_url, :picture_url, :friends, :test_group, :registrations
 
   has_many :checkins, dependent: :destroy #making sure that checkins are destroyed when a user is
   has_many :gifts, dependent: :destroy #making sure  that gifts are destroyed when a user is
@@ -49,7 +49,6 @@ class User < ActiveRecord::Base
 
 
   def has_unread_messages_from(user)
-    #return !Message.where(:to => self.id).last.read
     unread_message = Message.where(:to => [self.id], :from => [user.id]).last
     if !unread_message.nil? then
       return !unread_message.read
@@ -59,7 +58,6 @@ class User < ActiveRecord::Base
   end
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-   #user = User.where(:provider => auth.provider, :uid => auth.uid).first #TODO: remove after checking it works
     user = User.where(:provider => auth["provider"], :uid => auth["uid"]).first
     unless user
       user = User.create(name:auth["extra"]["raw_info"]["name"],
