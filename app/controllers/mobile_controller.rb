@@ -23,10 +23,6 @@ def index
  end
  render :layout => 'mobile' 
 
-#TODO: Commented this out for a bit, for the PhD expeirment we redirected to profile. 
-#logger.debug ">>>>>>>>>>>>>>>>>NOTE: redirecting mobile controller (app selection) to Profile for PhD experiment"
-#redirect_to profile_url
-
 end
 
 def show
