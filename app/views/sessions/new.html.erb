@@ -6,17 +6,17 @@
     <h2>Sign in</h2>
     <%= form_for(:session, url: sessions_path) do |f| %>
       
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-    
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %><br><br>
+      
+      <%= f.label :password %><br>
+      <%= f.password_field :password %><br><br>
+      
+      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %><br><br>
     <% end %>
     <p>New display? <%= link_to "Create a display.", signup_path %></p>
   </div>
-  <div class="span4">
+  <div class="span2 hidden-table hidden-phone">
       <%= image_tag("cherry.png", alt: "cherry", class: "signin-image") %>   
   </div>
 </div>

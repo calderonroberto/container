@@ -55,22 +55,22 @@ html, body {
 #interact-instructions{
    //background-color:white;
    align: center;
-   //height:80%;
-   //width:90%;
+   width:100%;
+   height:100%;
    position:absolute;
-   bottom: 45%;
+   top: 0%;
    left: 0%;
    z-index:1000;
 }
 
 #instructions-block{
-   width: 450px;
+   width: 40%;
    background-color: #383838;
    border-radius: 15px;
    margin: 10px;
    padding: 10px;
    text-align: center;
-   font-size: 80px;
+   font-size: 60px;
    font-weight: bold;
    line-height: 85px;
    color: #DDDDDD;
@@ -78,12 +78,13 @@ html, body {
 }
 
 #interact-instructions-video{
-  width:400px;
+  //resized now via javascript at onload()
 }
 
 #checkin-notice {position:absolute; bottom:20px; left:20px; background:#6699FF; border-radius: 10px; color:white; padding:15px; text-align:center; font-weight:bold; font-size:40px;}
 .checkin-notice-persons {}
 
+/*This has been disabled */
 #advertisement {
  	   position:absolute;
            font-family: Sans-Serif;
@@ -93,7 +94,8 @@ html, body {
            height: 75%;
            background-color:white;
            color:#428BCA;
-	   font-size: 140px;
+	   /*font-size: 140px;*/
+           font-size: 200%;
            font-weight:bold;
      	   padding:20px;
 	   padding-left:500px;
@@ -121,14 +123,6 @@ html, body {
   height: 15%;
 }
 
-.title {
-  font-size:20px;
-  line-height:20px;
-  color:black;
-  text-align:center;
-  padding:2px;
-}
-
 .note {
   background-color:#6F4E37;
   /*background-color: #FFFFCC;*/
@@ -136,10 +130,10 @@ html, body {
   padding:2px;
   position:relative;
   width:22%;
-  height: 75%;
-  margin:2px;
+  height:80%;
+  margin:5px;
   float:left;
-  font-size: 80%;
+  font-size: 100%;
   font-style: normal;
   text-align: left;
 }
@@ -147,7 +141,7 @@ html, body {
 .note-user-thumbnail {
   left: 2px;
   top: 2px;
-  width: 50px;
+  max-height: 75%;
 }
 
 .note-user-thumbnail img {
@@ -157,7 +151,7 @@ html, body {
 .note-text {
   position:absolute;
   left:55px;
-  font-size:20px;
+  font-size:100%;
 }
 
 .qrcode {
@@ -174,12 +168,10 @@ html, body {
   position:fixed;
   bottom:0%;
   left:0%;
-  line-height:85px;
-  font-size:90px;
+  font-size:100%; //font resized via javascript at onLoad()
   text-align:center;
   background:black;
   color:white;
-  padding:5px;
   width:100%;
   height:10%;
   padding: 2px 2px;
