@@ -29,10 +29,12 @@
         #lastperson {background-color:rgba(66,139,202,0.7); margin:50px; padding:10px; border-radius: 10px; font-size:120px; font-weight:bold; color:white; text-align:center;}
 
 	/*#leaders*/
-	#leaders{width:30%; height:45%; background-color:#383838; border-radius:15px; padding:10px; color:white; text-align:center; position:fixed; right:1%;top:20px;}
+	#leaders{width:30%; height:45%; background-color:#383838; border-radius:15px; padding:10px; color:white; text-align:center; position:fixed; right:5px;top:20px;}
 	#leaders-message{font-weight:bold; font-size:200%; width:100%;}
   	div .lot{float:left; position:relative; background:white; margin: 2px 2px; font-family:"Verdana", sans-serif; width:40%; height:24%; padding:5px;}
-        .user_thumbnail{position:absolute; top:5%; left:5%; }
+        .user_thumbnail{position:absolute; top:5%; left:5%; height:80%;}
+	.user_thumbnail img {height:80%}
+ 
 	.name{font-size:100%;color:black;position:absolute;bottom:5%;left:5%;background-color:white;}
 	.weekscorethumb {float:right; width:50%; height:50%; background-color:#00C36D;font-size:100%; /*line-height:65px;*/text-align:center; color:white; position:relative; border-radius:5px; z-index:1}
 /*	
@@ -50,7 +52,7 @@
 	}
 */
 	/*#winners*/	
-	#winners{width:30%; height:20%; background-color:#383838; border-radius:15px; padding:10px; color:white; text-align:center; position:absolute; right:1%;top:60%;}
+	#winners{width:30%; height:20%; background-color:#383838; border-radius:15px; padding:10px; color:white; text-align:center; position:absolute; right:5px;top:60%;}
 	#winners-message{font-weight:bold; font-size:100%; width:100%;}
 	div .winner{float:left; position:relative; background:white; margin: 2px 2px; font-family:"Verdana", sans-serif; width:60px; height:70px; padding:5px;}
         .winner_thumbnail{position:absolute; top:5%; left:5%;}
@@ -70,11 +72,11 @@
 
 
 	/*Instructions*/
-	#instructions {background-color:#383838;position:absolute; left:1%; bottom:1%; text-align: center;padding:15px 15px; border-radius: 15px; align:center;}
+	#instructions {background-color:#383838;position:absolute; left:5px; bottom:1%; text-align: center;padding:15px 15px; border-radius: 15px; align:center;}
 	#instructions-text {color:white; font-size:100%;font-family:"Arial", sans-serif;vertical-align:text-top;margin-bottom:10px;}
 
 	#instructions-img {
-		position:absolute; left:220px; bottom:100px; 
+		position:absolute; left:250px; bottom:100px; 
 		width:300px; height:200px;
 		background-image: url('instructions-image.png');
 		background-size: cover;
@@ -250,6 +252,7 @@
 			$('#leaders').append("<div id='leaders-message'>Week Leaders</div>");
 			$.each( data.this_week_leaders, function(index,value){
 	                        $("#leaders").append("<div class='lot'><span class='weekscorethumb'>"+value.score.score+"</span><span class='user_thumbnail'><img src='"+value.user.thumbnail_url+"'></img></span><span class='name'>"+value.user.name.split(" ")[0]+"</span></div>");
+				return index < 5; //limit only 4 for ipads
 			});
 
 			/*Update winners*/
@@ -291,12 +294,10 @@
 		});
 */
 
-
                 $("#lastperson").hide();	
 	        updateCheckins();
                 passingCloud();                
                 updateScores();	
-
 
 		setInterval(function(){
 			updateScores();
@@ -305,7 +306,7 @@
 
         function passingCloud () {
 	    $("#cloud").css({ "left": "-315px"});	
-	    $("#cloud").animate({ "left": "90%"}, 10000, "linear", function(){passingCloud();});	               
+	    $("#cloud").animate({ "left": "100%"}, 10000, "linear", function(){passingCloud();});	               
         } 
 
 //TODO: set proper tabs
