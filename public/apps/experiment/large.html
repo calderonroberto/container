@@ -29,12 +29,12 @@
         #lastperson {background-color:rgba(66,139,202,0.7); margin:50px; padding:10px; border-radius: 10px; font-size:120px; font-weight:bold; color:white; text-align:center;}
 
 	/*#leaders*/
-	#leaders{width:380px; height:360px; background-color:#383838; border-radius:15px; padding:10px; color:white; text-align:center; position:fixed; right:10px;top:20px;}
+	#leaders{width:30%; height:50%; background-color:#383838; border-radius:15px; padding:10px; color:white; text-align:center; position:fixed; right:5px;top:20px;}
 	#leaders-message{font-weight:bold; font-size:30px; width:100%;}
-  	div .lot{float:left; position:relative; background:white; margin: 2px 2px; font-family:"Verdana", sans-serif; width:170px; height:90px; padding:5px;}
-        .user_thumbnail{position:absolute; top:5%; left:5%;}
-	.name{font-size:20px;color:black;position:absolute;bottom:5%;left:5%;background-color:white;}
-	.weekscorethumb {float:right; width:80px; height:80px; background-color:#00C36D;font-size:60px; line-height:65px;text-align:center; color:white; position:relative; border-radius:5px; z-index:1}	
+  	div .lot{float:left; position:relative; background:white; margin: 2px 2px; font-family:"Verdana", sans-serif; width:40%; height:30%; padding:5px;}
+        .user_thumbnail{position:absolute; top:5%; left:5%; }
+	.name{font-size:100%;color:black;position:absolute;bottom:5%;left:5%;background-color:white;}
+	.weekscorethumb {float:right; width:50%; height:50%; background-color:#00C36D;font-size:200%; line-height:65px;text-align:center; color:white; position:relative; border-radius:5px; z-index:1}	
 	.weekscorethumb:after{
 	   content:"Points";
 	   font-weight: bold;
@@ -44,7 +44,7 @@
 	   position:absolute;
 	   bottom:0px;
 	   left:0px;
-	   width: 80px;
+	   width: 100%;
 	   vertical-align:bottom;
 	}
 
@@ -69,8 +69,8 @@
 
 
 	/*Instructions*/
-	#instructions {background-color:#383838;position:absolute; left:20px; bottom:50px; text-align: center;padding:15px 15px; border-radius: 15px; align:center;}
-	#instructions-text {color:white; font-size:50px;font-family:"Arial", sans-serif;vertical-align:text-top;margin-bottom:10px; line-height:25px;}
+	#instructions {background-color:#383838;position:absolute; left:0%; bottom:0%; text-align: center;padding:15px 15px; border-radius: 15px; align:center;}
+	#instructions-text {color:white; font-size:200%;font-family:"Arial", sans-serif;vertical-align:text-top;margin-bottom:10px;}
 
 	#instructions-img {
 		position:absolute; right:660px; top: 150px; 
@@ -248,7 +248,7 @@
 			$('#leaders').empty();
 			$('#leaders').append("<div id='leaders-message'>This Week Leaders</div>");
 			$.each( data.this_week_leaders, function(index,value){
-	                        $("#leaders").append("<div class='lot'><span class='weekscorethumb'>"+value.score.score+"</span><span class='user_thumbnail'><img src='"+value.user.thumbnail_url+"'></img></span><span class='name'>"+value.user.name.split(" ")[0]+"</span></div>");
+	                        $("#leaders").append("<div class='lot'><span class='weekscorethumb autoheight'>"+value.score.score+"</span><span class='user_thumbnail'><img src='"+value.user.thumbnail_url+"'></img></span><span class='name'>"+value.user.name.split(" ")[0]+"</span></div>");
 			});
 
 			/*Update winners*/
@@ -264,17 +264,37 @@
 			current_pool = data.display_week_score.current_pool;
 			barPercentage = (current_pool*100)/pool_size;
 			//$('#gauge').css({"height":(barPercentage*200)/100+10+"px"});
-			$('#gauge-large').css({"height":(barPercentage*480)/100+10+"px"});	
+			$('#gauge-large').css({"height":(barPercentage*480)/100+10+"px"});
+
+                        $('.autoheight').css({"font-size": $(this).parent().height()})
 
 		});
 			
 	}
 
 	$(document).ready(function() {
+
+//TODO: delete this                
+/*
+  $('#lots div').each(function(){
+		  var divWidth = $(this).width();
+		  var divHeight = $(this).height();
+ 		  var newFontSize = Math.min(divWidth, divHeight);
+		  var checkinsSize = newFontSize/3;
+		  var nameSize = newFontSize/6;
+   	   	  $(".checkins").css({"font-size" : checkinsSize});
+   	   	  $(".name").css({"font-size" : nameSize});
+   	   	  $(this).css({"background" : ":url(img/01.jpg)"});
+		});
+*/
+
+
                 $("#lastperson").hide();	
 	        updateCheckins();
                 passingCloud();                
                 updateScores();	
+
+
 		setInterval(function(){
 			updateScores();
   		}, 600000);														

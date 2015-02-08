@@ -8,31 +8,10 @@ $(document).ready(function() {
   checkCheckinEvents(); //check for events and update (not using thingbroker jquery plugin)
   //if you prefer to not use faye long pulling you can do synchronous calls [setting this up for now]
 
-  //Resize url according to this display
-/*
-  $('.qrcodeurl').each(function(){
-    var divWidth = $(this).width();
-    var divHeight = $(this).height();
-    var newFontSize = Math.min(divWidth, divHeight);
-    $(this).css({"font-size":newFontSize/1.3});  
-  });
-*/
+  //Resize items according to display
   $('.qrcodeurl').css({"font-size": $('.qrcodeurl').height()/1.3})
   $('#interact-instructions-video').css({"width": $('#instructions-block').width() * 0.9})
-  
-
-/*
-  $('#lots div').each(function(){
-		  var divWidth = $(this).width();
-		  var divHeight = $(this).height();
- 		  var newFontSize = Math.min(divWidth, divHeight);
-		  var checkinsSize = newFontSize/3;
-		  var nameSize = newFontSize/6;
-   	   	  $(".checkins").css({"font-size" : checkinsSize});
-   	   	  $(".name").css({"font-size" : nameSize});
-   	   	  $(this).css({"background" : ":url(img/01.jpg)"});
-		});
-*/
+ 
   setInterval(initState,  5000); 
   setInterval(toggleAdvertisement,  20000);  //300000 = five minutes
 });
