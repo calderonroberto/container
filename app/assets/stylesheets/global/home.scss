@@ -141,17 +141,16 @@ html, body {
 .note-user-thumbnail {
   left: 2px;
   top: 2px;
-  max-height: 75%;
-  margin: 5 5;
+  max-width: 30%;
 }
 
 .note-user-thumbnail img {
-  width:30px;
+  //width:30px;
 }
 
 .note-text {
   position:absolute;
-  left:55px;
+  left:32%;
   font-size:100%;
 }
 
