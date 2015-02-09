@@ -64,11 +64,11 @@ html, body {
 }
 
 #instructions-block{
-   width: 40%;
+   width: 50%;
    background-color: #383838;
    border-radius: 15px;
-   margin: 10px;
-   padding: 10px;
+   margin: 20px;
+   padding: 20px;
    text-align: center;
    font-size: 60px;
    font-weight: bold;
@@ -79,6 +79,7 @@ html, body {
 
 #interact-instructions-video{
   //resized now via javascript at onload()
+  margin: 20px;
 }
 
 #checkin-notice {position:absolute; bottom:20px; left:20px; background:#6699FF; border-radius: 10px; color:white; padding:15px; text-align:center; font-weight:bold; font-size:40px;}
