@@ -1,0 +1,45 @@
+<!DOCTPE html>
+<html lang="eng">
+
+<head> 
+  <meta name="description" content="A demo on video">
+  <title>Video demo</title>
+
+  <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="jquery.thingbroker-0.3.0.min.js"></script>
+  <style>
+    #video {margin: 0 auto; display:block; width: 90% !important; height: auto !important; }
+  </style>
+
+</head>
+  
+
+<body>
+  <div id="videocontrolbuttons"></div>
+    <video id="video" controls autoplay loop poster="poster.svg">
+      <source src="video.mp4">
+      Your browser doesn't support video
+  </div>
+
+  <script type="text/javascript">
+    $("#videocontrolbuttons").thing({listen:true,
+                   debug:false,
+		   container:true,
+                   eventCallback:function(json){
+			//console.log(json[0].info);
+			if (json[0].info.button == "play") {
+				document.getElementById('video').play();
+		        } else {
+				document.getElementById('video').pause();
+		        }
+
+                   }
+           });
+
+
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Video Demo</title>
+<meta name="Description" content="Play/stop buttons for video demo">
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="jquery.thingbroker-0.3.0.min.js"></script>
+
+ <style>
+    .button { width:90%; height: 35px; background-color:rgba(47,93,124,0.7); border-radius:10px; color:white; text-align:center; margin:10px 10px; font-size:30px; padding: 5px 5px; font-weight:bold;} 
+   </style>
+
+</head>
+
+<body>
+<div id="videocontrolbuttons"></div>
+<div id="play" class="button">Play</div>
+<div id="pause" class="button">Pause</div>
+
+<script type="text/javascript">
+   var t = $.ThingBroker({debug:false, container:true}); //send directly to
+   $('#play').click(function(){ t.postEvent("videocontrolbuttons", {"button":"play"}); })
+   $('#pause').click(function(){ t.postEvent("videocontrolbuttons", {"button":"pause"}); })
+
+</script>
+
+</body>
+</html>
