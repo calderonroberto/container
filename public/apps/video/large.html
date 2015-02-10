@@ -10,17 +10,13 @@
   <style>
     #video {margin: 0 auto; display:block; width: 90% !important; height: auto !important; }
   </style>
-  <script type="text/javascript">
-     //in ios devices (i.e. ipad) this needs to be disabled.
-     self.webView.mediaPlaybackRequiresUserAction = NO;
-  </script>
 
 </head>
   
 
 <body>
   <div id="videocontrolbuttons"></div>
-    <video id="video" controls autoplay loop poster="poster.svg" preload="true">
+    <video id="video" controls autoplay loop poster="poster.svg">
       <source src="video.mp4">
       Your browser doesn't support video
   </div>
