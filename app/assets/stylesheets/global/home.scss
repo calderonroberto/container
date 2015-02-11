@@ -118,10 +118,10 @@ html, body {
   /*background-color: #FFFFCC;*/
   background-color: #D3AC8B;
   position:absolute;
-  top:75%;
+  top:80%;
   left:0px;
   width: 90%;
-  height: 15%;
+  height: 10%;
 }
 
 .note {
@@ -143,6 +143,7 @@ html, body {
   left: 2px;
   top: 2px;
   max-width: 30%;
+  max-height:80%;
 }
 
 .note-user-thumbnail img {
