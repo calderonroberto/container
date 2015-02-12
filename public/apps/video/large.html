@@ -24,6 +24,8 @@
   </div>
 
   <script type="text/javascript">
+    var v = ["bettyboop.mp4", "big_buck_bunny.webm", "video.mp4"];
+    var vindex = 0;
     $("#videocontrolbuttons").thing({listen:true,
                    debug:false,
 		   container:true,
@@ -31,9 +33,16 @@
 			//console.log(json[0].info);
 			if (json[0].info.button == "play") {
 				document.getElementById('video').play();
-		        } else {
+		        } else if (json[0].info.button == "pause")  {
 				document.getElementById('video').pause();
-		        }
+		        } else if (json[0].info.button == "next") {
+				if (vindex >= v.length-1) { vindex = 0; }
+				else { vindex +=1 }
+ 				console.log(vindex);
+				console.log(v[vindex]);
+				$('#video source').attr('src', v[vindex]);
+				$("#video")[0].load();
+			}
 
                    }
            });

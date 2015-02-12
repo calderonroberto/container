@@ -16,11 +16,13 @@
 <div id="videocontrolbuttons"></div>
 <div id="play" class="button">Play</div>
 <div id="pause" class="button">Pause</div>
-
+<div id="next" class="button">Next</div>
 <script type="text/javascript">
    var t = $.ThingBroker({debug:false, container:true}); //send directly to
-   $('#play').click(function(){ t.postEvent("videocontrolbuttons", {"button":"play"}); })
-   $('#pause').click(function(){ t.postEvent("videocontrolbuttons", {"button":"pause"}); })
+   $('#play').click(function(){ t.postEvent("videocontrolbuttons", {"button":"play"}); });
+   $('#pause').click(function(){ t.postEvent("videocontrolbuttons", {"button":"pause"}); });
+   $('#next').click(function(){ t.postEvent("videocontrolbuttons", {"button":"next"}); });
+
 
 </script>
 
