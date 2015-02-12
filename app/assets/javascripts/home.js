@@ -43,7 +43,7 @@ function initState () {
 function checkCheckinEvents(json) {
   if (json!=undefined && json[0]!=undefined){
      $("#checkin-notice").empty();
-     $("#checkin-notice").append("<div class='checkin-notice-person'>"+json[0].info.user_name + " just watered the garden!</div>");
+     $("#checkin-notice").append("<div class='checkin-notice-person'>"+json[0].info.user_name + " just checked in!</div>");
      $("#checkin-notice").fadeIn("slow", function(){
         //when done
 	 setTimeout(function() {
