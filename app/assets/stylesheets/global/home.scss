@@ -64,12 +64,12 @@ html, body {
 }
 
 #instructions-block{
-   width: 50%;
+   width: 25%;
    /*background-color: #383838;*/
-   background-color: rgba(0, 0, 0, 0.5);
+   background-color: rgba(0, 0, 0, 0.8);
    border-radius: 15px;
-   margin: 20px;
-   padding: 20px;
+   margin: 10px;
+   //padding: 5px;
    text-align: center;
    font-size: 60px;
    font-weight: bold;
@@ -80,7 +80,7 @@ html, body {
 
 #interact-instructions-video{
   //resized now via javascript at onload()
-  margin: 20px;
+  margin: 10px;
 }
 
 #checkin-notice {position:absolute; bottom:20px; left:20px; background:#6699FF; border-radius: 10px; color:white; padding:15px; text-align:center; font-weight:bold; font-size:40px;}
